@@ -1,3725 +1,5880 @@
-/*! createdTime: Thu Jun 05 2025 10:34:57 GMT+0000 (Coordinated Universal Time) */
-/******/ (function() { // webpackBootstrap
-    /******/ 	var __webpack_modules__ = ({
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-nocheck
 
-        /***/ 104:
-        /***/ (function() {
 
-            var __assign = (this && this.__assign) || function () {
-                __assign = Object.assign || function(t) {
-                    for (var s, i = 1, n = arguments.length; i < n; i++) {
-                        s = arguments[i];
-                        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                            t[p] = s[p];
-                    }
-                    return t;
-                };
-                return __assign.apply(this, arguments);
-            };
-            var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-                function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-                return new (P || (P = Promise))(function (resolve, reject) {
-                    function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-                    function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-                    function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-                    step((generator = generator.apply(thisArg, _arguments || [])).next());
-                });
-            };
-            var __generator = (this && this.__generator) || function (thisArg, body) {
-                var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-                return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-                function verb(n) { return function (v) { return step([n, v]); }; }
-                function step(op) {
-                    if (f) throw new TypeError("Generator is already executing.");
-                    while (g && (g = 0, op[0] && (_ = 0)), _) try {
-                        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-                        if (y = 0, t) op = [op[0] & 2, t.value];
-                        switch (op[0]) {
-                            case 0: case 1: t = op; break;
-                            case 4: _.label++; return { value: op[1], done: false };
-                            case 5: _.label++; y = op[1]; op = [0]; continue;
-                            case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                            default:
-                                if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                                if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                                if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                                if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                                if (t[2]) _.ops.pop();
-                                _.trys.pop(); continue;
-                        }
-                        op = body.call(thisArg, _);
-                    } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-                    if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-                }
-            };
-            var __rest = (this && this.__rest) || function (s, e) {
-                var t = {};
-                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-                    t[p] = s[p];
-                if (s != null && typeof Object.getOwnPropertySymbols === "function")
-                    for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-                        if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                            t[p[i]] = s[p[i]];
-                    }
-                return t;
-            };
-            var __values = (this && this.__values) || function(o) {
-                var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-                if (m) return m.call(o);
-                if (o && typeof o.length === "number") return {
-                    next: function () {
-                        if (o && i >= o.length) o = void 0;
-                        return { value: o && o[i++], done: !o };
-                    }
-                };
-                throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-            };
-            var __read = (this && this.__read) || function (o, n) {
-                var m = typeof Symbol === "function" && o[Symbol.iterator];
-                if (!m) return o;
-                var i = m.call(o), r, ar = [], e;
-                try {
-                    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-                }
-                catch (error) { e = { error: error }; }
-                finally {
-                    try {
-                        if (r && !r.done && (m = i["return"])) m.call(i);
-                    }
-                    finally { if (e) throw e.error; }
-                }
-                return ar;
-            };
-            var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-                if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-                    if (ar || !(i in from)) {
-                        if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-                        ar[i] = from[i];
-                    }
-                }
-                return to.concat(ar || Array.prototype.slice.call(from));
-            };
-            var filteredHierarchy = {};
-            var flattenedHierarchy = {};
-            var flattenedHierarchyArray = [];
-            var intervalTime = 2000;
-            var delayTimer = undefined;
-            var platform = "ANDROID";
-            var subPlatform = "";
-            var sdkVersion = 22;
-            var appApiKey = "";
-            var configBaseUrl = "";
-            var appVersionName = "";
-            var appVersionCode = 0;
-            var selectedLanguage = "";
-            var coreSdkVersionCode = "";
-            var appSessionId = "";
-            var totalHierarchyCount = 0;
-            var totalHierarchySizeSum = 0;
-            var maxHierarchySize = 0;
-            var avgHierarchySizeCalcInterval = undefined;
-            var lastProfileUpdatedAt = null;
-            var lastUpdatedConfigAt = undefined;
-            var lastUpdatedEmbedConfigAt = undefined;
-            var sortedProjectArray = [];
-            var allProjectStatus = {};
-            var embedProject = [];
-            var flowWalkthroughs = {};
-            var LiveFeatures = {};
-            var LiveMetaConfigs = {};
-            var features = {};
-            var metaConfigs = {};
-            var loggerConfig = {};
-            var customProperties = {};
-            var defaultProperties = {};
-            var flowShown = false;
-            var inPreviewMode = false;
-            var currentlyRunningFlow = {
-                id: "",
-                active: false,
-            };
-            var timer = undefined;
-            var tackProjectBeingIdentified = (/* unused pure expression or super */ null && ([]));
-            var prevMatchedIdentifiers = [];
-            var currentMatchedWebIdentifiers = {};
-            var previousBoundState = {};
-            var isSelfHosted = 0;
-            var segmentConfigMap = {};
-            var appObserverBaseUrl = "https://whatfix.com/";
-            var wfAppId = "";
-            var activeStep = {
-                id: "",
-                step: {},
-                isAnchoredElement: false,
-            };
-            var activeProject = {
-                id: "",
-                projectType: "",
-                iconSetting: {},
-                isShowing: false,
-                isAnchoredElement: false,
-                standAlone: false,
-                isAFlow: false,
-                isAFlowMenu: false,
-            };
-            var currentStaticFlow = {
-                id: undefined,
-                status: undefined,
-                completed: undefined,
-                autoStart: false,
-                stepsStatus: [],
-            };
-            var completedProjectsInFlow = {};
-            var cachedFinderObserverEvents = {
-                on_identifier_matched: [],
-                on_identifier_not_matched: [],
-                on_project_detected: [],
-                on_no_project_detected: [],
-                on_step_detected: [],
-                on_no_step_detected: [],
-            };
-            var finderObserverEvents = {
-                on_identifier_matched: [],
-                on_identifier_not_matched: [],
-                on_project_detected: [],
-                on_no_project_detected: [],
-                on_step_detected: [],
-                on_no_step_detected: [],
-            };
-            var logHistory = (/* unused pure expression or super */ null && ([]));
-            var PLATFORMS = {
-                DASHBOARD: "DASHBOARD",
-                IOS: "IOS",
-                REACT_NATIVE_IOS: "REACT_NATIVE_IOS",
-                REACT_NATIVE_ANDROID: "REACT_NATIVE_ANDROID",
-                ANDROID: "ANDROID",
-                XAMARIN_ANDROID: "XAMARIN_ANDROID",
-                XAMARIN_IOS: "XAMARIN_IOS",
-                CORDOVA_ANDROID: "CORDOVA_ANDROID",
-                CORDOVA_IOS: "CORDOVA_IOS",
-                IONIC_ANDROID: "IONIC_ANDROID",
-                IONIC_IOS: "IONIC_IOS",
-                FLUTTER: "FLUTTER",
-                JETPACK_COMPOSE_ANDROID: "JETPACK_COMPOSE_ANDROID",
-                MAUI_ANDROID: "MAUI_ANDROID",
-            };
-            var SENDING_COMMANDS = {
-                ON_CONFIG_FETCH: "ON_CONFIG_FETCH",
-                WEB_SCRIPT: "WEB_SCRIPT",
-                PROJECT_COMPLETED: "PROJECT_COMPLETED",
-                SAVE_USER_STATE: "SAVE_USER_STATE",
-                ANALYTICS_EVENT: "ANALYTICS_EVENT",
-                OBSERVER_LOG: "OBSERVER_LOG",
-                NO_CONTEXT_FOUND: "NO_CONTEXT_FOUND",
-                WALKTHROUGH_FOUND: "WALKTHROUGH_FOUND",
-                UPDATE_ASSIST_BOUNDS: "UPDATE_ASSIST_BOUNDS",
-                UPDATE_STEP_BOUNDS: "UPDATE_STEP_BOUNDS",
-                STEP_FOUND: "STEP_FOUND",
-                ASSIST_FOUND: "ASSIST_FOUND",
-                HIERARCHY: "HIERARCHY",
-                SAVE_USER_PROPS: "SAVE_USER_PROPS",
-                OBSERVER_EVENT_LEVELS: "OBSERVER_EVENT_LEVELS",
-                FLUSH_CACHED_EVENTS: "FLUSH_CACHED_EVENTS",
-                CLEAR_ANALYTICS_PENDING_QUEUE: "CLEAR_ANALYTICS_PENDING_QUEUE",
-                GET_PREF: "GET_PREF",
-                SAVE_PREF: "SAVE_PREF",
-                CLEAR_PREF: "CLEAR_PREF",
-            };
-            var RECEIVING_COMMANDS = {
-                START: "START",
-                SCREEN_HIERARCHY: "SCREEN_HIERARCHY",
-                ASSIST_INTERACTION: "ASSIST_INTERACTION",
-                WEB_IDENTIFIERS: "WEB_IDENTIFIERS",
-                LANGUAGE_SELECTED: "LANGUAGE_SELECTED",
-                ACTIVITY_PAUSE: "ACTIVITY_PAUSE",
-                ACTIVITY_RESUME: "ACTIVITY_RESUME",
-                ICON_STOP: "ICON_STOP",
-                ICON_CLICK: "ICON_CLICK",
-                ASSIST_VISIBLE: "ASSIST_VISIBLE",
-                USER_PROPERTIES: "USER_PROPERTIES",
-                EMBED_PROJECT: "EMBED_PROJECT",
-                APP_LOCALE: "APP_LOCALE",
-                PREVIEW_CONFIG: "PREVIEW_CONFIG",
-                DISABLE_PANEL_EVENT: "DISABLE_PANEL_EVENT",
-                STOP_PREVIEW: "STOP_PREVIEW",
-                SET_USER_ID: "SET_USER_ID",
-                LOGOUT: "LOGOUT",
-                SURVEY_INFO: "SURVEY_INFO",
-                PREF_RESPONSE: "PREF_RESPONSE",
-            };
-            var OBSERVER_EVENT_CATEGORIES = {
-                NETWORK: "network",
-                FINDER: "finder",
-                OPERATION: "operation",
-            };
-            var OBSERVER_EVENTS = {
-                NETWORK: {
-                    ON_CONFIG_DOWNLOAD_STARTED: "on_config_download_started",
-                    ON_CONFIG_DOWNLOAD_COMPLETED: "on_config_download_completed",
-                },
-                OPERATION: {
-                    AVG_HIERARCHY_SIZE: "AVG_HIERARCHY_SIZE",
-                },
-                FINDER: {
-                    ON_IDENTIFIER_MATCHED: "on_identifier_matched",
-                    ON_IDENTIFIER_NOT_MATCHED: "on_identifier_not_matched",
-                    ON_PROJECT_DETECTED: "on_project_detected",
-                    ON_NO_PROJECT_DETECTED: "on_no_project_detected",
-                    ON_STEP_DETECTED: "on_step_detected",
-                    ON_NO_STEP_DETECTED: "on_no_step_detected",
-                },
-            };
-            var ANALYTICS_EVENTS = {
-                FLOW_START: "flow_start",
-                FLOW_MENU_START: "flow_menu_start",
-                FLOW_STOP: "flow_stop",
-                FLOW_OPT_IN: "flow_opt_in",
-                FLOW_OPT_OUT: "flow_opt_out",
-                ELEMENT_SEEN: "element_seen",
-                ELEMENT_ACTION: "element_action",
-                FLOW_LANGUAGE_CHANGE: "flow_language_change",
-                FLOW_SUCCESS: "flow_success",
-                FLOW_DISABLE: "flow_disable",
-                PROJECT_TERMINATION: "project_termination",
-            };
-            var ACTION_EVENT_TYPES = {
-                DEEP_LINK: "deep_link",
-                EXTERNAL_LINK: "external_link",
-                CLOSE: "close",
-            };
-            var observerEventLevels = {
-                on_sdk_started: 600,
-                on_sdk_started_with_properties: 600,
-                on_sdk_embed_project_called: 600,
-                on_set_app_locale_called: 600,
-                on_logout_called: 600,
-                on_set_unique_user_id_called: 600,
-                on_user_properties_flush_called: 600,
-                on_config_download_started: 600,
-                on_config_download_completed: 600,
-                on_asset_download_started: 200,
-                on_asset_download_completed: 200,
-                on_screen_capture_started: 600,
-                on_screen_capture_completed: 600,
-                on_log_file_upload_started: 600,
-                on_log_file_upload_completed: 600,
-                on_preview_config_download_started: 600,
-                on_preview_config_download_completed: 600,
-                on_no_page_detected: 200,
-                on_page_detected: 200,
-                on_step_detected: 600,
-                on_no_step_detected: 600,
-                on_no_project_detected: 600,
-                on_project_detected: 600,
-                on_identifier_not_matched: 200,
-                on_identifier_matched: 200,
-                on_device_orientation_changed: 200,
-                on_activity_resume: 200,
-                on_activity_pause: 200,
-                on_context_detection_started: 200,
-                on_context_detection_stopped: 200,
-                on_button_action_performed: 600,
-                on_project_start_opt_in_action_performed: 600,
-                on_close_button_action_performed: 600,
-                on_project_start_dismiss_action_performed: 600,
-                on_outside_click_action_performed: 600,
-                on_anchor_click_action_performed: 600,
-                on_project_step_end_flow_action_performed: 600,
-                on_project_step_external_link_redirection_action_performed: 600,
-                on_project_step_deep_link_redirection_action_performed: 600,
-                on_project_start_external_link_redirection_action_performed: 600,
-                on_project_start_deep_link_redirection_action_performed: 600,
-                on_project_step_next_action_performed: 600,
-                on_project_success_action_performed: 600,
-                on_carousel_arrow_action_performed: 600,
-                on_carousel_swipe_action_performed: 600,
-                on_project_preview_started: 600,
-                on_project_preview_cancelled: 600,
-                on_project_selection_action_performed: 600,
-                on_project_start_loaded: 200,
-                on_project_step_loaded: 200,
-                on_language_panel_loaded: 200,
-                on_project_start_animation_started: 200,
-                on_project_step_animation_started: 200,
-                on_language_panel_animation_started: 200,
-                on_project_start_animation_completed: 200,
-                on_project_step_animation_completed: 200,
-                on_language_panel_animation_completed: 200,
-                on_project_start_render_completed: 600,
-                on_project_step_render_completed: 600,
-                on_language_panel_render_completed: 600,
-                on_carousel_slide_render_completed: 600,
-            };
-            var LeapDataType = {
-                INTEGER: "INTEGER",
-                TIME: "TIME",
-                STRING: "STRING",
-                APP_VERSION_CODE: "APP_VERSION_CODE",
-                APP_VERSION_NAME: "APP_VERSION_NAME",
-            };
-            var LeapOperatorKey = {
-                IS: "IS",
-                IS_NOT: "IS_NOT",
-                IS_EQUAL_TO: "IS_EQUAL_TO",
-                IS_NOT_EQUAL_TO: "IS_NOT_EQUAL_TO",
-                LESS_THAN: "LESS_THAN",
-                LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
-                GREATER_THAN: "GREATER_THAN",
-                GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
-                TIME_ELAPSED_LESS_THAN: "TIME_ELAPSED_LESS_THAN",
-                TIME_ELAPSED_GREATER_THAN: "TIME_ELAPSED_GREATER_THAN",
-            };
-            var selfHostingEndPoints = {
-                SELF_HOSTING: "/whatfix",
-                SEGMENT_CONFIG_FOLDER: "/config/segments/",
-            };
-            var appLocale = "";
-            var forceSendJsObserverLogs = false;
-            var jsVersionNumber = 5068;
-            var userSessionId;
-            var isUserLoggedIn = false;
-            var defaultLanguage = "";
-            var disableObserverLogging = false;
-            var hierarchyCommandLastSentAt = 0;
-            var hierarchyCommandLastResponseAt = 0;
-            var waitingForResponse = false;
-            var hierarchyCommandFallbackTimeout = 10000;
-            var hierarchyFetchTimeTakenLogBuffer = 50;
-            var getBoundingArea = function (bound) {
-                return bound !== undefined &&
-                    ((bound === null || bound === void 0 ? void 0 : bound.right) - (bound === null || bound === void 0 ? void 0 : bound.left)) * ((bound === null || bound === void 0 ? void 0 : bound.bottom) - (bound === null || bound === void 0 ? void 0 : bound.top));
-            };
-            function isArrayMatched(arr1, arr2) {
-                if (!arr1 || !arr2) {
-                    return false;
-                }
-                if (arr1.length !== arr2.length) {
-                    return false;
-                }
-                var sortedArr1 = arr1.slice().sort();
-                var sortedArr2 = arr2.slice().sort();
-                for (var i = 0; i < sortedArr1.length; i++) {
-                    if (sortedArr1[i] !== sortedArr2[i]) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            function decompressGzipString(gzippedBase64) {
-                return __awaiter(this, void 0, void 0, function () {
-                    var compressedData, compressedBlob, dsInstance, decompressedStream, decompressedBlob, decompressedText;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                compressedData = Uint8Array.from(atob(gzippedBase64), function (c) {
-                                    return c.charCodeAt(0);
-                                });
-                                compressedBlob = new Blob([compressedData]);
-                                dsInstance = new DecompressionStream("gzip");
-                                decompressedStream = compressedBlob.stream().pipeThrough(dsInstance);
-                                return [4, new Response(decompressedStream).blob()];
-                            case 1:
-                                decompressedBlob = _a.sent();
-                                return [4, decompressedBlob.text()];
-                            case 2:
-                                decompressedText = _a.sent();
-                                return [2, decompressedText];
-                        }
-                    });
-                });
-            }
-            function noActiveProjects() {
-                return (!(activeProject === null || activeProject === void 0 ? void 0 : activeProject.id) &&
-                    (sortedProjectArray === null || sortedProjectArray === void 0 ? void 0 : sortedProjectArray.every(function (project) {
-                        var _a, _b, _c;
-                        if ((_a = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _a === void 0 ? void 0 : _a.isTerminated) {
-                            return true;
-                        }
-                        if (!((_b = project.id) === null || _b === void 0 ? void 0 : _b.includes("discovery")) && ((_c = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _c === void 0 ? void 0 : _c.isCompleted)) {
-                            return true;
-                        }
-                        return !checkToShowProject(project === null || project === void 0 ? void 0 : project.id);
-                    })));
-            }
-            function calculateAvgHierarchySize(screenHierarchy, traceId) {
-                var _a;
-                if (!screenHierarchy)
-                    return;
-                totalHierarchyCount++;
-                var stringifiedHierarchy = JSON.stringify(screenHierarchy);
-                maxHierarchySize = Math.max(maxHierarchySize, stringifiedHierarchy.length);
-                totalHierarchySizeSum += stringifiedHierarchy.length;
-                if (!avgHierarchySizeCalcInterval) {
-                    avgHierarchySizeCalcInterval = setTimeout(function () {
-                        var _a, _b;
-                        if (!totalHierarchyCount)
-                            return;
-                        var avgHierarchySize = Math.round(totalHierarchySizeSum / totalHierarchyCount);
-                        if ((avgHierarchySize > (((_a = metaConfigs === null || metaConfigs === void 0 ? void 0 : metaConfigs.observeHierarchySize) === null || _a === void 0 ? void 0 : _a.avgSizeThreshold) || 0)) ||
-                            (maxHierarchySize > (((_b = metaConfigs === null || metaConfigs === void 0 ? void 0 : metaConfigs.observeHierarchySize) === null || _b === void 0 ? void 0 : _b.maxSizeThreshold) || 0))) {
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.OPERATION,
-                                event_name: OBSERVER_EVENTS.OPERATION.AVG_HIERARCHY_SIZE,
-                                properties: {
-                                    avg_hierarchy_size: avgHierarchySize,
-                                    max_hierarchy_size: maxHierarchySize,
-                                    hierarchy_count: totalHierarchyCount,
-                                },
-                                className: "helperFunctions",
-                                methodName: "calculateAvgHierarchySize",
-                            }, traceId);
-                        }
-                        totalHierarchyCount = 0;
-                        totalHierarchySizeSum = 0;
-                        maxHierarchySize = 0;
-                        avgHierarchySizeCalcInterval = undefined;
-                    }, ((_a = metaConfigs === null || metaConfigs === void 0 ? void 0 : metaConfigs.observeHierarchySize) === null || _a === void 0 ? void 0 : _a.loopInterval) || 60000);
-                }
-            }
-            function compareVersions(version1, version2) {
-                var v1 = version1.split(".").map(Number);
-                var v2 = version2.split(".").map(Number);
-                for (var i = 0; i < Math.max(v1.length, v2.length); i++) {
-                    if ((v1[i] || 0) > (v2[i] || 0))
-                        return 1;
-                    if ((v1[i] || 0) < (v2[i] || 0))
-                        return -1;
-                }
-                return 0;
-            }
-            function validateAppVersionNameRule(propertyValue, value, operatorKey) {
-                if (propertyValue == null || value == null) {
-                    return false;
-                }
-                var comparisonResult = compareVersions(propertyValue, value);
-                switch (operatorKey) {
-                    case LeapOperatorKey.IS_EQUAL_TO:
-                        return comparisonResult === 0;
-                    case LeapOperatorKey.GREATER_THAN:
-                        return comparisonResult > 0;
-                    case LeapOperatorKey.GREATER_THAN_OR_EQUAL_TO:
-                        return comparisonResult >= 0;
-                    case LeapOperatorKey.LESS_THAN:
-                        return comparisonResult < 0;
-                    case LeapOperatorKey.LESS_THAN_OR_EQUAL_TO:
-                        return comparisonResult <= 0;
-                    default:
-                        return false;
-                }
-            }
-            function validateTimeRule(propertyValue, value, operatorKey, unit) {
-                if (propertyValue == null ||
-                    value == null ||
-                    isNaN(propertyValue) ||
-                    isNaN(value)) {
-                    return false;
-                }
-                var multiplier = 1;
-                if (unit) {
-                    switch (unit) {
-                        case "hours":
-                            multiplier = 3600;
-                            break;
-                        case "minutes":
-                            multiplier = 60;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                var intValue = parseInt(value);
-                var currentTime = Math.floor(Date.now() / 1000);
-                switch (operatorKey) {
-                    case LeapOperatorKey.TIME_ELAPSED_GREATER_THAN:
-                        return currentTime - propertyValue > intValue * multiplier;
-                    case LeapOperatorKey.TIME_ELAPSED_LESS_THAN:
-                        return currentTime - propertyValue < intValue * multiplier;
-                    default:
-                        return false;
-                }
-            }
-            function validateIntegerRule(propertyValue, value, operatorKey) {
-                if (propertyValue == null ||
-                    value == null ||
-                    isNaN(propertyValue) ||
-                    isNaN(value)) {
-                    return false;
-                }
-                var intValue = parseInt(value);
-                switch (operatorKey) {
-                    case LeapOperatorKey.IS_EQUAL_TO:
-                        return propertyValue === intValue;
-                    case LeapOperatorKey.IS_NOT_EQUAL_TO:
-                        return propertyValue !== intValue;
-                    case LeapOperatorKey.GREATER_THAN:
-                        return propertyValue > intValue;
-                    case LeapOperatorKey.LESS_THAN:
-                        return propertyValue < intValue;
-                    case LeapOperatorKey.GREATER_THAN_OR_EQUAL_TO:
-                        return propertyValue >= intValue;
-                    case LeapOperatorKey.LESS_THAN_OR_EQUAL_TO:
-                        return propertyValue <= intValue;
-                    default:
-                        return false;
-                }
-            }
-            function validateStringRule(propertyValue, value, operatorKey) {
-                if (propertyValue == null || value == null) {
-                    return false;
-                }
-                if (operatorKey === LeapOperatorKey.IS) {
-                    return propertyValue === value;
-                }
-                else if (operatorKey === LeapOperatorKey.IS_NOT) {
-                    return propertyValue !== value;
-                }
-                return false;
-            }
-            function isRuleValid(rule) {
-                var dataType = rule.dataType, propertyKey = rule.propertyKey, operator = rule.operator, value = rule.value, unit = rule.unit;
-                var allProperties = __assign(__assign({}, defaultProperties), customProperties);
-                switch (dataType) {
-                    case LeapDataType.STRING:
-                        return validateStringRule(allProperties[propertyKey], value, operator);
-                    case LeapDataType.INTEGER:
-                        return validateIntegerRule(allProperties[propertyKey], value, operator);
-                    case LeapDataType.TIME:
-                        return validateTimeRule(allProperties[propertyKey], value, operator, unit);
-                    case LeapDataType.APP_VERSION_CODE:
-                        return (platform === PLATFORMS.ANDROID &&
-                            validateIntegerRule(appVersionCode, value, operator));
-                    case LeapDataType.APP_VERSION_NAME:
-                        return (platform === PLATFORMS.IOS &&
-                            validateAppVersionNameRule(appVersionName, value, operator));
-                    default:
-                        return false;
-                }
-            }
-            function isSegmentValid(segmentOrBlocks) {
-                var e_1, _a, e_2, _b;
-                if (!segmentOrBlocks || segmentOrBlocks.length === 0) {
+// js filename- variables.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+var filteredHierarchy = {};
+var flattenedHierarchy = {};
+var flattenedHierarchyArray = [];
+var intervalTime = 2000;
+var delayTimer = undefined;
+var platform = "ANDROID";
+var subPlatform = "";
+var sdkVersion = 22;
+var appApiKey = "";
+var configBaseUrl = "";
+var appVersionName = "";
+var appVersionCode = 0;
+var selectedLanguage = "";
+let coreSdkVersionCode = "";
+let appSessionId = "";
+let totalHierarchyCount = 0;
+let totalHierarchySizeSum = 0;
+let maxHierarchySize = 0;
+let avgHierarchySizeCalcInterval = undefined;
+let lastProfileUpdatedAt = null;
+let lastUpdatedConfigAt = undefined;
+let lastUpdatedEmbedConfigAt = undefined;
+let sortedProjectArray = [];
+let allProjectStatus = {};
+let embedProject = [];
+let flowWalkthroughs = {};
+let LiveFeatures = {};
+let LiveMetaConfigs = {};
+let features = {};
+let metaConfigs = {};
+let loggerConfig = {};
+let customProperties = {};
+let defaultProperties = {};
+let flowShown = false;
+let inPreviewMode = false;
+let currentlyRunningFlow = {
+    id: "",
+    active: false,
+};
+
+let timer = undefined;
+let tackProjectBeingIdentified = [];
+let prevMatchedIdentifiers = [];
+let currentMatchedWebIdentifiers = {};
+let previousBoundState = {};
+let isSelfHosted = 0;
+let segmentConfigMap = {};
+let appObserverBaseUrl = "https://whatfix.com/";
+let wfAppId = "";
+
+let activeStep = {
+    id: "",
+    step: {},
+    isAnchoredElement: false,
+};
+
+let activeProject = {
+    id: "",
+    projectType: "",
+    iconSetting: {},
+    isShowing: false,
+    isAnchoredElement: false,
+    standAlone: false,
+    isAFlow: false,
+    isAFlowMenu: false,
+};
+
+let currentStaticFlow = {
+    id: undefined,
+    status: undefined,
+    completed: undefined,
+    autoStart: false,
+    stepsStatus: [],
+};
+
+let completedProjectsInFlow = {};
+
+let cachedFinderObserverEvents = {
+    on_identifier_matched: [],
+    on_identifier_not_matched: [],
+    on_project_detected: [],
+    on_no_project_detected: [],
+    on_step_detected: [],
+    on_no_step_detected: [],
+};
+
+let finderObserverEvents = {
+    on_identifier_matched: [],
+    on_identifier_not_matched: [],
+    on_project_detected: [],
+    on_no_project_detected: [],
+    on_step_detected: [],
+    on_no_step_detected: [],
+};
+
+let logHistory = [];
+
+const PLATFORMS = {
+    DASHBOARD: "DASHBOARD",
+    IOS: "IOS",
+    REACT_NATIVE_IOS: "REACT_NATIVE_IOS",
+    REACT_NATIVE_ANDROID: "REACT_NATIVE_ANDROID",
+    ANDROID: "ANDROID",
+    XAMARIN_ANDROID: "XAMARIN_ANDROID",
+    XAMARIN_IOS: "XAMARIN_IOS",
+    CORDOVA_ANDROID: "CORDOVA_ANDROID",
+    CORDOVA_IOS: "CORDOVA_IOS",
+    IONIC_ANDROID: "IONIC_ANDROID",
+    IONIC_IOS: "IONIC_IOS",
+    FLUTTER: "FLUTTER",
+    JETPACK_COMPOSE_ANDROID: "JETPACK_COMPOSE_ANDROID",
+    MAUI_ANDROID: "MAUI_ANDROID",
+};
+
+const SENDING_COMMANDS = {
+    ON_CONFIG_FETCH: "ON_CONFIG_FETCH",
+    ACTION_TAKEN: "ACTION_TAKEN",
+    WEB_SCRIPT: "WEB_SCRIPT",
+    PROJECT_COMPLETED: "PROJECT_COMPLETED",
+    SAVE_USER_STATE: "SAVE_USER_STATE",
+    ANALYTICS_EVENT: "ANALYTICS_EVENT",
+    OBSERVER_LOG: "OBSERVER_LOG",
+    NO_CONTEXT_FOUND: "NO_CONTEXT_FOUND",
+    WALKTHROUGH_FOUND: "WALKTHROUGH_FOUND",
+    UPDATE_ASSIST_BOUNDS: "UPDATE_ASSIST_BOUNDS",
+    UPDATE_STEP_BOUNDS: "UPDATE_STEP_BOUNDS",
+    STEP_FOUND: "STEP_FOUND",
+    ASSIST_FOUND: "ASSIST_FOUND",
+    HIERARCHY: "HIERARCHY",
+    SAVE_USER_PROPS: "SAVE_USER_PROPS",
+    OBSERVER_EVENT_LEVELS: "OBSERVER_EVENT_LEVELS",
+    FLUSH_CACHED_EVENTS: "FLUSH_CACHED_EVENTS",
+    CLEAR_ANALYTICS_PENDING_QUEUE: "CLEAR_ANALYTICS_PENDING_QUEUE",
+};
+
+const RECEIVING_COMMANDS = {
+    START: "START",
+    SCREEN_HIERARCHY: "SCREEN_HIERARCHY",
+    ASSIST_INTERACTION: "ASSIST_INTERACTION",
+    WEB_IDENTIFIERS: "WEB_IDENTIFIERS",
+    LANGUAGE_SELECTED: "LANGUAGE_SELECTED",
+    ACTIVITY_PAUSE: "ACTIVITY_PAUSE",
+    ACTIVITY_RESUME: "ACTIVITY_RESUME",
+    ICON_STOP: "ICON_STOP",
+    ICON_CLICK: "ICON_CLICK",
+    ASSIST_VISIBLE: "ASSIST_VISIBLE",
+    USER_PROPERTIES: "USER_PROPERTIES",
+    EMBED_PROJECT: "EMBED_PROJECT",
+    APP_LOCALE: "APP_LOCALE",
+    PREVIEW_CONFIG: "PREVIEW_CONFIG",
+    DISABLE_PANEL_EVENT: "DISABLE_PANEL_EVENT",
+    STOP_PREVIEW: "STOP_PREVIEW",
+    SET_USER_ID: "SET_USER_ID",
+    LOGOUT: "LOGOUT",
+};
+
+const OBSERVER_EVENT_CATEGORIES = {
+    NETWORK: "network",
+    FINDER: "finder",
+    OPERATION: "operation",
+};
+
+const OBSERVER_EVENTS = {
+    NETWORK: {
+        ON_CONFIG_DOWNLOAD_STARTED: "on_config_download_started",
+        ON_CONFIG_DOWNLOAD_COMPLETED: "on_config_download_completed",
+    },
+    OPERATION: {
+        AVG_HIERARCHY_SIZE: "AVG_HIERARCHY_SIZE",
+    },
+    FINDER: {
+        ON_IDENTIFIER_MATCHED: "on_identifier_matched",
+        ON_IDENTIFIER_NOT_MATCHED: "on_identifier_not_matched",
+        ON_PROJECT_DETECTED: "on_project_detected",
+        ON_NO_PROJECT_DETECTED: "on_no_project_detected",
+        ON_STEP_DETECTED: "on_step_detected",
+        ON_NO_STEP_DETECTED: "on_no_step_detected",
+    },
+};
+
+const ANALYTICS_EVENTS = {
+    FLOW_START: "flow_start",
+    FLOW_MENU_START: "flow_menu_start",
+    FLOW_STOP: "flow_stop",
+    FLOW_OPT_IN: "flow_opt_in",
+    FLOW_OPT_OUT: "flow_opt_out",
+    ELEMENT_SEEN: "element_seen",
+    ELEMENT_ACTION: "element_action",
+    FLOW_LANGUAGE_CHANGE: "flow_language_change",
+    FLOW_SUCCESS: "flow_success",
+    FLOW_DISABLE: "flow_disable",
+    PROJECT_TERMINATION: "project_termination",
+};
+
+const ACTION_EVENT_TYPES = {
+    DEEP_LINK: "deep_link",
+    EXTERNAL_LINK: "external_link",
+    CLOSE: "close",
+};
+
+const observerEventLevels = {
+    on_sdk_started: 600,
+    on_sdk_started_with_properties: 600,
+    on_sdk_embed_project_called: 600,
+    on_set_app_locale_called: 600,
+    on_logout_called: 600,
+    on_set_unique_user_id_called: 600,
+    on_user_properties_flush_called: 600,
+    on_config_download_started: 600,
+    on_config_download_completed: 600,
+    on_asset_download_started: 200,
+    on_asset_download_completed: 200,
+    on_screen_capture_started: 600,
+    on_screen_capture_completed: 600,
+    on_log_file_upload_started: 600,
+    on_log_file_upload_completed: 600,
+    on_preview_config_download_started: 600,
+    on_preview_config_download_completed: 600,
+    on_no_page_detected: 200,
+    on_page_detected: 200,
+    on_step_detected: 600,
+    on_no_step_detected: 600,
+    on_no_project_detected: 600,
+    on_project_detected: 600,
+    on_identifier_not_matched: 200,
+    on_identifier_matched: 200,
+    on_device_orientation_changed: 200,
+    on_activity_resume: 200,
+    on_activity_pause: 200,
+    on_context_detection_started: 200,
+    on_context_detection_stopped: 200,
+    on_button_action_performed: 600,
+    on_project_start_opt_in_action_performed: 600,
+    on_close_button_action_performed: 600,
+    on_project_start_dismiss_action_performed: 600,
+    on_outside_click_action_performed: 600,
+    on_anchor_click_action_performed: 600,
+    on_project_step_end_flow_action_performed: 600,
+    on_project_step_external_link_redirection_action_performed: 600,
+    on_project_step_deep_link_redirection_action_performed: 600,
+    on_project_start_external_link_redirection_action_performed: 600,
+    on_project_start_deep_link_redirection_action_performed: 600,
+    on_project_step_next_action_performed: 600,
+    on_project_success_action_performed: 600,
+    on_carousel_arrow_action_performed: 600,
+    on_carousel_swipe_action_performed: 600,
+    on_project_preview_started: 600,
+    on_project_preview_cancelled: 600,
+    on_project_selection_action_performed: 600,
+    on_project_start_loaded: 200,
+    on_project_step_loaded: 200,
+    on_language_panel_loaded: 200,
+    on_project_start_animation_started: 200,
+    on_project_step_animation_started: 200,
+    on_language_panel_animation_started: 200,
+    on_project_start_animation_completed: 200,
+    on_project_step_animation_completed: 200,
+    on_language_panel_animation_completed: 200,
+    on_project_start_render_completed: 600,
+    on_project_step_render_completed: 600,
+    on_language_panel_render_completed: 600,
+    on_carousel_slide_render_completed: 600,
+};
+
+const LeapDataType = {
+    INTEGER: "INTEGER",
+    TIME: "TIME",
+    STRING: "STRING",
+    APP_VERSION_CODE: "APP_VERSION_CODE",
+    APP_VERSION_NAME: "APP_VERSION_NAME",
+};
+
+const LeapOperatorKey = {
+    IS: "IS",
+    IS_NOT: "IS_NOT",
+    IS_EQUAL_TO: "IS_EQUAL_TO",
+    IS_NOT_EQUAL_TO: "IS_NOT_EQUAL_TO",
+    LESS_THAN: "LESS_THAN",
+    LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+    GREATER_THAN: "GREATER_THAN",
+    GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+    TIME_ELAPSED_LESS_THAN: "TIME_ELAPSED_LESS_THAN",
+    TIME_ELAPSED_GREATER_THAN: "TIME_ELAPSED_GREATER_THAN",
+};
+
+const selfHostingEndPoints = {
+    SELF_HOSTING: "/whatfix",
+    SEGMENT_CONFIG_FOLDER: "/config/segments/",
+};
+
+//MDA debugging changes
+
+let appLocale = "";
+const forceSendJsObserverLogs = false;
+const jsVersionNumber = 5068;
+let userSessionId;
+let isUserLoggedIn = false;
+
+let defaultLanguage = "";
+
+let disableObserverLogging = false;
+
+let hierarchyCommandLastSentAt = 0;
+let hierarchyCommandLastResponseAt = 0;
+let waitingForResponse = false;
+
+const hierarchyCommandFallbackTimeout = 10000;
+const hierarchyFetchTimeTakenLogBuffer = 50;
+
+
+
+// js filename- helperFunctions.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+const getBoundingArea = (bound) =>
+    bound !== undefined &&
+    (bound?.right - bound?.left) * (bound?.bottom - bound?.top);
+
+function isArrayMatched(arr1, arr2) {
+    if (!arr1 || !arr2) {
+        return false;
+    }
+    // Check if the arrays have the same length
+    if (arr1.length !== arr2.length) {
+        return false;
+    }
+
+    // Sort both arrays
+    const sortedArr1 = arr1.slice().sort();
+    const sortedArr2 = arr2.slice().sort();
+
+    // Compare each element in the sorted arrays
+    for (let i = 0; i < sortedArr1.length; i++) {
+        if (sortedArr1[i] !== sortedArr2[i]) {
+            return false;
+        }
+    }
+
+    // If all elements match, return true
+    return true;
+}
+
+async function decompressGzipString(gzippedBase64) {
+    // Decoding the Base64 string to raw binary data (Uint8Array)
+    const compressedData = Uint8Array.from(atob(gzippedBase64), (c) =>
+        c.charCodeAt(0)
+    );
+
+    // Creating Blob from the compressed binary data
+    const compressedBlob = new Blob([compressedData]);
+
+    // Creating a stream to decompress the Gzip data
+    const dsInstance = new DecompressionStream("gzip");
+    const decompressedStream = compressedBlob.stream().pipeThrough(dsInstance);
+
+    // Converting the decompressed stream back to a string
+    const decompressedBlob = await new Response(decompressedStream).blob();
+    const decompressedText = await decompressedBlob.text();
+
+    return decompressedText;
+}
+
+function noActiveProjects() {
+    return (
+        !activeProject?.id &&
+        sortedProjectArray?.every(
+            (project) => {
+                if (allProjectStatus?.[project.id]?.isTerminated) {
                     return true;
                 }
-                try {
-                    for (var segmentOrBlocks_1 = __values(segmentOrBlocks), segmentOrBlocks_1_1 = segmentOrBlocks_1.next(); !segmentOrBlocks_1_1.done; segmentOrBlocks_1_1 = segmentOrBlocks_1.next()) {
-                        var orBlock = segmentOrBlocks_1_1.value;
-                        var isAllTrue = true;
-                        try {
-                            for (var _c = (e_2 = void 0, __values(orBlock.andBlocks || [])), _d = _c.next(); !_d.done; _d = _c.next()) {
-                                var andBlock = _d.value;
-                                if (!isRuleValid(andBlock)) {
-                                    isAllTrue = false;
-                                    break;
-                                }
-                            }
-                        }
-                        catch (e_2_1) { e_2 = { error: e_2_1 }; }
-                        finally {
-                            try {
-                                if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-                            }
-                            finally { if (e_2) throw e_2.error; }
-                        }
-                        if (isAllTrue)
-                            return true;
-                    }
-                }
-                catch (e_1_1) { e_1 = { error: e_1_1 }; }
-                finally {
-                    try {
-                        if (segmentOrBlocks_1_1 && !segmentOrBlocks_1_1.done && (_a = segmentOrBlocks_1.return)) _a.call(segmentOrBlocks_1);
-                    }
-                    finally { if (e_1) throw e_1.error; }
-                }
-                return false;
-            }
-            function getCurrentTimeInGMT() {
-                var now = new Date();
-                var year = now.getUTCFullYear();
-                var month = String(now.getUTCMonth() + 1).padStart(2, "0");
-                var day = String(now.getUTCDate()).padStart(2, "0");
-                var hours = String(now.getUTCHours()).padStart(2, "0");
-                var minutes = String(now.getUTCMinutes()).padStart(2, "0");
-                var seconds = String(now.getUTCSeconds()).padStart(2, "0");
-                var milliseconds = String(now.getUTCMilliseconds()).padStart(3, "0");
-                return "".concat(year, "-").concat(month, "-").concat(day, " ").concat(hours, ":").concat(minutes, ":").concat(seconds, ".").concat(milliseconds);
-            }
-            function getStatusMessage(statusCode) {
-                switch (statusCode) {
-                    case 200:
-                        return "OK";
-                    case 401:
-                        return "Unauthorized";
-                    case 404:
-                        return "Not Found";
-                    case 500:
-                        return "Internal Server Error";
-                    default:
-                        return "OK";
-                }
-            }
-            function getJavaType(value) {
-                if (typeof value === "number") {
-                    if (value > 2147483647)
-                        return "long";
-                    return "int";
-                }
-                return typeof value;
-            }
-            function appendTypesToKeys(body) {
-                var updatedBody = {};
-                Object.keys(body).forEach(function (key) {
-                    if (["max_hierarchy_size", "avg_hierarchy_size", "timestamp"].includes(key)) {
-                        updatedBody["long.".concat(key)] = body[key];
-                    }
-                    else {
-                        updatedBody["".concat(getJavaType(body[key]), ".").concat(key)] = body[key];
-                    }
-                });
-                return updatedBody;
-            }
-            function isInsideBounds(nodeABounds, nodeBBounds) {
-                return (nodeABounds &&
-                    nodeBBounds &&
-                    nodeABounds.left < nodeABounds.right &&
-                    nodeABounds.top < nodeABounds.bottom &&
-                    nodeABounds.top <= nodeBBounds.top &&
-                    nodeABounds.left <= nodeBBounds.left &&
-                    nodeABounds.right >= nodeBBounds.right &&
-                    nodeABounds.bottom >= nodeBBounds.bottom);
-            }
-            function isAClickableNode(bounds) {
-                return ((this === null || this === void 0 ? void 0 : this.left) < (this === null || this === void 0 ? void 0 : this.right) &&
-                    (this === null || this === void 0 ? void 0 : this.top) < (this === null || this === void 0 ? void 0 : this.bottom) &&
-                    (this === null || this === void 0 ? void 0 : this.left) <= (bounds === null || bounds === void 0 ? void 0 : bounds.left) &&
-                    (this === null || this === void 0 ? void 0 : this.top) <= (bounds === null || bounds === void 0 ? void 0 : bounds.top) &&
-                    (this === null || this === void 0 ? void 0 : this.right) >= (bounds === null || bounds === void 0 ? void 0 : bounds.right) &&
-                    (this === null || this === void 0 ? void 0 : this.bottom) >= (bounds === null || bounds === void 0 ? void 0 : bounds.bottom));
-            }
-            function checkIfIdentifierMatch(matchedIdentifier, identifierToMatch) {
-                var set1 = new Set(matchedIdentifier);
-                return identifierToMatch === null || identifierToMatch === void 0 ? void 0 : identifierToMatch.every(function (element) { return set1.has(element); });
-            }
-            function generateUUID() {
-                function randomHexDigit() {
-                    return Math.floor(Math.random() * 16).toString(16);
-                }
-                function replacePlaceholders(char) {
-                    var random = randomHexDigit();
-                    if (char === "x") {
-                        return random;
-                    }
-                    else if (char === "y") {
-                        return ((parseInt(random, 16) & 0x3) | 0x8).toString(16);
-                    }
-                    return char;
-                }
-                var template = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-                return template.replace(/[xy]/g, replacePlaceholders);
-            }
-            function isValidDateString(dateString) {
-                var gmtRegex = /^[A-Za-z]{3}\s[A-Za-z]{3}\s\d{1,2}\s\d{2}:\d{2}:\d{2}\s(GMT|GMT[+-]\d{2}(:\d{2})?)\s\d{4}$/;
-                var isoRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
-                if (isoRegex.test(dateString) || gmtRegex.test(dateString)) {
-                    var date = new Date(dateString);
-                    if (!isNaN(date.getTime())) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            var getWidth = function (element) { return parseInt(element.right) - parseInt(element.left); };
-            var getHeight = function (element) { return parseInt(element.bottom) - parseInt(element.top); };
-            var checkForEmptyBounds = function (bounds) {
-                return getWidth(bounds) <= 0 || getHeight(bounds) <= 0;
-            };
-            function findTerminationStatuses(project, savedAllProjectStatus) {
-                var _a, _b, _c, _d, _e;
-                var terminationTemplate = {
-                    perSession: 0,
-                    perApp: 0,
-                    untilAllFlowsAreCompleted: false,
-                    nSession: 0,
-                    nDismissedByUser: 0,
-                };
-                var objKey = ((_a = project.discoveryList) === null || _a === void 0 ? void 0 : _a[0].uniqueID) || ((_b = project.assists) === null || _b === void 0 ? void 0 : _b[0].uniqueID);
-                var initialTerminationStatus = ((_c = project.discoveryList) === null || _c === void 0 ? void 0 : _c[0].uniqueID) !== undefined
-                    ? (_d = project.discoveryList) === null || _d === void 0 ? void 0 : _d[0].flowTerminationFrequency
-                    : (_e = project.assists) === null || _e === void 0 ? void 0 : _e[0].terminationFrequency;
-                var terminationStatus = (savedAllProjectStatus === null || savedAllProjectStatus === void 0 ? void 0 : savedAllProjectStatus[objKey])
-                    ? savedAllProjectStatus[objKey].terminationStatus
-                    : __assign({}, terminationTemplate);
-                if (!initialTerminationStatus) {
-                    initialTerminationStatus = {
-                        perSession: -1,
-                        perApp: -1,
-                        untilAllFlowsAreCompleted: false,
-                        nSession: -1,
-                        nDismissedByUser: -1,
-                    };
-                }
-                return {
-                    objKey: objKey,
-                    initialTerminationStatus: initialTerminationStatus,
-                    terminationStatus: terminationStatus,
-                };
-            }
-            function organizeProject(project, objKey, initialTerminationStatus, terminationStatus) {
-                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w;
-                return {
-                    id: objKey,
-                    isAFlow: objKey.includes("discovery"),
-                    isAFlowMenu: ["STATIC_FLOW_MENU", "STATIC_FLOW_CHECKLIST"].includes(project.projectParameters.projectType),
-                    isWebView: objKey.includes("discovery")
-                        ? ((_a = project.discoveryList) === null || _a === void 0 ? void 0 : _a[0].webIdentifiers) !== undefined
-                        : project.webIdentifiers !== undefined,
-                    assist: objKey.includes("discovery")
-                        ? (_b = project === null || project === void 0 ? void 0 : project.discoveryList) === null || _b === void 0 ? void 0 : _b[0]
-                        : (_c = project === null || project === void 0 ? void 0 : project.assists) === null || _c === void 0 ? void 0 : _c[0],
-                    flows: project.flows,
-                    isAnchoredElement: objKey.includes("discovery")
-                        ? false
-                        : !!((_f = (_e = (_d = project === null || project === void 0 ? void 0 : project.assists) === null || _d === void 0 ? void 0 : _d[0].instruction) === null || _e === void 0 ? void 0 : _e.assistInfo) === null || _f === void 0 ? void 0 : _f.identifier),
-                    targetId: objKey.includes("discovery")
-                        ? ""
-                        : (_j = (_h = (_g = project === null || project === void 0 ? void 0 : project.assists) === null || _g === void 0 ? void 0 : _g[0].instruction) === null || _h === void 0 ? void 0 : _h.assistInfo) === null || _j === void 0 ? void 0 : _j.identifier,
-                    triggerDelay: objKey.includes("discovery")
-                        ? ((_k = project.discoveryList) === null || _k === void 0 ? void 0 : _k[0].trigger.type) === "instant"
-                            ? 0
-                            : (_l = project.discoveryList) === null || _l === void 0 ? void 0 : _l[0].trigger.delay
-                        : ((_m = project === null || project === void 0 ? void 0 : project.assists) === null || _m === void 0 ? void 0 : _m[0].trigger.type) === "instant"
-                            ? 0
-                            : (_o = project === null || project === void 0 ? void 0 : project.assists) === null || _o === void 0 ? void 0 : _o[0].trigger.delay,
-                    initialTerminationStatus: initialTerminationStatus,
-                    terminationStatus: terminationStatus,
-                    nativeIdentifiers: project.nativeIdentifiers,
-                    webIdentifiers: project.webIdentifiers,
-                    auiContent: project.auiContent,
-                    localeSounds: project.localeSounds,
-                    projectParameters: project.projectParameters,
-                    webViewList: project.webViewList,
-                    languages: project.languages,
-                    connectedProjects: (project === null || project === void 0 ? void 0 : project.connectedProjects) || [],
-                    triggerCase: (_r = (_q = (_p = project === null || project === void 0 ? void 0 : project.discoveryList) === null || _p === void 0 ? void 0 : _p[0]) === null || _q === void 0 ? void 0 : _q.triggerFrequency) === null || _r === void 0 ? void 0 : _r.type,
-                    isIconEnabled: !!((_t = (_s = project.discoveryList) === null || _s === void 0 ? void 0 : _s[0]) === null || _t === void 0 ? void 0 : _t.enableIcon),
-                    iconSetting: __assign(__assign({}, (_u = Object.values((project === null || project === void 0 ? void 0 : project.iconSetting) || {})) === null || _u === void 0 ? void 0 : _u[0]), { stopEnabled: typeof ((_v = features === null || features === void 0 ? void 0 : features.iconOptions) === null || _v === void 0 ? void 0 : _v.stopEnabled) === "boolean"
-                            ? (_w = features === null || features === void 0 ? void 0 : features.iconOptions) === null || _w === void 0 ? void 0 : _w.stopEnabled
-                            : true }),
-                };
-            }
-            function sortAndOrganizeProjects(projects, embedProject, savedAllProjectStatus, savedCompletedProjectsInFlow) {
-                if (embedProject === void 0) { embedProject = false; }
-                var specifiedOrder = [
-                    "STATIC_FLOW",
-                    "STATIC_FLOW_MENU",
-                    "STATIC_FLOW_CHECKLIST",
-                ];
-                var projectTypeOrder = new Map(specifiedOrder.map(function (type, index) { return [type, index]; }));
-                var priorityOrder = [];
-                var priorityLessOrder = [];
-                var flowWalkthroughs = [];
-                projects.forEach(function (project) {
-                    if (project.projectParameters.deploymentType === "LINK") {
-                        flowWalkthroughs.push(project);
-                        return;
-                    }
-                    if (project.projectParameters.priority === null) {
-                        priorityLessOrder.push(project);
-                    }
-                    else {
-                        priorityOrder.push(project);
-                    }
-                });
-                priorityOrder.sort(function (a, b) { return a.projectParameters.priority - b.projectParameters.priority; });
-                priorityLessOrder.sort(function (a, b) {
-                    var typeA = projectTypeOrder.has(a.projectParameters.projectType)
-                        ? projectTypeOrder.get(a.projectParameters.projectType)
-                        : -1;
-                    var typeB = projectTypeOrder.has(b.projectParameters.projectType)
-                        ? projectTypeOrder.get(b.projectParameters.projectType)
-                        : -1;
-                    return typeA - typeB;
-                });
-                var sortedProjects = __spreadArray(__spreadArray([], __read(priorityOrder), false), __read(priorityLessOrder), false);
-                var organizedProjects = [];
-                var flowsWalkthroughProjects = {};
-                var projectStatus = {};
-                var initialCompletedProjectsInFlow = {};
-                sortedProjects === null || sortedProjects === void 0 ? void 0 : sortedProjects.forEach(function (project) {
-                    var _a, _b, _c, _d, _e, _f, _g, _h;
-                    var _j = findTerminationStatuses(project, savedAllProjectStatus), objKey = _j.objKey, initialTerminationStatus = _j.initialTerminationStatus, terminationStatus = _j.terminationStatus;
-                    organizedProjects.push(organizeProject(project, objKey, initialTerminationStatus, terminationStatus));
-                    if (project.connectedProjects !== undefined) {
-                        computeCompletedProjectsInFlow(project, objKey, savedCompletedProjectsInFlow, initialCompletedProjectsInFlow);
-                    }
-                    projectStatus[objKey] = {
-                        id: objKey,
-                        projectType: project.projectParameters.projectType,
-                        shownOnce: ((_a = savedAllProjectStatus === null || savedAllProjectStatus === void 0 ? void 0 : savedAllProjectStatus[objKey]) === null || _a === void 0 ? void 0 : _a.shownOnce) || false,
-                        isShown: ((_b = savedAllProjectStatus === null || savedAllProjectStatus === void 0 ? void 0 : savedAllProjectStatus[objKey]) === null || _b === void 0 ? void 0 : _b.isShown) || false,
-                        isCompleted: ((_c = savedAllProjectStatus === null || savedAllProjectStatus === void 0 ? void 0 : savedAllProjectStatus[objKey]) === null || _c === void 0 ? void 0 : _c.isCompleted) || false,
-                        isFlowTriggered: ((_d = savedAllProjectStatus === null || savedAllProjectStatus === void 0 ? void 0 : savedAllProjectStatus[objKey]) === null || _d === void 0 ? void 0 : _d.isFlowTriggered) || false,
-                        isTerminated: ((_e = savedAllProjectStatus === null || savedAllProjectStatus === void 0 ? void 0 : savedAllProjectStatus[objKey]) === null || _e === void 0 ? void 0 : _e.isTerminated) || false,
-                        triggerCase: (_h = (_g = (_f = project === null || project === void 0 ? void 0 : project.discoveryList) === null || _f === void 0 ? void 0 : _f[0]) === null || _g === void 0 ? void 0 : _g.triggerFrequency) === null || _h === void 0 ? void 0 : _h.type,
-                        initialTerminationStatus: initialTerminationStatus,
-                        terminationStatus: terminationStatus,
-                    };
-                });
-                flowWalkthroughs === null || flowWalkthroughs === void 0 ? void 0 : flowWalkthroughs.forEach(function (project) {
-                    var _a, _b, _c, _d, _e;
-                    var _f = findTerminationStatuses(project, savedAllProjectStatus), objKey = _f.objKey, initialTerminationStatus = _f.initialTerminationStatus, terminationStatus = _f.terminationStatus;
-                    flowsWalkthroughProjects[project.projectParameters.deploymentId] =
-                        organizeProject(project, objKey, initialTerminationStatus, terminationStatus);
-                    if (embedProject) {
-                        projectStatus[objKey] = {
-                            id: objKey,
-                            projectType: project.projectParameters.projectType,
-                            shownOnce: false,
-                            isShown: false,
-                            isCompleted: false,
-                            isFlowTriggered: false,
-                            isTerminated: false,
-                            triggerCase: ((_a = project.discoveryList) === null || _a === void 0 ? void 0 : _a[0].uniqueID) !== undefined
-                                ? (_c = (_b = project.discoveryList) === null || _b === void 0 ? void 0 : _b[0].triggerFrequency) === null || _c === void 0 ? void 0 : _c.type
-                                : (_e = (_d = project.assists) === null || _d === void 0 ? void 0 : _d[0].triggerFrequency) === null || _e === void 0 ? void 0 : _e.type,
-                            initialTerminationStatus: initialTerminationStatus,
-                            terminationStatus: terminationStatus,
-                        };
-                    }
-                });
-                return {
-                    sortedProjects: organizedProjects,
-                    projectStatus: projectStatus,
-                    flowsWalkthroughProjects: flowsWalkthroughProjects,
-                    initialCompletedProjectsInFlow: initialCompletedProjectsInFlow,
-                };
-            }
-            function checkToShowProject(id) {
-                var project = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[id];
-                if (!project)
-                    return false;
-                var initialTerminationStatus = project === null || project === void 0 ? void 0 : project.initialTerminationStatus;
-                var terminationStatus = project === null || project === void 0 ? void 0 : project.terminationStatus;
-                if (!terminationStatus)
-                    return true;
-                if ((initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.nSession) !== -1) {
-                    return !!(terminationStatus.nSession < initialTerminationStatus.nSession ||
-                        allProjectStatus[project.id].shownOnce);
-                }
-                if ((initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.nDismissedByUser) !== -1 &&
-                    (terminationStatus === null || terminationStatus === void 0 ? void 0 : terminationStatus.nDismissedByUser) === 0) {
+                if (!project.id?.includes("discovery") && allProjectStatus?.[project.id]?.isCompleted) {
                     return true;
                 }
-                if ((initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.perApp) !== -1) {
-                    return terminationStatus.perApp < initialTerminationStatus.perApp;
-                }
-                if ((initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.untilAllFlowsAreCompleted) &&
-                    !(terminationStatus === null || terminationStatus === void 0 ? void 0 : terminationStatus.untilAllFlowsAreCompleted)) {
-                    return true;
-                }
-                if ((initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.nSession) === -1 &&
-                    (initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.nDismissedByUser) === -1 &&
-                    (initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.perApp) === -1 &&
-                    !(initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.untilAllFlowsAreCompleted)) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
+                return !checkToShowProject(project?.id);
             }
-            function removeProjectFromStatusArray(_a, traceId) {
-                var _b;
-                var _c = _a.id, id = _c === void 0 ? undefined : _c, _d = _a.isTerminated, isTerminated = _d === void 0 ? false : _d, _e = _a.terminatedByIcon, terminatedByIcon = _e === void 0 ? false : _e, _f = _a.saveState, saveState = _f === void 0 ? true : _f;
-                var activeProjectId = id
-                    ? id
-                    : (currentlyRunningFlow === null || currentlyRunningFlow === void 0 ? void 0 : currentlyRunningFlow.id) === ""
-                        ? activeProject === null || activeProject === void 0 ? void 0 : activeProject.id
-                        : currentlyRunningFlow === null || currentlyRunningFlow === void 0 ? void 0 : currentlyRunningFlow.id;
-                var index = embedProject
-                    .concat(sortedProjectArray)
-                    .findIndex(function (s) { return s.id === activeProjectId; });
-                if (index !== -1 && ((_b = embedProject === null || embedProject === void 0 ? void 0 : embedProject[0]) === null || _b === void 0 ? void 0 : _b.id) === activeProjectId)
-                    embedProject = [];
-                updateProjectStatus({
-                    id: activeProjectId,
-                    isCompleted: !isTerminated,
-                    isTerminated: isTerminated,
-                    terminatedByIcon: isTerminated && terminatedByIcon,
+        )
+    );
+}
+
+function calculateAvgHierarchySize(screenHierarchy, traceId) {
+    if (!screenHierarchy) return;
+
+    totalHierarchyCount++;
+    const stringifiedHierarchy = JSON.stringify(screenHierarchy);
+    maxHierarchySize = Math.max(maxHierarchySize, stringifiedHierarchy.length);
+    totalHierarchySizeSum += stringifiedHierarchy.length;
+
+    if (!avgHierarchySizeCalcInterval) {
+        avgHierarchySizeCalcInterval = setTimeout(() => {
+            if (!totalHierarchyCount) return;
+
+            let avgHierarchySize = Math.round(
+                totalHierarchySizeSum / totalHierarchyCount
+            );
+
+            if (
+                (avgHierarchySize > (metaConfigs?.observeHierarchySize?.avgSizeThreshold || 0)) ||
+                (maxHierarchySize > (metaConfigs?.observeHierarchySize?.maxSizeThreshold || 0))
+            ) {
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.OPERATION,
+                    event_name: OBSERVER_EVENTS.OPERATION.AVG_HIERARCHY_SIZE,
+                    properties: {
+                        avg_hierarchy_size: avgHierarchySize,
+                        max_hierarchy_size: maxHierarchySize,
+                        hierarchy_count: totalHierarchyCount,
+                    },
+                    className: "helperFunctions",
+                    methodName: "calculateAvgHierarchySize",
                 }, traceId);
-                if (saveState) {
-                    updateUserProfile(traceId);
-                }
             }
-            function updateViewStatusForTheProject(key, traceId) {
-                if (activeProject.id !== undefined) {
-                    var project = currentlyRunningFlow.id === ""
-                        ? allProjectStatus[activeProject.id]
-                        : allProjectStatus[currentlyRunningFlow.id];
-                    var initialTerminationStatus = project === null || project === void 0 ? void 0 : project.initialTerminationStatus;
-                    var terminationStatus = project === null || project === void 0 ? void 0 : project.terminationStatus;
-                    if (terminationStatus === undefined)
-                        return;
-                    if (key === "nSession" && initialTerminationStatus.nSession !== -1) {
-                        if (project.shownOnce === false)
-                            ++terminationStatus.nSession;
-                        allProjectStatus[project.id] = __assign(__assign({}, allProjectStatus[project.id]), { shownOnce: true });
-                    }
-                    else if (key === "nDismissedByUser" &&
-                        initialTerminationStatus.nDismissedByUser !== -1 &&
-                        terminationStatus.nDismissedByUser === 0) {
-                        sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
-                            terminationRule: "nDismissedByUser: ".concat(initialTerminationStatus.nDismissedByUser),
-                        }, traceId);
-                        ++terminationStatus.nDismissedByUser;
-                        removeProjectFromStatusArray({ saveState: false }, traceId);
-                    }
-                    else if (key === "perApp" && initialTerminationStatus.perApp !== -1) {
-                        ++terminationStatus.perApp;
-                        if (terminationStatus.perApp === initialTerminationStatus.perApp) {
-                            sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
-                                terminationRule: "perApp: ".concat(initialTerminationStatus.perApp),
-                            }, traceId);
-                            removeProjectFromStatusArray({ saveState: false }, traceId);
-                        }
-                    }
-                    else if (key === "untilAllFlowsAreCompleted" &&
-                        (initialTerminationStatus === null || initialTerminationStatus === void 0 ? void 0 : initialTerminationStatus.untilAllFlowsAreCompleted) &&
-                        !terminationStatus.untilAllFlowsAreCompleted) {
-                        sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
-                            terminationRule: "untilAllFlowsAreCompleted: ".concat(initialTerminationStatus.untilAllFlowsAreCompleted),
-                        }, traceId);
-                        terminationStatus.untilAllFlowsAreCompleted = true;
-                        removeProjectFromStatusArray({ saveState: false });
-                    }
-                    updateUserProfile(traceId);
-                }
+
+            totalHierarchyCount = 0;
+            totalHierarchySizeSum = 0;
+            maxHierarchySize = 0;
+            avgHierarchySizeCalcInterval = undefined;
+        }, metaConfigs?.observeHierarchySize?.loopInterval || 60000);
+    }
+}
+
+// Helper function to compare version strings
+function compareVersions(version1, version2) {
+    const v1 = version1.split(".").map(Number);
+    const v2 = version2.split(".").map(Number);
+
+    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
+        if ((v1[i] || 0) > (v2[i] || 0)) return 1;
+        if ((v1[i] || 0) < (v2[i] || 0)) return -1;
+    }
+    return 0;
+}
+
+// Function to check if app version rule is valid
+function validateAppVersionNameRule(propertyValue, value, operatorKey) {
+    if (propertyValue == null || value == null) {
+        return false;
+    }
+
+    const comparisonResult = compareVersions(propertyValue, value);
+    switch (operatorKey) {
+        case LeapOperatorKey.IS_EQUAL_TO:
+            return comparisonResult === 0;
+        case LeapOperatorKey.GREATER_THAN:
+            return comparisonResult > 0;
+        case LeapOperatorKey.GREATER_THAN_OR_EQUAL_TO:
+            return comparisonResult >= 0;
+        case LeapOperatorKey.LESS_THAN:
+            return comparisonResult < 0;
+        case LeapOperatorKey.LESS_THAN_OR_EQUAL_TO:
+            return comparisonResult <= 0;
+        default:
+            return false;
+    }
+}
+
+// Function to check if time rule is valid
+function validateTimeRule(propertyValue, value, operatorKey, unit) {
+    if (
+        propertyValue == null ||
+        value == null ||
+        isNaN(propertyValue) ||
+        isNaN(value)
+    ) {
+        return false;
+    }
+
+    let multiplier = 1;
+    if (unit) {
+        switch (unit) {
+            case "hours":
+                multiplier = 3600;
+                break;
+            case "minutes":
+                multiplier = 60;
+                break;
+            default:
+                break;
+        }
+    }
+
+    const intValue = parseInt(value);
+    const currentTime = Math.floor(Date.now() / 1000);
+    switch (operatorKey) {
+        case LeapOperatorKey.TIME_ELAPSED_GREATER_THAN:
+            return currentTime - propertyValue > intValue * multiplier;
+        case LeapOperatorKey.TIME_ELAPSED_LESS_THAN:
+            return currentTime - propertyValue < intValue * multiplier;
+        default:
+            return false;
+    }
+}
+
+// Function to check if integer rule is valid
+function validateIntegerRule(propertyValue, value, operatorKey) {
+    if (
+        propertyValue == null ||
+        value == null ||
+        isNaN(propertyValue) ||
+        isNaN(value)
+    ) {
+        return false;
+    }
+
+    const intValue = parseInt(value);
+    switch (operatorKey) {
+        case LeapOperatorKey.IS_EQUAL_TO:
+            return propertyValue === intValue;
+        case LeapOperatorKey.IS_NOT_EQUAL_TO:
+            return propertyValue !== intValue;
+        case LeapOperatorKey.GREATER_THAN:
+            return propertyValue > intValue;
+        case LeapOperatorKey.LESS_THAN:
+            return propertyValue < intValue;
+        case LeapOperatorKey.GREATER_THAN_OR_EQUAL_TO:
+            return propertyValue >= intValue;
+        case LeapOperatorKey.LESS_THAN_OR_EQUAL_TO:
+            return propertyValue <= intValue;
+        default:
+            return false;
+    }
+}
+
+// Function to check if string rule is valid
+function validateStringRule(propertyValue, value, operatorKey) {
+    if (propertyValue == null || value == null) {
+        return false;
+    }
+
+    if (operatorKey === LeapOperatorKey.IS) {
+        return propertyValue === value;
+    } else if (operatorKey === LeapOperatorKey.IS_NOT) {
+        return propertyValue !== value;
+    }
+    return false;
+}
+
+// Function to validate the rule (can handle multiple rule types)
+function isRuleValid(rule) {
+    const {dataType, propertyKey, operator, value, unit} = rule;
+    const allProperties = {...defaultProperties, ...customProperties};
+    switch (dataType) {
+        case LeapDataType.STRING:
+            return validateStringRule(allProperties[propertyKey], value, operator);
+        case LeapDataType.INTEGER:
+            return validateIntegerRule(allProperties[propertyKey], value, operator);
+        case LeapDataType.TIME:
+            return validateTimeRule(
+                allProperties[propertyKey],
+                value,
+                operator,
+                unit
+            );
+        case LeapDataType.APP_VERSION_CODE:
+            return (
+                platform === PLATFORMS.ANDROID &&
+                validateIntegerRule(appVersionCode, value, operator)
+            );
+        case LeapDataType.APP_VERSION_NAME:
+            return (
+                platform === PLATFORMS.IOS &&
+                validateAppVersionNameRule(appVersionName, value, operator)
+            );
+        default:
+            return false;
+    }
+}
+
+// Function to validate the OR segment rule
+function isSegmentValid(segmentOrBlocks) {
+    if (!segmentOrBlocks || segmentOrBlocks.length === 0) {
+        return true;
+    }
+
+    for (const orBlock of segmentOrBlocks) {
+        let isAllTrue = true;
+        for (const andBlock of orBlock.andBlocks || []) {
+            if (!isRuleValid(andBlock)) {
+                isAllTrue = false;
+                break;
             }
-            function areAllProjectsCompleted(data) {
-                var e_3, _a;
-                try {
-                    for (var _b = __values(data.projects), _c = _b.next(); !_c.done; _c = _b.next()) {
-                        var project = _c.value;
-                        if (!project.completed) {
-                            return false;
-                        }
-                    }
-                }
-                catch (e_3_1) { e_3 = { error: e_3_1 }; }
-                finally {
-                    try {
-                        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                    }
-                    finally { if (e_3) throw e_3.error; }
-                }
-                return true;
-            }
-            function getTriggerConditionForStaticFlow(condition, isShown, triggeredAlready) {
-                switch (condition) {
-                    case "EVERY_SESSION":
-                    case "PLAY_ONCE":
-                    case "EVERY_SESSION_UNTIL_DISMISSED":
-                    case "EVERY_SESSION_UNTIL_FLOW_COMPLETE":
-                    case "EVERY_SESSION_UNTIL_ALL_FLOWS_ARE_COMPLETED": {
-                        return triggeredAlready ? "ICON" : isShown ? "ICON" : "SHOW";
-                    }
-                    case "MANUAL_TRIGGER": {
-                        return "ICON";
-                    }
-                }
-            }
-            function setSelectedLanguage(languages, languageCode) {
-                if (languageCode) {
-                    var found = languages.find(function (l) { return l.localeId === languageCode; });
-                    if (found) {
-                        return found.localeId;
-                    }
-                }
-                var codeToUse = languages.length === 1 ? languages[0].localeId : "";
-                return codeToUse || defaultLanguage;
-            }
-            function logCat(data) {
-                var pattern = /"http[s]?:\/\/[^"]*"/g;
-                return JSON.stringify(data).replace(pattern, '""');
-            }
-            function parseRegexString(regexString) {
-                var match = regexString.match(/^\/(.*)\/([gimsuy]*)$/);
-                if (match) {
-                    var pattern = match[1];
-                    var flags = match[2];
-                    return new RegExp(pattern, flags);
-                }
-                else {
-                    return new RegExp(regexString);
-                }
-            }
-            function getElapsedTimeInSeconds(timestamp) {
-                var currentTime = new Date(new Date().toUTCString()).getTime();
-                var timeStampToDateTime = new Date(new Date(timestamp).toUTCString()).getTime();
-                var elapsedTime = currentTime - timeStampToDateTime;
-                var elapsedTimeInSeconds = Math.floor(elapsedTime / 1000);
-                return elapsedTimeInSeconds;
-            }
-            var SequentialExecutor = (function () {
-                function SequentialExecutor() {
-                    this.queue = [];
-                    this.isRunning = false;
-                }
-                SequentialExecutor.prototype.addTask = function (task) {
-                    var _this = this;
-                    return new Promise(function (resolve, reject) {
-                        _this.queue.push({ task: task, resolve: resolve, reject: reject });
-                        _this.executeNext();
-                    });
-                };
-                SequentialExecutor.prototype.executeNext = function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var _a, task, resolve, reject, result, error_1;
-                        return __generator(this, function (_b) {
-                            switch (_b.label) {
-                                case 0:
-                                    if (this.isRunning || this.queue.length === 0) {
-                                        return [2];
-                                    }
-                                    this.isRunning = true;
-                                    _a = this.queue.shift(), task = _a.task, resolve = _a.resolve, reject = _a.reject;
-                                    _b.label = 1;
-                                case 1:
-                                    _b.trys.push([1, 3, 4, 5]);
-                                    return [4, task()];
-                                case 2:
-                                    result = _b.sent();
-                                    resolve(result);
-                                    return [3, 5];
-                                case 3:
-                                    error_1 = _b.sent();
-                                    reject(error_1);
-                                    return [3, 5];
-                                case 4:
-                                    this.isRunning = false;
-                                    this.executeNext();
-                                    return [7];
-                                case 5: return [2];
-                            }
-                        });
-                    });
-                };
-                return SequentialExecutor;
-            }());
-            var executor = new SequentialExecutor();
-            function isEmptyObject(obj) {
-                return obj && typeof obj === 'object' && !Array.isArray(obj) && Object.keys(obj).length === 0;
-            }
-            function isNonEmptyObject(obj) {
-                return !isEmptyObject(obj);
-            }
-            function reCalculateCompletedProjectsInFlow(sortedProjects, savedCompletedProjectsInFlow) {
-                completedProjectsInFlow = {};
-                sortedProjects === null || sortedProjects === void 0 ? void 0 : sortedProjects.forEach(function (project) {
-                    var _a;
-                    if (((_a = project.connectedProjects) === null || _a === void 0 ? void 0 : _a.length) !== 0) {
-                        computeCompletedProjectsInFlow(project, project.id, savedCompletedProjectsInFlow, completedProjectsInFlow);
-                    }
-                });
-            }
-            function computeCompletedProjectsInFlow(project, flowMenuProjectId, savedCompletedProjectsInFlow, initialCompletedProjectsInFlow) {
-                var _a;
-                var projects = [];
-                var savedConnectedProjectStatus = {};
-                if (savedCompletedProjectsInFlow === null || savedCompletedProjectsInFlow === void 0 ? void 0 : savedCompletedProjectsInFlow[flowMenuProjectId]) {
-                    (_a = savedCompletedProjectsInFlow[flowMenuProjectId].projects) === null || _a === void 0 ? void 0 : _a.forEach(function (proj) {
-                        savedConnectedProjectStatus[proj.id] = proj.completed;
-                    });
-                }
-                project.connectedProjects.forEach(function (s) {
-                    projects.push({
-                        id: s.projectId,
-                        completed: savedConnectedProjectStatus[s.projectId] || false,
-                    });
-                });
-                initialCompletedProjectsInFlow[flowMenuProjectId] = {
-                    id: flowMenuProjectId,
-                    projects: projects,
-                };
-            }
-            var SDK_STATE_VERSION = 1;
-            var sdkStateService = {
-                init: function (storedSdkStateString) {
-                    if (storedSdkStateString === void 0) { storedSdkStateString = "{}"; }
-                    var storedSdkState = safeParse(storedSdkStateString);
-                    var isFirstStart = isEmptyObject(storedSdkState);
-                    var sdkState = sdkStateVersionConverter.validateAndConvert(storedSdkState);
-                    this.version = SDK_STATE_VERSION;
-                    console.warn("sdkStateService.init(): sdkStateVersion", SDK_STATE_VERSION);
-                    this.userStates = sdkState.userStates || {};
-                    this.internalUserId = sdkState.internalUserId || this.generateWfUid();
-                    this.currentUserId = sdkState.currentUserId;
-                    this.segmentConfigMap = sdkState.segmentConfigMap || {};
-                    this.appLocale = sdkState.appLocale;
-                    this.deviceInstallId = sdkState.deviceInstallId || generateUUID();
-                    if (isFirstStart) {
-                        this.currentUserId = this.internalUserId;
-                    }
-                    this.ensureUserStateExists(this.internalUserId);
-                    this.ensureUserStateExists(this.currentUserId);
-                },
-                get isCurrentUserInternal() {
-                    return this.isUserIdInternal(this.currentUserId);
-                },
-                get isCurrentUserExternal() {
-                    return this.isUserIdExternal(this.currentUserId);
-                },
-                isUserIdInternal: function (userId) {
-                    return this.internalUserId === userId;
-                },
-                isUserIdExternal: function (userId) {
-                    return !this.isUserIdInternal(userId);
-                },
-                get isLoggedIn() {
-                    return !!this.currentUserId;
-                },
-                get isLoggedOut() {
-                    return !this.isLoggedIn;
-                },
-                setUserId: function (userId, traceId) {
-                    if (!userId) {
-                        return;
-                    }
-                    this.currentUserId = userId;
-                    this.ensureUserStateExists(userId);
-                    this.persistState(traceId);
-                },
-                logout: function (traceId) {
-                    var currentUserState = this.currentUserState;
-                    var emptyState = this.createEmptyUserState(currentUserState.userId, currentUserState.wfId);
-                    emptyState.projectsStatus = currentUserState.projectsStatus || [];
-                    emptyState.projectsCompletionStats = currentUserState.projectsCompletionStats;
-                    emptyState.language = currentUserState.language;
-                    emptyState.lastProfileUpdatedAt = currentUserState.lastProfileUpdatedAt;
-                    emptyState.lastProfileSyncedAt = currentUserState.lastProfileSyncedAt;
-                    this.currentUserId = null;
-                    this.persistState(traceId);
-                },
-                ensureUserStateExists: function (userId) {
-                    if (!userId) {
-                        return;
-                    }
-                    if (!this.userStates[userId]) {
-                        this.userStates[userId] = this.createEmptyUserState(userId);
-                    }
-                },
-                persistState: function (traceId) {
-                    var currentSdkState = this.sdkState;
-                    var message = {
-                        command: SENDING_COMMANDS.SAVE_USER_STATE,
-                        data: this.sdkState,
-                    };
-                    sendMessageToNative(message, traceId);
-                },
-                get sdkState() {
-                    var state = {
-                        version: this.version,
-                        userStates: this.userStates,
-                        internalUserId: this.internalUserId,
-                        currentUserId: this.currentUserId,
-                        segmentConfigMap: this.segmentConfigMap,
-                        appLocale: this.appLocale,
-                        deviceInstallId: this.deviceInstallId,
-                    };
-                    if (this.isLoggedIn) {
-                        state[this.currentUserId] = this.currentUserState;
-                    }
-                    return state;
-                },
-                createEmptyUserState: function (userId, wfId) {
-                    return {
-                        projectArray: [],
-                        projectsStatus: {},
-                        connectedWalkthroughs: {},
-                        language: undefined,
-                        currentPlatform: undefined,
-                        lastUpdatedConfigAt: undefined,
-                        lastUpdatedEmbedConfigAt: undefined,
-                        lastProfileUpdatedAt: undefined,
-                        lastProfileSyncedAt: undefined,
-                        savedEmbedProject: [],
-                        userId: userId,
-                        wfId: wfId || this.generateWfUid(),
-                        projectsCompletionStats: {},
-                        apiKey: appApiKey,
-                        baseURL: configBaseUrl,
-                        appVersion: appVersionName,
-                        features: features,
-                        metaConfigs: metaConfigs,
-                        loggerConfig: loggerConfig,
-                        customProps: customProperties,
-                    };
-                },
-                updateCurrentUserState: function (updates) {
-                    if (updates === void 0) { updates = {}; }
-                    var userId = this.currentUserId;
-                    this.updateUserStateById(userId, updates);
-                },
-                get currentUserState() {
-                    var userId = this.currentUserId;
-                    return this.getUserStateById(userId);
-                },
-                getUserStateById: function (userId) {
-                    this.ensureUserStateExists(userId);
-                    return this.userStates[userId] || {};
-                },
-                updateUserStateById: function (userId, updates) {
-                    if (updates === void 0) { updates = {}; }
-                    this.ensureUserStateExists(userId);
-                    Object.assign(this.userStates[userId], updates);
-                },
-                generateWfUid: function () {
-                    return "wf:".concat(generateUUID());
-                },
-                get allUserIds() {
-                    return Object.keys(this.userStates);
-                },
-                cleanUpSyncedUserStates: function () {
-                    for (var userStatesKey in this.userStates) {
-                        if (userStatesKey !== this.currentUserId) {
-                            var savedUserState = this.getUserStateById(userStatesKey);
-                            if (this.isStateSyncedForUserState(savedUserState)) {
-                                this.deleteUserStateById(userStatesKey);
-                            }
-                        }
-                    }
-                },
-                isStateSyncedForUserId: function (userId) {
-                    var savedUserState = this.getUserStateById(userId);
-                    return this.isStateSyncedForUserState(savedUserState);
-                },
-                isStateSyncedForUserState: function (userState) {
-                    var updatedAtString = userState === null || userState === void 0 ? void 0 : userState.lastProfileUpdatedAt;
-                    var updatedAt = updatedAtString ? new Date(updatedAtString).getTime() : null;
-                    var lastSyncedAtString = userState === null || userState === void 0 ? void 0 : userState.lastProfileSyncedAt;
-                    var lastSyncedAt = lastSyncedAtString ? new Date(lastSyncedAtString).getTime() : null;
-                    if (!updatedAt) {
-                        return true;
-                    }
-                    return typeof updatedAt === 'number' && typeof lastSyncedAt === 'number' && updatedAt <= lastSyncedAt;
-                },
-                deleteUserStateById: function (userId, traceId) {
-                    if (this.currentUserId !== userId) {
-                        delete this.userStates[userId];
-                        this.persistState(traceId);
-                    }
-                }
+        }
+        if (isAllTrue) return true;
+    }
+    return false;
+}
+
+function getCurrentTimeInGMT() {
+    const now = new Date();
+
+    const year = now.getUTCFullYear();
+    const month = String(now.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(now.getUTCDate()).padStart(2, "0");
+    const hours = String(now.getUTCHours()).padStart(2, "0");
+    const minutes = String(now.getUTCMinutes()).padStart(2, "0");
+    const seconds = String(now.getUTCSeconds()).padStart(2, "0");
+    const milliseconds = String(now.getUTCMilliseconds()).padStart(3, "0");
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
+}
+
+function getStatusMessage(statusCode) {
+    switch (statusCode) {
+        case 200:
+            return "OK";
+        case 401:
+            return "Unauthorized";
+        case 404:
+            return "Not Found";
+        case 500:
+            return "Internal Server Error";
+        default:
+            return "OK";
+    }
+}
+
+function getJavaType(value) {
+    if (typeof value === "number") {
+        if (value > 2147483647) return "long";
+        return "int";
+    }
+    return typeof value;
+}
+
+function appendTypesToKeys(body) {
+    const updatedBody = {};
+
+    Object.keys(body).forEach((key) => {
+        if (
+            ["max_hierarchy_size", "avg_hierarchy_size", "timestamp"].includes(key)
+        ) {
+            updatedBody[`long.${key}`] = body[key];
+        } else {
+            updatedBody[`${getJavaType(body[key])}.${key}`] = body[key];
+        }
+    });
+
+    return updatedBody;
+}
+
+function isInsideBounds(nodeABounds, nodeBBounds) {
+    return (
+        nodeABounds &&
+        nodeBBounds &&
+        nodeABounds.left < nodeABounds.right &&
+        nodeABounds.top < nodeABounds.bottom &&
+        nodeABounds.top <= nodeBBounds.top &&
+        nodeABounds.left <= nodeBBounds.left &&
+        nodeABounds.right >= nodeBBounds.right &&
+        nodeABounds.bottom >= nodeBBounds.bottom
+    );
+}
+
+function isAClickableNode(bounds) {
+    return (
+        this?.left < this?.right &&
+        this?.top < this?.bottom &&
+        this?.left <= bounds?.left &&
+        this?.top <= bounds?.top &&
+        this?.right >= bounds?.right &&
+        this?.bottom >= bounds?.bottom
+    );
+}
+
+function checkIfIdentifierMatch(matchedIdentifier, identifierToMatch) {
+    // Convert the first array to a Set for efficient lookup
+    const set1 = new Set(matchedIdentifier);
+
+    // Check if every element in identifierToMatch is present in set1
+    return identifierToMatch?.every((element) => set1.has(element));
+}
+
+function generateUUID() {
+    // Helper function to generate a random number between 0 and 15
+    function randomHexDigit() {
+        return Math.floor(Math.random() * 16).toString(16);
+    }
+
+    // Replace function for the UUID template
+    function replacePlaceholders(char) {
+        var random = randomHexDigit();
+        // Ensure the UUID version is set correctly (4xxx)
+        if (char === "x") {
+            return random;
+        } else if (char === "y") {
+            // Ensure the correct variant of the UUID
+            return ((parseInt(random, 16) & 0x3) | 0x8).toString(16);
+        }
+        return char;
+    }
+
+    // Template for a UUID
+    var template = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
+
+    // Replace each character in the template with random hex digits or fixed values
+    return template.replace(/[xy]/g, replacePlaceholders);
+}
+
+function isValidDateString(dateString) {
+    const gmtRegex = /^[A-Za-z]{3}\s[A-Za-z]{3}\s\d{1,2}\s\d{2}:\d{2}:\d{2}\s(GMT|GMT[+-]\d{2}(:\d{2})?)\s\d{4}$/;
+    const isoRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
+    if (isoRegex.test(dateString) || gmtRegex.test(dateString)) {
+        const date = new Date(dateString);
+        if (!isNaN(date.getTime())) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const getWidth = (element) => parseInt(element.right) - parseInt(element.left);
+const getHeight = (element) => parseInt(element.bottom) - parseInt(element.top);
+const checkForEmptyBounds = (bounds) =>
+    getWidth(bounds) <= 0 || getHeight(bounds) <= 0;
+
+function findTerminationStatuses(project, savedAllProjectStatus) {
+    const terminationTemplate = {
+        perSession: 0,
+        perApp: 0,
+        untilAllFlowsAreCompleted: false,
+        nSession: 0,
+        nDismissedByUser: 0,
+    };
+
+    const objKey =
+        project.discoveryList?.[0].uniqueID || project.assists?.[0].uniqueID;
+    let initialTerminationStatus =
+        project.discoveryList?.[0].uniqueID !== undefined
+            ? project.discoveryList?.[0].flowTerminationFrequency
+            : project.assists?.[0].terminationFrequency;
+    let terminationStatus = savedAllProjectStatus?.[objKey]
+        ? savedAllProjectStatus[objKey].terminationStatus
+        : {...terminationTemplate};
+
+    if (!initialTerminationStatus) {
+        initialTerminationStatus = {
+            perSession: -1,
+            perApp: -1,
+            untilAllFlowsAreCompleted: false,
+            nSession: -1,
+            nDismissedByUser: -1,
+        };
+    }
+
+    return {
+        objKey,
+        initialTerminationStatus,
+        terminationStatus,
+    };
+}
+
+function organizeProject(
+    project,
+    objKey,
+    initialTerminationStatus,
+    terminationStatus
+) {
+    return {
+        id: objKey,
+        isAFlow: objKey.includes("discovery"),
+        isAFlowMenu: ["STATIC_FLOW_MENU", "STATIC_FLOW_CHECKLIST"].includes(
+            project.projectParameters.projectType
+        ),
+        isWebView: objKey.includes("discovery")
+            ? project.discoveryList?.[0].webIdentifiers !== undefined
+            : project.webIdentifiers !== undefined,
+        assist: objKey.includes("discovery")
+            ? project?.discoveryList?.[0]
+            : project?.assists?.[0],
+        flows: project.flows,
+        isAnchoredElement: objKey.includes("discovery")
+            ? false
+            : !!project?.assists?.[0].instruction?.assistInfo?.identifier,
+        targetId: objKey.includes("discovery")
+            ? ""
+            : project?.assists?.[0].instruction?.assistInfo?.identifier,
+        triggerDelay: objKey.includes("discovery")
+            ? project.discoveryList?.[0].trigger.type === "instant"
+                ? 0
+                : project.discoveryList?.[0].trigger.delay
+            : project?.assists?.[0].trigger.type === "instant"
+                ? 0
+                : project?.assists?.[0].trigger.delay,
+        initialTerminationStatus,
+        terminationStatus,
+        nativeIdentifiers: project.nativeIdentifiers,
+        webIdentifiers: project.webIdentifiers,
+        auiContent: project.auiContent,
+        localeSounds: project.localeSounds,
+        projectParameters: project.projectParameters,
+        webViewList: project.webViewList,
+        languages: project.languages,
+        connectedProjects: project?.connectedProjects || [],
+        triggerCase: project?.discoveryList?.[0]?.triggerFrequency?.type,
+        isIconEnabled: !!project.discoveryList?.[0]?.enableIcon,
+        iconSetting: {
+            ...Object.values(project?.iconSetting || {})?.[0],
+            stopEnabled:
+                typeof features?.iconOptions?.stopEnabled === "boolean"
+                    ? features?.iconOptions?.stopEnabled
+                    : true,
+        },
+    };
+}
+
+function sortAndOrganizeProjects(
+    projects,
+    embedProject = false,
+    savedAllProjectStatus,
+    savedCompletedProjectsInFlow
+) {
+    const specifiedOrder = [
+        "STATIC_FLOW",
+        "STATIC_FLOW_MENU",
+        "STATIC_FLOW_CHECKLIST",
+    ];
+    const projectTypeOrder = new Map(
+        specifiedOrder.map((type, index) => [type, index])
+    );
+
+    const priorityOrder = [];
+    const priorityLessOrder = [];
+    const flowWalkthroughs = [];
+
+    projects.forEach((project) => {
+        if (project.projectParameters.deploymentType === "LINK") {
+            flowWalkthroughs.push(project);
+            return;
+        }
+        if (project.projectParameters.priority === null) {
+            priorityLessOrder.push(project);
+        } else {
+            priorityOrder.push(project);
+        }
+    });
+
+    priorityOrder.sort(
+        (a, b) => a.projectParameters.priority - b.projectParameters.priority
+    );
+
+    priorityLessOrder.sort((a, b) => {
+        const typeA = projectTypeOrder.has(a.projectParameters.projectType)
+            ? projectTypeOrder.get(a.projectParameters.projectType)
+            : -1;
+        const typeB = projectTypeOrder.has(b.projectParameters.projectType)
+            ? projectTypeOrder.get(b.projectParameters.projectType)
+            : -1;
+        return typeA - typeB;
+    });
+
+    const sortedProjects = [...priorityOrder, ...priorityLessOrder];
+    const organizedProjects = [];
+    const flowsWalkthroughProjects = {};
+    const projectStatus = {};
+    const initialCompletedProjectsInFlow = {};
+
+    sortedProjects?.forEach((project) => {
+        const {objKey, initialTerminationStatus, terminationStatus} =
+            findTerminationStatuses(project, savedAllProjectStatus);
+
+        organizedProjects.push(
+            organizeProject(
+                project,
+                objKey,
+                initialTerminationStatus,
+                terminationStatus
+            )
+        );
+
+        // For flow completion
+        if (project.connectedProjects !== undefined) {
+            computeCompletedProjectsInFlow(project, objKey, savedCompletedProjectsInFlow, initialCompletedProjectsInFlow);
+        }
+
+        projectStatus[objKey] = {
+            id: objKey,
+            projectType: project.projectParameters.projectType,
+            shownOnce: savedAllProjectStatus?.[objKey]?.shownOnce || false,
+            isShown: savedAllProjectStatus?.[objKey]?.isShown || false,
+            isCompleted: savedAllProjectStatus?.[objKey]?.isCompleted || false,
+            isFlowTriggered:
+                savedAllProjectStatus?.[objKey]?.isFlowTriggered || false,
+            isTerminated: savedAllProjectStatus?.[objKey]?.isTerminated || false,
+            triggerCase: project?.discoveryList?.[0]?.triggerFrequency?.type,
+            initialTerminationStatus,
+            terminationStatus,
+        };
+    });
+
+    flowWalkthroughs?.forEach((project) => {
+        const {objKey, initialTerminationStatus, terminationStatus} =
+            findTerminationStatuses(project, savedAllProjectStatus);
+
+        flowsWalkthroughProjects[project.projectParameters.deploymentId] =
+            organizeProject(
+                project,
+                objKey,
+                initialTerminationStatus,
+                terminationStatus
+            );
+
+        if (embedProject) {
+            projectStatus[objKey] = {
+                id: objKey,
+                projectType: project.projectParameters.projectType,
+                shownOnce: false,
+                isShown: false,
+                isCompleted: false,
+                isFlowTriggered: false,
+                isTerminated: false,
+                triggerCase:
+                    project.discoveryList?.[0].uniqueID !== undefined
+                        ? project.discoveryList?.[0].triggerFrequency?.type
+                        : project.assists?.[0].triggerFrequency?.type,
+                initialTerminationStatus,
+                terminationStatus,
             };
-            var sdkStateVersionConverter = {
-                validateAndConvert: function (storedSdkState) {
-                    var storedSdkStateVersion = (storedSdkState === null || storedSdkState === void 0 ? void 0 : storedSdkState.version) || 0;
-                    if (SDK_STATE_VERSION !== storedSdkStateVersion) {
-                        switch (storedSdkStateVersion) {
-                            case 0:
-                                return this.v0Tov1(storedSdkState);
-                            default:
-                                throw new Error("sdkStateVersionConverter(): converter not implemented for version- ".concat(storedSdkStateVersion));
-                        }
-                    }
-                    return storedSdkState;
-                },
-                v0Tov1: function (sdkStateV0) {
-                    var convertedSdkState = {};
-                    for (var key in sdkStateV0) {
-                        var child = sdkStateV0[key];
-                        if (typeof child === 'object' && (child === null || child === void 0 ? void 0 : child.apiKey)) {
-                            if (!convertedSdkState.userStates) {
-                                convertedSdkState.userStates = {};
-                            }
-                            child.userId = key;
-                            convertedSdkState.userStates[key] = child;
-                            convertedSdkState.currentUserId = key;
-                        }
-                        else {
-                            convertedSdkState[key] = child;
-                        }
-                    }
-                    return convertedSdkState;
-                }
+        }
+    });
+
+    return {
+        sortedProjects: organizedProjects,
+        projectStatus,
+        flowsWalkthroughProjects,
+        initialCompletedProjectsInFlow,
+    };
+}
+
+function checkToShowProject(id) {
+    const project = allProjectStatus?.[id];
+
+    // Project terminated so return false
+    if (!project) return false;
+
+    const initialTerminationStatus = project?.initialTerminationStatus;
+    const terminationStatus = project?.terminationStatus;
+
+    // If the terminationStatus is undefined then terminationStatus logic is not set so return true
+    if (!terminationStatus) return true;
+
+    // sessions
+    if (initialTerminationStatus?.nSession !== -1) {
+        return !!(
+            terminationStatus.nSession < initialTerminationStatus.nSession ||
+            allProjectStatus[project.id].shownOnce
+        );
+    }
+    // Dismiss by user
+    if (
+        initialTerminationStatus?.nDismissedByUser !== -1 &&
+        terminationStatus?.nDismissedByUser === 0
+    ) {
+        return true;
+    }
+    // Flow completion times
+    if (initialTerminationStatus?.perApp !== -1) {
+        return terminationStatus.perApp < initialTerminationStatus.perApp;
+    }
+    // Until all flows are completed
+    if (
+        initialTerminationStatus?.untilAllFlowsAreCompleted &&
+        !terminationStatus?.untilAllFlowsAreCompleted
+    ) {
+        return true;
+    }
+
+    // When none of the condition is matching
+    if (
+        initialTerminationStatus?.nSession === -1 &&
+        initialTerminationStatus?.nDismissedByUser === -1 &&
+        initialTerminationStatus?.perApp === -1 &&
+        !initialTerminationStatus?.untilAllFlowsAreCompleted
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function removeProjectFromStatusArray({
+                                          id = undefined,
+                                          isTerminated = false,
+                                          terminatedByIcon = false,
+                                          saveState = true,
+                                      }, traceId) {
+    const activeProjectId = id
+        ? id
+        : currentlyRunningFlow?.id === ""
+            ? activeProject?.id
+            : currentlyRunningFlow?.id;
+
+    const index = embedProject
+        .concat(sortedProjectArray)
+        .findIndex((s) => s.id === activeProjectId);
+
+    if (index !== -1 && embedProject?.[0]?.id === activeProjectId)
+        embedProject = [];
+
+    updateProjectStatus({
+        id: activeProjectId,
+        isCompleted: !isTerminated,
+        isTerminated: isTerminated,
+        terminatedByIcon: isTerminated && terminatedByIcon,
+    }, traceId);
+
+    if (saveState) {
+        updateUserProfile(traceId);
+    }
+}
+
+function updateViewStatusForTheProject(key, traceId) {
+    ////console.log("updateViewStatusForTheProject", key, traceId);
+    //console.log("updateViewStatusForTheProject()- activeProject", activeProject);
+    if (activeProject.id !== undefined) {
+        const project =
+            currentlyRunningFlow.id === ""
+                ? allProjectStatus[activeProject.id]
+                : allProjectStatus[currentlyRunningFlow.id];
+
+        const initialTerminationStatus = project?.initialTerminationStatus;
+        const terminationStatus = project?.terminationStatus;
+
+        //console.log("updateViewStatusForTheProject()- project- ", project);
+        //console.log("updateViewStatusForTheProject()- initialTerminationStatus- ", initialTerminationStatus);
+        //console.log("updateViewStatusForTheProject()- terminationStatus- ", terminationStatus);
+
+        // If the terminationStatus is undefined then terminationStatus logic is not set so don't do anything
+        if (terminationStatus === undefined) return;
+
+
+        // sessions
+        if (key === "nSession" && initialTerminationStatus.nSession !== -1) {
+            if (project.shownOnce === false) ++terminationStatus.nSession;
+
+            // update shownOnce
+            allProjectStatus[project.id] = {
+                ...allProjectStatus[project.id],
+                shownOnce: true,
             };
-            function safeParse(jsonString, fallback) {
-                if (fallback === void 0) { fallback = {}; }
-                try {
-                    return JSON.parse(jsonString || "{}");
-                }
-                catch (e) {
-                    console.warn("unable to parse sdk state string", e);
-                    return fallback;
+        }
+
+            // Dismiss by user
+        // The values will be either -1 or 1
+        else if (
+            key === "nDismissedByUser" &&
+            initialTerminationStatus.nDismissedByUser !== -1 &&
+            terminationStatus.nDismissedByUser === 0
+        ) {
+            sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
+                terminationRule: `nDismissedByUser: ${initialTerminationStatus.nDismissedByUser}`,
+            }, traceId);
+            ++terminationStatus.nDismissedByUser;
+            removeProjectFromStatusArray({saveState: false}, traceId);
+        }
+
+        // Flow completion times
+        else if (key === "perApp" && initialTerminationStatus.perApp !== -1) {
+            ++terminationStatus.perApp;
+            if (terminationStatus.perApp === initialTerminationStatus.perApp) {
+                sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
+                    terminationRule: `perApp: ${initialTerminationStatus.perApp}`,
+                }, traceId);
+                removeProjectFromStatusArray({saveState: false}, traceId);
+            }
+        }
+
+        // Until all flows are completed
+        else if (
+            key === "untilAllFlowsAreCompleted" &&
+            initialTerminationStatus?.untilAllFlowsAreCompleted &&
+            !terminationStatus.untilAllFlowsAreCompleted
+        ) {
+            sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
+                terminationRule: `untilAllFlowsAreCompleted: ${initialTerminationStatus.untilAllFlowsAreCompleted}`,
+            }, traceId);
+            terminationStatus.untilAllFlowsAreCompleted = true;
+            removeProjectFromStatusArray({saveState: false});
+        }
+
+        //console.log("updateViewStatusForTheProject()- project after- ", project);
+        //console.log("updateViewStatusForTheProject()- terminationStatus after- ", terminationStatus);
+        updateUserProfile(traceId);
+    }
+}
+
+function areAllProjectsCompleted(data) {
+    // Iterate over each item in the project array
+    for (const project of data.projects) {
+        // If any project is not completed, return false
+        if (!project.completed) {
+            return false;
+        }
+    }
+    // If all projects are completed, return true
+    return true;
+}
+
+function getTriggerConditionForStaticFlow(
+    condition,
+    isShown,
+    triggeredAlready
+) {
+    switch (condition) {
+        case "EVERY_SESSION":
+        case "PLAY_ONCE":
+        case "EVERY_SESSION_UNTIL_DISMISSED":
+        case "EVERY_SESSION_UNTIL_FLOW_COMPLETE":
+        case "EVERY_SESSION_UNTIL_ALL_FLOWS_ARE_COMPLETED": {
+            return triggeredAlready ? "ICON" : isShown ? "ICON" : "SHOW";
+        }
+
+        case "MANUAL_TRIGGER": {
+            return "ICON";
+        }
+    }
+}
+
+function setSelectedLanguage(languages, languageCode) {
+    if (languageCode) {
+        const found = languages.find((l) => l.localeId === languageCode);
+        if (found) {
+            return found.localeId;
+        }
+    }
+    let codeToUse = languages.length === 1 ? languages[0].localeId : "";
+    return codeToUse || defaultLanguage;
+}
+
+function logCat(data) {
+    const pattern = /"http[s]?:\/\/[^"]*"/g;
+
+    // Replace matches with an empty string
+    return JSON.stringify(data).replace(pattern, '""');
+}
+
+function parseRegexString(regexString) {
+    // Match the pattern and flags from the regex string
+    const match = regexString.match(/^\/(.*)\/([gimsuy]*)$/);
+
+    if (match) {
+        const pattern = match[1];
+        const flags = match[2];
+        return new RegExp(pattern, flags);
+    } else {
+        return new RegExp(regexString);
+    }
+}
+
+function getElapsedTimeInSeconds(timestamp) {
+    // Get the current time in milliseconds
+    const currentTime = new Date(new Date().toUTCString()).getTime();
+
+    // Calculate the elapsed time in milliseconds
+    const timeStampToDateTime = new Date(
+        new Date(timestamp).toUTCString()
+    ).getTime();
+    const elapsedTime = currentTime - timeStampToDateTime;
+
+    // Convert the elapsed time to seconds
+    const elapsedTimeInSeconds = Math.floor(elapsedTime / 1000);
+
+    return elapsedTimeInSeconds;
+}
+
+class SequentialExecutor {
+    constructor() {
+        this.queue = []; // Queue to maintain stack trace
+        this.isRunning = false; // Flag to check if a function is currently executing
+    }
+
+    // Function to add tasks to the queue
+    addTask(task) {
+        return new Promise((resolve, reject) => {
+            this.queue.push({task, resolve, reject}); // Push the task to the queue
+            this.executeNext(); // Attempt to execute the next task
+        });
+    }
+
+    // Function to execute the next task in the queue
+    async executeNext() {
+        if (this.isRunning || this.queue.length === 0) {
+            return; // If a task is currently running or the queue is empty, do nothing
+        }
+
+        this.isRunning = true; // Set the flag to indicate a task is running
+        const {task, resolve, reject} = this.queue.shift(); // Get the next task from the queue
+
+        try {
+            const result = await task(); // Await the execution of the task
+            resolve(result); // Resolve the promise associated with the task
+        } catch (error) {
+            reject(error); // Reject the promise if the task throws an error
+        } finally {
+            this.isRunning = false; // Reset the flag
+            this.executeNext(); // Attempt to execute the next task
+        }
+    }
+}
+
+// Example usage:
+
+const executor = new SequentialExecutor();
+
+function isEmptyObject(obj) {
+    return obj && typeof obj === 'object' && !Array.isArray(obj) && Object.keys(obj).length === 0;
+}
+
+function isNonEmptyObject(obj) {
+    return !isEmptyObject(obj);
+}
+
+function reCalculateCompletedProjectsInFlow(sortedProjects, savedCompletedProjectsInFlow) {
+    completedProjectsInFlow = {};
+    sortedProjects?.forEach((project) => {
+        if (project.connectedProjects?.length !== 0) {
+            computeCompletedProjectsInFlow(project, project.id, savedCompletedProjectsInFlow, completedProjectsInFlow);
+        }
+    })
+}
+
+function computeCompletedProjectsInFlow(project, flowMenuProjectId, savedCompletedProjectsInFlow, initialCompletedProjectsInFlow) {
+    const projects = [];
+    const savedConnectedProjectStatus = {};
+    if (savedCompletedProjectsInFlow?.[flowMenuProjectId]) {
+        savedCompletedProjectsInFlow[flowMenuProjectId].projects?.forEach((proj) => {
+            savedConnectedProjectStatus[proj.id] = proj.completed;
+        });
+    }
+
+    project.connectedProjects.forEach((s) => {
+        projects.push({
+            // s.projectId is actually deploymentId
+            id: s.projectId,
+            completed: savedConnectedProjectStatus[s.projectId] || false,
+        });
+    });
+
+    initialCompletedProjectsInFlow[flowMenuProjectId] = {
+        id: flowMenuProjectId,
+        projects,
+    };
+}
+
+// js filename- sdkStateService.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+const SDK_STATE_VERSION = 1;
+
+const sdkStateService = {
+    init(storedSdkStateString = "{}") {
+        const storedSdkState = safeParse(storedSdkStateString)
+        const isFirstStart = isEmptyObject(storedSdkState);
+        //console.log("isFirstStart", isFirstStart);
+        //console.log("storedSdkState", storedSdkState);
+        //console.log("storedSdkStateString", storedSdkStateString);
+        const sdkState = sdkStateVersionConverter.validateAndConvert(storedSdkState);
+
+        this.version = SDK_STATE_VERSION;
+        console.warn("sdkStateService.init(): sdkStateVersion", SDK_STATE_VERSION);
+        this.userStates = sdkState.userStates || {};
+        this.internalUserId = sdkState.internalUserId || this.generateWfUid();
+        this.currentUserId = sdkState.currentUserId;
+        this.segmentConfigMap = sdkState.segmentConfigMap || {};
+        this.appLocale = sdkState.appLocale;
+        this.deviceInstallId = sdkState.deviceInstallId || generateUUID();
+        if (isFirstStart) {
+            this.currentUserId = this.internalUserId;
+        }
+        this.ensureUserStateExists(this.internalUserId);
+        this.ensureUserStateExists(this.currentUserId);
+    },
+
+    get isCurrentUserInternal() {
+        return this.isUserIdInternal(this.currentUserId);
+    },
+
+    get isCurrentUserExternal() {
+        return this.isUserIdExternal(this.currentUserId);
+    },
+
+    isUserIdInternal(userId) {
+        return this.internalUserId === userId;
+    },
+
+    isUserIdExternal(userId) {
+        return !this.isUserIdInternal(userId);
+    },
+
+    get isLoggedIn() {
+        return !!this.currentUserId;
+    },
+
+    get isLoggedOut() {
+        return !this.isLoggedIn;
+    },
+
+
+    setUserId(userId, traceId) {
+        if (!userId) {
+            return;
+        }
+        this.currentUserId = userId;
+        this.ensureUserStateExists(userId);
+        this.persistState(traceId)
+    },
+
+    logout(traceId) {
+        let currentUserState = this.currentUserState;
+        let emptyState = this.createEmptyUserState(currentUserState.userId, currentUserState.wfId);
+        emptyState.projectsStatus = currentUserState.projectsStatus || [];
+        emptyState.projectsCompletionStats = currentUserState.projectsCompletionStats;
+        emptyState.language = currentUserState.language;
+        emptyState.lastProfileUpdatedAt = currentUserState.lastProfileUpdatedAt;
+        emptyState.lastProfileSyncedAt = currentUserState.lastProfileSyncedAt;
+        this.currentUserId = null;
+        this.persistState(traceId);
+    },
+
+
+    ensureUserStateExists(userId) {
+        if (!userId) {
+            return;
+        }
+        if (!this.userStates[userId]) {
+            this.userStates[userId] = this.createEmptyUserState(userId);
+        }
+    },
+
+
+    persistState(traceId) {
+        let currentSdkState = this.sdkState;
+        //console.debug("sdkState", currentSdkState);
+        let message = {
+            command: SENDING_COMMANDS.SAVE_USER_STATE,
+            data: this.sdkState,
+        };
+        sendMessageToNative(message, traceId);
+    },
+
+    get sdkState() {
+        let state = {
+            version: this.version,
+            userStates: this.userStates,
+            internalUserId: this.internalUserId,
+            currentUserId: this.currentUserId,
+            segmentConfigMap: this.segmentConfigMap,
+            appLocale: this.appLocale,
+            deviceInstallId: this.deviceInstallId,
+        };
+        if (this.isLoggedIn) {
+            state[this.currentUserId] = this.currentUserState;
+        }
+        return state;
+    },
+
+    createEmptyUserState(userId, wfId) {
+        return {
+            projectArray: [],
+            projectsStatus: {},
+            connectedWalkthroughs: {},
+            language: undefined,
+            currentPlatform: undefined,
+            lastUpdatedConfigAt: undefined,
+            lastUpdatedEmbedConfigAt: undefined,
+            lastProfileUpdatedAt: undefined,
+            lastProfileSyncedAt: undefined,
+            savedEmbedProject: [],
+            userId,
+            wfId: wfId || this.generateWfUid(),
+            projectsCompletionStats: {},
+            apiKey: appApiKey,
+            baseURL: configBaseUrl,
+            appVersion: appVersionName,
+            features,
+            metaConfigs,
+            loggerConfig,
+            customProps: customProperties,
+        };
+    },
+
+    updateCurrentUserState(updates = {}) {
+        const userId = this.currentUserId;
+        this.updateUserStateById(userId, updates);
+    },
+
+    get currentUserState() {
+        const userId = this.currentUserId;
+        return this.getUserStateById(userId);
+    },
+
+    getUserStateById(userId) {
+        this.ensureUserStateExists(userId);
+        return this.userStates[userId] || {};
+    },
+
+    updateUserStateById(userId, updates = {}) {
+        this.ensureUserStateExists(userId);
+        Object.assign(this.userStates[userId], updates);
+    },
+
+    generateWfUid() {
+        return `wf:${generateUUID()}`;
+    },
+
+    get allUserIds() {
+        return Object.keys(this.userStates);
+    },
+
+    cleanUpSyncedUserStates() {
+        for (let userStatesKey in this.userStates) {
+            if (userStatesKey !== this.currentUserId) {
+                let savedUserState = this.getUserStateById(userStatesKey);
+                if (this.isStateSyncedForUserState(savedUserState)) {
+                    this.deleteUserStateById(userStatesKey);
                 }
             }
-            var screenWidth = -1;
-            var screenHeight = -1;
-            function filterHierarchy(node, currentPlatform, isLayout) {
-                var _a, _b, _c;
-                if (currentPlatform === void 0) { currentPlatform = platform; }
-                if (isLayout === void 0) { isLayout = false; }
-                if (subPlatform === "FLUTTER") {
-                    return node;
+        }
+    },
+
+    isStateSyncedForUserId(userId) {
+        let savedUserState = this.getUserStateById(userId);
+        return this.isStateSyncedForUserState(savedUserState);
+    },
+
+    isStateSyncedForUserState(userState) {
+        const updatedAtString = userState?.lastProfileUpdatedAt;
+        const updatedAt = updatedAtString ? new Date(updatedAtString).getTime() : null;
+        const lastSyncedAtString = userState?.lastProfileSyncedAt;
+        const lastSyncedAt = lastSyncedAtString ? new Date(lastSyncedAtString).getTime() : null;
+        if (!updatedAt) {
+            return true;
+        }
+        return typeof updatedAt === 'number' && typeof lastSyncedAt === 'number' && updatedAt <= lastSyncedAt;
+    },
+
+    deleteUserStateById(userId, traceId) {
+        if (this.currentUserId !== userId) {
+            delete this.userStates[userId];
+            this.persistState(traceId);
+        }
+    }
+}
+
+const sdkStateVersionConverter = {
+    validateAndConvert(storedSdkState) {
+        //console.debug('sdkStateVersionConverter', storedSdkState);
+        const storedSdkStateVersion = storedSdkState?.version || 0;
+        if (SDK_STATE_VERSION !== storedSdkStateVersion) {
+            switch (storedSdkStateVersion) {
+                case 0:
+                    return this.v0Tov1(storedSdkState);
+                default:
+                    throw new Error(`sdkStateVersionConverter(): converter not implemented for version- ${storedSdkStateVersion}`);
+            }
+        }
+        return storedSdkState;
+    },
+
+    v0Tov1(sdkStateV0) {
+        let convertedSdkState = {}
+        //console.log("converting v0 to v1");
+        for (const key in sdkStateV0) {
+            const child = sdkStateV0[key];
+            if (typeof child === 'object' && child?.apiKey) {
+                if (!convertedSdkState.userStates) {
+                    convertedSdkState.userStates = {};
                 }
-                var isRoot = (node === null || node === void 0 ? void 0 : node.layout) !== undefined;
-                if (isRoot) {
-                    screenWidth = node === null || node === void 0 ? void 0 : node.screen_width;
-                    screenHeight = node === null || node === void 0 ? void 0 : node.screen_height;
-                }
-                else if (isLayout) {
-                    if (currentPlatform !== PLATFORMS.ANDROID) {
-                        if ((_a = features === null || features === void 0 ? void 0 : features.filterByOpaqueViews) === null || _a === void 0 ? void 0 : _a.isReactNative) {
-                            removeIrrelevantNodesIOS(node, null);
-                        }
-                        else if (features === null || features === void 0 ? void 0 : features.useClickableBounds) {
-                            calculateClickableBoundsForIos(node);
-                        }
-                    }
-                    else if (currentPlatform === PLATFORMS.ANDROID) {
-                        calculateClickableBoundsForAndroid(node);
-                    }
-                }
-                else {
-                    if (currentPlatform === PLATFORMS.ANDROID) {
-                        if ((_c = (_b = features === null || features === void 0 ? void 0 : features.doNotFliter) === null || _b === void 0 ? void 0 : _b.classNames) === null || _c === void 0 ? void 0 : _c.includes(node === null || node === void 0 ? void 0 : node.class)) {
-                            return node;
-                        }
-                        filterNoHideDescendants(node);
-                    }
-                    var ignoreNode = currentPlatform === PLATFORMS.ANDROID
-                        ? ignoreInvalidViewsAndroid(node)
-                        : ignoreInvalidViewsIOS(node);
-                    if (ignoreNode) {
-                        return;
-                    }
-                }
-                var children = isRoot ? [__assign({}, node === null || node === void 0 ? void 0 : node.layout)] : node === null || node === void 0 ? void 0 : node.children;
-                var filteredChildren = [];
-                children === null || children === void 0 ? void 0 : children.forEach(function (child) {
-                    var res = filterHierarchy(child, currentPlatform, isRoot);
-                    if (res)
-                        filteredChildren.push(child);
-                });
-                if (filteredChildren.length > 1) {
-                    filteredChildren =
-                        currentPlatform === PLATFORMS.ANDROID
-                            ? ignoreOverlappingNodesAndroid(filteredChildren)
-                            : ignoreOverlappingNodesIOS(filteredChildren);
-                }
-                else if (filteredChildren.length === 0 &&
-                    currentPlatform === PLATFORMS.ANDROID &&
-                    (node === null || node === void 0 ? void 0 : node.is_view_group) &&
-                    !(node === null || node === void 0 ? void 0 : node.is_clickable) &&
-                    !(node === null || node === void 0 ? void 0 : node.is_focusable) &&
-                    !(node === null || node === void 0 ? void 0 : node.is_long_clickable)) {
-                    return;
-                }
-                isRoot
-                    ? (node.layout = filteredChildren[0])
-                    : (node.children = filteredChildren);
+                child.userId = key;
+                convertedSdkState.userStates[key] = child;
+                convertedSdkState.currentUserId = key;
+            } else {
+                convertedSdkState[key] = child;
+            }
+        }
+        return convertedSdkState;
+    }
+}
+
+function safeParse(jsonString, fallback = {}) {
+    try {
+        return JSON.parse(jsonString || "{}");
+    } catch (e) {
+        console.warn("unable to parse sdk state string", e);
+        return fallback;
+    }
+}
+
+// js filename- filterHierarchy.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+let screenWidth = -1;
+let screenHeight = -1;
+
+function filterHierarchy(node, currentPlatform = platform, isLayout = false) {
+    if (subPlatform === "FLUTTER") {
+        return node;
+    }
+
+    // Check if the node at root level
+    const isRoot = node?.layout !== undefined;
+
+    if (isRoot) {
+        screenWidth = node?.screen_width;
+        screenHeight = node?.screen_height;
+    } else if (isLayout) {
+        // if the node is node?.layout
+        if (currentPlatform !== PLATFORMS.ANDROID) {
+            if (features?.filterByOpaqueViews?.isReactNative) {
+                removeIrrelevantNodesIOS(node, null);
+            } else if (features?.useClickableBounds) {
+                calculateClickableBoundsForIos(node);
+            }
+        } else if (currentPlatform === PLATFORMS.ANDROID) {
+            calculateClickableBoundsForAndroid(node);
+        }
+    } else {
+        if (currentPlatform === PLATFORMS.ANDROID) {
+            if (features?.doNotFliter?.classNames?.includes(node?.class)) {
                 return node;
             }
-            function calculateClickableBoundsForAndroid(node) {
-                var _a, _b, _c;
-                var isClickable = (node === null || node === void 0 ? void 0 : node.is_clickable) || (node === null || node === void 0 ? void 0 : node.is_long_clickable);
-                var clickableBoundsChildren = null;
-                (_a = node === null || node === void 0 ? void 0 : node.children) === null || _a === void 0 ? void 0 : _a.forEach(function (child) {
-                    calculateClickableBoundsForAndroid(child);
-                    !isClickable &&
-                    (clickableBoundsChildren = calcInclusiveBounds(clickableBoundsChildren, child.clickable_bounds));
-                });
-                if (isClickable) {
-                    node.clickable_bounds = node === null || node === void 0 ? void 0 : node.bounds;
-                    return;
+            filterNoHideDescendants(node);
+        }
+
+        // Filter the nodes
+        const ignoreNode =
+            currentPlatform === PLATFORMS.ANDROID
+                ? ignoreInvalidViewsAndroid(node)
+                : ignoreInvalidViewsIOS(node);
+
+        if (ignoreNode) {
+            return;
+        }
+    }
+
+    // Iterate from layout or children if the node is root level
+    const children = isRoot ? [{ ...node?.layout }] : node?.children;
+
+    let filteredChildren = [];
+
+    // Iterate through children to check invalid nodes
+    children?.forEach((child) => {
+        const res = filterHierarchy(child, currentPlatform, isRoot);
+
+        if (res) filteredChildren.push(child);
+    });
+
+    // Check if the siblings of the node is overlapping
+    if (filteredChildren.length > 1) {
+        filteredChildren =
+            currentPlatform === PLATFORMS.ANDROID
+                ? ignoreOverlappingNodesAndroid(filteredChildren)
+                : ignoreOverlappingNodesIOS(filteredChildren);
+    } else if (
+        filteredChildren.length === 0 &&
+        currentPlatform === PLATFORMS.ANDROID &&
+        node?.is_view_group &&
+        !node?.is_clickable &&
+        !node?.is_focusable &&
+        !node?.is_long_clickable
+    ) {
+        return;
+    }
+
+    // Update the new object
+    isRoot
+        ? (node.layout = filteredChildren[0])
+        : (node.children = filteredChildren);
+
+    //  Return the filtered node
+    return node;
+}
+
+function calculateClickableBoundsForAndroid(node) {
+    const isClickable = node?.is_clickable || node?.is_long_clickable;
+    let clickableBoundsChildren = null;
+
+    node?.children?.forEach((child) => {
+        calculateClickableBoundsForAndroid(child);
+
+        !isClickable &&
+        (clickableBoundsChildren = calcInclusiveBounds(
+            clickableBoundsChildren,
+            child.clickable_bounds
+        ));
+    });
+
+    if (isClickable) {
+        node.clickable_bounds = node?.bounds;
+        return;
+    }
+
+    if (!clickableBoundsChildren) {
+        node.clickable_bounds = null;
+        return;
+    }
+
+    node.clickable_bounds = clickableBoundsChildren;
+
+    if (getBoundingArea(node?.clickable_bounds) === 0) {
+        if (node?.alpha < features?.filterByOpaqueViews?.opacityLimit) {
+            node.clickable_bounds = null;
+            return;
+        }
+        node.clickable_bounds = node?.bounds;
+    } else if (
+        !isClickable &&
+        node?.alpha > features?.filterByOpaqueViews?.opacityLimit
+    ) {
+        node.clickable_bounds = node?.bounds;
+    }
+
+    node.clickable_bounds = calcExclusiveBounds(
+        node?.clickable_bounds,
+        node?.bounds
+    );
+    return;
+}
+
+function calculateClickableBoundsForIos(node) {
+    let clickableBoundsChildren = null;
+
+    if (!["RCTView", "RCTSafeAreaView"].includes(node?.class)) {
+        node.clickable_bounds = { ...node?.bounds };
+
+        node?.children?.forEach((child) => {
+            calculateClickableBoundsForIos(child);
+        });
+
+        return node.clickable_bounds;
+    }
+
+    node?.children?.forEach((child) => {
+        calculateClickableBoundsForIos(child);
+
+        clickableBoundsChildren = calcInclusiveBounds(
+            clickableBoundsChildren,
+            child.clickable_bounds
+        );
+    });
+
+    if (!clickableBoundsChildren) {
+        node.clickable_bounds = null;
+        return;
+    }
+
+    node.clickable_bounds = calcExclusiveBounds(
+        clickableBoundsChildren,
+        node?.bounds
+    );
+    return;
+}
+
+function calcInclusiveBounds(bounds1, bounds2) {
+    if (!bounds1 && !bounds2) {
+        return null;
+    } else if (!bounds1) {
+        return bounds2;
+    } else if (!bounds2) {
+        return bounds1;
+    }
+    return {
+        left: Math.min(bounds1.left, bounds2.left),
+        top: Math.min(bounds1.top, bounds2.top),
+        right: Math.max(bounds1.right, bounds2.right),
+        bottom: Math.max(bounds1.bottom, bounds2.bottom),
+    };
+}
+
+function calcExclusiveBounds(bounds1, bounds2) {
+    if (!bounds1 && !bounds2) {
+        return null;
+    } else if (!bounds1) {
+        return bounds2;
+    } else if (!bounds2) {
+        return bounds1;
+    }
+    return {
+        left: Math.max(bounds1.left, bounds2.left),
+        top: Math.max(bounds1.top, bounds2.top),
+        right: Math.min(bounds1.right, bounds2.right),
+        bottom: Math.min(bounds1.bottom, bounds2.bottom),
+    };
+}
+
+function removeIrrelevantNodesIOS(node, parentBounds) {
+    if (isIrrelevantView(node, parentBounds)) return true;
+
+    if (node?.children) {
+        node.children = node?.children.filter(
+            (child) =>
+                !removeIrrelevantNodesIOS(
+                    child,
+                    node?.clipsToBounds ? node?.bounds : null
+                )
+        );
+    }
+
+    if (
+        node?.children?.length === 0 &&
+        ["RCTView", "RCTSafeAreaView"].includes(node?.class)
+    ) {
+        return true;
+    }
+
+    return false;
+}
+
+function isIrrelevantView(node, parentBounds) {
+    if (ignoreInvalidViewsIOS(node)) {
+        return true;
+    }
+    if (
+        parentBounds &&
+        (node?.bounds?.left >= parentBounds.right ||
+            node?.bounds?.right <= parentBounds.left ||
+            node?.bounds?.top >= parentBounds.bottom ||
+            node?.bounds?.bottom <= parentBounds.top)
+    ) {
+        return true;
+    }
+    if (!isVisibleInWindow(node)) {
+        return true;
+    }
+    return false;
+}
+
+function isVisibleInWindow(node) {
+    return (
+        node?.bounds?.right > 0 &&
+        node?.bounds?.left < screenWidth &&
+        node?.bounds?.bottom > 0 &&
+        node?.bounds?.top < screenHeight
+    );
+}
+
+function filterNoHideDescendants(node) {
+    if (
+        isDrawerLayout(node) ||
+        features?.filterByNoHideDescendants?.classNames?.includes(node?.class)
+    ) {
+        node.children = node?.children?.filter(
+            (child) => child.importantForAccessibilityStr !== "noHideDescendants"
+        );
+    }
+}
+
+function isDrawerLayout(node) {
+    const ANDROIDX_DRAWER_LAYOUT = "androidx.drawerlayout.widget.DrawerLayout";
+    const ANDROID_SUPPORT_DRAWER_LAYOUT =
+        "android.support.v4.widget.DrawerLayout";
+
+    return [ANDROIDX_DRAWER_LAYOUT, ANDROID_SUPPORT_DRAWER_LAYOUT].includes(
+        node?.class
+    );
+}
+
+function ignoreInvalidViewsIOS(node) {
+    // Ignore if the class contains Leap string in it
+    if (node?.class?.includes("Leap")) return true;
+
+    if (features?.classes?.includes(node?.class)) return true;
+
+    // Ignore if the node size is invalid
+    if (!!node?.clip_to_bounds && checkForEmptyBounds(node?.bounds)) return true;
+
+    // Ignore if the node is not visible
+    if (node?.hidden || node?.alpha <= 0) return true;
+
+    return false;
+}
+
+function ignoreInvalidViewsAndroid(node) {
+    // Ignore if node is not in the horizontal view
+    if (node?.bounds?.right <= 5 || node?.bounds?.left >= screenWidth)
+        return true;
+
+    // Ignore if the visibility is not 0
+    if (node?.visibility !== 0) return true;
+
+    // Ignore node if contains LeapView or is.leap.android.aui in it's class
+    if (
+        node?.tag?.includes("LeapView") ||
+        node?.class?.startsWith("is.leap.android.aui")
+    )
+        return true;
+
+    // Ignore if node is not in the vertical view
+    //  if (node?.bounds?.top > screenHeight) return true;
+
+    // Check if the node as clickable area
+    if (getWidth(node?.bounds) <= 0 || getHeight(node?.bounds) <= 0) return true;
+
+    if (
+        node?.clickable_bounds &&
+        (node?.clickable_bounds.bottom < node?.clickable_bounds.top ||
+            node?.clickable_bounds.right < node?.clickable_bounds.left)
+    )
+        return true;
+
+    // Ignore if the the node is not clickable and does not contain any children
+    if (
+        (node?.children === undefined || node?.children.length === 0) &&
+        node?.is_view_group &&
+        !node?.is_clickable &&
+        !node?.is_focusable &&
+        !node?.is_long_clickable
+    )
+        return true;
+
+    return false;
+}
+
+// This function takes an array of nodes and returns a filtered array containing nodes
+// that don't overlap with each other.
+function ignoreOverlappingNodesIOS(nodes) {
+    // Sort the nodes by zIndex in descending order
+    const sortedNodes = nodes.sort(
+        (a, b) => parseFloat(b.z) - parseFloat(a.z) || b.node_index - a.node_index
+    );
+
+    const filteredNodes = [sortedNodes[0]];
+
+    // Iterate over the objects
+    for (let i = 0; i < sortedNodes.length; i++) {
+        const currentObject = sortedNodes[i];
+        const currentBounds = features?.useClickableBounds
+            ? currentObject.clickable_bounds
+            : currentObject.bounds;
+
+        // Check if the current object is already present in the filteredNodes array
+        const isCurrentObjPresent = filteredNodes.findIndex(
+            (s) => s.uuid === currentObject.uuid
+        );
+
+        // If the current object is not the first object and it's not present in the filteredNodes array, continue to the next iteration
+        if (i !== 0 && isCurrentObjPresent === -1) continue;
+
+        // Iterate over the remaining objects and check if they are inside the current bounds
+        for (let j = i + 1; j < sortedNodes.length; j++) {
+            const nextObject = sortedNodes[j];
+            const nextBounds = features?.useClickableBounds
+                ? nextObject.clickable_bounds
+                : nextObject.bounds;
+
+            // Check if the next object is already present in the filteredNodes array
+            const index = filteredNodes.findIndex((s) => s.uuid === nextObject.uuid);
+
+            // If the current object is not the first object and the next object is not present in the filteredNodes array, continue to the next iteration
+            if (i !== 0 && index === -1) continue;
+
+            // If the next object is not inside the current bounds, then add to array else remove from the array
+            if (!isInsideBounds(currentBounds, nextBounds)) {
+                // If the current object is the first object, add the next object to the filteredNodes array
+                if (i === 0) {
+                    filteredNodes.push(nextObject);
                 }
-                if (!clickableBoundsChildren) {
-                    node.clickable_bounds = null;
-                    return;
-                }
-                node.clickable_bounds = clickableBoundsChildren;
-                if (getBoundingArea(node === null || node === void 0 ? void 0 : node.clickable_bounds) === 0) {
-                    if ((node === null || node === void 0 ? void 0 : node.alpha) < ((_b = features === null || features === void 0 ? void 0 : features.filterByOpaqueViews) === null || _b === void 0 ? void 0 : _b.opacityLimit)) {
-                        node.clickable_bounds = null;
-                        return;
-                    }
-                    node.clickable_bounds = node === null || node === void 0 ? void 0 : node.bounds;
-                }
-                else if (!isClickable &&
-                    (node === null || node === void 0 ? void 0 : node.alpha) > ((_c = features === null || features === void 0 ? void 0 : features.filterByOpaqueViews) === null || _c === void 0 ? void 0 : _c.opacityLimit)) {
-                    node.clickable_bounds = node === null || node === void 0 ? void 0 : node.bounds;
-                }
-                node.clickable_bounds = calcExclusiveBounds(node === null || node === void 0 ? void 0 : node.clickable_bounds, node === null || node === void 0 ? void 0 : node.bounds);
-                return;
+
+                continue;
+            } else if (i !== 0) {
+                // If the current object is not the first object and the next object is inside the current bounds, remove the next object from the filteredNodes array
+                filteredNodes.splice(index, 1);
             }
-            function calculateClickableBoundsForIos(node) {
-                var _a, _b;
-                var clickableBoundsChildren = null;
-                if (!["RCTView", "RCTSafeAreaView"].includes(node === null || node === void 0 ? void 0 : node.class)) {
-                    node.clickable_bounds = __assign({}, node === null || node === void 0 ? void 0 : node.bounds);
-                    (_a = node === null || node === void 0 ? void 0 : node.children) === null || _a === void 0 ? void 0 : _a.forEach(function (child) {
-                        calculateClickableBoundsForIos(child);
-                    });
-                    return node.clickable_bounds;
-                }
-                (_b = node === null || node === void 0 ? void 0 : node.children) === null || _b === void 0 ? void 0 : _b.forEach(function (child) {
-                    calculateClickableBoundsForIos(child);
-                    clickableBoundsChildren = calcInclusiveBounds(clickableBoundsChildren, child.clickable_bounds);
-                });
-                if (!clickableBoundsChildren) {
-                    node.clickable_bounds = null;
-                    return;
-                }
-                node.clickable_bounds = calcExclusiveBounds(clickableBoundsChildren, node === null || node === void 0 ? void 0 : node.bounds);
-                return;
+        }
+    }
+
+    return filteredNodes.reverse();
+}
+
+function ignoreOverlappingNodesAndroid(children) {
+    if (!children || children.length === 0) {
+        return;
+    }
+
+    children.sort(function (a, b) {
+        return parseFloat(a.z) - parseFloat(b.z);
+    });
+
+    const newChildren = JSON.parse(JSON.stringify(children));
+
+    for (
+        let topSiblingIndex = children.length - 1;
+        topSiblingIndex > 0;
+        topSiblingIndex--
+    ) {
+        const topSibling = children[topSiblingIndex];
+        if (!topSibling) continue;
+
+        for (let childIndex = topSiblingIndex - 1; childIndex >= 0; childIndex--) {
+            const sibling = children[childIndex];
+            if (!sibling) continue;
+
+            if (topSibling?.clickable_bounds === null) {
+                if (!isInsideBounds(topSibling.bounds, sibling.bounds)) continue;
+                if (
+                    topSibling?.is_text_view ||
+                    topSibling?.is_text_view ||
+                    topSibling.has_child_with_text_or_image
+                )
+                    continue;
+                newChildren[topSiblingIndex] = null;
+                break;
             }
-            function calcInclusiveBounds(bounds1, bounds2) {
-                if (!bounds1 && !bounds2) {
-                    return null;
-                }
-                else if (!bounds1) {
-                    return bounds2;
-                }
-                else if (!bounds2) {
-                    return bounds1;
-                }
-                return {
-                    left: Math.min(bounds1.left, bounds2.left),
-                    top: Math.min(bounds1.top, bounds2.top),
-                    right: Math.max(bounds1.right, bounds2.right),
-                    bottom: Math.max(bounds1.bottom, bounds2.bottom),
-                };
+
+            if (
+                isInsideBounds(topSibling?.clickable_bounds, sibling.bounds) ||
+                (sibling.clickable_bounds !== null &&
+                    isInsideBounds(
+                        topSibling?.clickable_bounds,
+                        sibling.clickable_bounds
+                    ))
+            ) {
+                newChildren[childIndex] = null;
             }
-            function calcExclusiveBounds(bounds1, bounds2) {
-                if (!bounds1 && !bounds2) {
-                    return null;
-                }
-                else if (!bounds1) {
-                    return bounds2;
-                }
-                else if (!bounds2) {
-                    return bounds1;
-                }
-                return {
-                    left: Math.max(bounds1.left, bounds2.left),
-                    top: Math.max(bounds1.top, bounds2.top),
-                    right: Math.min(bounds1.right, bounds2.right),
-                    bottom: Math.min(bounds1.bottom, bounds2.bottom),
-                };
+        }
+    }
+
+    return newChildren.filter((node) => node);
+}
+
+
+// js filename- finder.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+// Utility function to standardize key names in idParams
+// This function renames certain keys and removes the original ones
+
+function getCorrectKey(key) {
+    const reverseMappings = {
+        id: "r_id",
+        class: "classname",
+    };
+
+    if (key in reverseMappings) {
+        return reverseMappings[key];
+    }
+    return key;
+}
+
+function standardizeIdParams(params) {
+    const mappings = {
+        R_ID: "id",
+        AR_ID: "ar_id",
+        className: "class",
+        CONTENT_DESC: "content_desc",
+        ACC_ID: "acc_id",
+        TAG: "tag",
+        ACC_LABEL: "acc_label",
+    };
+
+    const standardized = {...params};
+
+    for (const [oldKey, newKey] of Object.entries(mappings)) {
+        if (standardized[oldKey]) {
+            standardized[newKey] = standardized[oldKey];
+            delete standardized[oldKey];
+        }
+    }
+
+    return standardized;
+}
+
+// Function to process and return the target details
+function getTargetValuesToMatch(target, relationToTarget) {
+    if (!relationToTarget) return {};
+
+    // Standardize the target's parameters
+    const targetIdParams = standardizeIdParams({...target?.idParams});
+
+    // Fix potential misnamed property
+    if (targetIdParams.text?.ang) {
+        targetIdParams.text = targetIdParams.text.ang;
+    }
+
+    // Return a detailed object with the relationship to the target
+    return {
+        ...targetIdParams,
+        relationship: relationToTarget,
+    };
+}
+
+// Main function to convert identifiers to an array with transformed keys
+function getIdentifiersInArray(identifiers) {
+    const arrayResult = []; // Initialize an empty result array
+
+    // Loop through each entry in the identifiers object
+    for (const [name, value] of Object.entries(identifiers)) {
+        const idParams =
+            name === "wfxWebViewList"
+                ? standardizeIdParams({...value})
+                : standardizeIdParams({...value.idParams});
+
+        const regex =
+            name !== "wfxWebViewList" && standardizeIdParams({...value?.regex});
+
+        if (regex !== undefined) {
+            // Handle potential misnamed property in idParams
+            if (regex?.text?.ang) {
+                regex.text = regex.text.ang;
             }
-            function removeIrrelevantNodesIOS(node, parentBounds) {
-                var _a;
-                if (isIrrelevantView(node, parentBounds))
-                    return true;
-                if (node === null || node === void 0 ? void 0 : node.children) {
-                    node.children = node === null || node === void 0 ? void 0 : node.children.filter(function (child) {
-                        return !removeIrrelevantNodesIOS(child, (node === null || node === void 0 ? void 0 : node.clipsToBounds) ? node === null || node === void 0 ? void 0 : node.bounds : null);
-                    });
-                }
-                if (((_a = node === null || node === void 0 ? void 0 : node.children) === null || _a === void 0 ? void 0 : _a.length) === 0 &&
-                    ["RCTView", "RCTSafeAreaView"].includes(node === null || node === void 0 ? void 0 : node.class)) {
-                    return true;
-                }
-                return false;
-            }
-            function isIrrelevantView(node, parentBounds) {
-                var _a, _b, _c, _d;
-                if (ignoreInvalidViewsIOS(node)) {
-                    return true;
-                }
-                if (parentBounds &&
-                    (((_a = node === null || node === void 0 ? void 0 : node.bounds) === null || _a === void 0 ? void 0 : _a.left) >= parentBounds.right ||
-                        ((_b = node === null || node === void 0 ? void 0 : node.bounds) === null || _b === void 0 ? void 0 : _b.right) <= parentBounds.left ||
-                        ((_c = node === null || node === void 0 ? void 0 : node.bounds) === null || _c === void 0 ? void 0 : _c.top) >= parentBounds.bottom ||
-                        ((_d = node === null || node === void 0 ? void 0 : node.bounds) === null || _d === void 0 ? void 0 : _d.bottom) <= parentBounds.top)) {
-                    return true;
-                }
-                if (!isVisibleInWindow(node)) {
-                    return true;
-                }
-                return false;
-            }
-            function isVisibleInWindow(node) {
-                var _a, _b, _c, _d;
-                return (((_a = node === null || node === void 0 ? void 0 : node.bounds) === null || _a === void 0 ? void 0 : _a.right) > 0 &&
-                    ((_b = node === null || node === void 0 ? void 0 : node.bounds) === null || _b === void 0 ? void 0 : _b.left) < screenWidth &&
-                    ((_c = node === null || node === void 0 ? void 0 : node.bounds) === null || _c === void 0 ? void 0 : _c.bottom) > 0 &&
-                    ((_d = node === null || node === void 0 ? void 0 : node.bounds) === null || _d === void 0 ? void 0 : _d.top) < screenHeight);
-            }
-            function filterNoHideDescendants(node) {
-                var _a, _b, _c;
-                if (isDrawerLayout(node) ||
-                    ((_b = (_a = features === null || features === void 0 ? void 0 : features.filterByNoHideDescendants) === null || _a === void 0 ? void 0 : _a.classNames) === null || _b === void 0 ? void 0 : _b.includes(node === null || node === void 0 ? void 0 : node.class))) {
-                    node.children = (_c = node === null || node === void 0 ? void 0 : node.children) === null || _c === void 0 ? void 0 : _c.filter(function (child) { return child.importantForAccessibilityStr !== "noHideDescendants"; });
-                }
-            }
-            function isDrawerLayout(node) {
-                var ANDROIDX_DRAWER_LAYOUT = "androidx.drawerlayout.widget.DrawerLayout";
-                var ANDROID_SUPPORT_DRAWER_LAYOUT = "android.support.v4.widget.DrawerLayout";
-                return [ANDROIDX_DRAWER_LAYOUT, ANDROID_SUPPORT_DRAWER_LAYOUT].includes(node === null || node === void 0 ? void 0 : node.class);
-            }
-            function ignoreInvalidViewsIOS(node) {
-                var _a, _b;
-                if ((_a = node === null || node === void 0 ? void 0 : node.class) === null || _a === void 0 ? void 0 : _a.includes("Leap"))
-                    return true;
-                if ((_b = features === null || features === void 0 ? void 0 : features.classes) === null || _b === void 0 ? void 0 : _b.includes(node === null || node === void 0 ? void 0 : node.class))
-                    return true;
-                if (!!(node === null || node === void 0 ? void 0 : node.clip_to_bounds) && checkForEmptyBounds(node === null || node === void 0 ? void 0 : node.bounds))
-                    return true;
-                if ((node === null || node === void 0 ? void 0 : node.hidden) || (node === null || node === void 0 ? void 0 : node.alpha) <= 0)
-                    return true;
-                return false;
-            }
-            function ignoreInvalidViewsAndroid(node) {
-                var _a, _b, _c, _d;
-                if (((_a = node === null || node === void 0 ? void 0 : node.bounds) === null || _a === void 0 ? void 0 : _a.right) <= 5 || ((_b = node === null || node === void 0 ? void 0 : node.bounds) === null || _b === void 0 ? void 0 : _b.left) >= screenWidth)
-                    return true;
-                if ((node === null || node === void 0 ? void 0 : node.visibility) !== 0)
-                    return true;
-                if (((_c = node === null || node === void 0 ? void 0 : node.tag) === null || _c === void 0 ? void 0 : _c.includes("LeapView")) ||
-                    ((_d = node === null || node === void 0 ? void 0 : node.class) === null || _d === void 0 ? void 0 : _d.startsWith("is.leap.android.aui")))
-                    return true;
-                if (getWidth(node === null || node === void 0 ? void 0 : node.bounds) <= 0 || getHeight(node === null || node === void 0 ? void 0 : node.bounds) <= 0)
-                    return true;
-                if ((node === null || node === void 0 ? void 0 : node.clickable_bounds) &&
-                    ((node === null || node === void 0 ? void 0 : node.clickable_bounds.bottom) < (node === null || node === void 0 ? void 0 : node.clickable_bounds.top) ||
-                        (node === null || node === void 0 ? void 0 : node.clickable_bounds.right) < (node === null || node === void 0 ? void 0 : node.clickable_bounds.left)))
-                    return true;
-                if (((node === null || node === void 0 ? void 0 : node.children) === undefined || (node === null || node === void 0 ? void 0 : node.children.length) === 0) &&
-                    (node === null || node === void 0 ? void 0 : node.is_view_group) &&
-                    !(node === null || node === void 0 ? void 0 : node.is_clickable) &&
-                    !(node === null || node === void 0 ? void 0 : node.is_focusable) &&
-                    !(node === null || node === void 0 ? void 0 : node.is_long_clickable))
-                    return true;
-                return false;
-            }
-            function ignoreOverlappingNodesIOS(nodes) {
-                var sortedNodes = nodes.sort(function (a, b) { return parseFloat(b.z) - parseFloat(a.z) || b.node_index - a.node_index; });
-                var filteredNodes = [sortedNodes[0]];
-                var _loop_1 = function (i) {
-                    var currentObject = sortedNodes[i];
-                    var currentBounds = (features === null || features === void 0 ? void 0 : features.useClickableBounds)
-                        ? currentObject.clickable_bounds
-                        : currentObject.bounds;
-                    var isCurrentObjPresent = filteredNodes.findIndex(function (s) { return s.uuid === currentObject.uuid; });
-                    if (i !== 0 && isCurrentObjPresent === -1)
-                        return "continue";
-                    var _loop_2 = function (j) {
-                        var nextObject = sortedNodes[j];
-                        var nextBounds = (features === null || features === void 0 ? void 0 : features.useClickableBounds)
-                            ? nextObject.clickable_bounds
-                            : nextObject.bounds;
-                        var index = filteredNodes.findIndex(function (s) { return s.uuid === nextObject.uuid; });
-                        if (i !== 0 && index === -1)
-                            return "continue";
-                        if (!isInsideBounds(currentBounds, nextBounds)) {
-                            if (i === 0) {
-                                filteredNodes.push(nextObject);
-                            }
-                            return "continue";
-                        }
-                        else if (i !== 0) {
-                            filteredNodes.splice(index, 1);
-                        }
-                    };
-                    for (var j = i + 1; j < sortedNodes.length; j++) {
-                        _loop_2(j);
-                    }
-                };
-                for (var i = 0; i < sortedNodes.length; i++) {
-                    _loop_1(i);
-                }
-                return filteredNodes.reverse();
-            }
-            function ignoreOverlappingNodesAndroid(children) {
-                if (!children || children.length === 0) {
-                    return;
-                }
-                children.sort(function (a, b) {
-                    return parseFloat(a.z) - parseFloat(b.z);
-                });
-                var newChildren = JSON.parse(JSON.stringify(children));
-                for (var topSiblingIndex = children.length - 1; topSiblingIndex > 0; topSiblingIndex--) {
-                    var topSibling = children[topSiblingIndex];
-                    if (!topSibling)
-                        continue;
-                    for (var childIndex = topSiblingIndex - 1; childIndex >= 0; childIndex--) {
-                        var sibling = children[childIndex];
-                        if (!sibling)
-                            continue;
-                        if ((topSibling === null || topSibling === void 0 ? void 0 : topSibling.clickable_bounds) === null) {
-                            if (!isInsideBounds(topSibling.bounds, sibling.bounds))
-                                continue;
-                            if ((topSibling === null || topSibling === void 0 ? void 0 : topSibling.is_text_view) ||
-                                (topSibling === null || topSibling === void 0 ? void 0 : topSibling.is_text_view) ||
-                                topSibling.has_child_with_text_or_image)
-                                continue;
-                            newChildren[topSiblingIndex] = null;
-                            break;
-                        }
-                        if (isInsideBounds(topSibling === null || topSibling === void 0 ? void 0 : topSibling.clickable_bounds, sibling.bounds) ||
-                            (sibling.clickable_bounds !== null &&
-                                isInsideBounds(topSibling === null || topSibling === void 0 ? void 0 : topSibling.clickable_bounds, sibling.clickable_bounds))) {
-                            newChildren[childIndex] = null;
-                        }
-                    }
-                }
-                return newChildren.filter(function (node) { return node; });
-            }
-            function getCorrectKey(key) {
-                var reverseMappings = {
-                    id: "r_id",
-                    class: "classname",
-                };
-                if (key in reverseMappings) {
-                    return reverseMappings[key];
-                }
-                return key;
-            }
-            function standardizeIdParams(params) {
-                var e_4, _a;
-                var mappings = {
-                    R_ID: "id",
-                    AR_ID: "ar_id",
-                    className: "class",
-                    CONTENT_DESC: "content_desc",
-                    ACC_ID: "acc_id",
-                    TAG: "tag",
-                    ACC_LABEL: "acc_label",
-                };
-                var standardized = __assign({}, params);
-                try {
-                    for (var _b = __values(Object.entries(mappings)), _c = _b.next(); !_c.done; _c = _b.next()) {
-                        var _d = __read(_c.value, 2), oldKey = _d[0], newKey = _d[1];
-                        if (standardized[oldKey]) {
-                            standardized[newKey] = standardized[oldKey];
-                            delete standardized[oldKey];
-                        }
-                    }
-                }
-                catch (e_4_1) { e_4 = { error: e_4_1 }; }
-                finally {
-                    try {
-                        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                    }
-                    finally { if (e_4) throw e_4.error; }
-                }
-                return standardized;
-            }
-            function getTargetValuesToMatch(target, relationToTarget) {
-                var _a;
-                if (!relationToTarget)
-                    return {};
-                var targetIdParams = standardizeIdParams(__assign({}, target === null || target === void 0 ? void 0 : target.idParams));
-                if ((_a = targetIdParams.text) === null || _a === void 0 ? void 0 : _a.ang) {
-                    targetIdParams.text = targetIdParams.text.ang;
-                }
-                return __assign(__assign({}, targetIdParams), { relationship: relationToTarget });
-            }
-            function getIdentifiersInArray(identifiers) {
-                var e_5, _a;
-                var _b, _c, _d, _e, _f;
-                var arrayResult = [];
-                try {
-                    for (var _g = __values(Object.entries(identifiers)), _h = _g.next(); !_h.done; _h = _g.next()) {
-                        var _j = __read(_h.value, 2), name_1 = _j[0], value = _j[1];
-                        var idParams = name_1 === "wfxWebViewList"
-                            ? standardizeIdParams(__assign({}, value))
-                            : standardizeIdParams(__assign({}, value.idParams));
-                        var regex = name_1 !== "wfxWebViewList" && standardizeIdParams(__assign({}, value === null || value === void 0 ? void 0 : value.regex));
-                        if (regex !== undefined) {
-                            if ((_b = regex === null || regex === void 0 ? void 0 : regex.text) === null || _b === void 0 ? void 0 : _b.ang) {
-                                regex.text = regex.text.ang;
-                            }
-                        }
-                        if ((_c = idParams.text) === null || _c === void 0 ? void 0 : _c.ang) {
-                            idParams.text = idParams.text.ang;
-                        }
-                        if (value.activityName) {
-                            idParams.activityName = value.activityName;
-                        }
-                        if (value.controller) {
-                            idParams.controller = value.controller;
-                        }
-                        var targetValuesToMatch = getTargetValuesToMatch(value.target, value.relationToTarget);
-                        if (Object.keys(targetValuesToMatch).length !== 0 && ((_d = value === null || value === void 0 ? void 0 : value.target) === null || _d === void 0 ? void 0 : _d.regex)) {
-                            targetValuesToMatch.regex =
-                                name_1 !== "wfxWebViewList" &&
-                                standardizeIdParams(__assign({}, (_e = value === null || value === void 0 ? void 0 : value.target) === null || _e === void 0 ? void 0 : _e.regex));
-                            if (targetValuesToMatch.regex !== undefined) {
-                                if ((_f = targetValuesToMatch.regex.text) === null || _f === void 0 ? void 0 : _f.ang) {
-                                    targetValuesToMatch.regex.text = targetValuesToMatch.regex.text.ang;
-                                }
-                            }
-                        }
-                        arrayResult.push(__assign(__assign({ name: name_1, regex: regex }, idParams), { target: targetValuesToMatch }));
-                    }
-                }
-                catch (e_5_1) { e_5 = { error: e_5_1 }; }
-                finally {
-                    try {
-                        if (_h && !_h.done && (_a = _g.return)) _a.call(_g);
-                    }
-                    finally { if (e_5) throw e_5.error; }
-                }
-                return arrayResult;
-            }
-            function findMatchingNode(root, identifier, regex) {
-                var e_6, _a;
-                var isMatchingNode = function (node, identifier) {
-                    var e_7, _a;
-                    var _b, _c, _d, _e, _f;
-                    try {
-                        for (var _g = __values(Object.entries(identifier)), _h = _g.next(); !_h.done; _h = _g.next()) {
-                            var _j = __read(_h.value, 2), key = _j[0], value = _j[1];
-                            if (key === "name")
-                                continue;
-                            if (key === "ar_id") {
-                                var nodeId = (_b = node.id) === null || _b === void 0 ? void 0 : _b.split("android:id/").pop();
-                                if (regex === null || regex === void 0 ? void 0 : regex[key]) {
-                                    if (!((_c = parseRegexString(regex === null || regex === void 0 ? void 0 : regex[key])) === null || _c === void 0 ? void 0 : _c.test(nodeId)))
-                                        return false;
-                                }
-                                else {
-                                    if (nodeId !== value)
-                                        return false;
-                                }
-                            }
-                            else if (key === "id") {
-                                var nodeId = (_d = node[key]) === null || _d === void 0 ? void 0 : _d.split("".concat(root.ROOT_NODE.client_package_name, ":id/")).pop();
-                                if (regex === null || regex === void 0 ? void 0 : regex[key]) {
-                                    if (!((_e = parseRegexString(regex === null || regex === void 0 ? void 0 : regex[key])) === null || _e === void 0 ? void 0 : _e.test(nodeId)))
-                                        return false;
-                                }
-                                else {
-                                    if (nodeId !== value)
-                                        return false;
-                                }
-                            }
-                            else {
-                                if (regex === null || regex === void 0 ? void 0 : regex[key]) {
-                                    if (!((_f = parseRegexString(regex === null || regex === void 0 ? void 0 : regex[key])) === null || _f === void 0 ? void 0 : _f.test(node[key])))
-                                        return false;
-                                }
-                                else {
-                                    if (node[key] !== value)
-                                        return false;
-                                }
-                            }
-                        }
-                    }
-                    catch (e_7_1) { e_7 = { error: e_7_1 }; }
-                    finally {
-                        try {
-                            if (_h && !_h.done && (_a = _g.return)) _a.call(_g);
-                        }
-                        finally { if (e_7) throw e_7.error; }
-                    }
-                    return true;
-                };
-                try {
-                    for (var _b = __values(Object.keys(root)), _c = _b.next(); !_c.done; _c = _b.next()) {
-                        var id = _c.value;
-                        var node = root[id];
-                        if (isMatchingNode(node, identifier)) {
-                            return node;
-                        }
-                    }
-                }
-                catch (e_6_1) { e_6 = { error: e_6_1 }; }
-                finally {
-                    try {
-                        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                    }
-                    finally { if (e_6) throw e_6.error; }
-                }
-                return undefined;
-            }
-            function followRelationship(root, startNode, relationship) {
-                var e_8, _a;
-                var _b;
-                var currentNode = startNode;
-                var _loop_3 = function (step) {
-                    if (!currentNode) {
-                        return { value: null };
-                    }
-                    var direction = step.charAt(0);
-                    if (direction === "P") {
-                        currentNode = root[currentNode.parentId] || null;
-                        return "continue";
-                    }
-                    else if (direction === "C") {
-                        var index_1 = parseInt(step.slice(1), 10) || 0;
-                        if (typeof currentNode === "string") {
-                            currentNode = root[currentNode];
-                        }
-                        if (((_b = currentNode === null || currentNode === void 0 ? void 0 : currentNode.children) === null || _b === void 0 ? void 0 : _b.length) > 0) {
-                            currentNode = currentNode.children.find(function (s) { return root[s].node_index === index_1; });
-                            return "continue";
-                        }
-                        else {
-                            return { value: null };
-                        }
-                    }
-                };
-                try {
-                    for (var relationship_1 = __values(relationship), relationship_1_1 = relationship_1.next(); !relationship_1_1.done; relationship_1_1 = relationship_1.next()) {
-                        var step = relationship_1_1.value;
-                        var state_1 = _loop_3(step);
-                        if (typeof state_1 === "object")
-                            return state_1.value;
-                    }
-                }
-                catch (e_8_1) { e_8 = { error: e_8_1 }; }
-                finally {
-                    try {
-                        if (relationship_1_1 && !relationship_1_1.done && (_a = relationship_1.return)) _a.call(relationship_1);
-                    }
-                    finally { if (e_8) throw e_8.error; }
-                }
-                return typeof currentNode === "string" ? root[currentNode] : currentNode;
-            }
-            function findFirstWebView() {
-                return flattenedHierarchyArray.find(function (node) {
-                    var isWebView = node["is_webview"];
-                    if (isWebView && platform === "ANDROID") {
-                        return "com.google.android.gms.ads.internal.webview" !== node["class"];
-                    }
-                    return isWebView;
-                });
-            }
-            function findMatches(filteredHierarchy, identifiers, traceId) {
-                if (!identifiers) {
-                    return;
-                }
-                var matchedIdentifiers = [];
-                var unMatchedIdentifiers = [];
-                var matchedNode = [];
-                var identifiersArray = getIdentifiersInArray(identifiers);
-                var regex = {};
-                identifiersArray === null || identifiersArray === void 0 ? void 0 : identifiersArray.forEach(function (identifier) {
-                    var e_9, _a;
-                    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w;
-                    var name = identifier.name;
-                    var found = false;
-                    var ObserverData = {
-                        identifier_id: name,
-                    };
-                    regex = identifier.regex;
-                    delete identifier.regex;
-                    if (Object.keys(identifier === null || identifier === void 0 ? void 0 : identifier.target).length === 0) {
-                        delete identifier.target;
-                        var compareActivityName = (identifier === null || identifier === void 0 ? void 0 : identifier.activityName) &&
-                            (regex.activityName
-                                ? !((_b = parseRegexString(regex === null || regex === void 0 ? void 0 : regex.activityName)) === null || _b === void 0 ? void 0 : _b.test(filteredHierarchy === null || filteredHierarchy === void 0 ? void 0 : filteredHierarchy.activity_name))
-                                : !((_c = filteredHierarchy === null || filteredHierarchy === void 0 ? void 0 : filteredHierarchy.activity_name) === null || _c === void 0 ? void 0 : _c.includes(identifier === null || identifier === void 0 ? void 0 : identifier.activityName)));
-                        var compareController = (identifier === null || identifier === void 0 ? void 0 : identifier.controller) &&
-                            (regex.controller
-                                ? !((_d = parseRegexString(regex === null || regex === void 0 ? void 0 : regex.controller)) === null || _d === void 0 ? void 0 : _d.test(filteredHierarchy === null || filteredHierarchy === void 0 ? void 0 : filteredHierarchy.controller))
-                                : !((_e = filteredHierarchy === null || filteredHierarchy === void 0 ? void 0 : filteredHierarchy.controller) === null || _e === void 0 ? void 0 : _e.includes(identifier === null || identifier === void 0 ? void 0 : identifier.controller)));
-                        if (compareActivityName) {
-                            unMatchedIdentifiers.push(name);
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
-                                properties: __assign(__assign({}, ObserverData), { activity_name: "false" }),
-                                className: "finder.js",
-                                methodName: "findMatches",
-                            }, traceId);
-                        }
-                        else if (compareController) {
-                            unMatchedIdentifiers.push(name);
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
-                                properties: __assign(__assign({}, ObserverData), { controller: "false" }),
-                                className: "finder.js",
-                                methodName: "findMatches",
-                            }, traceId);
-                        }
-                        else {
-                            if (identifier.activityName) {
-                                ObserverData.activity_name = "true";
-                            }
-                            else {
-                                ObserverData.controller = "true";
-                            }
-                            delete identifier.activityName;
-                            delete identifier.controller;
-                            try {
-                                for (var flattenedHierarchyArray_1 = __values(flattenedHierarchyArray), flattenedHierarchyArray_1_1 = flattenedHierarchyArray_1.next(); !flattenedHierarchyArray_1_1.done; flattenedHierarchyArray_1_1 = flattenedHierarchyArray_1.next()) {
-                                    var node = flattenedHierarchyArray_1_1.value;
-                                    var isMatch = true;
-                                    for (var key in identifier) {
-                                        if ((regex === null || regex === void 0 ? void 0 : regex[key]) !== undefined) {
-                                            var regexValue = parseRegexString(regex === null || regex === void 0 ? void 0 : regex[key]);
-                                            if (key !== "name" &&
-                                                key !== "id" &&
-                                                key !== "ar_id" &&
-                                                !regexValue.test(node[key])) {
-                                                ObserverData[getCorrectKey(key)] = "false";
-                                                isMatch = false;
-                                                break;
-                                            }
-                                            else if (key === "ar_id" &&
-                                                !regexValue.test((_f = node.id) === null || _f === void 0 ? void 0 : _f.split("android:id/").pop())) {
-                                                ObserverData.ar_id = "false";
-                                                isMatch = false;
-                                                break;
-                                            }
-                                            else if (key === "id" &&
-                                                !regexValue.test((_g = node[key]) === null || _g === void 0 ? void 0 : _g.split("".concat(filteredHierarchy.client_package_name, ":id/")).pop())) {
-                                                ObserverData.r_id = "false";
-                                                isMatch = false;
-                                                break;
-                                            }
-                                            else {
-                                                ObserverData[getCorrectKey(key)] = "true";
-                                            }
-                                        }
-                                        else {
-                                            if (key !== "name" &&
-                                                key !== "id" &&
-                                                key !== "ar_id" &&
-                                                node[key] !== identifier[key]) {
-                                                ObserverData[getCorrectKey(key)] = "false";
-                                                isMatch = false;
-                                                break;
-                                            }
-                                            else if (key === "ar_id" &&
-                                                ((_h = node.id) === null || _h === void 0 ? void 0 : _h.split("android:id/").pop()) !== identifier[key]) {
-                                                ObserverData.ar_id = "false";
-                                                isMatch = false;
-                                                break;
-                                            }
-                                            else if (key === "id" &&
-                                                ((_j = node[key]) === null || _j === void 0 ? void 0 : _j.split("".concat(filteredHierarchy.client_package_name, ":id/")).pop()) !== identifier[key]) {
-                                                ObserverData.r_id = "false";
-                                                isMatch = false;
-                                                break;
-                                            }
-                                            else {
-                                                ObserverData[getCorrectKey(key)] = "true";
-                                            }
-                                        }
-                                    }
-                                    if (isMatch) {
-                                        found = true;
-                                        var updatedNodeBounds = getRelativeBounds(node);
-                                        matchedNode.push({
-                                            id: name,
-                                            bounds: updatedNodeBounds,
-                                            scale: node.scale,
-                                            node: node,
-                                        });
-                                        break;
-                                    }
-                                }
-                            }
-                            catch (e_9_1) { e_9 = { error: e_9_1 }; }
-                            finally {
-                                try {
-                                    if (flattenedHierarchyArray_1_1 && !flattenedHierarchyArray_1_1.done && (_a = flattenedHierarchyArray_1.return)) _a.call(flattenedHierarchyArray_1);
-                                }
-                                finally { if (e_9) throw e_9.error; }
-                            }
-                            if (found) {
-                                sendObserverLogs({
-                                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_MATCHED,
-                                    properties: __assign({}, ObserverData),
-                                    className: "finder.js",
-                                    methodName: "findMatches",
-                                }, traceId);
-                                matchedIdentifiers.push(name);
-                            }
-                            else {
-                                sendObserverLogs({
-                                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
-                                    properties: __assign({}, ObserverData),
-                                    className: "finder.js",
-                                    methodName: "findMatches",
-                                }, traceId);
-                                unMatchedIdentifiers.push(name);
-                            }
-                            return;
-                        }
-                    }
-                    else {
-                        var target = identifier.target;
-                        delete identifier.target;
-                        var compareActivityName = (identifier === null || identifier === void 0 ? void 0 : identifier.activityName) &&
-                            (regex.activityName
-                                ? !((_k = parseRegexString(regex === null || regex === void 0 ? void 0 : regex.activityName)) === null || _k === void 0 ? void 0 : _k.test((_l = flattenedHierarchy.ROOT_NODE) === null || _l === void 0 ? void 0 : _l.activity_name))
-                                : !((_o = (_m = flattenedHierarchy.ROOT_NODE) === null || _m === void 0 ? void 0 : _m.activity_name) === null || _o === void 0 ? void 0 : _o.includes(identifier === null || identifier === void 0 ? void 0 : identifier.activityName)));
-                        var compareController = (identifier === null || identifier === void 0 ? void 0 : identifier.controller) &&
-                            (regex.controller
-                                ? !((_p = parseRegexString(regex === null || regex === void 0 ? void 0 : regex.controller)) === null || _p === void 0 ? void 0 : _p.test((_q = flattenedHierarchy.ROOT_NODE) === null || _q === void 0 ? void 0 : _q.controller))
-                                : !((_s = (_r = flattenedHierarchy.ROOT_NODE) === null || _r === void 0 ? void 0 : _r.controller) === null || _s === void 0 ? void 0 : _s.includes(identifier === null || identifier === void 0 ? void 0 : identifier.controller)));
-                        if (compareActivityName) {
-                            unMatchedIdentifiers.push(name);
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
-                                properties: __assign(__assign({}, ObserverData), { activity_name: "false" }),
-                                className: "finder.js",
-                                methodName: "findMatches",
-                            }, traceId);
-                        }
-                        else if (compareController) {
-                            unMatchedIdentifiers.push(name);
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
-                                properties: __assign(__assign({}, ObserverData), { controller: "false" }),
-                                className: "finder.js",
-                                methodName: "findMatches",
-                            }, traceId);
-                        }
-                        else {
-                            if (identifier.activityName) {
-                                ObserverData.activity_name = "true";
-                            }
-                            else {
-                                ObserverData.controller = "true";
-                            }
-                            delete identifier.activityName;
-                            delete identifier.controller;
-                            var referenceNode = findMatchingNode(flattenedHierarchy, identifier, regex);
-                            if (!referenceNode)
-                                return unMatchedIdentifiers.push(name);
-                            var actualNode = followRelationship(flattenedHierarchy, referenceNode, target.relationship);
-                            if (!actualNode)
-                                return unMatchedIdentifiers.push(name);
-                            var targetRegex = target === null || target === void 0 ? void 0 : target.regex;
-                            target === null || target === void 0 ? true : delete target.relationship;
-                            target === null || target === void 0 ? true : delete target.regex;
-                            var isMatch = true;
-                            if (Object.keys(target).length > 1) {
-                                for (var key in target) {
-                                    if ((targetRegex === null || targetRegex === void 0 ? void 0 : targetRegex[key]) !== undefined) {
-                                        var regexValue = parseRegexString(targetRegex === null || targetRegex === void 0 ? void 0 : targetRegex[key]);
-                                        if (key !== "id" &&
-                                            key !== "ar_id" &&
-                                            !regexValue.test(actualNode === null || actualNode === void 0 ? void 0 : actualNode[key])) {
-                                            ObserverData[getCorrectKey(key)] = "false";
-                                            isMatch = false;
-                                            break;
-                                        }
-                                        else if (key === "ar_id" &&
-                                            !regexValue.test((_t = actualNode.id) === null || _t === void 0 ? void 0 : _t.split("android:id/").pop())) {
-                                            ObserverData.ar_id = "false";
-                                            isMatch = false;
-                                            break;
-                                        }
-                                        else if (key === "id" &&
-                                            !regexValue.test((_u = actualNode[key]) === null || _u === void 0 ? void 0 : _u.split("".concat(filteredHierarchy.client_package_name, ":id/")).pop())) {
-                                            ObserverData.r_id = "false";
-                                            isMatch = false;
-                                            break;
-                                        }
-                                        else {
-                                            ObserverData[getCorrectKey(key)] = "true";
-                                        }
-                                    }
-                                    else {
-                                        if (key !== "id" &&
-                                            key !== "ar_id" &&
-                                            (actualNode === null || actualNode === void 0 ? void 0 : actualNode[key]) !== (target === null || target === void 0 ? void 0 : target[key])) {
-                                            ObserverData[getCorrectKey(key)] = "false";
-                                            isMatch = false;
-                                            break;
-                                        }
-                                        else if (key === "ar_id" &&
-                                            ((_v = actualNode["id"]) === null || _v === void 0 ? void 0 : _v.split("android:id/").pop()) !== (target === null || target === void 0 ? void 0 : target[key])) {
-                                            ObserverData.ar_id = "false";
-                                            isMatch = false;
-                                            break;
-                                        }
-                                        else if (key === "id" &&
-                                            ((_w = actualNode[key]) === null || _w === void 0 ? void 0 : _w.split("".concat(filteredHierarchy.client_package_name, ":id/")).pop()) !== (target === null || target === void 0 ? void 0 : target[key])) {
-                                            ObserverData.r_id = "false";
-                                            isMatch = false;
-                                            break;
-                                        }
-                                        else {
-                                            ObserverData[getCorrectKey(key)] = "true";
-                                        }
-                                    }
-                                }
-                            }
-                            var updatedNodeBounds = getRelativeBounds(actualNode);
-                            if (isMatch) {
-                                matchedNode.push({
-                                    id: name,
-                                    bounds: updatedNodeBounds,
-                                    scale: actualNode === null || actualNode === void 0 ? void 0 : actualNode.scale,
-                                    node: actualNode,
-                                });
-                                sendObserverLogs({
-                                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_MATCHED,
-                                    properties: __assign({}, ObserverData),
-                                    className: "finder.js",
-                                    methodName: "findMatches",
-                                }, traceId);
-                                matchedIdentifiers.push(name);
-                            }
-                            else {
-                                sendObserverLogs({
-                                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
-                                    properties: __assign({}, ObserverData),
-                                    className: "finder.js",
-                                    methodName: "findMatches",
-                                }, traceId);
-                                unMatchedIdentifiers.push(name);
-                            }
-                        }
-                    }
-                });
-                return {
-                    matchedIdentifiers: matchedIdentifiers,
-                    unMatchedIdentifiers: unMatchedIdentifiers,
-                    matchedNode: matchedNode,
-                };
-            }
-            function getFlattenedHierarchy(_a) {
-                var _b, _c, _d, _e, _f, _g, _h, _j, _k;
-                var currentNode = _a.currentNode, parentId = _a.parentId, _l = _a.root, root = _l === void 0 ? true : _l, _m = _a.hierarchy, hierarchy = _m === void 0 ? {} : _m;
-                if (parentId === undefined)
-                    parentId = "NULL_PARENT_UUID";
-                var list = [];
-                if (currentNode === undefined)
-                    return list;
-                currentNode.parentId = parentId || "";
-                if (currentNode.normalised_bounds !== undefined && currentNode.bounds) {
-                    currentNode.bounds = currentNode.normalised_bounds;
-                }
-                hierarchy[currentNode.uuid || "ROOT_NODE"] = currentNode;
-                list.push(currentNode);
-                if (root &&
-                    ((_c = (_b = currentNode.layout) === null || _b === void 0 ? void 0 : _b.children) === null || _c === void 0 ? void 0 : _c.length) &&
-                    ((_e = (_d = currentNode.layout) === null || _d === void 0 ? void 0 : _d.children) === null || _e === void 0 ? void 0 : _e.length) > 0) {
-                    var layout = currentNode.layout;
-                    var childrenLength = ((_f = layout === null || layout === void 0 ? void 0 : layout.children) === null || _f === void 0 ? void 0 : _f.length) || 0;
-                    for (var i = 0; i < childrenLength; i++) {
-                        var res = getFlattenedHierarchy({
-                            currentNode: (_g = layout === null || layout === void 0 ? void 0 : layout.children) === null || _g === void 0 ? void 0 : _g[i],
-                            parentId: layout.uuid,
-                            root: false,
-                            hierarchy: hierarchy,
-                        });
-                        list.push.apply(list, __spreadArray([], __read(res), false));
-                    }
-                    currentNode.layout.children = layout.children.map(function (child) { return child.uuid; });
-                }
-                else if (((_h = currentNode.children) === null || _h === void 0 ? void 0 : _h.length) && ((_j = currentNode.children) === null || _j === void 0 ? void 0 : _j.length) > 0) {
-                    (_k = currentNode === null || currentNode === void 0 ? void 0 : currentNode.children) === null || _k === void 0 ? void 0 : _k.forEach(function (n) {
-                        var res = getFlattenedHierarchy({
-                            currentNode: __assign(__assign({}, n), { boundingArea: getBoundingArea(n === null || n === void 0 ? void 0 : n.bounds) || 0 }),
-                            parentId: currentNode.uuid,
-                            root: false,
-                            hierarchy: hierarchy,
-                        });
-                        list.push.apply(list, __spreadArray([], __read(res), false));
-                    });
-                    currentNode.children = currentNode.children.map(function (child) { return child.uuid; });
-                }
-                return list;
-            }
-            function getRelativeBounds(node) {
-                var _a;
-                if (!node)
-                    return;
-                var nodeBounds = __assign({}, node === null || node === void 0 ? void 0 : node.bounds);
-                var layoutBounds = (_a = filteredHierarchy === null || filteredHierarchy === void 0 ? void 0 : filteredHierarchy.layout) === null || _a === void 0 ? void 0 : _a.bounds;
-                nodeBounds.left = (nodeBounds === null || nodeBounds === void 0 ? void 0 : nodeBounds.left) - (layoutBounds === null || layoutBounds === void 0 ? void 0 : layoutBounds.left);
-                nodeBounds.top = (nodeBounds === null || nodeBounds === void 0 ? void 0 : nodeBounds.top) - (layoutBounds === null || layoutBounds === void 0 ? void 0 : layoutBounds.top);
-                nodeBounds.right = (nodeBounds === null || nodeBounds === void 0 ? void 0 : nodeBounds.right) - (layoutBounds === null || layoutBounds === void 0 ? void 0 : layoutBounds.left);
-                nodeBounds.bottom = (nodeBounds === null || nodeBounds === void 0 ? void 0 : nodeBounds.bottom) - (layoutBounds === null || layoutBounds === void 0 ? void 0 : layoutBounds.top);
-                return nodeBounds;
-            }
-            function init(traceId) {
-                var _a;
-                clearInterval(timer);
-                waitingForResponse = false;
-                hierarchyCommandLastSentAt = 0;
-                hierarchyCommandLastResponseAt = 0;
-                if (embedProject.concat(sortedProjectArray).length !== 0) {
-                    timer = setInterval(function () {
-                        try {
-                            if (noActiveProjects()) {
-                                clearInterval(timer);
-                                return;
-                            }
-                            var now = Date.now();
-                            var shouldSend = !waitingForResponse ||
-                                (now - hierarchyCommandLastSentAt >= hierarchyCommandFallbackTimeout);
-                            if (shouldSend) {
-                                sendMessageToNative({
-                                    command: SENDING_COMMANDS.HIERARCHY,
-                                    data: {
-                                        filterElementsOutsideViewPort: (features === null || features === void 0 ? void 0 : features.filterElementsOutsideViewPort) || false,
-                                    },
-                                }, traceId);
-                                waitingForResponse = true;
-                                hierarchyCommandLastSentAt = now;
-                            }
-                        }
-                        catch (error) {
-                            console.warn("init(): unable to successfully complete hierarchy loop", error);
-                        }
-                    }, ((_a = features === null || features === void 0 ? void 0 : features.hierarchyLoopInterval) === null || _a === void 0 ? void 0 : _a.intervalTime) || intervalTime);
+        }
+
+        // Handle potential misnamed property in idParams
+        if (idParams.text?.ang) {
+            idParams.text = idParams.text.ang;
+        }
+
+        if (value.activityName) {
+            idParams.activityName = value.activityName;
+        }
+
+        if (value.controller) {
+            idParams.controller = value.controller;
+        }
+
+        const targetValuesToMatch = getTargetValuesToMatch(
+            value.target,
+            value.relationToTarget
+        );
+
+        if (Object.keys(targetValuesToMatch).length !== 0 && value?.target?.regex) {
+            targetValuesToMatch.regex =
+                name !== "wfxWebViewList" &&
+                standardizeIdParams({...value?.target?.regex});
+
+            if (targetValuesToMatch.regex !== undefined) {
+                // Handle potential misnamed property in idParams
+                if (targetValuesToMatch.regex.text?.ang) {
+                    targetValuesToMatch.regex.text = targetValuesToMatch.regex.text.ang;
                 }
             }
-            function getIdFromProperty(key, property) {
-                if (key && property && (key === null || key === void 0 ? void 0 : key.length) > (property === null || property === void 0 ? void 0 : property.length)) {
-                    var id = key.substr(property === null || property === void 0 ? void 0 : property.length, key === null || key === void 0 ? void 0 : key.length).replace("_", "");
-                    return id;
+        }
+
+        // Build the resulting object
+        arrayResult.push({
+            name, // The key name
+            regex,
+            ...idParams, // Standardized idParams
+            target: targetValuesToMatch, // Any target data
+        });
+    }
+
+    return arrayResult; // Return the populated array
+}
+
+function findMatchingNode(root, identifier, regex) {
+    // Helper function to check if a node matches the given identifier
+    const isMatchingNode = (node, identifier) => {
+        for (const [key, value] of Object.entries(identifier)) {
+            // Exclude 'name' from matching criteria
+            if (key === "name") continue;
+
+            // For Android resource id
+            if (key === "ar_id") {
+                const nodeId = node.id?.split(`android:id/`).pop();
+                if (regex?.[key]) {
+                    if (!parseRegexString(regex?.[key])?.test(nodeId)) return false;
+                } else {
+                    if (nodeId !== value) return false;
                 }
             }
-            function convertOldWfxData(configData, oldSortedProjectArray, oldProjectStatus, oldCompletedProjectsInFlow, oldProfileData) {
-                var _a, _b, _c, _d, _e;
-                var convertedData = {
-                    projectArray: oldSortedProjectArray,
-                    selectedLanguage: selectedLanguage,
-                    allProjectStatus: oldProjectStatus,
-                    completedFlowProjects: oldCompletedProjectsInFlow,
-                };
-                var idToUniqueIdMap = {};
-                var deploymentIdToIdMap = {};
-                var idToProjectIdMap = {};
-                var flowsInMenu = {};
-                oldSortedProjectArray.map(function (project) {
-                    var _a, _b, _c, _d, _e;
-                    var objKey = project.id;
-                    idToProjectIdMap[(_a = project === null || project === void 0 ? void 0 : project.assist) === null || _a === void 0 ? void 0 : _a.id] =
-                        (_b = project === null || project === void 0 ? void 0 : project.projectParameters) === null || _b === void 0 ? void 0 : _b.projectId;
-                    deploymentIdToIdMap[(_c = project === null || project === void 0 ? void 0 : project.projectParameters) === null || _c === void 0 ? void 0 : _c.deploymentId] =
-                        (_d = project === null || project === void 0 ? void 0 : project.assist) === null || _d === void 0 ? void 0 : _d.id;
-                    idToUniqueIdMap[project.assist.id] = objKey;
-                    if (((_e = project === null || project === void 0 ? void 0 : project.connectedProjects) === null || _e === void 0 ? void 0 : _e.length) > 0) {
-                        flowsInMenu[objKey] = [];
-                        project.connectedProjects.forEach(function (connectedProject) {
-                            deploymentId = connectedProject.projectId;
-                            configData === null || configData === void 0 ? void 0 : configData.every(function (projectData) {
-                                var _a, _b, _c, _d, _e, _f;
-                                if (projectData.projectParameters.deploymentType === "LINK" &&
-                                    projectData.projectParameters.deploymentId === deploymentId) {
-                                    flowsInMenu[objKey].push(((_a = projectData.discoveryList) === null || _a === void 0 ? void 0 : _a[0].id) || ((_b = projectData.assists) === null || _b === void 0 ? void 0 : _b[0].id));
-                                    deploymentIdToIdMap[deploymentId] =
-                                        ((_c = projectData.discoveryList) === null || _c === void 0 ? void 0 : _c[0].id) || ((_d = projectData.assists) === null || _d === void 0 ? void 0 : _d[0].id);
-                                    idToProjectIdMap[((_e = projectData.discoveryList) === null || _e === void 0 ? void 0 : _e[0].id) || ((_f = projectData.assists) === null || _f === void 0 ? void 0 : _f[0].id)] = projectData.projectParameters.projectId;
-                                    return false;
-                                }
-                                return true;
-                            });
-                        });
-                    }
-                });
-                if (platform === "ANDROID") {
-                    var OldProperties_1 = {
-                        DISCOVERY_PER_APP_FREQUENCY: "discovery_per_app_frequency",
-                        N_DISMISSED_BY_USER: "n_dismissed_by_user",
-                        N_SESSION_FREQUENCY: "n_session_frequency",
-                        N_DISMISS_BY_USER_ASSIST_FREQUENCY: "n_dismiss_by_user_assist_frequency",
-                        N_SESSION_ASSIST_FREQUENCY: "n_session_assist_frequency",
-                        PROJECT_COMPLETED: "project_completed",
-                        PERMANENTLY_DISABLED_PROJECT_LIST: "perm_disabled_project_list",
-                        PROJECT_MUTED: "project_muted",
-                    };
-                    var oldProfileKeys = (oldProfileData && Object.keys(oldProfileData)) || [];
-                    oldProfileKeys === null || oldProfileKeys === void 0 ? void 0 : oldProfileKeys.forEach(function (key) {
-                        if (key.includes(OldProperties_1.DISCOVERY_PER_APP_FREQUENCY)) {
-                            var discovery_id = getIdFromProperty(key, OldProperties_1.DISCOVERY_PER_APP_FREQUENCY);
-                            var uniqueId = idToUniqueIdMap[discovery_id];
-                            var projectStatus = convertedData === null || convertedData === void 0 ? void 0 : convertedData.allProjectStatus[uniqueId];
-                            if (projectStatus) {
-                                projectStatus.terminationStatus.perApp = oldProfileData[key];
-                            }
-                        }
-                        if (key.includes(OldProperties_1.N_DISMISSED_BY_USER)) {
-                            var discovery_id = getIdFromProperty(key, OldProperties_1.N_DISMISSED_BY_USER);
-                            var uniqueId = idToUniqueIdMap[discovery_id];
-                            var projectStatus = convertedData === null || convertedData === void 0 ? void 0 : convertedData.allProjectStatus[uniqueId];
-                            if (projectStatus) {
-                                projectStatus.terminationStatus.nDismissedByUser = 1;
-                            }
-                        }
-                        if (key.includes(OldProperties_1.N_DISMISS_BY_USER_ASSIST_FREQUENCY)) {
-                            var assist_id = getIdFromProperty(key, OldProperties_1.N_DISMISS_BY_USER_ASSIST_FREQUENCY);
-                            var uniqueId = idToUniqueIdMap[assist_id];
-                            var projectStatus = convertedData === null || convertedData === void 0 ? void 0 : convertedData.allProjectStatus[uniqueId];
-                            if (projectStatus) {
-                                projectStatus.terminationStatus.nDismissedByUser = 1;
-                            }
-                        }
-                        if (key.includes(OldProperties_1.N_SESSION_FREQUENCY)) {
-                            var discovery_id = getIdFromProperty(key, OldProperties_1.N_SESSION_FREQUENCY);
-                            var uniqueId = idToUniqueIdMap[discovery_id];
-                            var projectStatus = convertedData === null || convertedData === void 0 ? void 0 : convertedData.allProjectStatus[uniqueId];
-                            if (projectStatus) {
-                                projectStatus.terminationStatus.nSession = oldProfileData[key];
-                            }
-                        }
-                        if (key.includes(OldProperties_1.N_SESSION_ASSIST_FREQUENCY)) {
-                            var assist_id = getIdFromProperty(key, OldProperties_1.N_SESSION_ASSIST_FREQUENCY);
-                            var uniqueId = idToUniqueIdMap[assist_id];
-                            var projectStatus = convertedData === null || convertedData === void 0 ? void 0 : convertedData.allProjectStatus[uniqueId];
-                            if (projectStatus) {
-                                projectStatus.terminationStatus.nSession = oldProfileData[key];
-                            }
-                        }
-                    });
-                    var oldProfileDataCompletedProjects_1 = ((oldProfileKeys === null || oldProfileKeys === void 0 ? void 0 : oldProfileKeys.length) &&
-                            oldProfileData[OldProperties_1.PROJECT_COMPLETED] &&
-                            Object.keys(JSON.parse(oldProfileData[OldProperties_1.PROJECT_COMPLETED]))) ||
-                        [];
-                    (_a = Object.entries(flowsInMenu)) === null || _a === void 0 ? void 0 : _a.forEach(function (entry) {
-                        var _a, _b;
-                        var flowMenuId = entry[0];
-                        var connectFlows = entry[1];
-                        if ((connectFlows === null || connectFlows === void 0 ? void 0 : connectFlows.length) > 0) {
-                            convertedData.allProjectStatus[flowMenuId].terminationStatus.untilAllFlowsAreCompleted = connectFlows === null || connectFlows === void 0 ? void 0 : connectFlows.every(function (connectedFlow) {
-                                projectId = idToProjectIdMap[connectedFlow];
-                                return oldProfileDataCompletedProjects_1 === null || oldProfileDataCompletedProjects_1 === void 0 ? void 0 : oldProfileDataCompletedProjects_1.includes(projectId);
-                            });
-                        }
-                        (_b = (_a = convertedData === null || convertedData === void 0 ? void 0 : convertedData.completedFlowProjects[flowMenuId]) === null || _a === void 0 ? void 0 : _a.projects) === null || _b === void 0 ? void 0 : _b.forEach(function (project) {
-                            if (oldProfileDataCompletedProjects_1 === null || oldProfileDataCompletedProjects_1 === void 0 ? void 0 : oldProfileDataCompletedProjects_1.includes(project.id)) {
-                                project.completed = true;
-                            }
-                        });
-                    });
-                    (oldProfileKeys === null || oldProfileKeys === void 0 ? void 0 : oldProfileKeys.length) &&
-                    ((_b = oldProfileData[OldProperties_1.PERMANENTLY_DISABLED_PROJECT_LIST]) === null || _b === void 0 ? void 0 : _b.forEach(function (deploymentId) {
-                        var id = deploymentIdToIdMap[deploymentId];
-                        var uniqueId = idToUniqueIdMap[id];
-                        if (uniqueId) {
-                            convertedData.allProjectStatus[uniqueId].isTerminated = true;
-                        }
-                    }));
-                    var oldProfileDataMutedProjects = ((oldProfileKeys === null || oldProfileKeys === void 0 ? void 0 : oldProfileKeys.length) &&
-                            oldProfileData[OldProperties_1.PROJECT_MUTED] &&
-                            JSON.parse(oldProfileData[OldProperties_1.PROJECT_MUTED])) ||
-                        {};
-                    (_c = Object.entries(oldProfileDataMutedProjects)) === null || _c === void 0 ? void 0 : _c.forEach(function (_a) {
-                        var _b = __read(_a, 2), flowId = _b[0], value = _b[1];
-                    });
-                    convertedData.selectedLanguage = oldProfileData === null || oldProfileData === void 0 ? void 0 : oldProfileData.language_selected;
+
+            // Special handling for 'id', compare after transformation
+            else if (key === "id") {
+                const nodeId = node[key]
+                    ?.split(`${root.ROOT_NODE.client_package_name}:id/`)
+                    .pop();
+                if (regex?.[key]) {
+                    if (!parseRegexString(regex?.[key])?.test(nodeId)) return false;
+                } else {
+                    if (nodeId !== value) return false;
                 }
-                else {
-                    convertedData.selectedLanguage = oldProfileData.leap_language_code;
-                    Object.entries(oldProfileData.leap_discovery_flow_completed).forEach(function (entry) {
-                        convertedData.allProjectStatus[idToUniqueIdMap[entry[0]]].terminationStatus.perApp = entry[1];
-                    });
-                    __spreadArray(__spreadArray([], __read(oldProfileData.leap_assists_dismissed), false), __read(oldProfileData.leap_discovery_dismissed), false).forEach(function (id) {
-                        convertedData.allProjectStatus[idToUniqueIdMap[id]].terminationStatus.nDismissedByUser = 1;
-                    });
-                    Object.entries(oldProfileData.leap_completed_flows).forEach(function (entry) {
-                        var flowMenuId = idToUniqueIdMap[entry[0]];
-                        if (flowsInMenu[flowMenuId]) {
-                            convertedData.allProjectStatus[flowMenuId].terminationStatus.untilAllFlowsAreCompleted = flowsInMenu[flowMenuId].every(function (connectedFlowId) {
-                                if (!entry[1].includes(connectedFlowId)) {
-                                    return false;
-                                }
-                                return true;
-                            });
-                            convertedData.completedFlowProjects[flowMenuId].projects.forEach(function (project) {
-                                if (entry[1].includes(deploymentIdToIdMap[project.id])) {
-                                    project.completed = true;
-                                }
-                            });
-                        }
-                    });
-                    (_d = oldProfileData.leap_muted_discoveries) === null || _d === void 0 ? void 0 : _d.forEach(function (id) {
-                    });
-                    (_e = oldProfileData.leap_terminated_discoveries) === null || _e === void 0 ? void 0 : _e.forEach(function (id) {
-                        var uniqueId = idToUniqueIdMap[id];
-                        if (uniqueId) {
-                            convertedData.allProjectStatus[uniqueId].isTerminated = true;
-                        }
-                    });
-                    Object.entries(__assign(__assign({}, oldProfileData.leap_discovery_presented), oldProfileData.leap_assists_presented)).forEach(function (entry) {
-                        convertedData.allProjectStatus[idToUniqueIdMap[entry[0]]].terminationStatus.nSession = entry[1];
-                    });
+            } else {
+                // For other keys, direct comparison
+                if (regex?.[key]) {
+                    if (!parseRegexString(regex?.[key])?.test(node[key])) return false;
+                } else {
+                    if (node[key] !== value) return false;
                 }
-                Object.keys(convertedData.allProjectStatus).forEach(function (uniqueId) {
-                    if (uniqueId.includes("discovery")) {
-                        switch (convertedData.allProjectStatus[uniqueId].triggerCase) {
-                            case "EVERY_SESSION": {
-                                convertedData.allProjectStatus[uniqueId].isFlowTriggered = false;
-                                break;
-                            }
-                            case "MANUAL_TRIGGER": {
-                                convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
-                                break;
-                            }
-                            case "PLAY_ONCE": {
-                                if (convertedData.allProjectStatus[uniqueId].terminationStatus
-                                    .nSession > 0)
-                                    convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
-                                break;
-                            }
-                            case "EVERY_SESSION_UNTIL_DISMISSED": {
-                                if (convertedData.allProjectStatus[uniqueId].terminationStatus
-                                    .nDismissedByUser === 1)
-                                    convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
-                                break;
-                            }
-                            case "EVERY_SESSION_UNTIL_FLOW_COMPLETE": {
-                                if (convertedData.allProjectStatus[uniqueId].terminationStatus.perApp >
-                                    0)
-                                    convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
-                                break;
-                            }
-                            case "EVERY_SESSION_UNTIL_ALL_FLOWS_ARE_COMPLETED": {
-                                if (convertedData.allProjectStatus[uniqueId].terminationStatus
-                                    .untilAllFlowsAreCompleted)
-                                    convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
-                                break;
-                            }
-                            default: {
-                            }
-                        }
-                    }
-                    else {
-                        convertedData.allProjectStatus[uniqueId].isFlowTriggered = false;
-                    }
-                });
-                return convertedData;
             }
-            function saveConfigAndDownloadBulkAssets(res, traceId) {
-                var assetList = [];
-                var soundList = {};
-                embedProject
-                    .concat(sortedProjectArray === null || sortedProjectArray === void 0 ? void 0 : sortedProjectArray.concat(Object.values(flowWalkthroughs)))
-                    .forEach(function (p) {
-                        var _a;
-                        if (p === undefined)
-                            return;
-                        p.auiContent.content.forEach(function (c) {
-                            if (!c)
-                                return;
-                            c.startsWith("http")
-                                ? assetList.push("".concat(c))
-                                : assetList.push("".concat(p.auiContent.baseUrl).concat(c));
-                        });
-                        var sounds = Object.keys((_a = p.localeSounds) === null || _a === void 0 ? void 0 : _a.sounds);
-                        if (sounds.length > 0) {
-                            sounds.forEach(function (sound) {
-                                var _a;
-                                if (soundList[sound] === undefined)
-                                    soundList[sound] = [];
-                                var updatedSounds = (_a = p.localeSounds) === null || _a === void 0 ? void 0 : _a.sounds[sound].map(function (s) {
-                                    var _a, _b;
-                                    s.url = ((_a = s.url) === null || _a === void 0 ? void 0 : _a.startsWith("http"))
-                                        ? "".concat(s === null || s === void 0 ? void 0 : s.url)
-                                        : "".concat((_b = p === null || p === void 0 ? void 0 : p.localeSounds) === null || _b === void 0 ? void 0 : _b.baseUrl).concat(s === null || s === void 0 ? void 0 : s.url);
-                                    return s;
-                                });
-                                soundList[sound] = __spreadArray(__spreadArray([], __read(soundList[sound]), false), __read(updatedSounds), false);
-                            });
-                        }
-                    });
-                sendMessageToNative({
-                    command: SENDING_COMMANDS.ON_CONFIG_FETCH,
-                    data: {
-                        config: res,
-                        features: features,
-                        loggerConfig: loggerConfig,
-                        assetsToDownload: {
-                            files: assetList,
-                            sounds: soundList,
-                        },
+        }
+        return true;
+    };
+
+    // Loop through the keys and find a matching node
+    for (const id of Object.keys(root)) {
+        const node = root[id];
+        if (isMatchingNode(node, identifier)) {
+            return node; // Return early once a match is found
+        }
+    }
+
+    // Return undefined if no match is found
+    return undefined;
+}
+
+// Follow a relationship path from a given node
+function followRelationship(root, startNode, relationship) {
+    let currentNode = startNode;
+
+    for (const step of relationship) {
+        if (!currentNode) {
+            return null; // If the current node is null, break out
+        }
+
+        const direction = step.charAt(0); // 'P' or 'C'
+
+        if (direction === "P") {
+            currentNode = root[currentNode.parentId] || null; // Go to the parent node
+            continue;
+        } else if (direction === "C") {
+            const index = parseInt(step.slice(1), 10) || 0; // Default child index to 0 if not specified
+            if (typeof currentNode === "string") {
+                currentNode = root[currentNode];
+            }
+            if (currentNode?.children?.length > 0) {
+                currentNode = currentNode.children.find(
+                    (s) => root[s].node_index === index
+                ); // Go to the specified child node index
+                continue;
+            } else {
+                return null; // Return null if child index is out of bounds
+            }
+        }
+    }
+
+    return typeof currentNode === "string" ? root[currentNode] : currentNode;
+}
+
+function findFirstWebView() {
+    return flattenedHierarchyArray.find((node) => {
+        let isWebView = node["is_webview"];
+        if (isWebView && platform === "ANDROID") {
+            // For Android skip webviews that are google ads
+            return "com.google.android.gms.ads.internal.webview" !== node["class"];
+        }
+
+        return isWebView;
+    });
+}
+
+// TODO: Optimization needed
+function findMatches(filteredHierarchy, identifiers, traceId) {
+    if (!identifiers) {
+        return;
+    }
+    // Initialize the output array
+    const matchedIdentifiers = [];
+    const unMatchedIdentifiers = [];
+    const matchedNode = [];
+    const identifiersArray = getIdentifiersInArray(identifiers);
+
+    let regex = {};
+
+    // Iterate over each object in the second array
+    identifiersArray?.forEach((identifier) => {
+        const name = identifier.name; // Store the name for the output
+        let found = false; // Flag to indicate if a match is found
+        const ObserverData = {
+            identifier_id: name,
+        };
+        regex = identifier.regex;
+        delete identifier.regex;
+        /*
+      Step: 1
+      Check if the element is referenced or not
+      if the target array is empty the the node is identified uniquely
+      */
+
+        if (Object.keys(identifier?.target).length === 0) {
+            delete identifier.target;
+
+            const compareActivityName =
+                identifier?.activityName &&
+                (regex.activityName
+                    ? !parseRegexString(regex?.activityName)?.test(
+                        filteredHierarchy?.activity_name
+                    )
+                    : !filteredHierarchy?.activity_name?.includes(
+                        identifier?.activityName
+                    ));
+
+            const compareController =
+                identifier?.controller &&
+                (regex.controller
+                    ? !parseRegexString(regex?.controller)?.test(
+                        filteredHierarchy?.controller
+                    )
+                    : !filteredHierarchy?.controller?.includes(identifier?.controller));
+
+            if (compareActivityName) {
+                unMatchedIdentifiers.push(name);
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
+                    properties: {
+                        ...ObserverData,
+                        activity_name: "false",
                     },
+                    className: "finder.js",
+                    methodName: "findMatches",
                 }, traceId);
-            }
-            function sendWebJSscript(_a, traceId) {
-                var webIdentifiers = _a.webIdentifiers, webViewNode = _a.webViewNode;
-                var webViewBounds = webViewNode["bounds"];
-                var webViewScale = webViewNode["scale"];
-                var message = {
-                    command: SENDING_COMMANDS.WEB_SCRIPT,
-                    data: {
-                        script: createFinderJavascript(webIdentifiers, webViewBounds, webViewScale, webViewNode.uuid),
-                        webviewInfo: {
-                            uuid: webViewNode.uuid,
-                        },
+            } else if (compareController) {
+                unMatchedIdentifiers.push(name);
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
+                    properties: {
+                        ...ObserverData,
+                        controller: "false",
                     },
-                };
-                sendMessageToNative(message, traceId);
-            }
-            function sendProjectCompletion(_a, traceId) {
-                var id = _a.id, reset = _a.reset;
-                var flow = completedProjectsInFlow === null || completedProjectsInFlow === void 0 ? void 0 : completedProjectsInFlow[currentlyRunningFlow.id || id];
-                if (flow === undefined)
-                    return;
-                var message = {
-                    command: SENDING_COMMANDS.PROJECT_COMPLETED,
-                    data: {
-                        language: selectedLanguage,
-                        projects: reset ? [] : flow.projects,
-                    },
-                };
-                sendMessageToNative(message, traceId);
-            }
-            function saveTheLatestStateChange(traceId) {
-                if (inPreviewMode)
-                    return;
-                var currentUserState = buildCurrentUserStateObject();
-                sdkStateService.updateCurrentUserState(currentUserState);
-                sdkStateService.segmentConfigMap = segmentConfigMap;
-                sdkStateService.appLocale = appLocale;
-                sendJSObserverLog({
-                    message: "saving user state",
-                    methodName: "saveTheLatestStateChange",
-                    level: ObserverLogLevel.DEBUG,
-                    userState: buildUserStateObjectForObserverLog(currentUserState),
-                    traceId: traceId
-                });
-                sdkStateService.persistState(traceId);
-            }
-            function buildCurrentUserStateObject() {
-                return {
-                    projectArray: sortedProjectArray,
-                    projectsStatus: allProjectStatus,
-                    connectedWalkthroughs: flowWalkthroughs,
-                    language: selectedLanguage,
-                    currentPlatform: platform,
-                    lastUpdatedConfigAt: lastUpdatedConfigAt,
-                    lastProfileUpdatedAt: lastProfileUpdatedAt,
-                    lastUpdatedEmbedConfigAt: lastUpdatedEmbedConfigAt,
-                    savedEmbedProject: embedProject,
-                    userId: sdkStateService.currentUserId,
-                    projectsCompletionStats: completedProjectsInFlow,
-                    apiKey: appApiKey,
-                    baseURL: configBaseUrl,
-                    appVersion: appVersionName,
-                    features: features,
-                    metaConfigs: metaConfigs,
-                    loggerConfig: loggerConfig,
-                    customProps: customProperties,
-                };
-            }
-            function resetGlobalUserState() {
-                segmentConfigMap = {};
-                sortedProjectArray = [];
-                allProjectStatus = {};
-                flowWalkthroughs = {};
-                lastUpdatedConfigAt = null;
-                lastProfileUpdatedAt = null;
-                lastUpdatedEmbedConfigAt = null;
-                embedProject = [];
-                completedProjectsInFlow = {};
-                features = {};
-                metaConfigs = {};
-                customProperties = {};
-                resetUserLoggedIn();
-            }
-            function saveTheLatestProps(traceId) {
-                var message = {
-                    command: SENDING_COMMANDS.SAVE_USER_PROPS,
-                    data: {
-                        userProps: customProperties,
-                    },
-                };
-                !inPreviewMode && sendMessageToNative(message, traceId);
-            }
-            function sendAnalyticEvent(eventName, properties, traceId) {
-                var _a, _b, _c;
-                if (eventName === void 0) { eventName = ANALYTICS_EVENTS.ELEMENT_SEEN; }
-                if (properties === void 0) { properties = {}; }
-                if (isSelfHosted)
-                    return;
-                var selectedProject;
-                if (currentlyRunningFlow.id && currentStaticFlow.stepsStatus.length > 0) {
-                    selectedProject = Object.values(flowWalkthroughs).find(function (s) { return (currentStaticFlow === null || currentStaticFlow === void 0 ? void 0 : currentStaticFlow.id) === (s === null || s === void 0 ? void 0 : s.id); });
-                }
-                else {
-                    selectedProject = embedProject
-                        .concat(sortedProjectArray)
-                        .find(function (s) { return (activeProject === null || activeProject === void 0 ? void 0 : activeProject.id) === (s === null || s === void 0 ? void 0 : s.id); });
-                }
-                var message = {
-                    command: SENDING_COMMANDS.ANALYTICS_EVENT,
-                    data: {
-                        event: __assign({ id: generateUUID(), sessionId: appSessionId, timestamp: new Date().toISOString(), eventName: eventName, projectName: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.projectName, projectId: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.projectId, deploymentId: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.deploymentId, deploymentVersion: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.deploymentVersion, language: selectedLanguage, deploymentName: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.deploymentName, elementName: (activeStep === null || activeStep === void 0 ? void 0 : activeStep.id)
-                                ? (_b = (_a = activeStep === null || activeStep === void 0 ? void 0 : activeStep.step) === null || _a === void 0 ? void 0 : _a.assist) === null || _b === void 0 ? void 0 : _b.name
-                                : (_c = selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.assist) === null || _c === void 0 ? void 0 : _c.name }, properties),
-                        clientCallback: {},
-                        leapUserId: getCurrentUserId(),
-                    },
-                };
-                sendMessageToNative(message, traceId);
-            }
-            function removeTimestamps(message) {
-                var _a = message.data, _ = _a["string.created_at"], __ = _a["long.timestamp"], dataWithoutTimestamp = __rest(_a, ["string.created_at", "long.timestamp"]);
-                return {
-                    command: message.command,
-                    data: dataWithoutTimestamp,
-                };
-            }
-            function flushFinderObserverEvents(traceId) {
-                var sameAsCached = true;
-                sameAsCached = Object.keys(finderObserverEvents).every(function (eventName) {
-                    if (finderObserverEvents[eventName].length !==
-                        cachedFinderObserverEvents[eventName].length) {
-                        return false;
-                    }
-                    messageListsMatch = finderObserverEvents[eventName].every(function (message, index) {
-                        if (JSON.stringify(removeTimestamps(message)) ===
-                            JSON.stringify(removeTimestamps(cachedFinderObserverEvents[eventName][index])))
-                            return true;
-                        return false;
-                    });
-                    return messageListsMatch;
-                });
-                if (!sameAsCached) {
-                    Object.entries(finderObserverEvents).forEach(function (_a) {
-                        var _b = __read(_a, 2), eventName = _b[0], messageList = _b[1];
-                        cachedFinderObserverEvents[eventName] = finderObserverEvents[eventName];
-                        messageList.forEach(function (message) {
-                            sendMessageToNative(message, traceId);
-                        });
-                    });
-                }
-            }
-            function sendJSObserverLog(_a) {
-                var message = _a.message, _b = _a.logData, logData = _b === void 0 ? {} : _b, _c = _a.className, className = _c === void 0 ? "Global" : _c, methodName = _a.methodName, _d = _a.level, level = _d === void 0 ? ObserverLogLevel.INFO : _d, userState = _a.userState, traceId = _a.traceId;
-                if (disableObserverLogging)
-                    return;
-                try {
-                    observerLogService.sendObserverLog(message, logData, new Date(), className, methodName, level, userState, traceId);
-                }
-                catch (error) {
-                }
-            }
-            function sendJSErrorObserverLog(_a) {
-                var message = _a.message, _b = _a.logData, logData = _b === void 0 ? {} : _b, _c = _a.level, level = _c === void 0 ? ObserverLogLevel.ERROR : _c, error = _a.error, className = _a.className, methodName = _a.methodName, traceId = _a.traceId;
-                if (disableObserverLogging)
-                    return;
-                sendJSObserverLog({
-                    message: "[ERROR] ".concat(message),
-                    logData: __assign(__assign({}, logData), { error: getErrorLogObjectFromError(error) }),
-                    className: className,
-                    methodName: methodName,
-                    level: level,
-                    traceId: traceId
-                });
-            }
-            function buildUserStateObjectForObserverLog(userState) {
-                var userStateLog = {};
-                try {
-                    var projectArrayLog_1 = [];
-                    if (userState.projectArray) {
-                        userState.projectArray.forEach(function (project) {
-                            var _a, _b;
-                            projectArrayLog_1.push({
-                                id: project === null || project === void 0 ? void 0 : project.id,
-                                projectId: (_a = project === null || project === void 0 ? void 0 : project.projectParameters) === null || _a === void 0 ? void 0 : _a.projectId,
-                                deploymentVersion: (_b = project === null || project === void 0 ? void 0 : project.projectParameters) === null || _b === void 0 ? void 0 : _b.deploymentVersion
-                            });
-                        });
-                    }
-                    userStateLog = {
-                        projectArrayLog: projectArrayLog_1,
-                        projectsStatus: userState.projectsStatus,
-                        language: userState.language,
-                        lastUpdatedConfigAt: userState.lastUpdatedConfigAt,
-                        lastProfileUpdatedAt: userState.lastProfileUpdatedAt,
-                        lastUpdatedEmbedConfigAt: userState.lastUpdatedEmbedConfigAt,
-                        userId: userState.userId,
-                        wfId: userState.wfId,
-                        projectsCompletionStats: userState.projectsCompletionStats,
-                        customProps: userState.customProps,
-                    };
-                }
-                catch (error) {
-                    console.error("Unable to generate JS Observer userStateLog", error);
-                }
-                return userStateLog || userState;
-            }
-            function buildUserStateObjectForJSLog() {
-                var userState = buildCurrentUserStateObject();
-                return buildUserStateObjectForObserverLog(userState);
-            }
-            function sendObserverLogs(_a, traceId) {
-                var _b = _a.event_name, event_name = _b === void 0 ? OBSERVER_EVENTS.NETWORK.ON_CONFIG_DOWNLOAD_STARTED : _b, _c = _a.category, category = _c === void 0 ? OBSERVER_EVENT_CATEGORIES.NETWORK : _c, _d = _a.properties, properties = _d === void 0 ? {} : _d, className = _a.className, methodName = _a.methodName, _e = _a.level, level = _e === void 0 ? ObserverLogLevel.INFO : _e;
-                if (disableObserverLogging)
-                    return;
-                if (isSelfHosted)
-                    return;
-                var logData = appendTypesToKeys(__assign(__assign({ category: category, event_name: event_name, sdk_name: "leap_sdk" }, properties), { class_name: className, created_at: getCurrentTimeInGMT(), timestamp: Date.now(), trace_id: traceId }));
-                try {
-                    var userState = buildUserStateObjectForJSLog();
-                    var message = {
-                        command: SENDING_COMMANDS.OBSERVER_LOG,
-                        data: logData,
-                    };
-                    var eventName = message.data["string.event_name"];
-                    if (eventName in finderObserverEvents) {
-                        finderObserverEvents[message.data["string.event_name"]].push(message);
-                        return;
-                    }
-                    console.log("sendObserverLog() message command ", message === null || message === void 0 ? void 0 : message.command);
-                    sendJSObserverLog({
-                        message: "command to native [".concat(message.command, "]"),
-                        logData: message === null || message === void 0 ? void 0 : message.data,
-                        className: className,
-                        methodName: methodName,
-                        level: level,
-                        userState: userState,
-                    }, traceId);
-                }
-                catch (error) {
-                    console.error("Unable to push JS Observer log", error);
-                }
-            }
-            function shouldBlockRequestToNative(message) {
-                return message && message.command && message.command === SENDING_COMMANDS.OBSERVER_LOG;
-            }
-            function sendMessageToNative(message, traceId) {
-                if (!message) {
-                    return;
-                }
-                logCommandToNativeLayer(message, traceId);
-                if (shouldBlockRequestToNative(message))
-                    return;
-                postMessageToAndroid(JSON.stringify(message));
-                postMessageToIos(JSON.stringify(message));
-                function logCommandToNativeLayer(message, traceId) {
-                    var _a;
-                    try {
-                        if (shouldLogCommandName(message)) {
-                            console.log("sendMessageToNative() message command ", message === null || message === void 0 ? void 0 : message.command);
-                            var messageData = shouldLogData(message) ? (_a = message.data) !== null && _a !== void 0 ? _a : {} : { included: false };
-                            sendJSObserverLog({
-                                message: "command to native [".concat(message.command, "]"),
-                                logData: { messageData: messageData },
-                                level: ObserverLogLevel.INFO,
-                                methodName: "sendMessageToNative",
-                                traceId: traceId
-                            });
-                        }
-                    }
-                    catch (error) {
-                        console.error(error);
-                    }
-                }
-                function shouldLogCommandName(message) {
-                    return (message === null || message === void 0 ? void 0 : message.command) && ![
-                        SENDING_COMMANDS.HIERARCHY,
-                        SENDING_COMMANDS.ANALYTICS_EVENT,
-                        SENDING_COMMANDS.OBSERVER_LOG,
-                        SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                        SENDING_COMMANDS.WEB_SCRIPT,
-                        SENDING_COMMANDS.OBSERVER_EVENT_LEVELS,
-                        SENDING_COMMANDS.CLEAR_ANALYTICS_PENDING_QUEUE,
-                        SENDING_COMMANDS.FLUSH_CACHED_EVENTS
-                    ].includes(message.command);
-                }
-                function shouldLogData(message) {
-                    return (message === null || message === void 0 ? void 0 : message.command) && ![
-                        SENDING_COMMANDS.ON_CONFIG_FETCH,
-                        SENDING_COMMANDS.WEB_SCRIPT,
-                        SENDING_COMMANDS.SAVE_USER_STATE,
-                        SENDING_COMMANDS.ANALYTICS_EVENT,
-                        SENDING_COMMANDS.OBSERVER_LOG,
-                        SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                        SENDING_COMMANDS.HIERARCHY,
-                        SENDING_COMMANDS.OBSERVER_EVENT_LEVELS,
-                        SENDING_COMMANDS.FLUSH_CACHED_EVENTS,
-                        SENDING_COMMANDS.STEP_FOUND,
-                        SENDING_COMMANDS.ASSIST_FOUND,
-                        SENDING_COMMANDS.UPDATE_ASSIST_BOUNDS,
-                        SENDING_COMMANDS.UPDATE_STEP_BOUNDS
-                    ].includes(message.command);
-                }
-            }
-            function postMessageToAndroid(message) {
-                var _a;
-                (window === null || window === void 0 ? void 0 : window.JinyAndroid) && ((_a = window === null || window === void 0 ? void 0 : window.JinyAndroid) === null || _a === void 0 ? void 0 : _a.postMessage(message));
-            }
-            function postMessageToIos(e) {
-                window.webkit &&
-                window.webkit.messageHandlers &&
-                window.webkit.messageHandlers.iosListener &&
-                window.webkit.messageHandlers.iosListener.postMessage(e);
-            }
-            function receiveScreenHierarchy(screenHierarchy, isWebFetchComplete, webIdentifiers, traceId) {
-                var _a, _b, _c, _d, _e, _f;
-                waitingForResponse = false;
-                hierarchyCommandLastResponseAt = Date.now();
-                var timeTaken = hierarchyCommandLastResponseAt - hierarchyCommandLastSentAt;
-                if (timeTaken > hierarchyFetchTimeTakenLogBuffer) {
-                    console.debug("receiveScreenHierarchy(): timeTaken- ".concat(timeTaken, "ms, size- ").concat(JSON.stringify(screenHierarchy || {}).length / 1000, "KB"));
-                }
-                if (screenHierarchy) {
-                    filteredHierarchy = filterHierarchy(screenHierarchy);
-                }
-                if (!filteredHierarchy || Object.keys(filteredHierarchy).length == 0)
-                    return;
-                if (!isWebFetchComplete) {
-                    flattenedHierarchy = {};
-                    flattenedHierarchyArray = getFlattenedHierarchy({
-                        currentNode: filteredHierarchy,
-                        parentId: undefined,
-                        root: true,
-                        hierarchy: flattenedHierarchy,
-                    });
-                }
-                resetFinderObserverEvents();
-                if (!isWebFetchComplete) {
-                    callWebScriptForAllProject(traceId);
-                }
-                if (activeProject.id !== "" &&
-                    currentStaticFlow.id !== undefined &&
-                    currentStaticFlow.status === "RENDERING-STEPS" &&
-                    selectedLanguage !== "") {
-                    var lastStep = (_b = (_a = currentStaticFlow === null || currentStaticFlow === void 0 ? void 0 : currentStaticFlow.stepsStatus) === null || _a === void 0 ? void 0 : _a.slice(-1)) === null || _b === void 0 ? void 0 : _b[0];
-                    var foundProject = void 0;
-                    if (currentlyRunningFlow.id !== "") {
-                        foundProject = runDetectionLogicForProjects(true, webIdentifiers, traceId);
-                    }
-                    var stepFound = runDetectionLogicForSteps({ lastStep: lastStep }, webIdentifiers, traceId);
-                    if (stepFound !== "isWeb" || isWebFetchComplete) {
-                        if (stepFound !== undefined) {
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_STEP_DETECTED,
-                                properties: {
-                                    project_id: activeProject.projectParameters.projectId,
-                                    project_name: activeProject.projectParameters.projectName,
-                                    deployment_id: activeProject.projectParameters.deploymentId,
-                                    deployment_version: Number(activeProject.projectParameters.deploymentVersion),
-                                    type: stepFound.assistType,
-                                    step_name: stepFound.assist.name,
-                                    step_id: stepFound.assist.id,
-                                    step_unique_id: stepFound.assist.uniqueID,
-                                },
-                                className: "listener.js",
-                                methodName: "receivedScreenHierarchy",
-                            }, traceId);
-                            if (checkAndUpdateBounds({
-                                activeAssist: stepFound,
-                                activeProjectId: activeStep === null || activeStep === void 0 ? void 0 : activeStep.id,
-                                isAStep: true,
-                            }, traceId))
-                                return;
-                            renderStep(stepFound, activeProject, traceId);
-                        }
-                        else {
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_NO_STEP_DETECTED,
-                                properties: {
-                                    project_id: activeProject.projectParameters.projectId,
-                                    project_name: activeProject.projectParameters.projectName,
-                                    deployment_id: activeProject.projectParameters.deploymentId,
-                                    deployment_version: Number(activeProject.projectParameters.deploymentVersion),
-                                },
-                                className: "listener.js",
-                                methodName: "receivedScreenHierarchy",
-                            }, traceId);
-                            if (currentlyRunningFlow.id === "" && foundProject !== undefined) {
-                                if (activeStep.id !== "")
-                                    resetActiveStep();
-                                sendMessageToNative({
-                                    command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                                }, traceId);
-                            }
-                        }
-                        if (foundProject !== "isWeb" || isWebFetchComplete) {
-                            if (foundProject !== undefined) {
-                                if (foundProject.id !== currentlyRunningFlow.id || !flowShown) {
-                                    renderProject(foundProject, true, traceId);
-                                    flowShown = true;
-                                }
-                                sendObserverLogs({
-                                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                    event_name: OBSERVER_EVENTS.FINDER.ON_PROJECT_DETECTED,
-                                    properties: {
-                                        project_id: activeProject.projectParameters.projectId,
-                                        project_name: activeProject.projectParameters.projectName,
-                                        deployment_id: activeProject.projectParameters.deploymentId,
-                                        deployment_version: Number(activeProject.projectParameters.deploymentVersion),
-                                        type: activeProject.projectType,
-                                    }
-                                }, traceId);
-                            }
-                            else if (currentlyRunningFlow.id !== "") {
-                                if (stepFound === undefined) {
-                                    resetActiveStep();
-                                    currentMatchedWebIdentifiers = {};
-                                    sendMessageToNative({
-                                        command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                                    }, traceId);
-                                    flowShown = false;
-                                }
-                            }
-                        }
-                    }
-                }
-                else {
-                    var projectFound = runDetectionLogicForProjects(undefined, undefined, traceId);
-                    if (projectFound !== "isWeb" || isWebFetchComplete) {
-                        if (projectFound !== undefined) {
-                            if (checkAndUpdateBounds({
-                                activeAssist: projectFound,
-                                activeProjectId: activeProject === null || activeProject === void 0 ? void 0 : activeProject.id,
-                                isAStep: false,
-                            }, traceId))
-                                return;
-                            renderProject(projectFound, undefined, traceId);
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_PROJECT_DETECTED,
-                                properties: {
-                                    project_id: (_c = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _c === void 0 ? void 0 : _c.projectId,
-                                    project_name: (_d = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _d === void 0 ? void 0 : _d.projectName,
-                                    deployment_id: (_e = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _e === void 0 ? void 0 : _e.deploymentId,
-                                    deployment_version: Number((_f = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _f === void 0 ? void 0 : _f.deploymentVersion),
-                                    type: activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectType,
-                                },
-                            }, traceId);
-                        }
-                        else {
-                            if (currentStaticFlow.status === "START") {
-                                resetActiveStep();
-                                resetCurrentStaticFlow();
-                            }
-                            clearTimeout(delayTimer);
-                            sendMessageToNative({
-                                command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                            }, traceId);
-                            resetActiveProject();
-                            currentMatchedWebIdentifiers = {};
-                            sendObserverLogs({
-                                category: OBSERVER_EVENT_CATEGORIES.FINDER,
-                                event_name: OBSERVER_EVENTS.FINDER.ON_NO_PROJECT_DETECTED,
-                            }, traceId);
-                        }
-                    }
-                }
-                flushFinderObserverEvents(traceId);
-            }
-            function callWebScriptForAllProject(traceId) {
-                var webViewProjects = embedProject
-                    .concat(sortedProjectArray)
-                    .concat(Object.values(flowWalkthroughs))
-                    .filter(function (project) { return project === null || project === void 0 ? void 0 : project.isWebView; });
-                var matchedWebViewNode = findFirstWebView(filteredHierarchy);
-                if (!matchedWebViewNode) {
-                    return;
-                }
-                sendWebJSscript({
-                    webIdentifiers: webViewProjects.reduce(function (webIdentifierObject, project) {
-                        return (webIdentifierObject = __assign(__assign({}, webIdentifierObject), project.webIdentifiers));
-                    }, {}),
-                    webViewNode: matchedWebViewNode,
+                    className: "finder.js",
+                    methodName: "findMatches",
                 }, traceId);
-            }
-            function checkAndUpdateBounds(_a, traceId) {
-                var _b, _c, _d;
-                var activeAssist = _a.activeAssist, activeProjectId = _a.activeProjectId, isAStep = _a.isAStep;
-                if ((activeAssist === null || activeAssist === void 0 ? void 0 : activeAssist.id) === activeProjectId) {
-                    if (activeAssist.isAnchoredElement) {
-                        var matchedNode = prevMatchedIdentifiers.matchedNode.find(function (s) { return activeAssist.targetId === s.id; });
-                        if (JSON.stringify(matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds) !==
-                            JSON.stringify(previousBoundState)) {
-                            var bodyObj = {
-                                command: isAStep
-                                    ? SENDING_COMMANDS.UPDATE_STEP_BOUNDS
-                                    : SENDING_COMMANDS.UPDATE_ASSIST_BOUNDS,
-                                data: {
-                                    assist: activeAssist.assist,
-                                    projectParameters: activeProject.projectParameters,
-                                    auiContent: activeProject.auiContent,
-                                    bounds: matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds,
-                                    anchorNodeInfo: getAnchorNodeInfo((_d = (_c = (_b = activeAssist === null || activeAssist === void 0 ? void 0 : activeAssist.assist) === null || _b === void 0 ? void 0 : _b.instruction) === null || _c === void 0 ? void 0 : _c.assistInfo) === null || _d === void 0 ? void 0 : _d.type, activeAssist.targetId, activeAssist, [matchedNode]),
-                                },
-                            };
-                            previousBoundState = matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds;
-                            if (isAStep) {
-                                bodyObj = __assign(__assign({}, bodyObj), { data: __assign(__assign({}, bodyObj.data), { iconSetting: activeProject.iconSetting, showLanguageOption: activeProject.languages.length > 1, showIcon: currentlyRunningFlow.id === "" ? true : false, selectedLanguage: selectedLanguage }) });
-                            }
-                            sendMessageToNative(bodyObj, traceId);
-                        }
-                    }
-                    return true;
+            } else {
+                if (identifier.activityName) {
+                    ObserverData.activity_name = "true";
+                } else {
+                    ObserverData.controller = "true";
                 }
-                return false;
-            }
-            function constructActiveProjectObject(projectFound) {
-                activeProject = {
-                    id: projectFound.id,
-                    projectType: projectFound.projectParameters.projectType,
-                    isShowing: true,
-                    isAnchoredElement: projectFound.isAnchoredElement,
-                    isWebView: projectFound.webIdentifiers !== undefined,
-                    flows: projectFound.flows,
-                    nativeIdentifiers: projectFound.nativeIdentifiers,
-                    webIdentifiers: projectFound.webIdentifiers,
-                    auiContent: projectFound.auiContent,
-                    languages: projectFound.languages,
-                    projectParameters: projectFound.projectParameters,
-                    iconSetting: projectFound.iconSetting,
-                    webViewList: projectFound.webViewList,
-                    standAlone: ![
-                        "STATIC_FLOW",
-                        "STATIC_FLOW_MENU",
-                        "STATIC_FLOW_CHECKLIST",
-                    ].includes(projectFound.projectParameters.projectType),
-                    isAFlow: projectFound.projectParameters.projectType === "STATIC_FLOW",
-                    isAFlowMenu: ["STATIC_FLOW_MENU", "STATIC_FLOW_CHECKLIST"].includes(projectFound.projectParameters.projectType),
-                };
-            }
-            function renderStep(stepFound, projectFound, traceId) {
-                currentStaticFlow.stepsStatus.push({
-                    id: stepFound.id,
-                    toShow: true,
-                    completed: false,
-                    isOptional: stepFound.isOptional,
-                    isAnchoredElement: !!(stepFound === null || stepFound === void 0 ? void 0 : stepFound.isAnchoredElement),
-                    identifier: stepFound.targetId,
-                    nextSteps: stepFound.nextSteps,
-                    completionStep: !!stepFound.isSuccess,
-                    step: stepFound.assist,
-                });
-                activeStep = {
-                    step: stepFound,
-                    id: stepFound.id,
-                    isAnchoredElement: !!(stepFound === null || stepFound === void 0 ? void 0 : stepFound.isAnchoredElement),
-                };
-                var bodyObj = {
-                    command: SENDING_COMMANDS.STEP_FOUND,
-                    data: {
-                        assist: stepFound.assist,
-                        localeSounds: stepFound === null || stepFound === void 0 ? void 0 : stepFound.localeSounds,
-                        projectParameters: activeProject.projectParameters,
-                        auiContent: activeProject.auiContent,
-                        iconSetting: activeProject.iconSetting,
-                        showLanguageOption: activeProject.languages.length > 1,
-                        showIcon: currentlyRunningFlow.id === "" ? true : false,
-                        selectedLanguage: selectedLanguage,
-                        anchorNodeInfo: getAnchorNodeInfo(stepFound.assistType, stepFound.targetId, projectFound, prevMatchedIdentifiers.matchedNode),
-                    },
-                };
-                if (stepFound.targetId) {
-                    var matchedNode = prevMatchedIdentifiers.matchedNode.find(function (s) { return stepFound.targetId === s.id; });
-                    previousBoundState = matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds;
-                    bodyObj.data.bounds = matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds;
-                }
-                sendMessageToNative(bodyObj, traceId);
-            }
-            function renderProject(projectFound, showOnlyFlowIcon, traceId) {
-                var _a, _b, _c, _d, _e, _f, _g, _h;
-                if (showOnlyFlowIcon === void 0) { showOnlyFlowIcon = false; }
-                var bodyObj = {
-                    command: SENDING_COMMANDS.ASSIST_FOUND,
-                    data: {
-                        assist: projectFound.assist,
-                        projectParameters: projectFound.projectParameters,
-                        auiContent: projectFound.auiContent,
-                        localeSounds: projectFound === null || projectFound === void 0 ? void 0 : projectFound.localeSounds,
-                    },
-                };
-                var showOnlyIcon = projectFound.assist.autoStart ||
-                    getTriggerConditionForStaticFlow(projectFound.triggerCase, (_a = allProjectStatus[projectFound.id]) === null || _a === void 0 ? void 0 : _a.isShown, (_b = allProjectStatus[projectFound.id]) === null || _b === void 0 ? void 0 : _b.isFlowTriggered) === "ICON";
-                if (projectFound.isAFlow || projectFound.isAFlowMenu) {
-                    bodyObj.command = SENDING_COMMANDS.WALKTHROUGH_FOUND;
-                    selectedLanguage = setSelectedLanguage(projectFound.languages, selectedLanguage || appLocale);
-                    bodyObj.data = __assign(__assign({}, bodyObj.data), { selectedLanguage: selectedLanguage, showLanguagePanel: selectedLanguage === "", languages: projectFound.languages, iconSetting: projectFound.iconSetting, showIcon: showOnlyFlowIcon || showOnlyIcon, autoStart: projectFound.assist.autoStart });
-                }
-                if (projectFound.isAFlowMenu) {
-                    if (currentlyRunningFlow.id === projectFound.id ||
-                        currentlyRunningFlow.id === "")
-                        sendProjectCompletion({ id: projectFound.id, reset: false }, traceId);
-                    else
-                        sendProjectCompletion({ reset: true }, traceId);
-                    activeProject.id = projectFound.id;
-                    flowShown = true;
-                    currentlyRunningFlow = {
-                        id: projectFound.id,
-                        active: true,
-                    };
-                }
-                if (projectFound.isAFlow && !projectFound.isAFlowMenu && !showOnlyFlowIcon) {
-                    currentStaticFlow = {
-                        id: projectFound.id,
-                        isWebView: projectFound.isWebView,
-                        projectId: projectFound.projectParameters.deploymentId,
-                        status: "START",
-                        onlyIcon: showOnlyIcon,
-                        completed: false,
-                        autoStart: projectFound === null || projectFound === void 0 ? void 0 : projectFound.assist.autoStart,
-                        stepsStatus: [],
-                    };
-                }
-                if (!(projectFound.isAFlow || projectFound.isAFlowMenu)) {
-                    if (projectFound.isAnchoredElement) {
-                        var getNativeMatchedNode = (_c = prevMatchedIdentifiers === null || prevMatchedIdentifiers === void 0 ? void 0 : prevMatchedIdentifiers.matchedNode) === null || _c === void 0 ? void 0 : _c.find(function (s) { return projectFound.targetId === s.id; });
-                        var getWebMatchedNode = (_d = currentMatchedWebIdentifiers === null || currentMatchedWebIdentifiers === void 0 ? void 0 : currentMatchedWebIdentifiers.matchedNode) === null || _d === void 0 ? void 0 : _d.find(function (s) { return projectFound.targetId === s.id; });
-                        var matchedNode = projectFound.isWebView
-                            ? getWebMatchedNode
-                            : getNativeMatchedNode;
-                        previousBoundState = matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds;
-                        bodyObj.data.bounds = matchedNode === null || matchedNode === void 0 ? void 0 : matchedNode.bounds;
-                        bodyObj.data.anchorNodeInfo = getAnchorNodeInfo((_g = (_f = (_e = projectFound === null || projectFound === void 0 ? void 0 : projectFound.assist) === null || _e === void 0 ? void 0 : _e.instruction) === null || _f === void 0 ? void 0 : _f.assistInfo) === null || _g === void 0 ? void 0 : _g.type, projectFound === null || projectFound === void 0 ? void 0 : projectFound.targetId, projectFound, prevMatchedIdentifiers === null || prevMatchedIdentifiers === void 0 ? void 0 : prevMatchedIdentifiers.matchedNode);
-                    }
-                }
-                if (!projectFound.isAFlowMenu && !showOnlyFlowIcon) {
-                    constructActiveProjectObject(projectFound);
-                }
-                if (projectFound.assist.autoStart &&
-                    showOnlyIcon &&
-                    !allProjectStatus[projectFound.id].isShown) {
-                    currentStaticFlow = __assign(__assign({}, currentStaticFlow), { status: "RENDERING-STEPS", onlyIcon: false, autoStart: projectFound === null || projectFound === void 0 ? void 0 : projectFound.assist.autoStart });
-                    resetFlow();
-                }
-                delayTimer = setTimeout(function () { return sendMessageToNative(bodyObj, traceId); }, ((_h = allProjectStatus[projectFound.id]) === null || _h === void 0 ? void 0 : _h.isShown) ? 0 : projectFound === null || projectFound === void 0 ? void 0 : projectFound.triggerDelay);
-            }
-            function runDetectionLogicForProjects(searchOnlyFlowMenu, webIdentifiers, traceId) {
-                var _a;
-                if (searchOnlyFlowMenu === void 0) { searchOnlyFlowMenu = false; }
-                var projectFound = (_a = embedProject
-                    .concat(sortedProjectArray)) === null || _a === void 0 ? void 0 : _a.find(function (project, i) {
-                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3;
-                    if (project === undefined)
-                        return;
-                    if (((_a = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _a === void 0 ? void 0 : _a.isTerminated) ||
-                        (!project.id.includes("discovery") && ((_b = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _b === void 0 ? void 0 : _b.isCompleted)))
-                        return;
-                    if (project.isWebView && !currentMatchedWebIdentifiers)
-                        return true;
-                    if (((_d = (_c = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _c === void 0 ? void 0 : _c.initialTerminationStatus) === null || _d === void 0 ? void 0 : _d.nSession) !==
-                        -1 &&
-                        ((_f = (_e = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _e === void 0 ? void 0 : _e.terminationStatus) === null || _f === void 0 ? void 0 : _f.nSession) ===
-                        ((_h = (_g = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _g === void 0 ? void 0 : _g.initialTerminationStatus) === null || _h === void 0 ? void 0 : _h.nSession) &&
-                        ((_j = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _j === void 0 ? void 0 : _j.shownOnce) === false) {
-                        sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
-                            terminationRule: "nSession: ".concat((_k = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project === null || project === void 0 ? void 0 : project.id]) === null || _k === void 0 ? void 0 : _k.initialTerminationStatus.nSession),
-                        }, traceId);
-                        removeProjectFromStatusArray({ id: project === null || project === void 0 ? void 0 : project.id });
-                        return false;
-                    }
-                    else if ((((_m = (_l = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _l === void 0 ? void 0 : _l.initialTerminationStatus) === null || _m === void 0 ? void 0 : _m.nDismissedByUser) !== -1 &&
-                            ((_p = (_o = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _o === void 0 ? void 0 : _o.terminationStatus) === null || _p === void 0 ? void 0 : _p.nDismissedByUser) === 1) ||
-                        (((_r = (_q = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _q === void 0 ? void 0 : _q.initialTerminationStatus) === null || _r === void 0 ? void 0 : _r.perApp) !== -1 &&
-                            ((_t = (_s = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _s === void 0 ? void 0 : _s.terminationStatus) === null || _t === void 0 ? void 0 : _t.perApp) === ((_v = (_u = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _u === void 0 ? void 0 : _u.initialTerminationStatus) === null || _v === void 0 ? void 0 : _v.perApp)) ||
-                        (((_x = (_w = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _w === void 0 ? void 0 : _w.initialTerminationStatus) === null || _x === void 0 ? void 0 : _x.untilAllFlowsAreCompleted) &&
-                            ((_z = (_y = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[project.id]) === null || _y === void 0 ? void 0 : _y.terminationStatus) === null || _z === void 0 ? void 0 : _z.untilAllFlowsAreCompleted))) {
-                        removeProjectFromStatusArray({ id: project === null || project === void 0 ? void 0 : project.id, saveState: false });
-                        return false;
-                    }
-                    switch (true) {
-                        case project.isAFlow:
-                        case project.isAFlowMenu: {
-                            var resWeb = webIdentifiers || currentMatchedWebIdentifiers;
-                            var resNative = findMatches(filteredHierarchy, project.nativeIdentifiers, traceId);
-                            var res = (project === null || project === void 0 ? void 0 : project.isWebView) ? resWeb : resNative;
-                            found = checkIfIdentifierMatch(res === null || res === void 0 ? void 0 : res.matchedIdentifiers, (project === null || project === void 0 ? void 0 : project.isWebView)
-                                ? __spreadArray(__spreadArray([], __read(project.assist.webIdentifiers), false), __read((project.targetId ? [project.targetId] : [])), false) : __spreadArray(__spreadArray([], __read(project.assist.nativeIdentifiers), false), __read((project.targetId ? [project.targetId] : [])), false));
-                            if (found &&
-                                (((!((_0 = allProjectStatus[project === null || project === void 0 ? void 0 : project.id]) === null || _0 === void 0 ? void 0 : _0.isShown) ||
-                                            !((_1 = allProjectStatus[project === null || project === void 0 ? void 0 : project.id]) === null || _1 === void 0 ? void 0 : _1.isCompleted) ||
-                                            (project === null || project === void 0 ? void 0 : project.isIconEnabled)) &&
-                                        checkToShowProject(project === null || project === void 0 ? void 0 : project.id)) ||
-                                    searchOnlyFlowMenu))
-                                return project;
-                            break;
-                        }
-                        case !project.isWebView: {
-                            if (searchOnlyFlowMenu)
+
+                delete identifier.activityName;
+                delete identifier.controller;
+
+                // Iterate over each object in the first array
+                for (const node of flattenedHierarchyArray) {
+                    let isMatch = true; // Assume a match until proven otherwise
+                    // Check if all key-value pairs in identifier (except 'name') match with node
+                    for (const key in identifier) {
+                        // check if the key is in regex
+                        if (regex?.[key] !== undefined) {
+                            const regexValue = parseRegexString(regex?.[key]);
+
+                            if (
+                                key !== "name" &&
+                                key !== "id" &&
+                                key !== "ar_id" &&
+                                !regexValue.test(node[key])
+                            ) {
+                                ObserverData[getCorrectKey(key)] = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
                                 break;
-                            var res = findMatches(filteredHierarchy, project.nativeIdentifiers, traceId);
-                            prevMatchedIdentifiers = res;
-                            var found = false;
-                            if (project.isAnchoredElement)
-                                found = isArrayMatched(__spreadArray(__spreadArray([], __read(project.assist.nativeIdentifiers), false), [project.targetId], false), res.matchedIdentifiers);
-                            else
-                                found = isArrayMatched(project.assist.nativeIdentifiers, res.matchedIdentifiers);
-                            if (found &&
-                                allProjectStatus[project.id] &&
-                                (!((_2 = allProjectStatus[project.id]) === null || _2 === void 0 ? void 0 : _2.isShown) ||
-                                    !((_3 = allProjectStatus[project.id]) === null || _3 === void 0 ? void 0 : _3.isCompleted)) &&
-                                checkToShowProject(project.id))
-                                return project;
-                            break;
-                        }
-                        case project.isWebView: {
-                            if (searchOnlyFlowMenu)
+                            } else if (
+                                key === "ar_id" &&
+                                !regexValue.test(node.id?.split(`android:id/`).pop())
+                            ) {
+                                ObserverData.ar_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
                                 break;
-                            var res = currentMatchedWebIdentifiers;
-                            prevMatchedIdentifiers = res;
-                            var found = false;
-                            if (res === undefined)
+                            } else if (
+                                key === "id" &&
+                                !regexValue.test(
+                                    node[key]
+                                        ?.split(`${filteredHierarchy.client_package_name}:id/`)
+                                        .pop()
+                                )
+                            ) {
+                                ObserverData.r_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
                                 break;
-                            if (project.isAnchoredElement)
-                                found = checkIfIdentifierMatch(res.matchedIdentifiers, __spreadArray(__spreadArray([], __read(project.assist.webIdentifiers), false), [
-                                    project.targetId,
-                                ], false));
-                            else
-                                found = checkIfIdentifierMatch(res.matchedIdentifiers, project.assist.webIdentifiers);
-                            if (found &&
-                                (!allProjectStatus[project.id].isShown ||
-                                    !allProjectStatus[project.id].isCompleted) &&
-                                checkToShowProject(project.id))
-                                return project;
-                            break;
-                        }
-                    }
-                });
-                return (projectFound === null || projectFound === void 0 ? void 0 : projectFound.isWebView) && !currentMatchedWebIdentifiers
-                    ? "isWeb"
-                    : projectFound;
-            }
-            function runDetectionLogicForSteps(_a, webIdentifiers, traceId) {
-                var lastStep = _a.lastStep;
-                var currentStepIds = lastStep === undefined
-                    ? [activeProject.flows[0].firstStep]
-                    : lastStep.nextSteps;
-                var resWeb = webIdentifiers;
-                var resNative = findMatches(filteredHierarchy, activeProject.nativeIdentifiers, traceId);
-                if ((lastStep === null || lastStep === void 0 ? void 0 : lastStep.toShow) && !(lastStep === null || lastStep === void 0 ? void 0 : lastStep.completed)) {
-                    currentStepIds = [lastStep.id];
-                }
-                var stepFound;
-                activeProject.flows[0].pages.find(function (page) {
-                    var e_10, _a;
-                    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-                    if (checkIfIdentifierMatch(resNative.matchedIdentifiers, page.nativeIdentifiers)) {
-                        try {
-                            for (var _o = __values(page.stages), _p = _o.next(); !_p.done; _p = _o.next()) {
-                                var stage = _p.value;
-                                if (currentStepIds.includes(stage.uniqueID) &&
-                                    stage.webIdentifiers !== undefined &&
-                                    !webIdentifiers) {
-                                    stepFound = "isWeb";
-                                    return true;
-                                }
-                                if (currentStepIds.includes(stage.uniqueID) &&
-                                    checkIfIdentifierMatch(stage.webIdentifiers !== undefined
-                                        ? resWeb === null || resWeb === void 0 ? void 0 : resWeb.matchedIdentifiers
-                                        : resNative === null || resNative === void 0 ? void 0 : resNative.matchedIdentifiers, stage.webIdentifiers !== undefined
-                                        ? __spreadArray(__spreadArray([], __read(stage.webIdentifiers), false), __read((((_c = (_b = stage === null || stage === void 0 ? void 0 : stage.instruction) === null || _b === void 0 ? void 0 : _b.assistInfo) === null || _c === void 0 ? void 0 : _c.identifier)
-                                            ? [stage.instruction.assistInfo.identifier]
-                                            : [])), false) : __spreadArray(__spreadArray([], __read(stage.nativeIdentifiers), false), __read((((_e = (_d = stage === null || stage === void 0 ? void 0 : stage.instruction) === null || _d === void 0 ? void 0 : _d.assistInfo) === null || _e === void 0 ? void 0 : _e.identifier)
-                                            ? [stage.instruction.assistInfo.identifier]
-                                            : [])), false))) {
-                                    prevMatchedIdentifiers = stage.webIdentifiers ? resWeb : resNative;
-                                    stepFound = {
-                                        id: stage === null || stage === void 0 ? void 0 : stage.uniqueID,
-                                        isWebView: (stage === null || stage === void 0 ? void 0 : stage.webIdentifiers) !== undefined,
-                                        isOptional: stage === null || stage === void 0 ? void 0 : stage.optional,
-                                        assist: stage,
-                                        isAnchoredElement: !!((_g = (_f = stage === null || stage === void 0 ? void 0 : stage.instruction) === null || _f === void 0 ? void 0 : _f.assistInfo) === null || _g === void 0 ? void 0 : _g.identifier),
-                                        targetId: (_j = (_h = stage === null || stage === void 0 ? void 0 : stage.instruction) === null || _h === void 0 ? void 0 : _h.assistInfo) === null || _j === void 0 ? void 0 : _j.identifier,
-                                        nextSteps: (_k = stage === null || stage === void 0 ? void 0 : stage.transition) === null || _k === void 0 ? void 0 : _k.nextSteps,
-                                        nativeIdentifiers: stage === null || stage === void 0 ? void 0 : stage.nativeIdentifiers,
-                                        webIdentifiers: stage === null || stage === void 0 ? void 0 : stage.webIdentifiers,
-                                        isSuccess: stage === null || stage === void 0 ? void 0 : stage.isSuccess,
-                                        assistType: (_m = (_l = stage === null || stage === void 0 ? void 0 : stage.instruction) === null || _l === void 0 ? void 0 : _l.assistInfo) === null || _m === void 0 ? void 0 : _m.type,
-                                    };
-                                    return true;
-                                }
+                            } else {
+                                ObserverData[getCorrectKey(key)] = "true";
+                            }
+                        } else {
+                            if (
+                                key !== "name" &&
+                                key !== "id" &&
+                                key !== "ar_id" &&
+                                node[key] !== identifier[key]
+                            ) {
+                                ObserverData[getCorrectKey(key)] = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else if (
+                                key === "ar_id" &&
+                                node.id?.split(`android:id/`).pop() !== identifier[key]
+                            ) {
+                                ObserverData.ar_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else if (
+                                key === "id" &&
+                                node[key]
+                                    ?.split(`${filteredHierarchy.client_package_name}:id/`)
+                                    .pop() !== identifier[key]
+                            ) {
+                                ObserverData.r_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else {
+                                ObserverData[getCorrectKey(key)] = "true";
                             }
                         }
-                        catch (e_10_1) { e_10 = { error: e_10_1 }; }
-                        finally {
-                            try {
-                                if (_p && !_p.done && (_a = _o.return)) _a.call(_o);
-                            }
-                            finally { if (e_10) throw e_10.error; }
-                        }
                     }
-                });
-                return stepFound;
-            }
-            function getAnchorNodeInfo(assistType, targetIdentifierId, projectFound, matchedNode) {
-                var _a;
-                if (!["TOOLTIP", "HIGHLIGHT_WITH_DESC"].includes(assistType))
-                    return null;
-                var anchorNode = matchedNode.find(function (node) { return (node === null || node === void 0 ? void 0 : node.id) === targetIdentifierId; });
-                var bounds = anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode["bounds"];
-                var node = flattenedHierarchy[(_a = anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode["node"]) === null || _a === void 0 ? void 0 : _a["uuid"]];
-                if (node["is_webview"]) {
-                    var targetIdentifier = projectFound.webIdentifiers[targetIdentifierId];
-                    var focusScript = createFocusJavascript(targetIdentifier);
-                    return {
-                        uuid: node["uuid"],
-                        autoFocus: true,
-                        autoFocusScript: focusScript,
-                        autoScroll: shouldAutoScroll(assistType, node, bounds),
-                        scrollToViewScript: getScrollToViewScript(assistType, node, targetIdentifier),
-                        scrollingParentInfo: getScrollingParentNodeInfo(assistType, node),
-                    };
-                }
-                return {
-                    uuid: node["uuid"],
-                    autoFocus: true,
-                    autoScroll: shouldAutoScroll(assistType, node, bounds),
-                    scrollingParentInfo: getScrollingParentNodeInfo(assistType, node),
-                };
-            }
-            function getScrollToViewScript(assistType, anchorNode, targetIdentifier) {
-                if (!anchorNode)
-                    return false;
-                if (![
-                    "TOOLTIP",
-                    "HIGHLIGHT_WITH_DESC",
-                    "FINGER_RIPPLE",
-                    "SWIPE_LEFT",
-                    "SWIPE_RIGHT",
-                    "SWIPE_UP",
-                    "SWIPE_DOWN",
-                    "BEACON",
-                ].includes(assistType))
-                    return null;
-                var querySelectorAllStatement = createQuerySelectorAllStatement(targetIdentifier);
-                return "".concat(querySelectorAllStatement, ".scrollIntoView({ behavior: 'smooth', block: 'center' });");
-            }
-            function shouldAutoScroll(assistType, anchorNode, bounds) {
-                var _a, _b;
-                if (!anchorNode)
-                    return false;
-                if (![
-                    "TOOLTIP",
-                    "HIGHLIGHT_WITH_DESC",
-                    "FINGER_RIPPLE",
-                    "SWIPE_LEFT",
-                    "SWIPE_RIGHT",
-                    "SWIPE_UP",
-                    "SWIPE_DOWN",
-                    "BEACON",
-                ].includes(assistType))
-                    return false;
-                var screenHeight = (_b = (_a = flattenedHierarchy === null || flattenedHierarchy === void 0 ? void 0 : flattenedHierarchy.ROOT_NODE) === null || _a === void 0 ? void 0 : _a.screen_height) !== null && _b !== void 0 ? _b : -1;
-                if (screenHeight == -1)
-                    return false;
-                var top = bounds === null || bounds === void 0 ? void 0 : bounds.top;
-                var bottom = bounds === null || bounds === void 0 ? void 0 : bounds.bottom;
-                return bottom > screenHeight || top < 5;
-            }
-            var ANDROID_SUPPORT_COLLAPSING_TOOLBAR = "android.support.design.widget.CollapsingToolbarLayout";
-            var GOOGLE_MATERIAL_COLLAPSING_TOOLBAR = "com.google.android.material.appbar.CollapsingToolbarLayout";
-            var ANDROID_SUPPORT_APP_BAR_LAYOUT = "android.support.design.widget.AppBarLayout";
-            var GOOGLE_MATERIAL_APP_BAR_LAYOUT = "com.google.android.material.appbar.AppBarLayout";
-            function getNativeScrollingParentNodeDetails(anchorNode) {
-                function isCollapsibleToolbar(node) {
-                    var className = node.class;
-                    return (ANDROID_SUPPORT_COLLAPSING_TOOLBAR === className ||
-                        GOOGLE_MATERIAL_COLLAPSING_TOOLBAR === className);
-                }
-                function canOnlyHorizontallyScroll(node) {
-                    return node && node["is_horizontally_scrollable"];
-                }
-                function canViewVerticallyScroll(node) {
-                    return node && node["is_vertically_scrollable"];
-                }
-                function fetchAppBarLayout(node) {
-                    if (!node)
-                        return null;
-                    var className = node.class;
-                    if (ANDROID_SUPPORT_APP_BAR_LAYOUT === className ||
-                        GOOGLE_MATERIAL_APP_BAR_LAYOUT === className)
-                        return node;
-                    var parentUUID = node["parent_uuid"];
-                    if (!parentUUID)
-                        return null;
-                    var parentNode = flattenedHierarchy[parentUUID];
-                    return fetchAppBarLayout(parentNode);
-                }
-                if (!anchorNode)
-                    return null;
-                if (platform === "ANDROID" && isCollapsibleToolbar(anchorNode)) {
-                    return {
-                        uuid: fetchAppBarLayout(anchorNode).uuid,
-                        isAppBarLayout: true,
-                    };
-                }
-                if (canViewVerticallyScroll(anchorNode)) {
-                    return {
-                        uuid: anchorNode.uuid,
-                        isAppBarLayout: false,
-                    };
-                }
-                var parentUUID = anchorNode["parent_uuid"];
-                if (!parentUUID)
-                    return null;
-                var parentNode = flattenedHierarchy[parentUUID];
-                return getNativeScrollingParentNodeDetails(parentNode);
-            }
-            function getScrollingParentNodeInfo(assistType, anchorNode) {
-                if (![
-                    "TOOLTIP",
-                    "HIGHLIGHT_WITH_DESC",
-                    "FINGER_RIPPLE",
-                    "SWIPE_LEFT",
-                    "SWIPE_RIGHT",
-                    "SWIPE_UP",
-                    "SWIPE_DOWN",
-                    "BEACON",
-                ].includes(assistType))
-                    return null;
-                if (!anchorNode)
-                    return null;
-                var isAnchorNodeWebView = anchorNode["is_webview"];
-                if (isAnchorNodeWebView)
-                    return {
-                        uuid: anchorNode.uuid,
-                    };
-                return getNativeScrollingParentNodeDetails(anchorNode);
-            }
-            function updateProjectStatus(_a, traceId) {
-                var id = _a.id, isShown = _a.isShown, isCompleted = _a.isCompleted, isFlowTriggered = _a.isFlowTriggered, isTerminated = _a.isTerminated, terminatedByIcon = _a.terminatedByIcon;
-                if (!id)
-                    return;
-                if (isShown) {
-                    allProjectStatus[id] = __assign(__assign({}, allProjectStatus[id]), { isShown: isShown });
-                }
-                if (isCompleted) {
-                    allProjectStatus[id] = __assign(__assign({}, allProjectStatus[id]), { isCompleted: isCompleted });
-                }
-                if (isFlowTriggered) {
-                    allProjectStatus[id] = __assign(__assign({}, allProjectStatus[id]), { isFlowTriggered: isFlowTriggered });
-                }
-                if (isTerminated) {
-                    allProjectStatus[id] = __assign(__assign({}, allProjectStatus[id]), { isTerminated: isTerminated });
-                }
-                if (terminatedByIcon) {
-                    allProjectStatus[id] = __assign(__assign({}, allProjectStatus[id]), { terminatedByIcon: terminatedByIcon });
-                }
-                saveTheLatestStateChange(traceId);
-            }
-            function receiveWebIdentifiers(webIdentifiers, traceId) {
-                prevMatchedIdentifiers = {};
-                currentMatchedWebIdentifiers = webIdentifiers;
-                receiveScreenHierarchy(undefined, true, webIdentifiers, traceId);
-            }
-            function updateAssistInteraction(res, traceId) {
-                var _a;
-                var actionCallback = res.body;
-                if ((actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.optIn) && !(currentlyRunningFlow === null || currentlyRunningFlow === void 0 ? void 0 : currentlyRunningFlow.id)) {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_OPT_IN, (actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.flowTitle)
-                        ? {
-                            selectedFlow: actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.flowTitle,
-                            selectedProjectId: actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.projectId,
-                        }
-                        : {}, traceId);
-                }
-                if (actionCallback.carouselSlideId) {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
-                        actionEventType: actionCallback.type,
-                        actionEventValue: actionCallback.buttonLabel,
-                        externalLink: actionCallback.externalLink,
-                        deepLink: actionCallback.deepLink,
-                        carouselCompleted: actionCallback.carouselCompleted,
-                        carouselSlideId: actionCallback.carouselSlideId,
-                        carouselPreviousSlideId: !actionCallback.carouselPreviousSlideId ||
-                        actionCallback.carouselPreviousSlideId === "null"
-                            ? null
-                            : actionCallback.carouselPreviousSlideId,
-                        carouselDirection: !actionCallback.carouselDirection ||
-                        actionCallback.carouselDirection === "null"
-                            ? null
-                            : actionCallback.carouselDirection,
-                        sdkVersionCode: sdkVersion,
-                    }, traceId);
-                }
-                else if (actionCallback.deepLink) {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
-                        actionEventType: ACTION_EVENT_TYPES.DEEP_LINK,
-                    }, traceId);
-                }
-                else if (actionCallback.externalLink) {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
-                        actionEventType: ACTION_EVENT_TYPES.EXTERNAL_LINK,
-                    }, traceId);
-                }
-                else if (actionCallback.actionType &&
-                    (actionCallback.actionType === "overlayClicked" ||
-                        actionCallback.actionType === "optOutClick")) {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
-                        actionEventType: ACTION_EVENT_TYPES.CLOSE,
-                    }, traceId);
-                }
-                else if (actionCallback.type === "close") {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
-                        actionEventType: ACTION_EVENT_TYPES.CLOSE,
-                        actionEventValue: actionCallback.buttonLabel,
-                    }, traceId);
-                }
-                if (((_a = allProjectStatus === null || allProjectStatus === void 0 ? void 0 : allProjectStatus[activeProject.id]) === null || _a === void 0 ? void 0 : _a.triggerCase) === "PLAY_ONCE")
-                    updateProjectStatus({ id: activeProject.id, isFlowTriggered: true }, traceId);
-                if (actionCallback.close &&
-                    !actionCallback.optIn &&
-                    currentlyRunningFlow.id === "" &&
-                    currentStaticFlow.status === "START") {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_OPT_OUT, undefined, traceId);
-                    if (allProjectStatus[activeProject.id].triggerCase ===
-                        "EVERY_SESSION_UNTIL_DISMISSED")
-                        updateProjectStatus({ id: activeProject.id, isFlowTriggered: true }, traceId);
-                    updateViewStatusForTheProject("nDismissedByUser", traceId);
-                }
-                if (actionCallback.close &&
-                    !actionCallback.optIn &&
-                    currentlyRunningFlow.id !== "" &&
-                    currentStaticFlow.id === undefined) {
-                    if (allProjectStatus[currentlyRunningFlow.id].triggerCase ===
-                        "EVERY_SESSION_UNTIL_DISMISSED")
-                        updateProjectStatus({
-                            id: currentlyRunningFlow.id,
-                            isFlowTriggered: true,
-                        }, traceId);
-                    updateViewStatusForTheProject("nDismissedByUser", traceId);
-                }
-                if (currentStaticFlow.id !== undefined &&
-                    currentStaticFlow.stepsStatus.length > 0) {
-                    var lastStep = currentStaticFlow.stepsStatus[currentStaticFlow.stepsStatus.length - 1];
-                    var activeProjectId = currentlyRunningFlow.id === ""
-                        ? activeProject.id
-                        : currentlyRunningFlow.id;
-                    flowShown = false;
-                    if (lastStep.completionStep) {
-                        sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_SUCCESS, undefined, traceId);
-                        if (currentlyRunningFlow.id !== "") {
-                            var currentRunningFlow = completedProjectsInFlow[activeProjectId];
-                            var foundCompletedProject = currentRunningFlow.projects.findIndex(function (c) { return c.id === currentStaticFlow.projectId; });
-                            if (foundCompletedProject !== -1) {
-                                currentRunningFlow.projects[foundCompletedProject].completed = true;
-                            }
-                            if (areAllProjectsCompleted(currentRunningFlow)) {
-                                updateViewStatusForTheProject("untilAllFlowsAreCompleted", traceId);
-                            }
-                        }
-                        if (currentlyRunningFlow.id === "")
-                            updateProjectStatus({ id: activeProject.id, isCompleted: true }, traceId);
-                        sendProjectCompletion({ reset: false }, traceId);
-                        if (allProjectStatus[activeProject.id].triggerCase ===
-                            "EVERY_SESSION_UNTIL_FLOW_COMPLETE")
-                            updateProjectStatus({ id: activeProject.id, isFlowTriggered: true }, traceId);
-                        updateViewStatusForTheProject("perApp", traceId);
-                        saveTheLatestStateChange(traceId);
-                        resetActiveProject();
-                        resetCurrentStaticFlow();
-                        resetFlow();
-                    }
-                }
-                if (actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.projectId) {
-                    var selectedWalkthrough = flowWalkthroughs[actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.projectId];
-                    activeProject = {
-                        id: selectedWalkthrough.id,
-                        projectType: selectedWalkthrough.projectParameters.projectType,
-                        isShowing: true,
-                        isAnchoredElement: selectedWalkthrough.isAnchoredElement,
-                        flows: selectedWalkthrough.flows,
-                        nativeIdentifiers: selectedWalkthrough.nativeIdentifiers,
-                        webIdentifiers: selectedWalkthrough.webIdentifiers,
-                        auiContent: selectedWalkthrough.auiContent,
-                        projectParameters: selectedWalkthrough.projectParameters,
-                        languages: selectedWalkthrough.languages,
-                        iconSetting: selectedWalkthrough.iconSetting,
-                        standAlone: ![
-                            "STATIC_FLOW",
-                            "STATIC_FLOW_MENU",
-                            "STATIC_FLOW_CHECKLIST",
-                        ].includes(selectedWalkthrough.projectParameters.projectType),
-                        isAFlow: selectedWalkthrough.projectParameters.projectType === "STATIC_FLOW",
-                        isAFlowMenu: ["STATIC_FLOW_MENU", "STATIC_FLOW_CHECKLIST"].includes(selectedWalkthrough.projectParameters.projectType),
-                    };
-                    currentStaticFlow = {
-                        id: selectedWalkthrough.id,
-                        projectId: selectedWalkthrough.projectParameters.deploymentId,
-                        completed: false,
-                        stepsStatus: [],
-                        status: "RENDERING-STEPS",
-                        autoStart: true,
-                    };
-                    flowShown = false;
-                    return;
-                }
-                if (actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.optIn) {
-                    previousBoundState = {};
-                    currentStaticFlow = __assign(__assign({}, currentStaticFlow), { status: "RENDERING-STEPS", onlyIcon: false, autoStart: false });
-                    resetFlow();
-                    return;
-                }
-                if (actionCallback === null || actionCallback === void 0 ? void 0 : actionCallback.endFlow) {
-                    currentStaticFlow.id !== undefined &&
-                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_STOP, undefined, traceId);
-                    previousBoundState = {};
-                    handleCloseEvent({
-                        clearAll: true,
-                    }, traceId);
-                    resetCurrentStaticFlow();
-                    return;
-                }
-                if (actionCallback.close) {
-                    if (currentStaticFlow.id === undefined ||
-                        (currentStaticFlow.id !== undefined &&
-                            currentStaticFlow.stepsStatus.length === 0))
-                        handleCloseEvent({
-                            clearAll: true,
-                        }, traceId);
-                    else
-                        handleCloseEvent({
-                            updateStepsStatus: true,
-                        }, traceId);
-                    return;
-                }
-            }
-            function handleCloseEvent(_a, traceId) {
-                var _b;
-                var _c = _a.clearAll, clearAll = _c === void 0 ? false : _c, _d = _a.updateStepsStatus, updateStepsStatus = _d === void 0 ? false : _d;
-                previousBoundState = {};
-                switch (true) {
-                    case updateStepsStatus: {
-                        var lastStepIndex = ((_b = currentStaticFlow === null || currentStaticFlow === void 0 ? void 0 : currentStaticFlow.stepsStatus) === null || _b === void 0 ? void 0 : _b.length) - 1;
-                        if (lastStepIndex >= 0) {
-                            currentStaticFlow.stepsStatus[lastStepIndex].completed = true;
-                        }
-                        previousBoundState = {};
-                        resetActiveStep();
-                        break;
-                    }
-                    case clearAll: {
-                        updateProjectStatus({ id: activeProject.id, isCompleted: true }, traceId);
-                        clearActiveProject();
+
+                    // If a match is found, set found to true and break the loop
+                    if (isMatch) {
+                        found = true;
+
+                        const updatedNodeBounds = getRelativeBounds(node);
+
+                        matchedNode.push({
+                            id: name,
+                            bounds: updatedNodeBounds,
+                            scale: node.scale,
+                            node,
+                        });
                         break;
                     }
                 }
+
+                // Add the result to the output array
+                if (found) {
+                    sendObserverLogs({
+                        category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                        event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_MATCHED,
+                        properties: {
+                            ...ObserverData,
+                        },
+                        className: "finder.js",
+                        methodName: "findMatches",
+                    }, traceId);
+                    matchedIdentifiers.push(name);
+                } else {
+                    sendObserverLogs({
+                        category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                        event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
+                        properties: {
+                            ...ObserverData,
+                        },
+                        className: "finder.js",
+                        methodName: "findMatches",
+                    }, traceId);
+                    unMatchedIdentifiers.push(name);
+                }
+                return;
             }
-            function setCurrentSelectedLanguage(language) {
-                selectedLanguage = language;
-                appLocale = language;
-            }
-            function resetShowForFlows() {
-                tackProjectBeingIdentified.forEach(function (t) {
-                    if (t.projectType === "STATIC_FLOW_CHECKLIST") {
-                        t.toShow = true;
+        } else {
+            /*
+      Step: 2
+      Check if the element is referenced or not
+      if the target array is not empty then find out the unique node and track the non referenced node by the relation ship array and compare with the params
+      */
+
+            const target = identifier.target;
+            delete identifier.target;
+
+            const compareActivityName =
+                identifier?.activityName &&
+                (regex.activityName
+                    ? !parseRegexString(regex?.activityName)?.test(
+                        flattenedHierarchy.ROOT_NODE?.activity_name
+                    )
+                    : !flattenedHierarchy.ROOT_NODE?.activity_name?.includes(
+                        identifier?.activityName
+                    ));
+
+            const compareController =
+                identifier?.controller &&
+                (regex.controller
+                    ? !parseRegexString(regex?.controller)?.test(
+                        flattenedHierarchy.ROOT_NODE?.controller
+                    )
+                    : !flattenedHierarchy.ROOT_NODE?.controller?.includes(
+                        identifier?.controller
+                    ));
+
+            if (compareActivityName) {
+                unMatchedIdentifiers.push(name);
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
+                    properties: {
+                        ...ObserverData,
+                        activity_name: "false",
+                    },
+                    className: "finder.js",
+                    methodName: "findMatches",
+                }, traceId);
+            } else if (compareController) {
+                unMatchedIdentifiers.push(name);
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
+                    properties: {
+                        ...ObserverData,
+                        controller: "false",
+                    },
+                    className: "finder.js",
+                    methodName: "findMatches",
+                }, traceId);
+            } else {
+                if (identifier.activityName) {
+                    ObserverData.activity_name = "true";
+                } else {
+                    ObserverData.controller = "true";
+                }
+
+                delete identifier.activityName;
+                delete identifier.controller;
+
+                const referenceNode = findMatchingNode(
+                    flattenedHierarchy,
+                    identifier,
+                    regex
+                );
+
+                if (!referenceNode) return unMatchedIdentifiers.push(name);
+
+                const actualNode = followRelationship(
+                    flattenedHierarchy,
+                    referenceNode,
+                    target.relationship
+                );
+
+                if (!actualNode) return unMatchedIdentifiers.push(name);
+
+                const targetRegex = target?.regex;
+                delete target?.relationship;
+                delete target?.regex;
+
+                let isMatch = true;
+
+                // Check if matching to the node is required
+                if (Object.keys(target).length > 1) {
+                    for (const key in target) {
+                        if (targetRegex?.[key] !== undefined) {
+                            const regexValue = parseRegexString(targetRegex?.[key]);
+                            if (
+                                key !== "id" &&
+                                key !== "ar_id" &&
+                                !regexValue.test(actualNode?.[key])
+                            ) {
+                                ObserverData[getCorrectKey(key)] = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else if (
+                                key === "ar_id" &&
+                                !regexValue.test(actualNode.id?.split(`android:id/`).pop())
+                            ) {
+                                ObserverData.ar_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else if (
+                                key === "id" &&
+                                !regexValue.test(
+                                    actualNode[key]
+                                        ?.split(`${filteredHierarchy.client_package_name}:id/`)
+                                        .pop()
+                                )
+                            ) {
+                                ObserverData.r_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else {
+                                ObserverData[getCorrectKey(key)] = "true";
+                            }
+                        } else {
+                            if (
+                                key !== "id" &&
+                                key !== "ar_id" &&
+                                actualNode?.[key] !== target?.[key]
+                            ) {
+                                ObserverData[getCorrectKey(key)] = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else if (
+                                key === "ar_id" &&
+                                actualNode["id"]?.split(`android:id/`).pop() !== target?.[key]
+                            ) {
+                                ObserverData.ar_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else if (
+                                key === "id" &&
+                                actualNode[key]
+                                    ?.split(`${filteredHierarchy.client_package_name}:id/`)
+                                    .pop() !== target?.[key]
+                            ) {
+                                ObserverData.r_id = "false";
+                                isMatch = false; // If any key doesn't match, it's not a match
+                                break;
+                            } else {
+                                ObserverData[getCorrectKey(key)] = "true";
+                            }
+                        }
                     }
-                });
+                }
+
+                const updatedNodeBounds = getRelativeBounds(actualNode);
+
+                if (isMatch) {
+                    matchedNode.push({
+                        id: name,
+                        bounds: updatedNodeBounds,
+                        scale: actualNode?.scale,
+                        node: actualNode,
+                    });
+                    sendObserverLogs({
+                        category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                        event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_MATCHED,
+                        properties: {
+                            ...ObserverData,
+                        },
+                        className: "finder.js",
+                        methodName: "findMatches",
+                    }, traceId);
+                    matchedIdentifiers.push(name);
+                } else {
+                    sendObserverLogs({
+                        category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                        event_name: OBSERVER_EVENTS.FINDER.ON_IDENTIFIER_NOT_MATCHED,
+                        properties: {
+                            ...ObserverData,
+                        },
+                        className: "finder.js",
+                        methodName: "findMatches",
+                    }, traceId);
+                    unMatchedIdentifiers.push(name);
+                }
             }
-            function clearEveryThing(clearTimer, traceId) {
-                if (clearTimer === void 0) { clearTimer = false; }
-                if (clearTimer)
+        }
+    });
+
+    return {
+        matchedIdentifiers,
+        unMatchedIdentifiers,
+        matchedNode,
+    }; // Return the final output array
+}
+
+// Flatten the hierarchy
+function getFlattenedHierarchy({
+                                   currentNode,
+                                   parentId,
+                                   root = true,
+                                   hierarchy = {},
+                               }) {
+    // If parentId is not present then add this
+    if (parentId === undefined) parentId = "NULL_PARENT_UUID";
+
+    let list = [];
+    // Final check both root and node not present, then exit
+    if (currentNode === undefined) return list;
+
+    // Assign the parent node to the current node
+    currentNode.parentId = parentId || "";
+
+    // Check if the node is a web node
+    if (currentNode.normalised_bounds !== undefined && currentNode.bounds) {
+        currentNode.bounds = currentNode.normalised_bounds;
+    }
+
+    // Store the current node in the hierarchy
+    hierarchy[currentNode.uuid || "ROOT_NODE"] = currentNode;
+    list.push(currentNode);
+
+    // If it's a root node, iterate over children
+    if (
+        root &&
+        currentNode.layout?.children?.length &&
+        currentNode.layout?.children?.length > 0
+    ) {
+        const layout = currentNode.layout;
+        const childrenLength = layout?.children?.length || 0;
+
+        for (let i = 0; i < childrenLength; i++) {
+            const res = getFlattenedHierarchy({
+                currentNode: layout?.children?.[i],
+                parentId: layout.uuid,
+                root: false,
+                hierarchy,
+            });
+
+            list.push(...res);
+        }
+
+        currentNode.layout.children = layout.children.map((child) => child.uuid); // Update to hold only child UUIDs
+    }
+    // Apart from root node, iterate over children
+    else if (currentNode.children?.length && currentNode.children?.length > 0) {
+        currentNode?.children?.forEach((n) => {
+            const res = getFlattenedHierarchy({
+                currentNode: {
+                    ...n,
+                    boundingArea: getBoundingArea(n?.bounds) || 0,
+                },
+                parentId: currentNode.uuid,
+                root: false,
+                hierarchy,
+            });
+
+            list.push(...res);
+        });
+
+        currentNode.children = currentNode.children.map((child) => child.uuid); // Update to hold only child UUIDs
+    }
+
+    return list;
+}
+
+function getRelativeBounds(node) {
+    if (!node) return;
+    const nodeBounds = {...node?.bounds};
+
+    const layoutBounds = filteredHierarchy?.layout?.bounds;
+
+    nodeBounds.left = nodeBounds?.left - layoutBounds?.left;
+    nodeBounds.top = nodeBounds?.top - layoutBounds?.top;
+    nodeBounds.right = nodeBounds?.right - layoutBounds?.left;
+    nodeBounds.bottom = nodeBounds?.bottom - layoutBounds?.top;
+
+    return nodeBounds;
+}
+
+// js filename- observable.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+// Initiate the loop to get the latest hierarchy
+
+
+function init(traceId) {
+    clearInterval(timer);
+    waitingForResponse = false;
+    hierarchyCommandLastSentAt = 0;
+    hierarchyCommandLastResponseAt = 0;
+
+    if (embedProject.concat(sortedProjectArray).length !== 0) {
+        timer = setInterval(() => {
+            try {
+                if (noActiveProjects()) {
                     clearInterval(timer);
+                    return;
+                }
+
+                const now = Date.now();
+                const shouldSend = !waitingForResponse ||
+                    (now - hierarchyCommandLastSentAt >= hierarchyCommandFallbackTimeout);
+
+                if (shouldSend) {
+                    sendMessageToNative({
+                        command: SENDING_COMMANDS.HIERARCHY,
+                        data: {
+                            filterElementsOutsideViewPort:
+                                features?.filterElementsOutsideViewPort || false,
+                        },
+                    }, traceId);
+
+                    waitingForResponse = true;
+                    hierarchyCommandLastSentAt = now;
+                }
+            } catch (error) {
+                console.warn("init(): unable to successfully complete hierarchy loop", error);
+            }
+        }, features?.hierarchyLoopInterval?.intervalTime || intervalTime);
+    }
+}
+
+function getIdFromProperty(key, property) {
+    if (key && property && key?.length > property?.length) {
+        const id = key.substr(property?.length, key?.length).replace("_", "");
+        return id;
+    }
+}
+
+function convertOldWfxData(
+    configData,
+    oldSortedProjectArray,
+    oldProjectStatus,
+    oldCompletedProjectsInFlow,
+    oldProfileData
+) {
+    let convertedData = {
+        projectArray: oldSortedProjectArray,
+        selectedLanguage: selectedLanguage,
+        allProjectStatus: oldProjectStatus,
+        completedFlowProjects: oldCompletedProjectsInFlow,
+    };
+
+    const idToUniqueIdMap = {};
+    const deploymentIdToIdMap = {};
+    const idToProjectIdMap = {};
+    const flowsInMenu = {};
+
+    oldSortedProjectArray.map((project) => {
+        let objKey = project.id;
+
+        idToProjectIdMap[project?.assist?.id] =
+            project?.projectParameters?.projectId;
+        deploymentIdToIdMap[project?.projectParameters?.deploymentId] =
+            project?.assist?.id;
+
+        // coz in old native data they were using project id as id and now we are using project uniqueID as id
+        idToUniqueIdMap[project.assist.id] = objKey;
+
+        if (project?.connectedProjects?.length > 0) {
+            flowsInMenu[objKey] = [];
+            project.connectedProjects.forEach((connectedProject) => {
+                // connectedProject.projectId is actually deploymentId
+                deploymentId = connectedProject.projectId;
+                configData?.every((projectData) => {
+                    if (
+                        projectData.projectParameters.deploymentType === "LINK" &&
+                        projectData.projectParameters.deploymentId === deploymentId
+                    ) {
+                        flowsInMenu[objKey].push(
+                            projectData.discoveryList?.[0].id || projectData.assists?.[0].id
+                        );
+                        deploymentIdToIdMap[deploymentId] =
+                            projectData.discoveryList?.[0].id || projectData.assists?.[0].id;
+                        idToProjectIdMap[
+                        projectData.discoveryList?.[0].id || projectData.assists?.[0].id
+                            ] = projectData.projectParameters.projectId;
+                        return false;
+                    }
+                    return true;
+                });
+            });
+        }
+    });
+
+    if (platform === "ANDROID") {
+        const OldProperties = {
+            DISCOVERY_PER_APP_FREQUENCY: "discovery_per_app_frequency",
+            N_DISMISSED_BY_USER: "n_dismissed_by_user",
+            N_SESSION_FREQUENCY: "n_session_frequency",
+            N_DISMISS_BY_USER_ASSIST_FREQUENCY: "n_dismiss_by_user_assist_frequency",
+            N_SESSION_ASSIST_FREQUENCY: "n_session_assist_frequency",
+            PROJECT_COMPLETED: "project_completed",
+            PERMANENTLY_DISABLED_PROJECT_LIST: "perm_disabled_project_list",
+            PROJECT_MUTED: "project_muted",
+        };
+        const oldProfileKeys =
+            (oldProfileData && Object.keys(oldProfileData)) || [];
+        oldProfileKeys?.forEach((key) => {
+            if (key.includes(OldProperties.DISCOVERY_PER_APP_FREQUENCY)) {
+                const discovery_id = getIdFromProperty(
+                    key,
+                    OldProperties.DISCOVERY_PER_APP_FREQUENCY
+                );
+                const uniqueId = idToUniqueIdMap[discovery_id];
+                const projectStatus = convertedData?.allProjectStatus[uniqueId];
+                if (projectStatus) {
+                    projectStatus.terminationStatus.perApp = oldProfileData[key];
+                }
+            }
+
+            if (key.includes(OldProperties.N_DISMISSED_BY_USER)) {
+                const discovery_id = getIdFromProperty(
+                    key,
+                    OldProperties.N_DISMISSED_BY_USER
+                );
+                const uniqueId = idToUniqueIdMap[discovery_id];
+                const projectStatus = convertedData?.allProjectStatus[uniqueId];
+                if (projectStatus) {
+                    projectStatus.terminationStatus.nDismissedByUser = 1;
+                }
+            }
+
+            if (key.includes(OldProperties.N_DISMISS_BY_USER_ASSIST_FREQUENCY)) {
+                const assist_id = getIdFromProperty(
+                    key,
+                    OldProperties.N_DISMISS_BY_USER_ASSIST_FREQUENCY
+                );
+                const uniqueId = idToUniqueIdMap[assist_id];
+                const projectStatus = convertedData?.allProjectStatus[uniqueId];
+                if (projectStatus) {
+                    projectStatus.terminationStatus.nDismissedByUser = 1;
+                }
+            }
+
+            if (key.includes(OldProperties.N_SESSION_FREQUENCY)) {
+                const discovery_id = getIdFromProperty(
+                    key,
+                    OldProperties.N_SESSION_FREQUENCY
+                );
+                const uniqueId = idToUniqueIdMap[discovery_id];
+                const projectStatus = convertedData?.allProjectStatus[uniqueId];
+                if (projectStatus) {
+                    projectStatus.terminationStatus.nSession = oldProfileData[key];
+                }
+            }
+
+            if (key.includes(OldProperties.N_SESSION_ASSIST_FREQUENCY)) {
+                const assist_id = getIdFromProperty(
+                    key,
+                    OldProperties.N_SESSION_ASSIST_FREQUENCY
+                );
+                const uniqueId = idToUniqueIdMap[assist_id];
+                const projectStatus = convertedData?.allProjectStatus[uniqueId];
+                if (projectStatus) {
+                    projectStatus.terminationStatus.nSession = oldProfileData[key];
+                }
+            }
+        });
+
+        const oldProfileDataCompletedProjects =
+            (oldProfileKeys?.length &&
+                oldProfileData[OldProperties.PROJECT_COMPLETED] &&
+                Object.keys(
+                    JSON.parse(oldProfileData[OldProperties.PROJECT_COMPLETED])
+                )) ||
+            [];
+
+        Object.entries(flowsInMenu)?.forEach((entry) => {
+            const flowMenuId = entry[0];
+            const connectFlows = entry[1];
+            if (connectFlows?.length > 0) {
+                convertedData.allProjectStatus[
+                    flowMenuId
+                    ].terminationStatus.untilAllFlowsAreCompleted = connectFlows?.every(
+                    (connectedFlow) => {
+                        projectId = idToProjectIdMap[connectedFlow];
+                        return oldProfileDataCompletedProjects?.includes(projectId);
+                    }
+                );
+            }
+            convertedData?.completedFlowProjects[flowMenuId]?.projects?.forEach(
+                (project) => {
+                    if (oldProfileDataCompletedProjects?.includes(project.id)) {
+                        project.completed = true;
+                    }
+                }
+            );
+        });
+
+        oldProfileKeys?.length &&
+        oldProfileData[OldProperties.PERMANENTLY_DISABLED_PROJECT_LIST]?.forEach(
+            (deploymentId) => {
+                const id = deploymentIdToIdMap[deploymentId];
+                const uniqueId = idToUniqueIdMap[id];
+                if (uniqueId) {
+                    convertedData.allProjectStatus[uniqueId].isTerminated = true;
+                }
+            }
+        );
+
+        // Case for Project muted to be tested later eg data in old properties project_muted:{"5":false,"8":false,"9":true}
+        const oldProfileDataMutedProjects =
+            (oldProfileKeys?.length &&
+                oldProfileData[OldProperties.PROJECT_MUTED] &&
+                JSON.parse(oldProfileData[OldProperties.PROJECT_MUTED])) ||
+            {};
+        Object.entries(oldProfileDataMutedProjects)?.forEach(
+            ([flowId, value]) => {
+            }
+        );
+
+        convertedData.selectedLanguage = oldProfileData?.language_selected;
+    } else {
+        convertedData.selectedLanguage = oldProfileData.leap_language_code;
+
+        Object.entries(oldProfileData.leap_discovery_flow_completed).forEach(
+            (entry) => {
+                convertedData.allProjectStatus[
+                    idToUniqueIdMap[entry[0]]
+                    ].terminationStatus.perApp = entry[1];
+            }
+        );
+
+        [
+            ...oldProfileData.leap_assists_dismissed,
+            ...oldProfileData.leap_discovery_dismissed,
+        ].forEach((id) => {
+            convertedData.allProjectStatus[
+                idToUniqueIdMap[id]
+                ].terminationStatus.nDismissedByUser = 1;
+        });
+
+        Object.entries(oldProfileData.leap_completed_flows).forEach((entry) => {
+            const flowMenuId = idToUniqueIdMap[entry[0]];
+
+            if (flowsInMenu[flowMenuId]) {
+                convertedData.allProjectStatus[
+                    flowMenuId
+                    ].terminationStatus.untilAllFlowsAreCompleted = flowsInMenu[
+                    flowMenuId
+                    ].every((connectedFlowId) => {
+                    if (!entry[1].includes(connectedFlowId)) {
+                        return false;
+                    }
+                    return true;
+                });
+
+                convertedData.completedFlowProjects[flowMenuId].projects.forEach(
+                    (project) => {
+                        if (entry[1].includes(deploymentIdToIdMap[project.id])) {
+                            project.completed = true;
+                        }
+                    }
+                );
+            }
+        });
+
+        // Case for Project muted to be tested later - data in oldProfileData.leap_muted_discoveries:[10, 6]
+        oldProfileData.leap_muted_discoveries?.forEach((id) => {
+            // const uniqueId = idToUniqueIdMap[id];
+        });
+
+        oldProfileData.leap_terminated_discoveries?.forEach((id) => {
+            const uniqueId = idToUniqueIdMap[id];
+            if (uniqueId) {
+                convertedData.allProjectStatus[uniqueId].isTerminated = true;
+            }
+        });
+
+        Object.entries({
+            ...oldProfileData.leap_discovery_presented,
+            ...oldProfileData.leap_assists_presented,
+        }).forEach((entry) => {
+            convertedData.allProjectStatus[
+                idToUniqueIdMap[entry[0]]
+                ].terminationStatus.nSession = entry[1];
+        });
+    }
+    Object.keys(convertedData.allProjectStatus).forEach((uniqueId) => {
+        if (uniqueId.includes("discovery")) {
+            switch (convertedData.allProjectStatus[uniqueId].triggerCase) {
+                case "EVERY_SESSION": {
+                    convertedData.allProjectStatus[uniqueId].isFlowTriggered = false;
+                    break;
+                }
+                case "MANUAL_TRIGGER": {
+                    convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
+                    break;
+                }
+                case "PLAY_ONCE": {
+                    if (
+                        convertedData.allProjectStatus[uniqueId].terminationStatus
+                            .nSession > 0
+                    )
+                        convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
+                    break;
+                }
+                case "EVERY_SESSION_UNTIL_DISMISSED": {
+                    if (
+                        convertedData.allProjectStatus[uniqueId].terminationStatus
+                            .nDismissedByUser === 1
+                    )
+                        convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
+                    break;
+                }
+                case "EVERY_SESSION_UNTIL_FLOW_COMPLETE": {
+                    if (
+                        convertedData.allProjectStatus[uniqueId].terminationStatus.perApp >
+                        0
+                    )
+                        convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
+                    break;
+                }
+                case "EVERY_SESSION_UNTIL_ALL_FLOWS_ARE_COMPLETED": {
+                    if (
+                        convertedData.allProjectStatus[uniqueId].terminationStatus
+                            .untilAllFlowsAreCompleted
+                    )
+                        convertedData.allProjectStatus[uniqueId].isFlowTriggered = true;
+                    break;
+                }
+                default: {
+                    //console.log( "Unknown trigger frequency: " convertedData.allProjectStatus[uniqueId].triggerCase);
+                }
+            }
+        } else {
+            convertedData.allProjectStatus[uniqueId].isFlowTriggered = false;
+        }
+    });
+    return convertedData;
+}
+
+// Function used to send config settings and assets links to pre download
+function saveConfigAndDownloadBulkAssets(res, traceId) {
+    const assetList = [];
+    const soundList = {};
+
+    embedProject
+        .concat(sortedProjectArray?.concat(Object.values(flowWalkthroughs)))
+        .forEach((p) => {
+            if (p === undefined) return;
+            p.auiContent.content.forEach((c) => {
+                if (!c) return;
+                c.startsWith("http")
+                    ? assetList.push(`${c}`)
+                    : assetList.push(`${p.auiContent.baseUrl}${c}`);
+            });
+
+            const sounds = Object.keys(p.localeSounds?.sounds);
+
+            if (sounds.length > 0) {
+                sounds.forEach((sound) => {
+                    if (soundList[sound] === undefined) soundList[sound] = [];
+
+                    const updatedSounds = p.localeSounds?.sounds[sound].map((s) => {
+                        s.url = s.url?.startsWith("http")
+                            ? `${s?.url}`
+                            : `${p?.localeSounds?.baseUrl}${s?.url}`;
+                        return s;
+                    });
+
+                    soundList[sound] = [...soundList[sound], ...updatedSounds];
+                });
+            }
+        });
+
+    // Ask native to save config
+    sendMessageToNative({
+        command: SENDING_COMMANDS.ON_CONFIG_FETCH,
+        data: {
+            config: res,
+            features,
+            loggerConfig,
+            assetsToDownload: {
+                files: assetList,
+                sounds: soundList,
+            },
+        },
+    }, traceId);
+}
+
+// Script uses to extract the matching identifiers from the client web view
+function sendWebJSscript({webIdentifiers, webViewNode}, traceId) {
+    let webViewBounds = webViewNode["bounds"];
+    let webViewScale = webViewNode["scale"];
+
+    var message = {
+        command: SENDING_COMMANDS.WEB_SCRIPT,
+        data: {
+            script: createFinderJavascript(
+                webIdentifiers,
+                webViewBounds,
+                webViewScale,
+                webViewNode.uuid
+            ),
+            webviewInfo: {
+                uuid: webViewNode.uuid,
+            },
+        },
+    };
+    sendMessageToNative(message, traceId);
+}
+
+// Once flow is completed send the call back to native side
+function sendProjectCompletion({id, reset}, traceId) {
+    const flow = completedProjectsInFlow?.[currentlyRunningFlow.id || id];
+
+    if (flow === undefined) return;
+
+    var message = {
+        command: SENDING_COMMANDS.PROJECT_COMPLETED,
+        data: {
+            language: selectedLanguage,
+            projects: reset ? [] : flow.projects,
+        },
+    };
+
+    sendMessageToNative(message, traceId);
+}
+
+// Update the state change to native side to cache it
+function saveTheLatestStateChange(traceId) {
+    if (inPreviewMode)
+        return;
+
+    const currentUserState = buildCurrentUserStateObject();
+    sdkStateService.updateCurrentUserState(currentUserState);
+    sdkStateService.segmentConfigMap = segmentConfigMap;
+    sdkStateService.appLocale = appLocale;
+
+    //console.debug("SAVE_USER_STATE", currentUserState);
+    sendJSObserverLog({
+        message: "saving user state",
+        methodName: "saveTheLatestStateChange",
+        level: ObserverLogLevel.DEBUG,
+        userState: buildUserStateObjectForObserverLog(currentUserState),
+        traceId
+    });
+
+    sdkStateService.persistState(traceId);
+}
+
+function buildCurrentUserStateObject() {
+    return {
+        projectArray: sortedProjectArray,
+        projectsStatus: allProjectStatus,
+        connectedWalkthroughs: flowWalkthroughs,
+        language: selectedLanguage,
+        currentPlatform: platform,
+        lastUpdatedConfigAt,
+        lastProfileUpdatedAt,
+        lastUpdatedEmbedConfigAt,
+        savedEmbedProject: embedProject,
+        userId: sdkStateService.currentUserId,
+        projectsCompletionStats: completedProjectsInFlow,
+        apiKey: appApiKey,
+        baseURL: configBaseUrl,
+        appVersion: appVersionName,
+        features,
+        metaConfigs,
+        loggerConfig,
+        customProps: customProperties,
+    };
+}
+
+function resetGlobalUserState() {
+    segmentConfigMap = {};
+    sortedProjectArray = [];
+    allProjectStatus = {};
+    flowWalkthroughs = {};
+    lastUpdatedConfigAt = null;
+    lastProfileUpdatedAt = null;
+    lastUpdatedEmbedConfigAt = null;
+    embedProject = [];
+    completedProjectsInFlow = {};
+    features = {};
+    metaConfigs = {};
+    customProperties = {};
+    resetUserLoggedIn();
+}
+
+
+// Update the state change to native side to cache it
+function saveTheLatestProps(traceId) {
+    let message = {
+        command: SENDING_COMMANDS.SAVE_USER_PROPS,
+        data: {
+            userProps: customProperties,
+        },
+    };
+
+    !inPreviewMode && sendMessageToNative(message, traceId);
+}
+
+// construct the event and send to SDK
+function sendAnalyticEvent(
+    eventName = ANALYTICS_EVENTS.ELEMENT_SEEN,
+    properties = {},
+    traceId
+) {
+    if (isSelfHosted) return;
+
+    let selectedProject;
+    if (currentlyRunningFlow.id && currentStaticFlow.stepsStatus.length > 0) {
+        selectedProject = Object.values(flowWalkthroughs).find(
+            (s) => currentStaticFlow?.id === s?.id
+        );
+    } else {
+        selectedProject = embedProject
+            .concat(sortedProjectArray)
+            .find((s) => activeProject?.id === s?.id);
+    }
+
+    const message = {
+        command: SENDING_COMMANDS.ANALYTICS_EVENT,
+        data: {
+            event: {
+                id: generateUUID(),
+                sessionId: appSessionId,
+                timestamp: new Date().toISOString(),
+                eventName,
+                projectName: selectedProject?.projectParameters.projectName,
+                projectId: selectedProject?.projectParameters.projectId,
+                deploymentId: selectedProject?.projectParameters.deploymentId,
+                deploymentVersion: selectedProject?.projectParameters.deploymentVersion,
+                language: selectedLanguage,
+                deploymentName: selectedProject?.projectParameters.deploymentName,
+                elementName: activeStep?.id
+                    ? activeStep?.step?.assist?.name
+                    : selectedProject?.assist?.name,
+                ...properties,
+            },
+            clientCallback: {},
+            leapUserId: getCurrentUserId(),
+        },
+    };
+    sendMessageToNative(message, traceId);
+}
+
+function removeTimestamps(message) {
+    const {
+        "string.created_at": _,
+        "long.timestamp": __,
+        ...dataWithoutTimestamp
+    } = message.data;
+
+    return {
+        command: message.command,
+        data: dataWithoutTimestamp,
+    };
+}
+
+function flushFinderObserverEvents(traceId) {
+    let sameAsCached = true;
+
+    sameAsCached = Object.keys(finderObserverEvents).every((eventName) => {
+        if (
+            finderObserverEvents[eventName].length !==
+            cachedFinderObserverEvents[eventName].length
+        ) {
+            return false;
+        }
+
+        messageListsMatch = finderObserverEvents[eventName].every(
+            (message, index) => {
+                if (
+                    JSON.stringify(removeTimestamps(message)) ===
+                    JSON.stringify(
+                        removeTimestamps(cachedFinderObserverEvents[eventName][index])
+                    )
+                )
+                    return true;
+                return false;
+            }
+        );
+        return messageListsMatch;
+    });
+
+    if (!sameAsCached) {
+        Object.entries(finderObserverEvents).forEach(([eventName, messageList]) => {
+            cachedFinderObserverEvents[eventName] = finderObserverEvents[eventName];
+            messageList.forEach((message) => {
+                sendMessageToNative(message, traceId);
+            });
+        });
+    }
+}
+
+function sendJSObserverLog({
+                               message,
+                               logData = {},
+                               className = "Global",
+                               methodName,
+                               level = ObserverLogLevel.INFO,
+                               userState,
+                               traceId
+                           }) {
+    if (disableObserverLogging)
+        return;
+    try {
+        observerLogService.sendObserverLog(message, logData, new Date(), className, methodName, level, userState, traceId);
+    } catch (error) {
+        //console.error("sendJSDebugObserverLog(): error while sending.", error)
+    }
+}
+
+function sendJSErrorObserverLog({
+                                    message,
+                                    logData = {},
+                                    level = ObserverLogLevel.ERROR,
+                                    error,
+                                    className,
+                                    methodName,
+                                    traceId
+                                }) {
+    if (disableObserverLogging)
+        return;
+    sendJSObserverLog({
+        message: `[ERROR] ${message}`,
+        logData: {...logData, error: getErrorLogObjectFromError(error)},
+        className: className,
+        methodName: methodName,
+        level: level,
+        traceId
+    });
+}
+
+function buildUserStateObjectForObserverLog(userState) {
+    let userStateLog = {};
+    try {
+        let projectArrayLog = [];
+        if (userState.projectArray) {
+            userState.projectArray.forEach((project) => {
+                projectArrayLog.push({
+                    id: project?.id,
+                    projectId: project?.projectParameters?.projectId,
+                    deploymentVersion: project?.projectParameters?.deploymentVersion
+                });
+            })
+        }
+
+        userStateLog = {
+            projectArrayLog: projectArrayLog,
+            projectsStatus: userState.projectsStatus,
+            language: userState.language,
+            lastUpdatedConfigAt: userState.lastUpdatedConfigAt,
+            lastProfileUpdatedAt: userState.lastProfileUpdatedAt,
+            lastUpdatedEmbedConfigAt: userState.lastUpdatedEmbedConfigAt,
+            userId: userState.userId,
+            wfId: userState.wfId,
+            projectsCompletionStats: userState.projectsCompletionStats,
+            customProps: userState.customProps,
+        }
+    } catch (error) {
+        console.error("Unable to generate JS Observer userStateLog", error);
+    }
+    return userStateLog || userState;
+}
+
+
+function buildUserStateObjectForJSLog() {
+    const userState = buildCurrentUserStateObject();
+    return buildUserStateObjectForObserverLog(userState);
+}
+
+// construct the observer logs and send to SDK
+function sendObserverLogs({
+                              event_name = OBSERVER_EVENTS.NETWORK.ON_CONFIG_DOWNLOAD_STARTED,
+                              category = OBSERVER_EVENT_CATEGORIES.NETWORK,
+                              properties = {},
+                              className,
+                              methodName,
+                              level = ObserverLogLevel.INFO,
+                          }, traceId) {
+    if (disableObserverLogging)
+        return;
+
+    if (isSelfHosted) return;
+
+    let logData = appendTypesToKeys({
+        category,
+        event_name,
+        sdk_name: "leap_sdk",
+        ...properties,
+        class_name: className,
+        created_at: getCurrentTimeInGMT(),
+        timestamp: Date.now(),
+        trace_id: traceId,
+    });
+    try {
+
+        let userState = buildUserStateObjectForJSLog();
+
+        const message = {
+            command: SENDING_COMMANDS.OBSERVER_LOG,
+            data: logData,
+        };
+
+        let eventName = message.data["string.event_name"];
+        if (eventName in finderObserverEvents) {
+            finderObserverEvents[message.data["string.event_name"]].push(message);
+            return;
+        }
+        console.log("sendObserverLog() message command ", message?.command);
+
+        sendJSObserverLog({
+            message: `command to native [${message.command}]`,
+            logData: message?.data,
+            className: className,
+            methodName: methodName,
+            level: level,
+            userState: userState,
+        }, traceId);
+    }catch (error) {
+        console.error("Unable to push JS Observer log", error);
+    }
+}
+
+function shouldBlockRequestToNative(message) {
+    return message && message.command && message.command === SENDING_COMMANDS.OBSERVER_LOG;
+}
+
+// Callback function to target the native platform and pass the message
+function sendMessageToNative(message, traceId) {
+    if (!message) {
+        return;
+    }
+
+    logCommandToNativeLayer(message, traceId);
+
+    if (shouldBlockRequestToNative(message)) return;
+
+    postMessageToAndroid(JSON.stringify(message));
+    postMessageToIos(JSON.stringify(message));
+
+    function logCommandToNativeLayer(message, traceId) {
+        try {
+            if (shouldLogCommandName(message)) {
+                console.log("sendMessageToNative() message command ", message?.command);
+                let messageData = shouldLogData(message) ? message.data ?? {} : {included: false};
+                sendJSObserverLog({
+                    message: `command to native [${message.command}]`,
+                    logData: {messageData},
+                    level: ObserverLogLevel.INFO,
+                    methodName: "sendMessageToNative",
+                    traceId
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function shouldLogCommandName(message) {
+        return message?.command && ![
+            SENDING_COMMANDS.HIERARCHY,
+            SENDING_COMMANDS.ANALYTICS_EVENT,
+            SENDING_COMMANDS.OBSERVER_LOG,
+            SENDING_COMMANDS.NO_CONTEXT_FOUND,
+            SENDING_COMMANDS.WEB_SCRIPT,
+            SENDING_COMMANDS.OBSERVER_EVENT_LEVELS,
+            SENDING_COMMANDS.CLEAR_ANALYTICS_PENDING_QUEUE,
+            SENDING_COMMANDS.FLUSH_CACHED_EVENTS
+
+        ].includes(message.command);
+    }
+
+    function shouldLogData(message) {
+        return message?.command && ![
+            SENDING_COMMANDS.ON_CONFIG_FETCH,
+            SENDING_COMMANDS.WEB_SCRIPT,
+            SENDING_COMMANDS.SAVE_USER_STATE,
+            SENDING_COMMANDS.ANALYTICS_EVENT,
+            SENDING_COMMANDS.OBSERVER_LOG,
+            SENDING_COMMANDS.NO_CONTEXT_FOUND,
+            SENDING_COMMANDS.HIERARCHY,
+            SENDING_COMMANDS.OBSERVER_EVENT_LEVELS,
+            SENDING_COMMANDS.FLUSH_CACHED_EVENTS,
+            SENDING_COMMANDS.STEP_FOUND,
+            SENDING_COMMANDS.ASSIST_FOUND,
+            SENDING_COMMANDS.UPDATE_ASSIST_BOUNDS,
+            SENDING_COMMANDS.UPDATE_STEP_BOUNDS
+        ].includes(message.command);
+    }
+}
+
+// Callback function for the Android
+function postMessageToAndroid(message) {
+    window?.JinyAndroid && window?.JinyAndroid?.postMessage(message);
+}
+
+// Callback function for the IOS
+function postMessageToIos(e) {
+    window.webkit &&
+    window.webkit.messageHandlers &&
+    window.webkit.messageHandlers.iosListener &&
+    window.webkit.messageHandlers.iosListener.postMessage(e);
+}
+
+// js filename- listener.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+function receiveScreenHierarchy(
+    screenHierarchy,
+    isWebFetchComplete,
+    webIdentifiers,
+    traceId
+) {
+
+    waitingForResponse = false;
+    hierarchyCommandLastResponseAt = Date.now();
+
+    let timeTaken = hierarchyCommandLastResponseAt - hierarchyCommandLastSentAt;
+    if (timeTaken > hierarchyFetchTimeTakenLogBuffer) {
+        console.debug(`receiveScreenHierarchy(): timeTaken- ${timeTaken}ms, size- ${JSON.stringify(screenHierarchy || {}).length/1000}KB`);
+    }
+
+    if (screenHierarchy) {
+        filteredHierarchy = filterHierarchy(screenHierarchy);
+    }
+
+    if (!filteredHierarchy || Object.keys(filteredHierarchy).length == 0) return;
+
+    if (!isWebFetchComplete) {
+        flattenedHierarchy = {};
+
+        flattenedHierarchyArray = getFlattenedHierarchy({
+            currentNode: filteredHierarchy,
+            parentId: undefined,
+            root: true,
+            hierarchy: flattenedHierarchy,
+        });
+    }
+
+    resetFinderObserverEvents();
+
+    if (!isWebFetchComplete) {
+        callWebScriptForAllProject(traceId);
+    }
+
+    // If any project is active search for steps
+    if (
+        activeProject.id !== "" &&
+        currentStaticFlow.id !== undefined && // If flow is active
+        currentStaticFlow.status === "RENDERING-STEPS" && // If flow start screen is rendered
+        selectedLanguage !== ""
+    ) {
+        let lastStep = currentStaticFlow?.stepsStatus?.slice(-1)?.[0];
+        let foundProject;
+
+        if (currentlyRunningFlow.id !== "") {
+            foundProject = runDetectionLogicForProjects(true, webIdentifiers, traceId);
+        }
+
+        const stepFound = runDetectionLogicForSteps({lastStep}, webIdentifiers, traceId);
+
+        if (stepFound !== "isWeb" || isWebFetchComplete) {
+            // If any step is found
+            if (stepFound !== undefined) {
+                // Check and update the bounds if the step is same as previous else do nothing
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_STEP_DETECTED,
+                    properties: {
+                        project_id: activeProject.projectParameters.projectId,
+                        project_name: activeProject.projectParameters.projectName,
+                        deployment_id: activeProject.projectParameters.deploymentId,
+                        deployment_version: Number(
+                            activeProject.projectParameters.deploymentVersion
+                        ),
+                        type: stepFound.assistType,
+                        step_name: stepFound.assist.name,
+                        step_id: stepFound.assist.id,
+                        step_unique_id: stepFound.assist.uniqueID,
+                    },
+                    className: "listener.js",
+                    methodName: "receivedScreenHierarchy",
+                }, traceId);
+
+                if (
+                    checkAndUpdateBounds({
+                        activeAssist: stepFound,
+                        activeProjectId: activeStep?.id,
+                        isAStep: true,
+                    }, traceId)
+                )
+                    return;
+
+                renderStep(stepFound, activeProject, traceId);
+            } else {
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_NO_STEP_DETECTED,
+                    properties: {
+                        project_id: activeProject.projectParameters.projectId,
+                        project_name: activeProject.projectParameters.projectName,
+                        deployment_id: activeProject.projectParameters.deploymentId,
+                        deployment_version: Number(
+                            activeProject.projectParameters.deploymentVersion
+                        ),
+                    },
+                    className: "listener.js",
+                    methodName: "receivedScreenHierarchy",
+                }, traceId);
+
+                if (currentlyRunningFlow.id === "" && foundProject !== undefined) {
+                    if (activeStep.id !== "") resetActiveStep();
+                    sendMessageToNative({
+                        command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
+                    }, traceId);
+                }
+            }
+
+            if (foundProject !== "isWeb" || isWebFetchComplete) {
+                if (foundProject !== undefined) {
+                    if (foundProject.id !== currentlyRunningFlow.id || !flowShown) {
+                        renderProject(foundProject, true, traceId);
+                        flowShown = true;
+                    }
+
+                    sendObserverLogs({
+                        category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                        event_name: OBSERVER_EVENTS.FINDER.ON_PROJECT_DETECTED,
+                        properties: {
+                            project_id: activeProject.projectParameters.projectId,
+                            project_name: activeProject.projectParameters.projectName,
+                            deployment_id: activeProject.projectParameters.deploymentId,
+                            deployment_version: Number(
+                                activeProject.projectParameters.deploymentVersion
+                            ),
+                            type: activeProject.projectType,
+                        },
+                    }, traceId);
+                } else if (currentlyRunningFlow.id !== "") {
+                    if (stepFound === undefined) {
+                        resetActiveStep();
+                        currentMatchedWebIdentifiers = {};
+                        sendMessageToNative({
+                            command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
+                        }, traceId);
+                        flowShown = false;
+                    }
+                }
+            }
+        }
+    }
+    // If no project is active search for all projects
+    else {
+        // get the webview identifiers
+        const projectFound = runDetectionLogicForProjects(undefined, undefined, traceId);
+
+        if (projectFound !== "isWeb" || isWebFetchComplete) {
+            // If any project is found
+            if (projectFound !== undefined) {
+                // Check and update the bounds if the project is same as previous else do nothing
+                if (
+                    checkAndUpdateBounds({
+                        activeAssist: projectFound,
+                        activeProjectId: activeProject?.id,
+                        isAStep: false,
+                    }, traceId)
+                )
+                    return;
+
+                renderProject(projectFound, undefined, traceId);
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_PROJECT_DETECTED,
+                    properties: {
+                        project_id: activeProject?.projectParameters?.projectId,
+                        project_name: activeProject?.projectParameters?.projectName,
+                        deployment_id: activeProject?.projectParameters?.deploymentId,
+                        deployment_version: Number(
+                            activeProject?.projectParameters?.deploymentVersion
+                        ),
+                        type: activeProject?.projectType,
+                    },
+                }, traceId);
+            } else {
+                if (currentStaticFlow.status === "START") {
+                    resetActiveStep();
+                    resetCurrentStaticFlow();
+                }
+                clearTimeout(delayTimer);
                 sendMessageToNative({
                     command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
                 }, traceId);
-                clearActiveProject();
-            }
-            function clearActiveProject() {
-                previousBoundState = {};
-                resetFlow();
-                resetActiveStep();
                 resetActiveProject();
-                resetCurrentStaticFlow();
+                currentMatchedWebIdentifiers = {};
+                sendObserverLogs({
+                    category: OBSERVER_EVENT_CATEGORIES.FINDER,
+                    event_name: OBSERVER_EVENTS.FINDER.ON_NO_PROJECT_DETECTED,
+                }, traceId);
             }
-            function resetFinderObserverEvents() {
-                finderObserverEvents = {
+        }
+    }
+
+    flushFinderObserverEvents(traceId);
+}
+
+function callWebScriptForAllProject(traceId) {
+    const webViewProjects = embedProject
+        .concat(sortedProjectArray)
+        .concat(Object.values(flowWalkthroughs))
+        .filter((project) => project?.isWebView);
+
+    let matchedWebViewNode = findFirstWebView(filteredHierarchy);
+
+    if (!matchedWebViewNode) {
+        return;
+    }
+
+    sendWebJSscript({
+        webIdentifiers: webViewProjects.reduce(
+            (webIdentifierObject, project) =>
+                (webIdentifierObject = {
+                    ...webIdentifierObject,
+                    ...project.webIdentifiers,
+                }),
+            {}
+        ),
+        webViewNode: matchedWebViewNode,
+    }, traceId);
+}
+
+function checkAndUpdateBounds({activeAssist, activeProjectId, isAStep}, traceId) {
+    // If the current and previous project are same
+    if (activeAssist?.id === activeProjectId) {
+        // Check if the current project is anchored element
+        if (activeAssist.isAnchoredElement) {
+            // Get the node bounds from the identified array
+            const matchedNode = prevMatchedIdentifiers.matchedNode.find(
+                (s) => activeAssist.targetId === s.id
+            );
+
+            // If the nodes bounds is not same is previous then update
+            if (
+                JSON.stringify(matchedNode?.bounds) !==
+                JSON.stringify(previousBoundState)
+            ) {
+                let bodyObj = {
+                    command: isAStep
+                        ? SENDING_COMMANDS.UPDATE_STEP_BOUNDS
+                        : SENDING_COMMANDS.UPDATE_ASSIST_BOUNDS,
+                    data: {
+                        assist: activeAssist.assist,
+                        projectParameters: activeProject.projectParameters,
+                        auiContent: activeProject.auiContent,
+                        bounds: matchedNode?.bounds,
+                        anchorNodeInfo: getAnchorNodeInfo(
+                            activeAssist?.assist?.instruction?.assistInfo?.type,
+                            activeAssist.targetId,
+                            activeAssist,
+                            [matchedNode]
+                        ),
+                    },
+                };
+
+                // Update the previousBoundState to current found bound
+                previousBoundState = matchedNode?.bounds;
+
+                if (isAStep) {
+                    bodyObj = {
+                        ...bodyObj,
+                        data: {
+                            ...bodyObj.data,
+                            iconSetting: activeProject.iconSetting,
+                            showLanguageOption: activeProject.languages.length > 1,
+                            showIcon: currentlyRunningFlow.id === "" ? true : false,
+                            selectedLanguage,
+                        },
+                    };
+                }
+                sendMessageToNative(bodyObj, traceId);
+            }
+        }
+        // Do nothing
+        return true;
+    }
+
+    return false;
+}
+
+function constructActiveProjectObject(projectFound) {
+    activeProject = {
+        id: projectFound.id,
+        projectType: projectFound.projectParameters.projectType,
+        isShowing: true,
+        isAnchoredElement: projectFound.isAnchoredElement,
+        isWebView: projectFound.webIdentifiers !== undefined,
+        flows: projectFound.flows,
+        nativeIdentifiers: projectFound.nativeIdentifiers,
+        webIdentifiers: projectFound.webIdentifiers,
+        auiContent: projectFound.auiContent,
+        languages: projectFound.languages,
+        projectParameters: projectFound.projectParameters,
+        iconSetting: projectFound.iconSetting,
+        webViewList: projectFound.webViewList,
+        standAlone: ![
+            "STATIC_FLOW",
+            "STATIC_FLOW_MENU",
+            "STATIC_FLOW_CHECKLIST",
+        ].includes(projectFound.projectParameters.projectType),
+        isAFlow: projectFound.projectParameters.projectType === "STATIC_FLOW",
+        isAFlowMenu: ["STATIC_FLOW_MENU", "STATIC_FLOW_CHECKLIST"].includes(
+            projectFound.projectParameters.projectType
+        ),
+    };
+}
+
+function renderStep(stepFound, projectFound, traceId) {
+    currentStaticFlow.stepsStatus.push({
+        id: stepFound.id,
+        toShow: true,
+        completed: false,
+        isOptional: stepFound.isOptional,
+        isAnchoredElement: !!stepFound?.isAnchoredElement,
+        identifier: stepFound.targetId,
+        nextSteps: stepFound.nextSteps,
+        completionStep: !!stepFound.isSuccess,
+        step: stepFound.assist,
+    });
+
+    activeStep = {
+        step: stepFound,
+        id: stepFound.id,
+        isAnchoredElement: !!stepFound?.isAnchoredElement,
+    };
+
+    const bodyObj = {
+        command: SENDING_COMMANDS.STEP_FOUND,
+        data: {
+            assist: stepFound.assist,
+            localeSounds: stepFound?.localeSounds,
+            projectParameters: activeProject.projectParameters,
+            auiContent: activeProject.auiContent,
+            iconSetting: activeProject.iconSetting,
+            showLanguageOption: activeProject.languages.length > 1,
+            showIcon: currentlyRunningFlow.id === "" ? true : false,
+            selectedLanguage,
+            anchorNodeInfo: getAnchorNodeInfo(
+                stepFound.assistType,
+                stepFound.targetId,
+                projectFound,
+                prevMatchedIdentifiers.matchedNode
+            ),
+        },
+    };
+
+    if (stepFound.targetId) {
+        const matchedNode = prevMatchedIdentifiers.matchedNode.find(
+            (s) => stepFound.targetId === s.id
+        );
+
+        previousBoundState = matchedNode?.bounds;
+        bodyObj.data.bounds = matchedNode?.bounds;
+    }
+
+    sendMessageToNative(bodyObj, traceId);
+}
+
+function renderProject(projectFound, showOnlyFlowIcon = false, traceId) {
+    const bodyObj = {
+        command: SENDING_COMMANDS.ASSIST_FOUND,
+        data: {
+            assist: projectFound.assist,
+            projectParameters: projectFound.projectParameters,
+            auiContent: projectFound.auiContent,
+            localeSounds: projectFound?.localeSounds,
+        },
+    };
+
+    const showOnlyIcon =
+        projectFound.assist.autoStart ||
+        getTriggerConditionForStaticFlow(
+            projectFound.triggerCase,
+            allProjectStatus[projectFound.id]?.isShown,
+            allProjectStatus[projectFound.id]?.isFlowTriggered
+        ) === "ICON";
+
+    // If the project is a flow or a walkthrough
+    if (projectFound.isAFlow || projectFound.isAFlowMenu) {
+        bodyObj.command = SENDING_COMMANDS.WALKTHROUGH_FOUND;
+
+        selectedLanguage = setSelectedLanguage(
+            projectFound.languages,
+            selectedLanguage || appLocale
+        );
+
+        bodyObj.data = {
+            ...bodyObj.data,
+            selectedLanguage,
+            showLanguagePanel: selectedLanguage === "",
+            languages: projectFound.languages,
+            iconSetting: projectFound.iconSetting,
+            showIcon: showOnlyFlowIcon || showOnlyIcon,
+            autoStart: projectFound.assist.autoStart,
+        };
+    }
+
+    // If the project is a flow
+    if (projectFound.isAFlowMenu) {
+        // In case if the running flow menu changes
+        if (
+            currentlyRunningFlow.id === projectFound.id ||
+            currentlyRunningFlow.id === ""
+        )
+            sendProjectCompletion({id: projectFound.id, reset: false}, traceId);
+        // In case if the executed flow is reselected
+        else sendProjectCompletion({reset: true}, traceId);
+
+        activeProject.id = projectFound.id;
+        flowShown = true;
+
+        currentlyRunningFlow = {
+            id: projectFound.id,
+            active: true,
+        };
+    }
+
+    // If the project is a walkthrough
+    if (projectFound.isAFlow && !projectFound.isAFlowMenu && !showOnlyFlowIcon) {
+        // Don't break since next is the construction of the active object
+        currentStaticFlow = {
+            id: projectFound.id,
+            isWebView: projectFound.isWebView,
+            projectId: projectFound.projectParameters.deploymentId,
+            status: "START",
+            onlyIcon: showOnlyIcon,
+            completed: false,
+            autoStart: projectFound?.assist.autoStart,
+            stepsStatus: [],
+        };
+    }
+
+    // If the project is neither a flow or a walkthrough
+    if (!(projectFound.isAFlow || projectFound.isAFlowMenu)) {
+        if (projectFound.isAnchoredElement) {
+            const getNativeMatchedNode = prevMatchedIdentifiers?.matchedNode?.find(
+                (s) => projectFound.targetId === s.id
+            );
+
+            const getWebMatchedNode = currentMatchedWebIdentifiers?.matchedNode?.find(
+                (s) => projectFound.targetId === s.id
+            );
+
+            const matchedNode = projectFound.isWebView
+                ? getWebMatchedNode
+                : getNativeMatchedNode;
+
+            previousBoundState = matchedNode?.bounds;
+            bodyObj.data.bounds = matchedNode?.bounds;
+            bodyObj.data.anchorNodeInfo = getAnchorNodeInfo(
+                projectFound?.assist?.instruction?.assistInfo?.type,
+                projectFound?.targetId,
+                projectFound,
+                prevMatchedIdentifiers?.matchedNode
+            );
+        }
+    }
+
+    // For all the projects except flow
+    if (!projectFound.isAFlowMenu && !showOnlyFlowIcon) {
+        constructActiveProjectObject(projectFound);
+    }
+
+    if (
+        projectFound.assist.autoStart &&
+        showOnlyIcon &&
+        !allProjectStatus[projectFound.id].isShown
+    ) {
+        currentStaticFlow = {
+            ...currentStaticFlow,
+            status: "RENDERING-STEPS",
+            onlyIcon: false,
+            autoStart: projectFound?.assist.autoStart,
+        };
+        resetFlow();
+    }
+
+    delayTimer = setTimeout(
+        () => sendMessageToNative(bodyObj, traceId),
+        allProjectStatus[projectFound.id]?.isShown ? 0 : projectFound?.triggerDelay
+    );
+}
+
+function runDetectionLogicForProjects(
+    searchOnlyFlowMenu = false,
+    webIdentifiers,
+    traceId
+) {
+    const projectFound = embedProject
+        .concat(sortedProjectArray)
+        ?.find((project, i) => {
+            if (project === undefined) return;
+            if (
+                allProjectStatus?.[project.id]?.isTerminated ||
+                (!project.id.includes("discovery") && allProjectStatus?.[project.id]?.isCompleted)
+            )
+                return;
+            // this is for webview project with first cycle having no matchedWebIdentifiers
+            if (project.isWebView && !currentMatchedWebIdentifiers) return true;
+
+            if (
+                allProjectStatus?.[project.id]?.initialTerminationStatus?.nSession !==
+                -1 &&
+                allProjectStatus?.[project.id]?.terminationStatus?.nSession ===
+                allProjectStatus?.[project.id]?.initialTerminationStatus?.nSession &&
+                allProjectStatus?.[project.id]?.shownOnce === false
+            ) {
+                sendAnalyticEvent(ANALYTICS_EVENTS.PROJECT_TERMINATION, {
+                    terminationRule: `nSession: ${allProjectStatus?.[project?.id]?.initialTerminationStatus.nSession
+                    }`,
+                }, traceId);
+                removeProjectFromStatusArray({id: project?.id});
+                return false;
+            } else if (
+                (
+                    allProjectStatus?.[project.id]?.initialTerminationStatus?.nDismissedByUser !== -1 &&
+                    allProjectStatus?.[project.id]?.terminationStatus?.nDismissedByUser === 1
+                ) ||
+                (
+                    allProjectStatus?.[project.id]?.initialTerminationStatus?.perApp !== -1 &&
+                    allProjectStatus?.[project.id]?.terminationStatus?.perApp === allProjectStatus?.[project.id]?.initialTerminationStatus?.perApp
+                ) ||
+                (
+                    allProjectStatus?.[project.id]?.initialTerminationStatus?.untilAllFlowsAreCompleted &&
+                    allProjectStatus?.[project.id]?.terminationStatus?.untilAllFlowsAreCompleted
+                )
+            ) {
+                // not sending the analytics since that is already sent
+                removeProjectFromStatusArray({id: project?.id, saveState: false});
+                return false;
+            }
+
+            switch (true) {
+                case project.isAFlow:
+                case project.isAFlowMenu: {
+                    // For static and flow menu
+
+                    const resWeb = webIdentifiers || currentMatchedWebIdentifiers;
+                    const resNative = findMatches(
+                        filteredHierarchy,
+                        project.nativeIdentifiers,
+                        traceId
+                    );
+                    // In case if the project is webview
+                    const res = project?.isWebView ? resWeb : resNative;
+
+                    found = checkIfIdentifierMatch(
+                        res?.matchedIdentifiers,
+                        project?.isWebView
+                            ? [
+                                ...project.assist.webIdentifiers,
+                                ...(project.targetId ? [project.targetId] : []),
+                            ]
+                            : [
+                                ...project.assist.nativeIdentifiers,
+                                ...(project.targetId ? [project.targetId] : []),
+                            ]
+                    );
+
+                    if (
+                        found &&
+                        (((!allProjectStatus[project?.id]?.isShown ||
+                                    !allProjectStatus[project?.id]?.isCompleted ||
+                                    project?.isIconEnabled) &&
+                                checkToShowProject(project?.id)) ||
+                            searchOnlyFlowMenu)
+                    )
+                        return project;
+                    break;
+                }
+
+                case !project.isWebView: {
+                    if (searchOnlyFlowMenu) break;
+
+                    const res = findMatches(filteredHierarchy, project.nativeIdentifiers, traceId);
+                    prevMatchedIdentifiers = res;
+                    let found = false;
+
+                    if (project.isAnchoredElement)
+                        found = isArrayMatched(
+                            [...project.assist.nativeIdentifiers, project.targetId],
+                            res.matchedIdentifiers
+                        );
+                    else
+                        found = isArrayMatched(
+                            project.assist.nativeIdentifiers,
+                            res.matchedIdentifiers
+                        );
+
+                    if (
+                        found &&
+                        allProjectStatus[project.id] &&
+                        (!allProjectStatus[project.id]?.isShown ||
+                            !allProjectStatus[project.id]?.isCompleted) &&
+                        checkToShowProject(project.id)
+                    )
+                        return project;
+
+                    break;
+                }
+
+                // Standalone web project project
+                case project.isWebView: {
+                    if (searchOnlyFlowMenu) break;
+
+                    // const res = findMatches(filteredHierarchy, project.nativeIdentifiers);
+                    const res = currentMatchedWebIdentifiers;
+                    prevMatchedIdentifiers = res;
+                    let found = false;
+                    if (res === undefined) break;
+
+                    if (project.isAnchoredElement)
+                        found = checkIfIdentifierMatch(res.matchedIdentifiers, [
+                            ...project.assist.webIdentifiers,
+                            project.targetId,
+                        ]);
+                    else
+                        found = checkIfIdentifierMatch(
+                            res.matchedIdentifiers,
+                            project.assist.webIdentifiers
+                        );
+
+                    if (
+                        found &&
+                        (!allProjectStatus[project.id].isShown ||
+                            !allProjectStatus[project.id].isCompleted) &&
+                        checkToShowProject(project.id)
+                    )
+                        return project;
+
+                    break;
+                }
+            }
+        });
+
+    return projectFound?.isWebView && !currentMatchedWebIdentifiers
+        ? "isWeb"
+        : projectFound;
+}
+
+function runDetectionLogicForSteps({lastStep}, webIdentifiers, traceId) {
+    let currentStepIds =
+        lastStep === undefined
+            ? [activeProject.flows[0].firstStep]
+            : lastStep.nextSteps;
+
+    const resWeb = webIdentifiers;
+
+    const resNative = findMatches(
+        filteredHierarchy,
+        activeProject.nativeIdentifiers,
+        traceId
+    );
+
+    if (lastStep?.toShow && !lastStep?.completed) {
+        currentStepIds = [lastStep.id];
+    }
+
+    let stepFound;
+
+    activeProject.flows[0].pages.find((page) => {
+        if (
+            checkIfIdentifierMatch(
+                resNative.matchedIdentifiers,
+                page.nativeIdentifiers
+            )
+        ) {
+            for (let stage of page.stages) {
+                if (
+                    currentStepIds.includes(stage.uniqueID) &&
+                    stage.webIdentifiers !== undefined &&
+                    !webIdentifiers
+                ) {
+                    stepFound = "isWeb";
+                    return true;
+                }
+                if (
+                    currentStepIds.includes(stage.uniqueID) &&
+                    checkIfIdentifierMatch(
+                        stage.webIdentifiers !== undefined
+                            ? resWeb?.matchedIdentifiers
+                            : resNative?.matchedIdentifiers,
+                        stage.webIdentifiers !== undefined
+                            ? [
+                                ...stage.webIdentifiers,
+                                ...(stage?.instruction?.assistInfo?.identifier
+                                    ? [stage.instruction.assistInfo.identifier]
+                                    : []),
+                            ]
+                            : [
+                                ...stage.nativeIdentifiers,
+                                ...(stage?.instruction?.assistInfo?.identifier
+                                    ? [stage.instruction.assistInfo.identifier]
+                                    : []),
+                            ]
+                    )
+                ) {
+                    prevMatchedIdentifiers = stage.webIdentifiers ? resWeb : resNative;
+
+                    stepFound = {
+                        id: stage?.uniqueID,
+                        isWebView: stage?.webIdentifiers !== undefined,
+                        isOptional: stage?.optional,
+                        assist: stage,
+                        isAnchoredElement: !!stage?.instruction?.assistInfo?.identifier,
+                        targetId: stage?.instruction?.assistInfo?.identifier,
+                        nextSteps: stage?.transition?.nextSteps,
+                        nativeIdentifiers: stage?.nativeIdentifiers,
+                        webIdentifiers: stage?.webIdentifiers,
+                        isSuccess: stage?.isSuccess,
+                        assistType: stage?.instruction?.assistInfo?.type,
+                    };
+                    // Return page to stop the find() loop and signal that we found the page
+                    return true;
+                }
+            }
+        }
+    });
+
+    return stepFound;
+}
+
+function getAnchorNodeInfo(
+    assistType,
+    targetIdentifierId,
+    projectFound,
+    matchedNode
+) {
+    if (!["TOOLTIP", "HIGHLIGHT_WITH_DESC"].includes(assistType)) return null;
+
+    let anchorNode = matchedNode.find((node) => node?.id === targetIdentifierId);
+    let bounds = anchorNode?.["bounds"];
+
+    let node = flattenedHierarchy[anchorNode?.["node"]?.["uuid"]];
+
+    if (node["is_webview"]) {
+        let targetIdentifier = projectFound.webIdentifiers[targetIdentifierId];
+        let focusScript = createFocusJavascript(targetIdentifier);
+
+        return {
+            uuid: node["uuid"],
+            autoFocus: true,
+            autoFocusScript: focusScript,
+            autoScroll: shouldAutoScroll(assistType, node, bounds),
+            scrollToViewScript: getScrollToViewScript(
+                assistType,
+                node,
+                targetIdentifier
+            ),
+            scrollingParentInfo: getScrollingParentNodeInfo(assistType, node),
+        };
+    }
+
+    return {
+        uuid: node["uuid"],
+        autoFocus: true,
+        autoScroll: shouldAutoScroll(assistType, node, bounds),
+        scrollingParentInfo: getScrollingParentNodeInfo(assistType, node),
+    };
+}
+
+function getScrollToViewScript(assistType, anchorNode, targetIdentifier) {
+    if (!anchorNode) return false;
+    if (
+        ![
+            "TOOLTIP",
+            "HIGHLIGHT_WITH_DESC",
+            "FINGER_RIPPLE",
+            "SWIPE_LEFT",
+            "SWIPE_RIGHT",
+            "SWIPE_UP",
+            "SWIPE_DOWN",
+            "BEACON",
+        ].includes(assistType)
+    )
+        return null;
+
+    let querySelectorAllStatement =
+        createQuerySelectorAllStatement(targetIdentifier);
+    return `${querySelectorAllStatement}.scrollIntoView({ behavior: 'smooth', block: 'center' });`;
+}
+
+function shouldAutoScroll(assistType, anchorNode, bounds) {
+    if (!anchorNode) return false;
+    if (
+        ![
+            "TOOLTIP",
+            "HIGHLIGHT_WITH_DESC",
+            "FINGER_RIPPLE",
+            "SWIPE_LEFT",
+            "SWIPE_RIGHT",
+            "SWIPE_UP",
+            "SWIPE_DOWN",
+            "BEACON",
+        ].includes(assistType)
+    )
+        return false;
+
+    const screenHeight = flattenedHierarchy?.ROOT_NODE?.screen_height ?? -1;
+    if (screenHeight == -1) return false;
+
+    const top = bounds?.top;
+    const bottom = bounds?.bottom;
+
+    return bottom > screenHeight || top < 5;
+}
+
+const ANDROID_SUPPORT_COLLAPSING_TOOLBAR =
+    "android.support.design.widget.CollapsingToolbarLayout";
+const GOOGLE_MATERIAL_COLLAPSING_TOOLBAR =
+    "com.google.android.material.appbar.CollapsingToolbarLayout";
+const ANDROID_SUPPORT_APP_BAR_LAYOUT =
+    "android.support.design.widget.AppBarLayout";
+const GOOGLE_MATERIAL_APP_BAR_LAYOUT =
+    "com.google.android.material.appbar.AppBarLayout";
+
+function getNativeScrollingParentNodeDetails(anchorNode) {
+    function isCollapsibleToolbar(node) {
+        const className = node.class;
+        return (
+            ANDROID_SUPPORT_COLLAPSING_TOOLBAR === className ||
+            GOOGLE_MATERIAL_COLLAPSING_TOOLBAR === className
+        );
+    }
+
+    function canOnlyHorizontallyScroll(node) {
+        return node && node["is_horizontally_scrollable"];
+    }
+
+    function canViewVerticallyScroll(node) {
+        return node && node["is_vertically_scrollable"];
+    }
+
+    function fetchAppBarLayout(node) {
+        if (!node) return null;
+        const className = node.class;
+        if (
+            ANDROID_SUPPORT_APP_BAR_LAYOUT === className ||
+            GOOGLE_MATERIAL_APP_BAR_LAYOUT === className
+        )
+            return node;
+
+        const parentUUID = node["parent_uuid"];
+        if (!parentUUID) return null;
+        const parentNode = flattenedHierarchy[parentUUID];
+        return fetchAppBarLayout(parentNode);
+    }
+
+    if (!anchorNode) return null;
+    if (platform === "ANDROID" && isCollapsibleToolbar(anchorNode)) {
+        return {
+            uuid: fetchAppBarLayout(anchorNode).uuid,
+            isAppBarLayout: true,
+        };
+    }
+
+    if (canViewVerticallyScroll(anchorNode)) {
+        return {
+            uuid: anchorNode.uuid,
+            isAppBarLayout: false,
+        };
+    }
+
+    const parentUUID = anchorNode["parent_uuid"];
+    if (!parentUUID) return null;
+    const parentNode = flattenedHierarchy[parentUUID];
+
+    return getNativeScrollingParentNodeDetails(parentNode);
+}
+
+function getScrollingParentNodeInfo(assistType, anchorNode) {
+    if (
+        ![
+            "TOOLTIP",
+            "HIGHLIGHT_WITH_DESC",
+            "FINGER_RIPPLE",
+            "SWIPE_LEFT",
+            "SWIPE_RIGHT",
+            "SWIPE_UP",
+            "SWIPE_DOWN",
+            "BEACON",
+        ].includes(assistType)
+    )
+        return null;
+
+    if (!anchorNode) return null;
+    const isAnchorNodeWebView = anchorNode["is_webview"];
+    // If Anchor Node is webview, scrolling parent is Web View
+    if (isAnchorNodeWebView)
+        return {
+            uuid: anchorNode.uuid,
+        };
+
+    return getNativeScrollingParentNodeDetails(anchorNode);
+}
+
+function updateProjectStatus({
+                                 id,
+                                 isShown,
+                                 isCompleted,
+                                 isFlowTriggered,
+                                 isTerminated,
+                                 terminatedByIcon,
+                             }, traceId) {
+    if (!id) return;
+
+    if (isShown) {
+        allProjectStatus[id] = {
+            ...allProjectStatus[id],
+            isShown,
+        };
+    }
+
+    if (isCompleted) {
+        allProjectStatus[id] = {
+            ...allProjectStatus[id],
+            isCompleted,
+        };
+    }
+
+    if (isFlowTriggered) {
+        allProjectStatus[id] = {
+            ...allProjectStatus[id],
+            isFlowTriggered,
+        };
+    }
+
+    if (isTerminated) {
+        allProjectStatus[id] = {
+            ...allProjectStatus[id],
+            isTerminated,
+        };
+    }
+
+    if (terminatedByIcon) {
+        allProjectStatus[id] = {
+            ...allProjectStatus[id],
+            terminatedByIcon,
+        };
+    }
+
+    saveTheLatestStateChange(traceId);
+}
+
+// TODO: WORK on this to fix for the current flow
+function receiveWebIdentifiers(webIdentifiers, traceId) {
+    prevMatchedIdentifiers = {};
+    currentMatchedWebIdentifiers = webIdentifiers;
+    receiveScreenHierarchy(undefined, true, webIdentifiers, traceId);
+}
+
+function updateAssistInteraction(res, traceId) {
+    const actionCallback = res.body;
+
+    // Sending event in case of optin
+    if (actionCallback?.optIn && !currentlyRunningFlow?.id) {
+        sendAnalyticEvent(
+            ANALYTICS_EVENTS.FLOW_OPT_IN,
+            actionCallback?.flowTitle
+                ? {
+                    selectedFlow: actionCallback?.flowTitle,
+                    selectedProjectId: actionCallback?.projectId,
+                }
+                : {}, traceId
+        );
+    }
+
+    // Sending event for Carousel
+    if (actionCallback.carouselSlideId) {
+        sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
+            actionEventType: actionCallback.type,
+            actionEventValue: actionCallback.buttonLabel,
+            externalLink: actionCallback.externalLink,
+            deepLink: actionCallback.deepLink,
+            carouselCompleted: actionCallback.carouselCompleted,
+            carouselSlideId: actionCallback.carouselSlideId,
+            carouselPreviousSlideId:
+                !actionCallback.carouselPreviousSlideId ||
+                actionCallback.carouselPreviousSlideId === "null"
+                    ? null
+                    : actionCallback.carouselPreviousSlideId,
+            carouselDirection:
+                !actionCallback.carouselDirection ||
+                actionCallback.carouselDirection === "null"
+                    ? null
+                    : actionCallback.carouselDirection,
+            sdkVersionCode: sdkVersion,
+        }, traceId);
+    } else if (actionCallback.deepLink) {
+        sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
+            actionEventType: ACTION_EVENT_TYPES.DEEP_LINK,
+        }, traceId);
+    } else if (actionCallback.externalLink) {
+        sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
+            actionEventType: ACTION_EVENT_TYPES.EXTERNAL_LINK,
+        }, traceId);
+    } else if (
+        actionCallback.actionType &&
+        (actionCallback.actionType === "overlayClicked" ||
+            actionCallback.actionType === "optOutClick")
+    ) {
+        sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
+            actionEventType: ACTION_EVENT_TYPES.CLOSE,
+        }, traceId);
+    } else if (actionCallback.type === "close") {
+        sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_ACTION, {
+            actionEventType: ACTION_EVENT_TYPES.CLOSE,
+            actionEventValue: actionCallback.buttonLabel,
+        }, traceId);
+    }
+
+    if (allProjectStatus?.[activeProject.id]?.triggerCase === "PLAY_ONCE")
+        updateProjectStatus({id: activeProject.id, isFlowTriggered: true}, traceId);
+
+    // If the close action is performed on opt-in
+    if (
+        actionCallback.close &&
+        !actionCallback.optIn &&
+        currentlyRunningFlow.id === "" &&
+        currentStaticFlow.status === "START"
+    ) {
+        sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_OPT_OUT, undefined, traceId);
+        if (
+            allProjectStatus[activeProject.id].triggerCase ===
+            "EVERY_SESSION_UNTIL_DISMISSED"
+        )
+            updateProjectStatus({id: activeProject.id, isFlowTriggered: true}, traceId);
+        updateViewStatusForTheProject("nDismissedByUser", traceId);
+    }
+
+    if (
+        actionCallback.close &&
+        !actionCallback.optIn &&
+        currentlyRunningFlow.id !== "" &&
+        currentStaticFlow.id === undefined
+    ) {
+        if (
+            allProjectStatus[currentlyRunningFlow.id].triggerCase ===
+            "EVERY_SESSION_UNTIL_DISMISSED"
+        )
+            updateProjectStatus({
+                id: currentlyRunningFlow.id,
+                isFlowTriggered: true,
+            }, traceId);
+        updateViewStatusForTheProject("nDismissedByUser", traceId);
+    }
+
+    if (
+        currentStaticFlow.id !== undefined &&
+        currentStaticFlow.stepsStatus.length > 0
+    ) {
+        // Send flow completion command to the native
+        const lastStep =
+            currentStaticFlow.stepsStatus[currentStaticFlow.stepsStatus.length - 1];
+        const activeProjectId =
+            currentlyRunningFlow.id === ""
+                ? activeProject.id
+                : currentlyRunningFlow.id;
+        flowShown = false;
+
+        if (lastStep.completionStep) {
+            sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_SUCCESS, undefined, traceId);
+            if (currentlyRunningFlow.id !== "") {
+                const currentRunningFlow = completedProjectsInFlow[activeProjectId];
+
+                const foundCompletedProject = currentRunningFlow.projects.findIndex(
+                    (c) => c.id === currentStaticFlow.projectId
+                );
+
+                if (foundCompletedProject !== -1) {
+                    currentRunningFlow.projects[foundCompletedProject].completed = true;
+                }
+
+                // In case if all the projects status are completed
+                if (areAllProjectsCompleted(currentRunningFlow)) {
+                    updateViewStatusForTheProject("untilAllFlowsAreCompleted", traceId);
+                }
+            }
+
+            if (currentlyRunningFlow.id === "")
+                updateProjectStatus({id: activeProject.id, isCompleted: true}, traceId);
+            sendProjectCompletion({reset: false}, traceId);
+
+            if (
+                allProjectStatus[activeProject.id].triggerCase ===
+                "EVERY_SESSION_UNTIL_FLOW_COMPLETE"
+            )
+                updateProjectStatus({id: activeProject.id, isFlowTriggered: true}, traceId);
+
+            updateViewStatusForTheProject("perApp", traceId);
+            saveTheLatestStateChange(traceId);
+            resetActiveProject();
+            resetCurrentStaticFlow();
+            resetFlow();
+        }
+    }
+
+    if (actionCallback?.projectId) {
+        const selectedWalkthrough = flowWalkthroughs[actionCallback?.projectId];
+
+        activeProject = {
+            id: selectedWalkthrough.id,
+            projectType: selectedWalkthrough.projectParameters.projectType,
+            isShowing: true,
+            isAnchoredElement: selectedWalkthrough.isAnchoredElement,
+            flows: selectedWalkthrough.flows,
+            nativeIdentifiers: selectedWalkthrough.nativeIdentifiers,
+            webIdentifiers: selectedWalkthrough.webIdentifiers,
+            auiContent: selectedWalkthrough.auiContent,
+            projectParameters: selectedWalkthrough.projectParameters,
+            languages: selectedWalkthrough.languages,
+            iconSetting: selectedWalkthrough.iconSetting,
+            standAlone: ![
+                "STATIC_FLOW",
+                "STATIC_FLOW_MENU",
+                "STATIC_FLOW_CHECKLIST",
+            ].includes(selectedWalkthrough.projectParameters.projectType),
+            isAFlow:
+                selectedWalkthrough.projectParameters.projectType === "STATIC_FLOW",
+            isAFlowMenu: ["STATIC_FLOW_MENU", "STATIC_FLOW_CHECKLIST"].includes(
+                selectedWalkthrough.projectParameters.projectType
+            ),
+        };
+
+        currentStaticFlow = {
+            id: selectedWalkthrough.id,
+            projectId: selectedWalkthrough.projectParameters.deploymentId,
+            completed: false,
+            stepsStatus: [],
+            status: "RENDERING-STEPS",
+            autoStart: true,
+        };
+
+        flowShown = false;
+        return;
+    }
+
+    if (actionCallback?.optIn) {
+        previousBoundState = {};
+        currentStaticFlow = {
+            ...currentStaticFlow,
+            status: "RENDERING-STEPS",
+            onlyIcon: false,
+            autoStart: false,
+        };
+        resetFlow();
+        return;
+    }
+
+    if (actionCallback?.endFlow) {
+        currentStaticFlow.id !== undefined &&
+        sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_STOP, undefined, traceId);
+        previousBoundState = {};
+
+        handleCloseEvent({
+            clearAll: true,
+        }, traceId);
+        resetCurrentStaticFlow();
+        return;
+    }
+
+    if (actionCallback.close) {
+        if (
+            currentStaticFlow.id === undefined ||
+            (currentStaticFlow.id !== undefined &&
+                currentStaticFlow.stepsStatus.length === 0)
+        )
+            handleCloseEvent({
+                clearAll: true,
+            }, traceId);
+        else
+            handleCloseEvent({
+                updateStepsStatus: true,
+            }, traceId);
+
+        return;
+    }
+}
+
+function handleCloseEvent({clearAll = false, updateStepsStatus = false}, traceId) {
+    previousBoundState = {};
+
+    switch (true) {
+        case updateStepsStatus: {
+            const lastStepIndex = currentStaticFlow?.stepsStatus?.length - 1;
+
+            if (lastStepIndex >= 0) {
+                currentStaticFlow.stepsStatus[lastStepIndex].completed = true;
+            }
+
+            previousBoundState = {};
+            // Rest active step
+            resetActiveStep();
+            break;
+        }
+
+        case clearAll: {
+            updateProjectStatus({id: activeProject.id, isCompleted: true}, traceId);
+            clearActiveProject();
+            break;
+        }
+    }
+}
+
+function setCurrentSelectedLanguage(language) {
+    selectedLanguage = language;
+    appLocale = language;
+}
+
+function resetShowForFlows() {
+    tackProjectBeingIdentified.forEach((t) => {
+        if (t.projectType === "STATIC_FLOW_CHECKLIST") {
+            t.toShow = true;
+        }
+    });
+}
+
+function clearEveryThing(clearTimer = false, traceId) {
+    if (clearTimer) clearInterval(timer);
+    sendMessageToNative({
+        command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
+    }, traceId);
+    clearActiveProject();
+}
+
+function clearActiveProject() {
+    previousBoundState = {};
+    resetFlow();
+    resetActiveStep();
+    resetActiveProject();
+    resetCurrentStaticFlow();
+}
+
+function resetFinderObserverEvents() {
+    finderObserverEvents = {
+        on_identifier_matched: [],
+        on_identifier_not_matched: [],
+        on_project_detected: [],
+        on_no_project_detected: [],
+        on_step_detected: [],
+        on_no_step_detected: [],
+    };
+}
+
+function resetFlow() {
+    currentlyRunningFlow = {
+        id: "",
+        active: false,
+    };
+}
+
+function resetActiveStep() {
+    activeStep = {
+        id: "",
+        step: {},
+        isAnchoredElement: false,
+    };
+}
+
+function resetActiveProject() {
+    activeProject = {
+        id: "",
+        projectType: "",
+        isShowing: false,
+        isAnchoredElement: false,
+        standAlone: false,
+        iconSetting: {},
+        isAFlow: false,
+        isAFlowMenu: false,
+    };
+}
+
+function resetCurrentStaticFlow() {
+    currentStaticFlow = {
+        id: undefined,
+        status: undefined,
+        completed: undefined,
+        stepsStatus: [],
+        autoStart: false,
+    };
+}
+
+function handlePanelEvent(data, traceId) {
+    if (data.action === "isVisible") return;
+    else if (data.action === "clickEvent" && data.value) {
+        sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_DISABLE, undefined, traceId);
+        removeProjectFromStatusArray({id: data.uniqueId, terminatedByIcon: true, isTerminated: true});
+        clearEveryThing();
+    }
+}
+
+function handleIconAction(id) {
+    const project = embedProject
+        .concat(sortedProjectArray)
+        .find((s) => s.id === id);
+
+    if (
+        project !== undefined &&
+        currentStaticFlow.id &&
+        project.assist.autoStart &&
+        currentStaticFlow.status === "START"
+    ) {
+        currentStaticFlow = {
+            ...currentStaticFlow,
+            status: "RENDERING-STEPS",
+            onlyIcon: false,
+            autoStart: project.assist.autoStart,
+        };
+        resetFlow();
+    }
+}
+
+function resetAndRemoveState(traceId) {
+    resetGlobalUserState();
+    sortedProjectArray = [];
+    embedProject = [];
+    allProjectStatus = {};
+    lastProfileUpdatedAt = undefined;
+    lastUpdatedConfigAt = undefined;
+    lastUpdatedEmbedConfigAt = undefined;
+    loggerConfig = {};
+    prevMatchedIdentifiers = [];
+    currentMatchedWebIdentifiers = {};
+    previousBoundState = {};
+    saveTheLatestStateChange(traceId);
+}
+
+
+// js filename- webFinder.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+// {
+//   project_id_value: {
+//     matchedNode: [{
+//       id: "",
+//       bounds: []
+//     }],
+//     matchedIdentifiers: ["identifier_id_1", "identifier_id_2"],
+//     unMatchedIdentifiers: ["identifier_id_3", "identifier_id_4"]
+//   }
+// }
+
+function createFocusJavascript(targetIdentifier) {
+    let querySelectorAllStatement =
+        createQuerySelectorAllStatement(targetIdentifier);
+    return `${querySelectorAllStatement}.focus();`;
+}
+
+// Context detection logic for the web view
+function createFinderJavascript(
+    webIdentifiers,
+    webViewBounds,
+    webViewScale,
+    webviewUUID
+) {
+    let webIdentificationJavascriptFunction =
+        "function runWhatfixMobileWebFinder(){";
+    let webIdentificationJavascript = `let matchedNode = []; 
+     let projectWrapper = { "matchedNode": matchedNode }; 
+     let result = projectWrapper; 
+     let matchedIdentifiers = [];
+     let unMatchedIdentifiers = [];`;
+
+    for (const key in webIdentifiers) {
+        let webIdentifier = webIdentifiers[key];
+        webIdentificationJavascript = webIdentificationJavascript.concat(
+            createIfElseStatement(
+                key,
+                webIdentifier,
+                webViewBounds,
+                webViewScale,
+                webviewUUID
+            )
+        );
+    }
+
+    webIdentificationJavascript = webIdentificationJavascript
+        .concat("projectWrapper.matchedIdentifiers=matchedIdentifiers;")
+        .concat("projectWrapper.unMatchedIdentifiers=unMatchedIdentifiers;")
+        .concat("return result;");
+    webIdentificationJavascriptFunction = webIdentificationJavascriptFunction
+        .concat(webIdentificationJavascript)
+        .concat("} runWhatfixMobileWebFinder();");
+    return webIdentificationJavascriptFunction;
+}
+
+/*
+      1. Create basic querySelectorAll statement
+      2. Add null checks
+      3. Add index and innerText check
+  */
+function createIfElseStatement(
+    id,
+    webIdentifier,
+    webViewBounds,
+    webViewScale,
+    webviewUUID
+) {
+    let statementBlock = "if(";
+    let querySelectorAllStatement =
+        createQuerySelectorAllStatement(webIdentifier);
+
+    if (
+        webIdentifier["innerText"] === undefined ||
+        webIdentifier["innerText"]["ang"] === undefined
+    ) {
+        statementBlock = statementBlock
+            .concat(querySelectorAllStatement)
+            .concat(")");
+    } else {
+        statementBlock = statementBlock
+            .concat(querySelectorAllStatement)
+            .concat(" && ")
+            .concat(
+                querySelectorAllStatement +
+                ".innerText === '" +
+                webIdentifier["innerText"]["ang"]
+            )
+            .concat("')");
+    }
+
+    var positionQuery = `${querySelectorAllStatement}.getBoundingClientRect()`;
+
+    //write if and else logic
+    statementBlock = statementBlock
+        .concat("{")
+        .concat(`matchedIdentifiers.push("${id}");`)
+        .concat(
+            `
+      var position = ${positionQuery};
+      var bounds = {
+          left: position.left * ${webViewScale} + ${webViewBounds.left},
+          top: position.top * ${webViewScale} + ${webViewBounds.top},
+          right: position.right * ${webViewScale} + ${webViewBounds.left},
+          bottom: position.bottom * ${webViewScale} + ${webViewBounds.top}
+        };
+      `
+        )
+        .concat(
+            `matchedNode.push({ 
+        "id" : "${id}", 
+        "bounds" : bounds,
+        "node": {
+          "uuid": "${webviewUUID}"
+        }
+      });`
+        )
+        .concat("}");
+    statementBlock = statementBlock.concat(
+        `else{unMatchedIdentifiers.push("${id}");}`
+    );
+    return statementBlock;
+}
+
+function createQuerySelectorAllStatement(webIdentifier) {
+    let tagName = webIdentifier.tagName;
+    let attributes = webIdentifier["attributes"]["ang"];
+    let querySelectorAllStatement = "document.querySelectorAll('".concat(tagName);
+    for (const attributeKey in attributes) {
+        let attributeValue = attributes[attributeKey];
+        let attributeString = "["
+            .concat(attributeKey)
+            .concat('="')
+            .concat(attributeValue)
+            .concat('"]');
+        querySelectorAllStatement =
+            querySelectorAllStatement.concat(attributeString);
+    }
+    var index = webIdentifier["index"];
+    if (index && index < 0) {
+        index = 0;
+    }
+    querySelectorAllStatement = querySelectorAllStatement.concat(`')[${index}]`);
+    return querySelectorAllStatement;
+}
+
+
+// js filename- init.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+
+let configFetchStartTime;
+let jsSdkSessionId = generateUUID();
+let jsSdkInitialized = false;
+let enterpriseId = "";
+
+async function start({
+                         baseUrl = "",
+                         apiKey,
+                         devicePlatform = platform,
+                         deviceSubPlatform = "",
+                         appVersion = "ALL",
+                         appVersionCodeValue = 0,
+                         userState,
+                         leapUserId,
+                         sdkVersionCode = 22,
+                         sessionId,
+                         defaultProps,
+                         userProps,
+                         isSelfHostingEnabled = 0,
+                     }
+    , traceId,
+) {
+    try {
+        if (!jsSdkInitialized) {
+            ensureSessionStarted();
+            sendObserverEventLevelsToNative();
+            isSelfHosted = isSelfHostingEnabled;
+            platform = devicePlatform;
+            subPlatform = deviceSubPlatform;
+            appSessionId = sessionId;
+            appVersionName = appVersion;
+            appVersionCode = appVersionCodeValue;
+            coreSdkVersionCode = sdkVersionCode;
+            const {baseUrl, apiKey} = resolveApiConfig();
+            appApiKey = apiKey;
+            configBaseUrl = baseUrl;
+            getObserverUrl(configBaseUrl);
+            defaultProperties = {...defaultProps};
+
+            sdkStateService.init(userState);
+            //console.log("sdkState- ", sdkStateService.sdkState);
+            //console.log("isLoggedIn- ", sdkStateService.isLoggedIn);
+            sendStartLog();
+            if (sdkStateService.isLoggedIn) {
+                let savedUserState = sdkStateService.currentUserState;
+                lastUpdatedEmbedConfigAt = savedUserState.lastUpdatedEmbedConfigAt;
+                lastProfileUpdatedAt = savedUserState.lastProfileUpdatedAt;
+                savedEmbedProject = savedUserState.savedEmbedProject;
+                appLocale = sdkStateService.appLocale;
+
+                savedUserState.customProps = {
+                    ...savedUserState.customProps,
+                    ...userProps,
+                };
+
+                customProperties = savedUserState.customProps;
+
+                configFetchStartTime = Date.now();
+                //TODO: review this observer event
+                if (!isSelfHosted) {
+                    sendObserverLogs({
+                        category: OBSERVER_EVENT_CATEGORIES.NETWORK,
+                        event_name: OBSERVER_EVENTS.NETWORK.ON_CONFIG_DOWNLOAD_STARTED,
+                        properties: {
+                            url: `${baseUrl}odin/api/v1/config/fetch`,
+                        },
+                        className: "init.js",
+                        methodName: "start"
+                    }, traceId);
+                }
+            }
+            //fetch observer metadata for the observer events to be sent
+            if (!enterpriseId) {
+                enterpriseId = await fetchAndSetEnterpriseId();
+            }
+        }
+
+        function getObserverUrl(baseUrl) {
+            if (baseUrl.includes("https://leap-api-eus")) {
+                appObserverBaseUrl = "https://whatfix.com/";
+            }else if(baseUrl.includes("https://leap-api-eu")) {
+                appObserverBaseUrl = "https://eu.whatfix.com/";
+            }else if (baseUrl.includes("quickolabs.com")) {
+                appObserverBaseUrl = "https://uataz.quickolabs.com/";
+            }
+        }
+
+        await fetchConfig({
+            userId: sdkStateService.currentUserId,
+        }, traceId);
+        jsSdkInitialized = true;
+        //TODO: rename this function and corresponding variable based on its actual usage
+        setUserLoggedIn();
+        flushAllPendingOperations(traceId);
+    } catch (error) {
+        console.error(`[${traceId}] start(): failed to start js sdk`, error);
+        sendErrorLog(traceId, error);
+    }
+
+    async function fetchAndSetEnterpriseId() {
+        let enterpriseId = "";
+        try{
+            let jsMetadataResponse = await fetchObserverMetadata(traceId);
+            if (jsMetadataResponse !== null) {
+                // console.debug("fetchObserverMetadata(): baeUrl {} metadataMap {}, apikey {}", baseUrl, JSON.stringify(jsMetadataResponse), appApiKey);
+                enterpriseId =  jsMetadataResponse?.entId;
+                wfAppId = jsMetadataResponse?.appId;
+                return enterpriseId;
+            }else{
+                sendJSErrorObserverLog({
+                    logData: {
+                        observerMetadataMap: JSON.stringify(jsMetadataResponse),
+                        apikey: apiKey,
+                    },
+                    message: "[ERROR] error fetching enterprise metadata",
+                    methodName: "fetchObserverMetadata",
+                    className: "init.js",
+                    traceId
+                })
+            }
+            return enterpriseId;
+        } catch (error) {
+            console.error("Error fetching observer metadata", error);
+            sendJSErrorObserverLog({
+                logData: {
+                    apikey: apiKey,
+                    error: error
+                },
+                message: "[ERROR] error fetching observer metadata",
+                methodName: "fetchObserverMetadata",
+                className: "init.js",
+                traceId
+            })
+            return enterpriseId;
+        }
+    }
+
+    function sendStartLog() {
+        sendJSObserverLog({
+            message: "starting js sdk",
+            logData: {
+                jsSdkSessionId,
+                baseUrl,
+            },
+            methodName: "start",
+            level: 600,
+            userState: buildUserStateObjectForObserverLog(sdkStateService.currentUserState),
+            traceId
+        });
+    }
+
+    function sendObserverEventLevelsToNative() {
+        sendMessageToNative({
+            command: SENDING_COMMANDS.OBSERVER_EVENT_LEVELS,
+            data: {
+                ...observerEventLevels,
+            }
+        }, traceId);
+    }
+
+    function resolveApiConfig() {
+        let isEus = apiKey.startsWith("eus:");
+        let isEu = apiKey.startsWith("eu:");
+        if (isSelfHostingEnabled) {
+            if (isEus) {
+                apiKey = apiKey.replace(/^eus:/, "");
+            } else if (isEu) {
+                apiKey = apiKey.replace(/^eu:/, "");
+            }
+        } else {
+            if (isEus) {
+                baseUrl = "https://leap-api-eus.whatfix.com/";
+            } else if (isEu) {
+                baseUrl = "https://leap-api-eu.whatfix.com/";
+            }
+        }
+        return {baseUrl, apiKey};
+    }
+
+    function sendErrorLog(error) {
+        sendJSErrorObserverLog({
+            message: "failed to start js sdk",
+            error,
+            methodName: "start",
+            traceId
+        });
+    }
+}
+
+async function fetchObserverMetadata(traceId) {
+    // console.debug("fetchObserverMetadata(): fetchObserverMetadata current Base params url {} apikey {}", configBaseUrl, appApiKey);
+    let baseUrl = getBaseURLUsingAPIKey(configBaseUrl, appApiKey);
+    let jsModuleHeaders = {
+        "X-Wf-ApiKey": appApiKey,
+        "Content-Type": "application/json",
+        "Allow-Control-Access-Origin": "*"
+    }
+    try {
+        console.log("fetchObserverMetadata(): Fetching observer metadata from baseUrl {} apikey {} ", baseUrl, appApiKey);
+        const moduleResponse = await fetch(`${baseUrl}odin/api/v1/js-metadata`, {
+            method: "GET",
+            headers: jsModuleHeaders,
+        });
+
+        if (!moduleResponse.ok) return null;
+
+        return await moduleResponse.json();
+    } catch (error) {
+        console.error("fetchObserverMetadata(): unable to fetch observer metadata", error);
+        sendJSErrorObserverLog({
+            message: "failed to fetch observer metadata",
+            error,
+            methodName: "fetchObserverMetadata",
+            traceId
+        });
+    }
+}
+
+function getBaseURLUsingAPIKey(baseUrl, apiKey) {
+    let metadataEndpoint = "https://leap-api-in.whatfix.com/";
+    if (apiKey.substring(0, 4) === "eus:") {
+        metadataEndpoint = "https://leap-api-eus.whatfix.com/";
+    } else if (apiKey.substring(0, 3) === "eu:") {
+        metadataEndpoint = "https://leap-api-eu.whatfix.com/";
+    }else if (baseUrl.includes("quickolabs.com")) {
+        metadataEndpoint = "https://leap-uat-api-mama.quickolabs.com/";
+    }
+    return metadataEndpoint;
+}
+
+function setUserLoggedIn() {
+    isUserLoggedIn = true;
+}
+
+function resetUserLoggedIn() {
+    isUserLoggedIn = false;
+}
+
+function getCurrentUserId() {
+    return sdkStateService.currentUserId;
+}
+
+function ensureSessionStarted() {
+    if (!userSessionId) {
+        userSessionId = generateUUID();
+    }
+}
+
+function startNewSession() {
+    userSessionId = generateUUID();
+}
+
+function getUserSessionId() {
+    return userSessionId;
+}
+
+function fetchByUserProperties(traceId) {
+    // Fetch the latest config
+    //console.info(`[${traceId}] fetchByUserProperties(): USER_CONFIG_FETCH_STARTED`);
+    sendJSObserverLog({
+        message: "starting config fetch by user properties",
+        methodName: "fetchByUserProperties",
+        logData: {
+            ...defaultProperties,
+            ...customProperties,
+        },
+        level: ObserverLogLevel.INFO,
+        traceId
+    });
+
+    configFetchStartTime = Date.now();
+    return fetchConfig({
+        userId: sdkStateService.currentUserId,
+    }, traceId);
+}
+
+function fetchByProjectId(id, traceId) {
+    // Fetch the latest config
+    //console.info(`[${traceId}] fetchByProjectId(): EMBED_CONFIG_FETCH_STARTED`);
+    sendJSObserverLog({
+        message: "starting config fetch by project id",
+        methodName: "fetchByProjectId",
+        level: ObserverLogLevel.INFO,
+        traceId
+    });
+
+    return fetchConfig({
+        userId: sdkStateService.currentUserId,
+        isEmbed: true,
+        projectId: id,
+    }, traceId);
+}
+
+
+function fetchByUserId(id, traceId) {
+    // Fetch the latest config
+    //console.info("USER_PROFILE_CONFIG_FETCH_STARTED");
+    sendJSObserverLog({
+        message: "starting config fetch by user id", methodName: "fetchByUserId", level: ObserverLogLevel.INFO, traceId
+    });
+    return fetchConfig({
+        userId: id,
+    }, traceId);
+}
+
+function consumeSavedStateAndInit(savedState, traceId) {
+    if (!savedState) {
+        return;
+    }
+    sortedProjectArray = savedState.projectArray;
+    allProjectStatus = savedState.projectsStatus;
+    flowWalkthroughs = savedState.connectedWalkthroughs;
+    selectedLanguage = savedState.language || selectedLanguage;
+    completedProjectsInFlow = savedState.projectsCompletionStats;
+    features = savedState.features;
+    metaConfigs = savedState.metaConfigs;
+    loggerConfig = savedState.loggerConfig;
+    reCalculateCompletedProjectsInFlow(sortedProjectArray, completedProjectsInFlow);
+    init(traceId);
+}
+
+async function storeConfigInSegmentMap(segment, config) {
+    const decompressedData = await Promise.all(
+        config.data.map(async (configData) => {
+            const decompressed = await decompressGzipString(configData);
+            const decompressedDataWithBaseUrl = decompressed.replace(
+                /"baseUrl":""/g,
+                `"baseUrl":"${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}"`
+            );
+            return JSON.parse(decompressedDataWithBaseUrl);
+        })
+    );
+    segmentConfigMap[segment.segmentId] = {
+        config: {
+            data: decompressedData,
+            configStatus: 200,
+            wfxProfile: null,
+            loggerConfig: null,
+            metaConfig: config?.metaConfig || null,
+            params: config?.params || null,
+            feature: config?.feature || null,
+        },
+        orBlocks: segment?.orBlocks || [],
+        lastUpdatedAt: segment?.lastUpdatedAt,
+    };
+}
+
+function fetchAndStoreConfigFromSavedState(savedSegmentConfigMap) {
+    const segConfMapAvailableInSavedState = Object.keys(savedSegmentConfigMap || {}).length;
+    if (segConfMapAvailableInSavedState) {
+        segmentConfigMap = savedSegmentConfigMap;
+        return 200;
+    }
+    return 404;
+}
+
+async function downloadConfigFromCDN(savedSegmentConfigMap) {
+    const segmentationBaseUrl = `${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}/segmentation.json`;
+    console.log("segmentationBaseUrl===>",segmentationBaseUrl)
+    try {
+        const response = await fetch(segmentationBaseUrl);
+        const segmentationList = await response.json();
+        if (segmentationList?.segments?.length) {
+            const data = await Promise.all(
+                segmentationList.segments.map(async (segmentObject) => {
+                    const configUrl = `${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}${selfHostingEndPoints.SEGMENT_CONFIG_FOLDER}${segmentObject?.segmentId}.json`;
+                    const configResponse = await fetch(configUrl);
+                    const segmentSpecificConfig = await configResponse.json();
+                    await storeConfigInSegmentMap(segmentObject, segmentSpecificConfig);
+                })
+            ).catch((error) => {
+                console.warn(error);
+                return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
+            });
+            return 200;
+        }
+    } catch {
+        console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState");
+        return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
+    }
+}
+
+function findSegmentIds() {
+    return Object.keys(segmentConfigMap).filter((segmentId) => {
+        return isSegmentValid(segmentConfigMap[segmentId].orBlocks);
+    });
+}
+
+function collateConfigsFromValidSegments(validSegmentIds) {
+    let collatedConfig;
+    validSegmentIds.map((segmentId, index) => {
+        if (index === 0) {
+            collatedConfig = segmentConfigMap[segmentId]?.config;
+        } else {
+            collatedConfig.data = [
+                ...collatedConfig.data,
+                ...segmentConfigMap[segmentId]?.config.data,
+            ];
+        }
+    });
+
+    return collatedConfig;
+}
+
+function getSelfHostedConfig() {
+    const validSegmentIds = findSegmentIds();
+    return collateConfigsFromValidSegments(validSegmentIds);
+}
+
+async function fetchConfig({
+                               userId,
+                               isEmbed = false,
+                               projectId,
+                           }, traceId) {
+
+    let status = 200;
+    let config;
+    let headers;
+    let requestBody;
+    let dataString;
+
+    if (sdkStateService.isLoggedOut) {
+        return;
+    }
+
+    let savedUserState = sdkStateService.getUserStateById(userId) || {};
+
+    if (isNewUserSession()) {
+        resetIsShownIsCompletedAndShownOnce(savedUserState.projectsStatus);
+    }
+
+    let allUserProperties = {...defaultProperties, ...savedUserState.customProps};
+
+    sendJSObserverLog({
+        message: "starting config fetch",
+        logData: {userId, wfId: savedUserState.wfId, allUserProperties},
+        methodName: "fetchConfig",
+        level: ObserverLogLevel.DEBUG,
+        userState: buildUserStateObjectForObserverLog(savedUserState),
+        traceId
+    });
+
+    if (isSelfHosted) {
+        console.log('sdkStateService.segmentConfigMap==>',sdkStateService.segmentConfigMap)
+        status = await downloadConfigFromCDN(sdkStateService.segmentConfigMap);
+        config = getSelfHostedConfig();
+        if (!config) {
+            return;
+        }
+    }
+
+    if (!isSelfHosted) {
+        const customPropsDateObjects = {};
+        const keys = Object.keys(allUserProperties);
+        keys?.forEach((key) => {
+            // Exclude default props timeStamps
+            if (
+                ![
+                    "lastUpdateTimeStamp",
+                    "firstInstallTimeStamp",
+                    "firstSessionTimeStamp",
+                ].includes(key)
+            ) {
+                let value = allUserProperties[key];
+                if (typeof value === "string") {
+                    if (isValidDateString(value)) {
+                        let elapsedTime = getElapsedTimeInSeconds(value);
+                        customPropsDateObjects[key] = elapsedTime;
+                    }
+                }
+            }
+        });
+
+        let dateObjects = isEmbed
+            ? {}
+            : {
+                lastUpdateTimeStamp: new Date(
+                    allUserProperties?.lastUpdateTimeStamp
+                ).toISOString(),
+                timeElapsedSinceLastUpdate: getElapsedTimeInSeconds(
+                    allUserProperties?.lastUpdateTimeStamp
+                ),
+                firstInstallTimeStamp: new Date(
+                    allUserProperties?.firstInstallTimeStamp
+                ).toISOString(),
+                timeElapsedSinceFirstInstall: getElapsedTimeInSeconds(
+                    allUserProperties?.firstInstallTimeStamp
+                ),
+                firstSessionTimeStamp: getElapsedTimeInSeconds(
+                    allUserProperties?.firstSessionTimeStamp
+                ),
+                timeElapsedSinceFirstSession: getElapsedTimeInSeconds(
+                    allUserProperties?.firstSessionTimeStamp
+                ),
+            };
+
+        const lastUpdatedAt = isEmbed ? savedUserState.lastUpdatedEmbedConfigAt : savedUserState.lastUpdatedConfigAt;
+
+        headers = {
+            "Content-Type": "application/json",
+            "Allow-Control-Access-Origin": "",
+            "x-jiny-client-id": appApiKey,
+            "x-app-version-name": appVersionName,
+        };
+        headers["x-leap-id"] = userId;
+        if (lastUpdatedAt) {
+            headers["x-jiny-last-updated-at"] = JSON.stringify(lastUpdatedAt)
+        }
+        if (isEmbed) {
+            headers["x-jiny-deployment-ids"] = JSON.stringify([projectId]);
+        }
+
+        let wfxProfileBody;
+        if (sdkStateService.isUserIdExternal(userId)) {
+            wfxProfileBody = {
+                id: userId,
+                updatedAt: savedUserState.lastProfileUpdatedAt,
+            }
+        }
+        requestBody = {
+            wfx_sdkVersionCode: coreSdkVersionCode,
+            wfxProfile: wfxProfileBody,
+            ...allUserProperties,
+            ...dateObjects,
+            ...customPropsDateObjects,
+        };
+        dataString = JSON.stringify(requestBody);
+    }
+
+    try {
+        if (!isSelfHosted) {
+            sendJSObserverLog({
+                message: "starting config fetch API call",
+                logData: {
+                    requestBody: requestBody,
+                    headers: {
+                        "x-jiny-last-updated-at": headers["x-jiny-last-updated-at"],
+                    }
+                },
+                methodName: "fetchConfig",
+                level: ObserverLogLevel.DEBUG,
+                traceId
+            });
+
+            const response = await fetch(`${configBaseUrl}odin/api/v1/config/fetch`, {
+                method: "POST",
+                headers: headers,
+                body: dataString,
+            });
+            status = response.status;
+            config = response.status === 200 ? await response.json() : {};
+            headers = response.headers;
+
+            //console.log("headers", headers);
+            //console.debug("config", config);
+
+            sendJSObserverLog({
+                message: "config fetch ended",
+                logData:
+                    {
+                        status: status,
+                        projectIds: headers.get("x-jiny-project-ids"),
+                        configStatus: config?.configStatus,
+                        wfxProfileStatus: config?.wfxProfile?.status,
+                        wfxProfileUpdatedAt: config?.wfxProfile?.updatedAt
+                    },
+                methodName: "fetchConfig",
+                traceId
+            });
+            // Update the last update
+            isEmbed
+                ? (lastUpdatedEmbedConfigAt = JSON.parse(headers.get("x-jiny-last-updated-at")))
+                : (lastUpdatedConfigAt = JSON.parse(headers.get("x-jiny-last-updated-at")));
+
+            sendObserverLogs({
+                category: OBSERVER_EVENT_CATEGORIES.NETWORK,
+                event_name: OBSERVER_EVENTS.NETWORK.ON_CONFIG_DOWNLOAD_COMPLETED,
+                properties: {
+                    status_code: response.status,
+                    response_message: getStatusMessage(response.status),
+                    time_taken: Date.now() - configFetchStartTime,
+                },
+                className: "init.js",
+                methodName: "fetchConfig",
+            }, traceId);
+        }
+        // Initialize all the variables
+        switch (status) {
+            case 200: {
+                if (config.configStatus === 200) {
+                    console.info(`[${traceId}] Serving config from API`);
+                    features = config.feature || {};
+                    metaConfigs = config.metaConfig || {};
+                    loggerConfig = config.loggerConfig || {};
+
+                    if (config?.wfxProfile?.status === 304) {
+                        console.info(`[${traceId}] Service profile from cache`);
+                    }
+
+                    await organizeProjectArray(
+                        config.data,
+                        isEmbed,
+                        config.wfxProfile,
+                        savedUserState.projectsStatus || {},
+                        savedUserState.projectsCompletionStats || {},
+                        traceId
+                    );
+                    saveTheLatestStateChange(traceId);
+                } else if (config.configStatus === 304) {
+                    console.info(`[${traceId}] Service config from cache`);
+                    if (config?.wfxProfile?.status === 200 && config?.wfxProfile?.properties) {
+                        console.info(`[${traceId}] Service profile from API`);
+                        sendJSObserverLog({
+                            message: "using user profile from API response"
+                            , methodName: "fetchConfig", traceId
+                        });
+                        let wfxProfileProperties;
+                        if (isNonEmptyObject(config?.wfxProfile?.properties?.allProjectStatus)) {
+                            wfxProfileProperties = config?.wfxProfile?.properties;
+                        } else {
+                            wfxProfileProperties = convertOldWfxData(
+                                config?.data,
+                                savedUserState.projectArray || [],
+                                savedUserState.projectsStatus || {},
+                                savedUserState.projectsCompletionStats || {},
+                                config?.wfxProfile?.properties
+                            );
+                        }
+                        //console.log("wfxProfileProperties", wfxProfileProperties);
+                        resetIsShownIsCompletedAndShownOnce(wfxProfileProperties.allProjectStatus)
+                        //console.log("wfxProfileProperties", wfxProfileProperties);
+
+                        sortedProjectArray = savedUserState.projectArray;
+                        allProjectStatus = wfxProfileProperties?.allProjectStatus;
+                        completedProjectsInFlow = wfxProfileProperties?.completedFlowProjects;
+                        selectedLanguage = wfxProfileProperties?.selectedLanguage || savedUserState.language || appLocale;
+                        flowWalkthroughs = savedUserState.connectedWalkthroughs || {};
+                        features = savedUserState.features;
+                        metaConfigs = savedUserState.metaConfigs;
+                        loggerConfig = config.loggerConfig || savedUserState.loggerConfig;
+                        saveTheLatestStateChange(traceId);
+                        init(traceId);
+                    } else {
+                        sendJSObserverLog({
+                            message: "using user profile from saved state"
+                            , methodName: "fetchConfig", traceId
+                        });
+                        if (config?.wfxProfile?.status === 304) {
+                            console.info(`[${traceId}] Serving profile from cache`);
+                        } else {
+                            console.info(`[${traceId}] No config returned from API. status- ${config?.wfxProfile?.status}`);
+                        }
+                        loggerConfig = config.loggerConfig || savedUserState.loggerConfig;
+                        consumeSavedStateAndInit(savedUserState, traceId);
+                    }
+                } else if (config.configStatus === 404) {
+                    console.error(`[${traceId}] unable to fetch config from API. status: 404`);
+                    resetAndRemoveState(traceId);
+                }
+                break;
+            }
+
+            case 408:
+            case 504: {
+                consumeSavedStateAndInit(savedUserState, traceId);
+                break;
+            }
+
+            case 401: {
+                console.error("UNAUTHORIZED_401");
+                resetAndRemoveState(traceId);
+                break;
+            }
+
+            case 404: {
+                console.error("UNABLE_TO_FETCH_CONFIG_THROWING_404");
+                resetAndRemoveState(traceId);
+                break;
+            }
+
+            case 500: {
+                console.error("UNABLE_TO_FETCH_CONFIG_THROWING_500");
+                break;
+            }
+        }
+    } catch (error) {
+        console.error(`fetchConfig(): failed to fetch config`, error);
+        sendJSErrorObserverLog({
+            message: "config fetch failed",
+            error,
+            methodName: "fetchConfig",
+            traceId
+        });
+        if (error instanceof DOMException && error.name === "AbortError") {
+            console.error("Abort API call: Request aborted due to new user properties call");
+        } else {
+            consumeSavedStateAndInit(savedUserState, traceId);
+            console.error(error);
+        }
+    }
+
+    sendJSObserverLog({
+        message: "config fetch ended", methodName: "fetchConfig", userState: buildUserStateObjectForJSLog(), traceId
+    });
+
+    function resetIsShownIsCompletedAndShownOnce(projectsStatus) {
+        if (projectsStatus) {
+            Object.values(projectsStatus).forEach(status => {
+                status.isShown = false;
+                status.shownOnce = false;
+                status.isCompleted = false;
+            });
+        }
+    }
+}
+
+function isNewUserSession() {
+    return !isUserLoggedIn;
+}
+
+function updateUserProfile(traceId) {
+    try {
+        if (inPreviewMode || isSelfHosted) {
+            //console.info("updateUserProfile(): Skipped due to preview mode or self-hosted environment");
+            return;
+        }
+
+        if (sdkStateService.isCurrentUserInternal || sdkStateService.isLoggedOut) {
+            return;
+        }
+
+        const now = new Date();
+        lastProfileUpdatedAt = now.toISOString();
+        saveTheLatestStateChange(traceId);
+
+        const userId = sdkStateService.currentUserId;
+        const savedUserState = sdkStateService.currentUserState;
+
+        //console.info(`updateUserProfile(): Active userId- ${userId}, state-`, savedUserState);
+        if (isEmptyObject(savedUserState.projectsStatus)) {
+            return;
+        }
+
+        //console.info(`updateUserProfile(): Active userId = ${userId}`);
+
+        const requestBody = isNonEmptyObject(savedUserState.projectsStatus) ?
+            {
+                id: userId,
+                properties: {
+                    allProjectStatus: savedUserState.projectsStatus,
+                    completedFlowProjects: savedUserState.projectsCompletionStats,
+                    selectedLanguage: savedUserState.language,
+                },
+                updatedAt: lastProfileUpdatedAt,
+            } : {};
+
+        //console.log("updateUserProfile(): Enqueuing update with payload", {traceId, requestBody, });
+        sendJSObserverLog({
+            message: "enqueueing profile update",
+            logData: {requestBody},
+            level: ObserverLogLevel.DEBUG,
+            methodName: "updateUserProfile",
+            traceId
+        });
+        userProfileService.enqueueUpdate(userId, traceId);
+    } catch (error) {
+        console.error(`updateUserProfile(): unable to enqueue profile update`, error);
+        sendJSErrorObserverLog({
+            message: "unable to enqueue profile update",
+            error,
+            level: ObserverLogLevel.DEBUG,
+            methodName: "updateUserProfile",
+            traceId
+        });
+    }
+}
+
+function enterPreviewMode(data, traceId) {
+    //console.warn("PREVIEW_STARTED");
+    LiveFeatures = features;
+    LiveMetaConfigs = metaConfigs;
+    features = data.feature;
+    metaConfigs = data.metaConfig;
+    organizeProjectArray(data.configs, undefined, undefined, undefined, undefined, traceId);
+}
+
+function organizeProjectArray(
+    configData,
+    isEmbed = false,
+    wfxProfile,
+    savedAllProjectStatus,
+    savedCompletedProjectsInFlow,
+    traceId
+) {
+    let organizedArray = sortAndOrganizeProjects(
+        configData,
+        isEmbed,
+        savedAllProjectStatus,
+        savedCompletedProjectsInFlow
+    );
+
+    if (isEmbed) {
+        embedProject = Object.values(organizedArray.flowsWalkthroughProjects);
+
+        flowWalkthroughs = {
+            ...flowWalkthroughs,
+            ...organizedArray.flowsWalkthroughProjects,
+        };
+        allProjectStatus = {
+            ...allProjectStatus,
+            ...organizedArray.projectStatus,
+        };
+    } else {
+        sortedProjectArray = organizedArray?.sortedProjects || [];
+        flowWalkthroughs = organizedArray.flowsWalkthroughProjects;
+        allProjectStatus = organizedArray.projectStatus;
+        completedProjectsInFlow = organizedArray.initialCompletedProjectsInFlow;
+
+        // Update the two states all project status and completed project flow
+        if (wfxProfile && wfxProfile.properties) {
+            let wfxProfileProperties;
+            if (wfxProfile.properties.allProjectStatus) {
+                wfxProfileProperties = wfxProfile.properties;
+            } else {
+                wfxProfileProperties = convertOldWfxData(
+                    configData,
+                    organizedArray.sortedProjects,
+                    organizedArray.projectStatus,
+                    organizedArray.initialCompletedProjectsInFlow,
+                    wfxProfile.properties
+                );
+            }
+            //console.warn(`SERVING_CONFIG_FROM_PROFILE_API`);
+            const wfxP = JSON.stringify(wfxProfileProperties);
+            const wfxProf = JSON.parse(
+                wfxP
+                    .replace(/"isShown":true/g, '"isShown":false')
+                    .replace(/"shownOnce":true/g, '"shownOnce":false')
+                    .replace(/"isCompleted":true/g, '"isCompleted":false')
+            );
+
+            selectedLanguage = wfxProf?.selectedLanguage || selectedLanguage || appLocale;
+            Object.keys(wfxProf?.allProjectStatus || {}).forEach((key) => {
+                allProjectStatus[key] = {
+                    ...wfxProf?.allProjectStatus[key],
+                    initialTerminationStatus: allProjectStatus[key]?.initialTerminationStatus ? allProjectStatus[key].initialTerminationStatus : wfxProf.allProjectStatus[key].initialTerminationStatus,
+                };
+                if (wfxProf?.completedFlowProjects[key]) {
+                    completedProjectsInFlow[key] = wfxProf?.completedFlowProjects[key];
+                }
+            });
+        }
+    }
+
+    saveTheLatestStateChange(traceId);
+    saveConfigAndDownloadBulkAssets(configData, traceId);
+    //console.info(`START_BULK_DOWNLOAD`);
+    init(traceId);
+}
+
+
+// js filename- index.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+// Public methods
+// Data receivers from native
+function receiveDataFromNativeLayer(message) {
+    const traceId = generateUUID();
+    try {
+        if (!message) return;
+        ensureSessionStarted();
+        logCommandFromNativeLayer(message, traceId);
+        switch (message.commandName) {
+            case RECEIVING_COMMANDS.START: {
+                executor.addTask(() => start(message.data, traceId));
+                break;
+            }
+
+            case RECEIVING_COMMANDS.SCREEN_HIERARCHY: {
+                metaConfigs?.observeHierarchySize && calculateAvgHierarchySize(message.data.screenHierarchy, traceId);
+                receiveScreenHierarchy(message.data.screenHierarchy, undefined, undefined, traceId);
+                break;
+            }
+
+            case RECEIVING_COMMANDS.ASSIST_INTERACTION: {
+                updateAssistInteraction(message.data, traceId);
+                break;
+            }
+
+            case RECEIVING_COMMANDS.WEB_IDENTIFIERS: {
+                receiveWebIdentifiers(message.data.identifiers, traceId);
+                break;
+            }
+
+            case RECEIVING_COMMANDS.LANGUAGE_SELECTED: {
+                const previousLanguage = selectedLanguage;
+                setCurrentSelectedLanguage(message.data.language);
+                if (
+                    currentStaticFlow.id !== undefined &&
+                    currentStaticFlow.stepsStatus.length !== 0
+                ) {
+                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_LANGUAGE_CHANGE, {
+                        previousLanguage,
+                    }, traceId);
+                    currentStaticFlow?.stepsStatus?.splice(-1);
+                    resetActiveStep();
+                    saveTheLatestStateChange(traceId);
+                }
+                break;
+            }
+
+            case RECEIVING_COMMANDS.ACTIVITY_PAUSE: {
+                //console.warn("ACTIVITY_PAUSE");
+                resetActiveStep();
+                clearInterval(timer);
+
+                if (currentlyRunningFlow.id) {
+                    flowShown = false;
+                }
+
+                if (
+                    activeProject.id &&
+                    (currentStaticFlow.id === undefined ||
+                        currentlyRunningFlow.id === undefined)
+                )
+                    resetActiveProject();
+
+                timer = undefined;
+
+                //resetting cached Finder Observer Events
+                cachedFinderObserverEvents = {
                     on_identifier_matched: [],
                     on_identifier_not_matched: [],
                     on_project_detected: [],
@@ -3727,2522 +5882,941 @@
                     on_step_detected: [],
                     on_no_step_detected: [],
                 };
+                break;
             }
-            function resetFlow() {
-                currentlyRunningFlow = {
-                    id: "",
-                    active: false,
-                };
-            }
-            function resetActiveStep() {
-                activeStep = {
-                    id: "",
-                    step: {},
-                    isAnchoredElement: false,
-                };
-            }
-            function resetActiveProject() {
-                activeProject = {
-                    id: "",
-                    projectType: "",
-                    isShowing: false,
-                    isAnchoredElement: false,
-                    standAlone: false,
-                    iconSetting: {},
-                    isAFlow: false,
-                    isAFlowMenu: false,
-                };
-            }
-            function resetCurrentStaticFlow() {
-                currentStaticFlow = {
-                    id: undefined,
-                    status: undefined,
-                    completed: undefined,
-                    stepsStatus: [],
-                    autoStart: false,
-                };
-            }
-            function handlePanelEvent(data, traceId) {
-                if (data.action === "isVisible")
-                    return;
-                else if (data.action === "clickEvent" && data.value) {
-                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_DISABLE, undefined, traceId);
-                    removeProjectFromStatusArray({ id: data.uniqueId, terminatedByIcon: true, isTerminated: true });
-                    clearEveryThing();
-                }
-            }
-            function handleIconAction(id) {
-                var project = embedProject
-                    .concat(sortedProjectArray)
-                    .find(function (s) { return s.id === id; });
-                if (project !== undefined &&
-                    currentStaticFlow.id &&
-                    project.assist.autoStart &&
-                    currentStaticFlow.status === "START") {
-                    currentStaticFlow = __assign(__assign({}, currentStaticFlow), { status: "RENDERING-STEPS", onlyIcon: false, autoStart: project.assist.autoStart });
-                    resetFlow();
-                }
-            }
-            function resetAndRemoveState(traceId) {
-                resetGlobalUserState();
-                sortedProjectArray = [];
-                embedProject = [];
-                allProjectStatus = {};
-                lastProfileUpdatedAt = undefined;
-                lastUpdatedConfigAt = undefined;
-                lastUpdatedEmbedConfigAt = undefined;
-                loggerConfig = {};
-                prevMatchedIdentifiers = [];
+
+            case RECEIVING_COMMANDS.ACTIVITY_RESUME: {
+                //console.warn("ACTIVITY_RESUME");
                 currentMatchedWebIdentifiers = {};
-                previousBoundState = {};
-                saveTheLatestStateChange(traceId);
+                if (timer === undefined) init();
+                break;
             }
-            function createFocusJavascript(targetIdentifier) {
-                var querySelectorAllStatement = createQuerySelectorAllStatement(targetIdentifier);
-                return "".concat(querySelectorAllStatement, ".focus();");
+
+            case RECEIVING_COMMANDS.ICON_STOP: {
+                sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_STOP, undefined, traceId);
+                clearActiveProject();
+                break;
             }
-            function createFinderJavascript(webIdentifiers, webViewBounds, webViewScale, webviewUUID) {
-                var webIdentificationJavascriptFunction = "function runWhatfixMobileWebFinder(){";
-                var webIdentificationJavascript = "let matchedNode = []; \n     let projectWrapper = { \"matchedNode\": matchedNode }; \n     let result = projectWrapper; \n     let matchedIdentifiers = [];\n     let unMatchedIdentifiers = [];";
-                for (var key in webIdentifiers) {
-                    var webIdentifier = webIdentifiers[key];
-                    webIdentificationJavascript = webIdentificationJavascript.concat(createIfElseStatement(key, webIdentifier, webViewBounds, webViewScale, webviewUUID));
+
+            case RECEIVING_COMMANDS.ICON_CLICK: {
+                handleIconAction(message.data.uniqueId);
+                break;
+            }
+
+            case RECEIVING_COMMANDS.ASSIST_VISIBLE: {
+                updateProjectStatus({id: activeProject.id, isShown: true},
+                    traceId);
+                updateViewStatusForTheProject("nSession", traceId);
+
+                // For the checklist
+                if (
+                    ["STATIC_FLOW_CHECKLIST", "STATIC_FLOW_MENU"]?.includes(
+                        message?.data?.projectType
+                    )
+                ) {
+                    resetActiveStep();
+                    resetCurrentStaticFlow();
                 }
-                webIdentificationJavascript = webIdentificationJavascript
-                    .concat("projectWrapper.matchedIdentifiers=matchedIdentifiers;")
-                    .concat("projectWrapper.unMatchedIdentifiers=unMatchedIdentifiers;")
-                    .concat("return result;");
-                webIdentificationJavascriptFunction = webIdentificationJavascriptFunction
-                    .concat(webIdentificationJavascript)
-                    .concat("} runWhatfixMobileWebFinder();");
-                return webIdentificationJavascriptFunction;
-            }
-            function createIfElseStatement(id, webIdentifier, webViewBounds, webViewScale, webviewUUID) {
-                var statementBlock = "if(";
-                var querySelectorAllStatement = createQuerySelectorAllStatement(webIdentifier);
-                if (webIdentifier["innerText"] === undefined ||
-                    webIdentifier["innerText"]["ang"] === undefined) {
-                    statementBlock = statementBlock
-                        .concat(querySelectorAllStatement)
-                        .concat(")");
+
+                if (currentStaticFlow?.status === "START") {
+                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_START, {
+                        elementName: activeProject?.projectParameters?.projectName,
+                    }, traceId);
+                    currentStaticFlow.autoStart = false;
                 }
-                else {
-                    statementBlock = statementBlock
-                        .concat(querySelectorAllStatement)
-                        .concat(" && ")
-                        .concat(querySelectorAllStatement +
-                            ".innerText === '" +
-                            webIdentifier["innerText"]["ang"])
-                        .concat("')");
+
+                if (currentStaticFlow.autoStart) {
+                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_START, {
+                        elementName: activeProject?.projectParameters?.projectName,
+                    }, traceId);
+                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_OPT_IN, {
+                        elementName: activeProject?.projectParameters?.projectName,
+                    }, traceId);
+                    currentStaticFlow.autoStart = false;
                 }
-                var positionQuery = "".concat(querySelectorAllStatement, ".getBoundingClientRect()");
-                statementBlock = statementBlock
-                    .concat("{")
-                    .concat("matchedIdentifiers.push(\"".concat(id, "\");"))
-                    .concat("\n      var position = ".concat(positionQuery, ";\n      var bounds = {\n          left: position.left * ").concat(webViewScale, " + ").concat(webViewBounds.left, ",\n          top: position.top * ").concat(webViewScale, " + ").concat(webViewBounds.top, ",\n          right: position.right * ").concat(webViewScale, " + ").concat(webViewBounds.left, ",\n          bottom: position.bottom * ").concat(webViewScale, " + ").concat(webViewBounds.top, "\n        };\n      "))
-                    .concat("matchedNode.push({ \n        \"id\" : \"".concat(id, "\", \n        \"bounds\" : bounds,\n        \"node\": {\n          \"uuid\": \"").concat(webviewUUID, "\"\n        }\n      });"))
-                    .concat("}");
-                statementBlock = statementBlock.concat("else{unMatchedIdentifiers.push(\"".concat(id, "\");}"));
-                return statementBlock;
-            }
-            function createQuerySelectorAllStatement(webIdentifier) {
-                var tagName = webIdentifier.tagName;
-                var attributes = webIdentifier["attributes"]["ang"];
-                var querySelectorAllStatement = "document.querySelectorAll('".concat(tagName);
-                for (var attributeKey in attributes) {
-                    var attributeValue = attributes[attributeKey];
-                    var attributeString = "["
-                        .concat(attributeKey)
-                        .concat('="')
-                        .concat(attributeValue)
-                        .concat('"]');
-                    querySelectorAllStatement =
-                        querySelectorAllStatement.concat(attributeString);
+
+                if (
+                    currentlyRunningFlow.id &&
+                    currentStaticFlow.stepsStatus.length === 0
+                ) {
+                    sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_MENU_START, undefined, traceId);
                 }
-                var index = webIdentifier["index"];
-                if (index && index < 0) {
-                    index = 0;
-                }
-                querySelectorAllStatement = querySelectorAllStatement.concat("')[".concat(index, "]"));
-                return querySelectorAllStatement;
+
+                sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_SEEN, undefined, traceId);
+                break;
             }
-            var configFetchStartTime;
-            var jsSdkSessionId = generateUUID();
-            var jsSdkInitialized = false;
-            var enterpriseId = "";
-            var jsMetadata = {};
-            function start(_a, traceId) {
-                var _b = _a.baseUrl, baseUrl = _b === void 0 ? "" : _b, apiKey = _a.apiKey, _c = _a.devicePlatform, devicePlatform = _c === void 0 ? platform : _c, _d = _a.deviceSubPlatform, deviceSubPlatform = _d === void 0 ? "" : _d, _e = _a.appVersion, appVersion = _e === void 0 ? "ALL" : _e, _f = _a.appVersionCodeValue, appVersionCodeValue = _f === void 0 ? 0 : _f, userState = _a.userState, leapUserId = _a.leapUserId, _g = _a.sdkVersionCode, sdkVersionCode = _g === void 0 ? 22 : _g, sessionId = _a.sessionId, defaultProps = _a.defaultProps, userProps = _a.userProps, _h = _a.isSelfHostingEnabled, isSelfHostingEnabled = _h === void 0 ? 0 : _h;
-                return __awaiter(this, void 0, void 0, function () {
-                    function getObserverUrl(baseUrl) {
-                        if (baseUrl.includes("https://leap-api-eus")) {
-                            appObserverBaseUrl = "https://whatfix.com/";
-                        }
-                        else if (baseUrl.includes("https://leap-api-eu")) {
-                            appObserverBaseUrl = "https://eu.whatfix.com/";
-                        }
-                        else if (baseUrl.includes("quickolabs.com")) {
-                            appObserverBaseUrl = "https://uataz.quickolabs.com/";
-                        }
-                    }
-                    function fetchAndSetEnterpriseId() {
-                        return __awaiter(this, void 0, void 0, function () {
-                            var enterpriseId, jsMetadataResponse, error_3;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0:
-                                        enterpriseId = "";
-                                        _a.label = 1;
-                                    case 1:
-                                        _a.trys.push([1, 3, , 4]);
-                                        return [4, fetchObserverMetadata(traceId)];
-                                    case 2:
-                                        jsMetadataResponse = _a.sent();
-                                        if (jsMetadataResponse !== null) {
-                                            enterpriseId = jsMetadataResponse === null || jsMetadataResponse === void 0 ? void 0 : jsMetadataResponse.entId;
-                                            wfAppId = jsMetadataResponse === null || jsMetadataResponse === void 0 ? void 0 : jsMetadataResponse.appId;
-                                            jsMetadata = jsMetadataResponse;
-                                            return [2, enterpriseId];
-                                        }
-                                        else {
-                                            sendJSErrorObserverLog({
-                                                logData: {
-                                                    observerMetadataMap: JSON.stringify(jsMetadataResponse),
-                                                    apikey: apiKey,
-                                                },
-                                                message: "[ERROR] error fetching enterprise metadata",
-                                                methodName: "fetchObserverMetadata",
-                                                className: "init.js",
-                                                traceId: traceId
-                                            });
-                                        }
-                                        return [2, enterpriseId];
-                                    case 3:
-                                        error_3 = _a.sent();
-                                        console.error("Error fetching observer metadata", error_3);
-                                        sendJSErrorObserverLog({
-                                            logData: {
-                                                apikey: apiKey,
-                                                error: error_3
-                                            },
-                                            message: "[ERROR] error fetching observer metadata",
-                                            methodName: "fetchObserverMetadata",
-                                            className: "init.js",
-                                            traceId: traceId
-                                        });
-                                        return [2, enterpriseId];
-                                    case 4: return [2];
-                                }
-                            });
-                        });
-                    }
-                    function sendStartLog() {
-                        sendJSObserverLog({
-                            message: "starting js sdk",
-                            logData: {
-                                jsSdkSessionId: jsSdkSessionId,
-                                baseUrl: baseUrl,
-                            },
-                            methodName: "start",
-                            level: 600,
-                            userState: buildUserStateObjectForObserverLog(sdkStateService.currentUserState),
-                            traceId: traceId
-                        });
-                    }
-                    function sendObserverEventLevelsToNative() {
-                        sendMessageToNative({
-                            command: SENDING_COMMANDS.OBSERVER_EVENT_LEVELS,
-                            data: __assign({}, observerEventLevels)
-                        }, traceId);
-                    }
-                    function resolveApiConfig() {
-                        var isEus = apiKey.startsWith("eus:");
-                        var isEu = apiKey.startsWith("eu:");
-                        if (isSelfHostingEnabled) {
-                            if (isEus) {
-                                apiKey = apiKey.replace(/^eus:/, "");
-                            }
-                            else if (isEu) {
-                                apiKey = apiKey.replace(/^eu:/, "");
-                            }
-                        }
-                        else {
-                            if (isEus) {
-                                baseUrl = "https://leap-api-eus.whatfix.com/";
-                            }
-                            else if (isEu) {
-                                baseUrl = "https://leap-api-eu.whatfix.com/";
-                            }
-                        }
-                        return { baseUrl: baseUrl, apiKey: apiKey };
-                    }
-                    function sendErrorLog(error) {
-                        sendJSErrorObserverLog({
-                            message: "failed to start js sdk",
-                            error: error,
-                            methodName: "start",
-                            traceId: traceId
-                        });
-                    }
-                    var _j, baseUrl_1, apiKey_1, savedUserState, error_2;
-                    return __generator(this, function (_k) {
-                        switch (_k.label) {
-                            case 0:
-                                _k.trys.push([0, 4, , 5]);
-                                if (!!jsSdkInitialized) return [3, 2];
-                                ensureSessionStarted();
-                                sendObserverEventLevelsToNative();
-                                isSelfHosted = isSelfHostingEnabled;
-                                platform = devicePlatform;
-                                subPlatform = deviceSubPlatform;
-                                appSessionId = sessionId;
-                                appVersionName = appVersion;
-                                appVersionCode = appVersionCodeValue;
-                                coreSdkVersionCode = sdkVersionCode;
-                                _j = resolveApiConfig(), baseUrl_1 = _j.baseUrl, apiKey_1 = _j.apiKey;
-                                appApiKey = apiKey_1;
-                                configBaseUrl = baseUrl_1;
-                                getObserverUrl(configBaseUrl);
-                                defaultProperties = __assign({}, defaultProps);
-                                sdkStateService.init(userState);
-                                sendStartLog();
-                                if (sdkStateService.isLoggedIn) {
-                                    savedUserState = sdkStateService.currentUserState;
-                                    lastUpdatedEmbedConfigAt = savedUserState.lastUpdatedEmbedConfigAt;
-                                    lastProfileUpdatedAt = savedUserState.lastProfileUpdatedAt;
-                                    savedEmbedProject = savedUserState.savedEmbedProject;
-                                    appLocale = sdkStateService.appLocale;
-                                    savedUserState.customProps = __assign(__assign({}, savedUserState.customProps), userProps);
-                                    customProperties = savedUserState.customProps;
-                                    configFetchStartTime = Date.now();
-                                    if (!isSelfHosted) {
-                                        sendObserverLogs({
-                                            category: OBSERVER_EVENT_CATEGORIES.NETWORK,
-                                            event_name: OBSERVER_EVENTS.NETWORK.ON_CONFIG_DOWNLOAD_STARTED,
-                                            properties: {
-                                                url: "".concat(baseUrl_1, "odin/api/v1/config/fetch"),
-                                            },
-                                            className: "init.js",
-                                            methodName: "start"
-                                        }, traceId);
-                                    }
-                                }
-                                if (!!enterpriseId) return [3, 2];
-                                return [4, fetchAndSetEnterpriseId()];
-                            case 1:
-                                enterpriseId = _k.sent();
-                                _k.label = 2;
-                            case 2: return [4, fetchConfig({
-                                userId: sdkStateService.currentUserId,
-                            }, traceId)];
-                            case 3:
-                                _k.sent();
-                                jsSdkInitialized = true;
-                                setUserLoggedIn();
-                                flushAllPendingOperations(traceId);
-                                return [3, 5];
-                            case 4:
-                                error_2 = _k.sent();
-                                console.error("[".concat(traceId, "] start(): failed to start js sdk"), error_2);
-                                sendErrorLog(traceId, error_2);
-                                return [3, 5];
-                            case 5: return [2];
-                        }
-                    });
-                });
-            }
-            function fetchObserverMetadata(traceId) {
-                return __awaiter(this, void 0, void 0, function () {
-                    var baseUrl, jsModuleHeaders, moduleResponse, error_4;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                baseUrl = getBaseURLUsingAPIKey(configBaseUrl, appApiKey);
-                                jsModuleHeaders = {
-                                    "X-Wf-ApiKey": appApiKey,
-                                    "Content-Type": "application/json",
-                                    "Allow-Control-Access-Origin": "*"
-                                };
-                                _a.label = 1;
-                            case 1:
-                                _a.trys.push([1, 4, , 5]);
-                                console.log("fetchObserverMetadata(): Fetching observer metadata from baseUrl {} apikey {} ", baseUrl, appApiKey);
-                                return [4, fetch("".concat(baseUrl, "odin/api/v1/js-metadata"), {
-                                    method: "GET",
-                                    headers: jsModuleHeaders,
-                                })];
-                            case 2:
-                                moduleResponse = _a.sent();
-                                if (!moduleResponse.ok)
-                                    return [2, null];
-                                return [4, moduleResponse.json()];
-                            case 3: return [2, _a.sent()];
-                            case 4:
-                                error_4 = _a.sent();
-                                console.error("fetchObserverMetadata(): unable to fetch observer metadata", error_4);
-                                sendJSErrorObserverLog({
-                                    message: "failed to fetch observer metadata",
-                                    error: error_4,
-                                    methodName: "fetchObserverMetadata",
-                                    traceId: traceId
-                                });
-                                return [3, 5];
-                            case 5: return [2];
-                        }
-                    });
-                });
-            }
-            function getBaseURLUsingAPIKey(baseUrl, apiKey) {
-                var metadataEndpoint = "https://leap-api-in.whatfix.com/";
-                if (apiKey.substring(0, 4) === "eus:") {
-                    metadataEndpoint = "https://leap-api-eus.whatfix.com/";
-                }
-                else if (apiKey.substring(0, 3) === "eu:") {
-                    metadataEndpoint = "https://leap-api-eu.whatfix.com/";
-                }
-                else if (baseUrl.includes("quickolabs.com")) {
-                    metadataEndpoint = "https://leap-uat-api-mama.quickolabs.com/";
-                }
-                return metadataEndpoint;
-            }
-            function setUserLoggedIn() {
-                isUserLoggedIn = true;
-            }
-            function resetUserLoggedIn() {
-                isUserLoggedIn = false;
-            }
-            function getCurrentUserId() {
-                return sdkStateService.currentUserId;
-            }
-            function ensureSessionStarted() {
-                if (!userSessionId) {
-                    userSessionId = generateUUID();
-                }
-            }
-            function startNewSession() {
-                userSessionId = generateUUID();
-            }
-            function getUserSessionId() {
-                return userSessionId;
-            }
-            function fetchByUserProperties(traceId) {
-                sendJSObserverLog({
-                    message: "starting config fetch by user properties",
-                    methodName: "fetchByUserProperties",
-                    logData: __assign(__assign({}, defaultProperties), customProperties),
-                    level: ObserverLogLevel.INFO,
-                    traceId: traceId
-                });
-                configFetchStartTime = Date.now();
-                return fetchConfig({
-                    userId: sdkStateService.currentUserId,
-                }, traceId);
-            }
-            function fetchByProjectId(id, traceId) {
-                sendJSObserverLog({
-                    message: "starting config fetch by project id",
-                    methodName: "fetchByProjectId",
-                    level: ObserverLogLevel.INFO,
-                    traceId: traceId
-                });
-                return fetchConfig({
-                    userId: sdkStateService.currentUserId,
-                    isEmbed: true,
-                    projectId: id,
-                }, traceId);
-            }
-            function fetchByUserId(id, traceId) {
-                sendJSObserverLog({
-                    message: "starting config fetch by user id", methodName: "fetchByUserId", level: ObserverLogLevel.INFO,
-                    traceId: traceId
-                });
-                return fetchConfig({
-                    userId: id,
-                }, traceId);
-            }
-            function consumeSavedStateAndInit(savedState, traceId) {
-                if (!savedState) {
-                    return;
-                }
-                sortedProjectArray = savedState.projectArray;
-                allProjectStatus = savedState.projectsStatus;
-                flowWalkthroughs = savedState.connectedWalkthroughs;
-                selectedLanguage = savedState.language || selectedLanguage;
-                completedProjectsInFlow = savedState.projectsCompletionStats;
-                features = savedState.features;
-                metaConfigs = savedState.metaConfigs;
-                loggerConfig = savedState.loggerConfig;
-                reCalculateCompletedProjectsInFlow(sortedProjectArray, completedProjectsInFlow);
-                init(traceId);
-            }
-            function storeConfigInSegmentMap(segment, config) {
-                return __awaiter(this, void 0, void 0, function () {
-                    var decompressedData;
-                    var _this = this;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0: return [4, Promise.all(config.data.map(function (configData) { return __awaiter(_this, void 0, void 0, function () {
-                                var decompressed, decompressedDataWithBaseUrl;
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0: return [4, decompressGzipString(configData)];
-                                        case 1:
-                                            decompressed = _a.sent();
-                                            decompressedDataWithBaseUrl = decompressed.replace(/"baseUrl":""/g, "\"baseUrl\":\"".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "\""));
-                                            return [2, JSON.parse(decompressedDataWithBaseUrl)];
-                                    }
-                                });
-                            }); }))];
-                            case 1:
-                                decompressedData = _a.sent();
-                                segmentConfigMap[segment.segmentId] = {
-                                    config: {
-                                        data: decompressedData,
-                                        configStatus: 200,
-                                        wfxProfile: null,
-                                        loggerConfig: null,
-                                        metaConfig: (config === null || config === void 0 ? void 0 : config.metaConfig) || null,
-                                        params: (config === null || config === void 0 ? void 0 : config.params) || null,
-                                        feature: (config === null || config === void 0 ? void 0 : config.feature) || null,
-                                    },
-                                    orBlocks: (segment === null || segment === void 0 ? void 0 : segment.orBlocks) || [],
-                                    lastUpdatedAt: segment === null || segment === void 0 ? void 0 : segment.lastUpdatedAt,
-                                };
-                                return [2];
-                        }
-                    });
-                });
-            }
-            function fetchAndStoreConfigFromSavedState(savedSegmentConfigMap) {
-                var segConfMapAvailableInSavedState = Object.keys(savedSegmentConfigMap || {}).length;
-                if (segConfMapAvailableInSavedState) {
-                    segmentConfigMap = savedSegmentConfigMap;
-                    return 200;
-                }
-                return 404;
-            }
-            function downloadConfigFromCDN(savedSegmentConfigMap) {
-                var _a;
-                return __awaiter(this, void 0, void 0, function () {
-                    var segmentationBaseUrl, response, segmentationList, data, _b;
-                    var _this = this;
-                    return __generator(this, function (_c) {
-                        switch (_c.label) {
-                            case 0:
-                                segmentationBaseUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "/segmentation.json");
-                                _c.label = 1;
-                            case 1:
-                                _c.trys.push([1, 6, , 7]);
-                                return [4, fetch(segmentationBaseUrl)];
-                            case 2:
-                                response = _c.sent();
-                                return [4, response.json()];
-                            case 3:
-                                segmentationList = _c.sent();
-                                if (!((_a = segmentationList === null || segmentationList === void 0 ? void 0 : segmentationList.segments) === null || _a === void 0 ? void 0 : _a.length)) return [3, 5];
-                                return [4, Promise.all(segmentationList.segments.map(function (segmentObject) { return __awaiter(_this, void 0, void 0, function () {
-                                    var configUrl, configResponse, segmentSpecificConfig;
-                                    return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0:
-                                                configUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING).concat(selfHostingEndPoints.SEGMENT_CONFIG_FOLDER).concat(segmentObject === null || segmentObject === void 0 ? void 0 : segmentObject.segmentId, ".json");
-                                                return [4, fetch(configUrl)];
-                                            case 1:
-                                                configResponse = _a.sent();
-                                                return [4, configResponse.json()];
-                                            case 2:
-                                                segmentSpecificConfig = _a.sent();
-                                                return [4, storeConfigInSegmentMap(segmentObject, segmentSpecificConfig)];
-                                            case 3:
-                                                _a.sent();
-                                                return [2];
-                                        }
-                                    });
-                                }); })).catch(function (error) {
-                                    console.warn(error);
-                                    return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
-                                })];
-                            case 4:
-                                data = _c.sent();
-                                return [2, 200];
-                            case 5: return [3, 7];
-                            case 6:
-                                _b = _c.sent();
-                                console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState");
-                                return [2, fetchAndStoreConfigFromSavedState(savedSegmentConfigMap)];
-                            case 7: return [2];
-                        }
-                    });
-                });
-            }
-            function findSegmentIds() {
-                return Object.keys(segmentConfigMap).filter(function (segmentId) {
-                    return isSegmentValid(segmentConfigMap[segmentId].orBlocks);
-                });
-            }
-            function collateConfigsFromValidSegments(validSegmentIds) {
-                var collatedConfig;
-                validSegmentIds.map(function (segmentId, index) {
-                    var _a, _b;
-                    if (index === 0) {
-                        collatedConfig = (_a = segmentConfigMap[segmentId]) === null || _a === void 0 ? void 0 : _a.config;
-                    }
-                    else {
-                        collatedConfig.data = __spreadArray(__spreadArray([], __read(collatedConfig.data), false), __read((_b = segmentConfigMap[segmentId]) === null || _b === void 0 ? void 0 : _b.config.data), false);
-                    }
-                });
-                return collatedConfig;
-            }
-            function getSelfHostedConfig() {
-                var validSegmentIds = findSegmentIds();
-                return collateConfigsFromValidSegments(validSegmentIds);
-            }
-            function fetchConfig(_a, traceId) {
-                var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-                var userId = _a.userId, _o = _a.isEmbed, isEmbed = _o === void 0 ? false : _o, projectId = _a.projectId;
-                return __awaiter(this, void 0, void 0, function () {
-                    function resetIsShownIsCompletedAndShownOnce(projectsStatus) {
-                        if (projectsStatus) {
-                            Object.values(projectsStatus).forEach(function (status) {
-                                status.isShown = false;
-                                status.shownOnce = false;
-                                status.isCompleted = false;
-                            });
-                        }
-                    }
-                    var status, config, headers, requestBody, dataString, savedUserState, allUserProperties, customPropsDateObjects_1, keys, dateObjects, lastUpdatedAt, wfxProfileBody, response, _p, _q, wfxProfileProperties, error_5;
-                    return __generator(this, function (_r) {
-                        switch (_r.label) {
-                            case 0:
-                                status = 200;
-                                if (sdkStateService.isLoggedOut) {
-                                    return [2];
-                                }
-                                savedUserState = sdkStateService.getUserStateById(userId) || {};
-                                if (isNewUserSession()) {
-                                    resetIsShownIsCompletedAndShownOnce(savedUserState.projectsStatus);
-                                }
-                                allUserProperties = __assign(__assign({}, defaultProperties), savedUserState.customProps);
-                                sendJSObserverLog({
-                                    message: "starting config fetch",
-                                    logData: { userId: userId, wfId: savedUserState.wfId, allUserProperties: allUserProperties },
-                                    methodName: "fetchConfig",
-                                    level: ObserverLogLevel.DEBUG,
-                                    userState: buildUserStateObjectForObserverLog(savedUserState),
-                                    traceId: traceId
-                                });
-                                if (!isSelfHosted) return [3, 2];
-                                return [4, downloadConfigFromCDN(sdkStateService.segmentConfigMap)];
-                            case 1:
-                                status = _r.sent();
-                                config = getSelfHostedConfig();
-                                if (!config) {
-                                    return [2];
-                                }
-                                _r.label = 2;
-                            case 2:
-                                if (!isSelfHosted) {
-                                    customPropsDateObjects_1 = {};
-                                    keys = Object.keys(allUserProperties);
-                                    keys === null || keys === void 0 ? void 0 : keys.forEach(function (key) {
-                                        if (![
-                                            "lastUpdateTimeStamp",
-                                            "firstInstallTimeStamp",
-                                            "firstSessionTimeStamp",
-                                        ].includes(key)) {
-                                            var value = allUserProperties[key];
-                                            if (typeof value === "string") {
-                                                if (isValidDateString(value)) {
-                                                    var elapsedTime = getElapsedTimeInSeconds(value);
-                                                    customPropsDateObjects_1[key] = elapsedTime;
-                                                }
-                                            }
-                                        }
-                                    });
-                                    dateObjects = isEmbed
-                                        ? {}
-                                        : {
-                                            lastUpdateTimeStamp: new Date(allUserProperties === null || allUserProperties === void 0 ? void 0 : allUserProperties.lastUpdateTimeStamp).toISOString(),
-                                            timeElapsedSinceLastUpdate: getElapsedTimeInSeconds(allUserProperties === null || allUserProperties === void 0 ? void 0 : allUserProperties.lastUpdateTimeStamp),
-                                            firstInstallTimeStamp: new Date(allUserProperties === null || allUserProperties === void 0 ? void 0 : allUserProperties.firstInstallTimeStamp).toISOString(),
-                                            timeElapsedSinceFirstInstall: getElapsedTimeInSeconds(allUserProperties === null || allUserProperties === void 0 ? void 0 : allUserProperties.firstInstallTimeStamp),
-                                            firstSessionTimeStamp: getElapsedTimeInSeconds(allUserProperties === null || allUserProperties === void 0 ? void 0 : allUserProperties.firstSessionTimeStamp),
-                                            timeElapsedSinceFirstSession: getElapsedTimeInSeconds(allUserProperties === null || allUserProperties === void 0 ? void 0 : allUserProperties.firstSessionTimeStamp),
-                                        };
-                                    lastUpdatedAt = isEmbed ? savedUserState.lastUpdatedEmbedConfigAt : savedUserState.lastUpdatedConfigAt;
-                                    headers = {
-                                        "Content-Type": "application/json",
-                                        "Allow-Control-Access-Origin": "",
-                                        "x-jiny-client-id": appApiKey,
-                                        "x-app-version-name": appVersionName,
-                                    };
-                                    headers["x-leap-id"] = userId;
-                                    if (lastUpdatedAt) {
-                                        headers["x-jiny-last-updated-at"] = JSON.stringify(lastUpdatedAt);
-                                    }
-                                    if (isEmbed) {
-                                        headers["x-jiny-deployment-ids"] = JSON.stringify([projectId]);
-                                    }
-                                    wfxProfileBody = void 0;
-                                    if (sdkStateService.isUserIdExternal(userId)) {
-                                        wfxProfileBody = {
-                                            id: userId,
-                                            updatedAt: savedUserState.lastProfileUpdatedAt,
-                                        };
-                                    }
-                                    requestBody = __assign(__assign(__assign({ wfx_sdkVersionCode: coreSdkVersionCode, wfxProfile: wfxProfileBody }, allUserProperties), dateObjects), customPropsDateObjects_1);
-                                    dataString = JSON.stringify(requestBody);
-                                }
-                                _r.label = 3;
-                            case 3:
-                                _r.trys.push([3, 18, , 19]);
-                                if (!!isSelfHosted) return [3, 8];
-                                sendJSObserverLog({
-                                    message: "starting config fetch API call",
-                                    logData: {
-                                        requestBody: requestBody,
-                                        headers: {
-                                            "x-jiny-last-updated-at": headers["x-jiny-last-updated-at"],
-                                        }
-                                    },
-                                    methodName: "fetchConfig",
-                                    level: ObserverLogLevel.DEBUG,
-                                    traceId: traceId
-                                });
-                                return [4, fetch("".concat(configBaseUrl, "odin/api/v1/config/fetch"), {
-                                    method: "POST",
-                                    headers: headers,
-                                    body: dataString,
-                                })];
-                            case 4:
-                                response = _r.sent();
-                                status = response.status;
-                                if (!(response.status === 200)) return [3, 6];
-                                return [4, response.json()];
-                            case 5:
-                                _p = _r.sent();
-                                return [3, 7];
-                            case 6:
-                                _p = {};
-                                _r.label = 7;
-                            case 7:
-                                config = _p;
-                                headers = response.headers;
-                                sendJSObserverLog({
-                                    message: "config fetch ended",
-                                    logData: {
-                                        status: status,
-                                        projectIds: headers.get("x-jiny-project-ids"),
-                                        configStatus: config === null || config === void 0 ? void 0 : config.configStatus,
-                                        wfxProfileStatus: (_b = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _b === void 0 ? void 0 : _b.status,
-                                        wfxProfileUpdatedAt: (_c = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _c === void 0 ? void 0 : _c.updatedAt
-                                    },
-                                    methodName: "fetchConfig",
-                                    traceId: traceId
-                                });
-                                isEmbed
-                                    ? (lastUpdatedEmbedConfigAt = JSON.parse(headers.get("x-jiny-last-updated-at")))
-                                    : (lastUpdatedConfigAt = JSON.parse(headers.get("x-jiny-last-updated-at")));
-                                sendObserverLogs({
-                                    category: OBSERVER_EVENT_CATEGORIES.NETWORK,
-                                    event_name: OBSERVER_EVENTS.NETWORK.ON_CONFIG_DOWNLOAD_COMPLETED,
-                                    properties: {
-                                        status_code: response.status,
-                                        response_message: getStatusMessage(response.status),
-                                        time_taken: Date.now() - configFetchStartTime,
-                                    },
-                                    className: "init.js",
-                                    methodName: "fetchConfig",
-                                }, traceId);
-                                _r.label = 8;
-                            case 8:
-                                _q = status;
-                                switch (_q) {
-                                    case 200: return [3, 9];
-                                    case 408: return [3, 13];
-                                    case 504: return [3, 13];
-                                    case 401: return [3, 14];
-                                    case 404: return [3, 15];
-                                    case 500: return [3, 16];
-                                }
-                                return [3, 17];
-                            case 9:
-                                if (!(config.configStatus === 200)) return [3, 11];
-                                console.info("[".concat(traceId, "] Serving config from API"));
-                                features = config.feature || {};
-                                metaConfigs = config.metaConfig || {};
-                                loggerConfig = config.loggerConfig || {};
-                                if (((_d = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _d === void 0 ? void 0 : _d.status) === 304) {
-                                    console.info("[".concat(traceId, "] Service profile from cache"));
-                                }
-                                return [4, organizeProjectArray(config.data, isEmbed, config.wfxProfile, savedUserState.projectsStatus || {}, savedUserState.projectsCompletionStats || {}, traceId)];
-                            case 10:
-                                _r.sent();
-                                saveTheLatestStateChange(traceId);
-                                return [3, 12];
-                            case 11:
-                                if (config.configStatus === 304) {
-                                    console.info("[".concat(traceId, "] Service config from cache"));
-                                    if (((_e = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _e === void 0 ? void 0 : _e.status) === 200 && ((_f = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _f === void 0 ? void 0 : _f.properties)) {
-                                        console.info("[".concat(traceId, "] Service profile from API"));
-                                        sendJSObserverLog({
-                                            message: "using user profile from API response",
-                                            methodName: "fetchConfig",
-                                            traceId: traceId
-                                        });
-                                        wfxProfileProperties = void 0;
-                                        if (isNonEmptyObject((_h = (_g = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _g === void 0 ? void 0 : _g.properties) === null || _h === void 0 ? void 0 : _h.allProjectStatus)) {
-                                            wfxProfileProperties = (_j = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _j === void 0 ? void 0 : _j.properties;
-                                        }
-                                        else {
-                                            wfxProfileProperties = convertOldWfxData(config === null || config === void 0 ? void 0 : config.data, savedUserState.projectArray || [], savedUserState.projectsStatus || {}, savedUserState.projectsCompletionStats || {}, (_k = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _k === void 0 ? void 0 : _k.properties);
-                                        }
-                                        resetIsShownIsCompletedAndShownOnce(wfxProfileProperties.allProjectStatus);
-                                        sortedProjectArray = savedUserState.projectArray;
-                                        allProjectStatus = wfxProfileProperties === null || wfxProfileProperties === void 0 ? void 0 : wfxProfileProperties.allProjectStatus;
-                                        completedProjectsInFlow = wfxProfileProperties === null || wfxProfileProperties === void 0 ? void 0 : wfxProfileProperties.completedFlowProjects;
-                                        selectedLanguage = (wfxProfileProperties === null || wfxProfileProperties === void 0 ? void 0 : wfxProfileProperties.selectedLanguage) || savedUserState.language || appLocale;
-                                        flowWalkthroughs = savedUserState.connectedWalkthroughs || {};
-                                        features = savedUserState.features;
-                                        metaConfigs = savedUserState.metaConfigs;
-                                        loggerConfig = config.loggerConfig || savedUserState.loggerConfig;
-                                        saveTheLatestStateChange(traceId);
-                                        init(traceId);
-                                    }
-                                    else {
-                                        sendJSObserverLog({
-                                            message: "using user profile from saved state",
-                                            methodName: "fetchConfig",
-                                            traceId: traceId
-                                        });
-                                        if (((_l = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _l === void 0 ? void 0 : _l.status) === 304) {
-                                            console.info("[".concat(traceId, "] Serving profile from cache"));
-                                        }
-                                        else {
-                                            console.info("[".concat(traceId, "] No config returned from API. status- ").concat((_m = config === null || config === void 0 ? void 0 : config.wfxProfile) === null || _m === void 0 ? void 0 : _m.status));
-                                        }
-                                        loggerConfig = config.loggerConfig || savedUserState.loggerConfig;
-                                        consumeSavedStateAndInit(savedUserState, traceId);
-                                    }
-                                }
-                                else if (config.configStatus === 404) {
-                                    console.error("[".concat(traceId, "] unable to fetch config from API. status: 404"));
-                                    resetAndRemoveState(traceId);
-                                }
-                                _r.label = 12;
-                            case 12: return [3, 17];
-                            case 13:
-                            {
-                                consumeSavedStateAndInit(savedUserState, traceId);
-                                return [3, 17];
-                            }
-                                // removed by dead control flow
-                            {}
-                            case 14:
-                            {
-                                console.error("UNAUTHORIZED_401");
-                                resetAndRemoveState(traceId);
-                                return [3, 17];
-                            }
-                                // removed by dead control flow
-                            {}
-                            case 15:
-                            {
-                                console.error("UNABLE_TO_FETCH_CONFIG_THROWING_404");
-                                resetAndRemoveState(traceId);
-                                return [3, 17];
-                            }
-                                // removed by dead control flow
-                            {}
-                            case 16:
-                            {
-                                console.error("UNABLE_TO_FETCH_CONFIG_THROWING_500");
-                                return [3, 17];
-                            }
-                                // removed by dead control flow
-                            {}
-                            case 17: return [3, 19];
-                            case 18:
-                                error_5 = _r.sent();
-                                console.error("fetchConfig(): failed to fetch config", error_5);
-                                sendJSErrorObserverLog({
-                                    message: "config fetch failed",
-                                    error: error_5,
-                                    methodName: "fetchConfig",
-                                    traceId: traceId
-                                });
-                                if (error_5 instanceof DOMException && error_5.name === "AbortError") {
-                                    console.error("Abort API call: Request aborted due to new user properties call");
-                                }
-                                else {
-                                    consumeSavedStateAndInit(savedUserState, traceId);
-                                    console.error(error_5);
-                                }
-                                return [3, 19];
-                            case 19:
-                                sendJSObserverLog({
-                                    message: "config fetch ended", methodName: "fetchConfig", userState: buildUserStateObjectForJSLog(),
-                                    traceId: traceId
-                                });
-                                return [2];
-                        }
-                    });
-                });
-            }
-            function isNewUserSession() {
-                return !isUserLoggedIn;
-            }
-            function updateUserProfile(traceId) {
-                try {
-                    if (inPreviewMode || isSelfHosted) {
-                        return;
-                    }
-                    if (sdkStateService.isCurrentUserInternal || sdkStateService.isLoggedOut) {
-                        return;
-                    }
-                    var now = new Date();
-                    lastProfileUpdatedAt = now.toISOString();
-                    saveTheLatestStateChange(traceId);
-                    var userId = sdkStateService.currentUserId;
-                    var savedUserState = sdkStateService.currentUserState;
-                    if (isEmptyObject(savedUserState.projectsStatus)) {
-                        return;
-                    }
-                    var requestBody = isNonEmptyObject(savedUserState.projectsStatus) ?
-                        {
-                            id: userId,
-                            properties: {
-                                allProjectStatus: savedUserState.projectsStatus,
-                                completedFlowProjects: savedUserState.projectsCompletionStats,
-                                selectedLanguage: savedUserState.language,
-                            },
-                            updatedAt: lastProfileUpdatedAt,
-                        } : {};
-                    sendJSObserverLog({
-                        message: "enqueueing profile update",
-                        logData: { requestBody: requestBody },
-                        level: ObserverLogLevel.DEBUG,
-                        methodName: "updateUserProfile",
-                        traceId: traceId
-                    });
-                    userProfileService.enqueueUpdate(userId, traceId);
-                }
-                catch (error) {
-                    console.error("updateUserProfile(): unable to enqueue profile update", error);
-                    sendJSErrorObserverLog({
-                        message: "unable to enqueue profile update",
-                        error: error,
-                        level: ObserverLogLevel.DEBUG,
-                        methodName: "updateUserProfile",
-                        traceId: traceId
-                    });
-                }
-            }
-            function enterPreviewMode(data, traceId) {
-                LiveFeatures = features;
-                LiveMetaConfigs = metaConfigs;
-                features = data.feature;
-                metaConfigs = data.metaConfig;
-                organizeProjectArray(data.configs, undefined, undefined, undefined, undefined, traceId);
-            }
-            function organizeProjectArray(configData, isEmbed, wfxProfile, savedAllProjectStatus, savedCompletedProjectsInFlow, traceId) {
-                if (isEmbed === void 0) { isEmbed = false; }
-                var organizedArray = sortAndOrganizeProjects(configData, isEmbed, savedAllProjectStatus, savedCompletedProjectsInFlow);
-                if (isEmbed) {
-                    embedProject = Object.values(organizedArray.flowsWalkthroughProjects);
-                    flowWalkthroughs = __assign(__assign({}, flowWalkthroughs), organizedArray.flowsWalkthroughProjects);
-                    allProjectStatus = __assign(__assign({}, allProjectStatus), organizedArray.projectStatus);
-                }
-                else {
-                    sortedProjectArray = (organizedArray === null || organizedArray === void 0 ? void 0 : organizedArray.sortedProjects) || [];
-                    flowWalkthroughs = organizedArray.flowsWalkthroughProjects;
-                    allProjectStatus = organizedArray.projectStatus;
-                    completedProjectsInFlow = organizedArray.initialCompletedProjectsInFlow;
-                    if (wfxProfile && wfxProfile.properties) {
-                        var wfxProfileProperties = void 0;
-                        if (wfxProfile.properties.allProjectStatus) {
-                            wfxProfileProperties = wfxProfile.properties;
-                        }
-                        else {
-                            wfxProfileProperties = convertOldWfxData(configData, organizedArray.sortedProjects, organizedArray.projectStatus, organizedArray.initialCompletedProjectsInFlow, wfxProfile.properties);
-                        }
-                        var wfxP = JSON.stringify(wfxProfileProperties);
-                        var wfxProf_1 = JSON.parse(wfxP
-                            .replace(/"isShown":true/g, '"isShown":false')
-                            .replace(/"shownOnce":true/g, '"shownOnce":false')
-                            .replace(/"isCompleted":true/g, '"isCompleted":false'));
-                        selectedLanguage = (wfxProf_1 === null || wfxProf_1 === void 0 ? void 0 : wfxProf_1.selectedLanguage) || selectedLanguage || appLocale;
-                        Object.keys((wfxProf_1 === null || wfxProf_1 === void 0 ? void 0 : wfxProf_1.allProjectStatus) || {}).forEach(function (key) {
-                            var _a;
-                            allProjectStatus[key] = __assign(__assign({}, wfxProf_1 === null || wfxProf_1 === void 0 ? void 0 : wfxProf_1.allProjectStatus[key]), { initialTerminationStatus: ((_a = allProjectStatus[key]) === null || _a === void 0 ? void 0 : _a.initialTerminationStatus) ? allProjectStatus[key].initialTerminationStatus : wfxProf_1.allProjectStatus[key].initialTerminationStatus });
-                            if (wfxProf_1 === null || wfxProf_1 === void 0 ? void 0 : wfxProf_1.completedFlowProjects[key]) {
-                                completedProjectsInFlow[key] = wfxProf_1 === null || wfxProf_1 === void 0 ? void 0 : wfxProf_1.completedFlowProjects[key];
-                            }
-                        });
-                    }
-                }
-                saveTheLatestStateChange(traceId);
-                saveConfigAndDownloadBulkAssets(configData, traceId);
-                init(traceId);
-            }
-            var ApiService = (function () {
-                function ApiService(options) {
-                    var _this = this;
-                    this.getFailedRequestsFromStorage = function () {
-                        _this.getPrefPending = true;
-                        sendMessageToNative({
-                            command: SENDING_COMMANDS.GET_PREF,
-                            data: {
-                                key: _this.options.failedRequestsStorageKey,
-                            },
-                        }, generateUUID());
-                    };
-                    this.putFailedRequestsToStorage = function (requests) {
-                        if (requests === void 0) { requests = []; }
-                        sendMessageToNative({
-                            command: SENDING_COMMANDS.SAVE_PREF,
-                            data: {
-                                key: _this.options.failedRequestsStorageKey,
-                                value: JSON.stringify(requests),
-                            },
-                        }, generateUUID());
-                    };
-                    this.clearFailedRequestsFromStorage = function () {
-                        sendMessageToNative({
-                            command: SENDING_COMMANDS.CLEAR_PREF,
-                            data: {
-                                key: _this.options.failedRequestsStorageKey,
-                            },
-                        }, generateUUID());
-                    };
-                    this.handleFailedRequest = function (request) {
-                        if (_this.requestsProcessing) {
-                            _this.pendingRequestsForStorage.push(request);
-                            _this.putFailedRequestsToStorage(_this.failedRequestsFromStorage.concat(_this.pendingRequestsForStorage));
-                            return;
-                        }
-                        if (_this.failedRequestsFromStorage.length === 0 &&
-                            !_this.firstTimeFailedRequestsProcessed) {
-                            _this.pendingRequestsForStorage.push(request);
-                            if (!_this.getPrefPending) {
-                                _this.getFailedRequestsFromStorage();
-                            }
-                        }
-                        else {
-                            _this.failedRequestsFromStorage.push(request);
-                            _this.failedRequestsFromStorage =
-                                _this.options.processFailedRequestsForStorage(_this.failedRequestsFromStorage);
-                            _this.putFailedRequestsToStorage(_this.failedRequestsFromStorage);
-                        }
-                    };
-                    this.restoreFailedRequestsFromStorage = function (requests) {
-                        _this.failedRequestsFromStorage = Array.isArray(requests) ? requests : [];
-                        if (_this.pendingRequestsForStorage.length > 0) {
-                            _this.failedRequestsFromStorage =
-                                _this.options.processFailedRequestsForStorage(requests.concat(_this.pendingRequestsForStorage));
-                            _this.pendingRequestsForStorage = [];
-                            _this.putFailedRequestsToStorage(_this.failedRequestsFromStorage);
-                        }
-                        _this.getPrefPending = false;
-                        _this.firstTimeFailedRequestsProcessed = true;
-                        _this.processFailedRequests();
-                    };
-                    this.processFailedRequests = function () { return __awaiter(_this, void 0, void 0, function () {
-                        var _this = this;
-                        return __generator(this, function (_a) {
-                            return [2, new Promise(function (resolve) {
-                                if (_this.requestsProcessing ||
-                                    _this.failedRequestsFromStorage.length === 0) {
-                                    return resolve();
-                                }
-                                _this.requestsProcessing = true;
-                                var processRequests = function () { return __awaiter(_this, void 0, void 0, function () {
-                                    var failedRequests, i, e_11, e_12;
-                                    return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0:
-                                                _a.trys.push([0, 7, 8, 9]);
-                                                failedRequests = [];
-                                                i = 0;
-                                                _a.label = 1;
-                                            case 1:
-                                                if (!(i < this.failedRequestsFromStorage.length)) return [3, 6];
-                                                _a.label = 2;
-                                            case 2:
-                                                _a.trys.push([2, 4, , 5]);
-                                                return [4, this.callApi(this.failedRequestsFromStorage[i], {
-                                                    shouldHandleFailedRequest: false,
-                                                    retry: true,
-                                                })];
-                                            case 3:
-                                                _a.sent();
-                                                return [3, 5];
-                                            case 4:
-                                                e_11 = _a.sent();
-                                                failedRequests.push(this.failedRequestsFromStorage[i]);
-                                                console.error(e_11);
-                                                return [3, 5];
-                                            case 5:
-                                                i++;
-                                                return [3, 1];
-                                            case 6:
-                                                this.failedRequestsFromStorage =
-                                                    this.options.processFailedRequestsForStorage(failedRequests.concat(this.pendingRequestsForStorage));
-                                                this.pendingRequestsForStorage = [];
-                                                if (this.failedRequestsFromStorage.length === 0) {
-                                                    this.clearFailedRequestsFromStorage();
-                                                }
-                                                else {
-                                                    this.putFailedRequestsToStorage(this.failedRequestsFromStorage);
-                                                }
-                                                return [3, 9];
-                                            case 7:
-                                                e_12 = _a.sent();
-                                                console.error(e_12);
-                                                return [3, 9];
-                                            case 8:
-                                                this.requestsProcessing = false;
-                                                resolve();
-                                                return [7];
-                                            case 9: return [2];
-                                        }
-                                    });
-                                }); };
-                                processRequests();
-                            })];
-                        });
-                    }); };
-                    this.callApi = function (request, requestOptions) { return __awaiter(_this, void 0, void 0, function () {
-                        var _this = this;
-                        return __generator(this, function (_a) {
-                            return [2, new Promise(function (resolve, reject) {
-                                var globalOptions = _this.options;
-                                if (globalOptions.isSelfHosted) {
-                                    return resolve();
-                                }
-                                var _a = request || {}, _b = _a.url, url = _b === void 0 ? "" : _b, _c = _a.method, method = _c === void 0 ? "GET" : _c, _d = _a.body, body = _d === void 0 ? "" : _d;
-                                if (!url) {
-                                    return reject("url should not be empty");
-                                }
-                                var handleRequestError = function (request, error) {
-                                    if (requestOptions.shouldHandleFailedRequest &&
-                                        request.method === "POST") {
-                                        _this.handleFailedRequest(request);
-                                    }
-                                    if (globalOptions.sendObserverErrorLog) {
-                                        globalOptions.sendObserverErrorLog(error, {
-                                            retry: !!requestOptions.retry,
-                                            url: url,
-                                            method: method,
-                                            body: body,
-                                        });
-                                    }
-                                };
-                                var api = function () { return __awaiter(_this, void 0, void 0, function () {
-                                    var fetchRequestData, result, response, e_13;
-                                    return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0:
-                                                _a.trys.push([0, 3, , 4]);
-                                                fetchRequestData = {
-                                                    method: method,
-                                                    headers: globalOptions.getHeaders(),
-                                                };
-                                                if (body) {
-                                                    fetchRequestData.body =
-                                                        typeof body === "string" ? body : JSON.stringify(body);
-                                                }
-                                                return [4, fetch(url, fetchRequestData)];
-                                            case 1:
-                                                result = _a.sent();
-                                                if (!result.ok) {
-                                                    handleRequestError({ url: url, method: method, body: body });
-                                                    return [2, reject(result)];
-                                                }
-                                                return [4, result.json()];
-                                            case 2:
-                                                response = _a.sent();
-                                                resolve(response);
-                                                return [3, 4];
-                                            case 3:
-                                                e_13 = _a.sent();
-                                                handleRequestError({ url: url, method: method, body: body });
-                                                reject(e_13);
-                                                return [3, 4];
-                                            case 4: return [2];
-                                        }
-                                    });
-                                }); };
-                                api();
-                            })];
-                        });
-                    }); };
-                    this.options = __assign({ failedRequestsStorageKey: "leap_failedRequests", processFailedRequestsForStorage: function (data) { return data; }, getHeaders: function () {
-                            return {};
-                        }, isSelfHosted: false }, (options || {}));
-                    this.failedRequestsFromStorage = [];
-                    this.pendingRequestsForStorage = [];
-                    this.requestsProcessing = false;
-                    this.getPrefPending = false;
-                    this.firstTimeFailedRequestsProcessed = false;
-                    this.getFailedRequestsFromStorage();
-                }
-                return ApiService;
-            }());
-            var analyticsService = (function () {
-                function getSelectedProject() {
-                    var selectedProject;
-                    if (currentlyRunningFlow.id && currentStaticFlow.stepsStatus.length > 0) {
-                        selectedProject = Object.values(flowWalkthroughs).find(function (s) { return (currentStaticFlow === null || currentStaticFlow === void 0 ? void 0 : currentStaticFlow.id) === (s === null || s === void 0 ? void 0 : s.id); });
-                    }
-                    else {
-                        selectedProject = embedProject
-                            .concat(sortedProjectArray)
-                            .find(function (s) { return (activeProject === null || activeProject === void 0 ? void 0 : activeProject.id) === (s === null || s === void 0 ? void 0 : s.id); });
-                    }
-                    return selectedProject;
-                }
-                function getGeneralProperties(eventName) {
-                    var _a, _b, _c;
-                    if (eventName === void 0) { eventName = ""; }
-                    var selectedProject = getSelectedProject();
-                    return {
-                        id: generateUUID(),
-                        sessionId: appSessionId,
-                        timestamp: new Date().toISOString(),
-                        eventName: eventName,
-                        projectName: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.projectName,
-                        projectId: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.projectId,
-                        deploymentVersion: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.deploymentVersion,
-                        deploymentName: selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.projectParameters.deploymentName,
-                        language: selectedLanguage,
-                        elementName: (activeStep === null || activeStep === void 0 ? void 0 : activeStep.id)
-                            ? (_b = (_a = activeStep === null || activeStep === void 0 ? void 0 : activeStep.step) === null || _a === void 0 ? void 0 : _a.assist) === null || _b === void 0 ? void 0 : _b.name
-                            : (_c = selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.assist) === null || _c === void 0 ? void 0 : _c.name,
-                        clientCallback: {},
-                        leapUserId: getCurrentUserId(),
-                    };
-                }
-                return { getGeneralProperties: getGeneralProperties };
-            })();
-            var surveyAnalyticsService = (function () {
-                var maxStorageSize = 40;
-                var surveyApiService = new ApiService({
-                    processFailedRequestsForStorage: processFailedRequestsForStorage,
-                    getHeaders: getHeaders,
-                    isSelfHosted: isSelfHosted,
-                    failedRequestsStorageKey: "leap_survey_failed_requests",
-                    sendObserverErrorLog: sendObserverErrorLog,
-                });
-                function getHeaders() {
-                    var _a;
-                    return {
-                        Authorization: (_a = jsMetadata === null || jsMetadata === void 0 ? void 0 : jsMetadata.analyticsMetadata) === null || _a === void 0 ? void 0 : _a.surveyAuthToken,
-                        "Content-Type": "application/json",
-                    };
-                }
-                function sendObserverErrorLog(error, _a) {
-                    var _b, _c;
-                    var body = _a.body, retry = _a.retry;
-                    try {
-                        var bodyArr = JSON.stringify(body);
-                        if (bodyArr.length > 0) {
-                            sendJSErrorObserverLog({
-                                message: "Unable to ".concat(retry ? "resend" : "send", " survey analytics event"),
-                                logData: {
-                                    projectId: (_c = (_b = body[0]) === null || _b === void 0 ? void 0 : _b.properties) === null || _c === void 0 ? void 0 : _c.wfe_project_id,
-                                },
-                                error: error,
-                            });
-                        }
-                    }
-                    catch (error) {
-                        sendJSErrorObserverLog({
-                            message: "Unable to send observer logs",
-                            error: error,
-                            methodName: "sendObserverErrorLog",
-                        });
-                    }
-                }
-                function processFailedRequestsForStorage(requests) {
-                    if (requests === void 0) { requests = []; }
-                    if (requests.length > maxStorageSize) {
-                        return requests.slice(requests.length - maxStorageSize);
-                    }
-                    return requests;
-                }
-                function getApiPayload(data) {
-                    if (data === void 0) { data = {}; }
-                    try {
-                        var _a = data.properties, properties = _a === void 0 ? [] : _a;
-                        var generalProps_1 = analyticsService.getGeneralProperties();
-                        var payload_1 = [];
-                        var userIds_1 = [generalProps_1.leapUserId];
-                        var numeric_properties_1 = {
-                            wfe_survey_deployment_version: generalProps_1.deploymentVersion,
-                        };
-                        var pii_properties_1 = {
-                            user_id: generalProps_1.leapUserId,
-                        };
-                        var _b = (activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) || {}, deploymentId_1 = _b.deploymentId, surveyDeploymentId_1 = _b.surveyDeploymentId, surveyDeploymentVersion_1 = _b.surveyDeploymentVersion, surveyId_1 = _b.surveyId, projectName_1 = _b.projectName;
-                        var getProperties_1 = function (info) {
-                            var wfe_survey_question = info.wfe_survey_question, wfu_survey_answer = info.wfe_survey_answer, wfe_survey_question_id = info.wfe_survey_question_id;
-                            return {
-                                wf_app_id: jsMetadata === null || jsMetadata === void 0 ? void 0 : jsMetadata.appId,
-                                wf_org_id: jsMetadata === null || jsMetadata === void 0 ? void 0 : jsMetadata.orgId,
-                                wfe_app_id: jsMetadata === null || jsMetadata === void 0 ? void 0 : jsMetadata.appId,
-                                wfe_survey_question_id: wfe_survey_question_id,
-                                wfe_survey_question: wfe_survey_question,
-                                wfu_survey_answer: wfu_survey_answer,
-                                wfe_id: generalProps_1.id,
-                                wfe_user_id: generalProps_1.leapUserId,
-                                wfe_leap_id: generalProps_1.leapUserId,
-                                wfu_uid: generalProps_1.leapUserId,
-                                wfe_session_id: generalProps_1.sessionId,
-                                wfe_timestamp: generalProps_1.timestamp,
-                                wfe_language: generalProps_1.language,
-                                wfe_survey_language: "ang",
-                                wfe_event_id: generateUUID(),
-                                wfe_element_name: generalProps_1.elementName,
-                                wfe_survey_name: projectName_1,
-                                wfe_project_id: generalProps_1.projectId,
-                                wfe_deployment_id: deploymentId_1,
-                                wfe_survey_id: surveyId_1,
-                                wfe_survey_deployment_id: surveyDeploymentId_1,
-                                wfe_survey_deployment_version: surveyDeploymentVersion_1,
-                            };
-                        };
-                        properties.forEach(function (info) {
-                            payload_1.push({
-                                type: "wf_survey",
-                                userIds: userIds_1,
-                                numeric_properties: numeric_properties_1,
-                                pii_properties: pii_properties_1,
-                                properties: getProperties_1(info),
-                            });
-                        });
-                        return payload_1;
-                    }
-                    catch (error) {
-                        console.error("getApiPayload(): unable to parse api payload", error);
-                        sendJSErrorObserverLog({
-                            message: "unable to parse api payload",
-                            error: error,
-                            methodName: "getApiPayload",
-                        });
-                        return [];
-                    }
-                }
-                function sendEvent(data) {
-                    if (data === void 0) { data = {}; }
+
+            case RECEIVING_COMMANDS.EMBED_PROJECT: {
+                executor.addTask(async () => {
                     if (isSelfHosted) {
                         return;
                     }
-                    var surveyEventsUrl = ((jsMetadata === null || jsMetadata === void 0 ? void 0 : jsMetadata.analyticsMetadata) || {}).surveyEventsUrl;
-                    var url = surveyEventsUrl;
-                    var body = getApiPayload(data);
-                    if (body.length > 0) {
-                        surveyApiService.callApi({ url: url, body: body, method: "POST" }, { shouldHandleFailedRequest: true });
-                    }
-                }
-                function flushAll() {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, surveyApiService.processFailedRequests()];
-                                case 1: return [2, _a.sent()];
-                            }
-                        });
-                    });
-                }
-                function restoreFailedRequestsFromStorage(data) {
-                    try {
-                        var restoredData = JSON.parse(data || "[]");
-                        if (!Array.isArray(restoredData)) {
-                            restoredData = [];
-                            surveyApiService.clearFailedRequestsFromStorage();
-                        }
-                        surveyApiService.restoreFailedRequestsFromStorage(restoredData);
-                    }
-                    catch (error) {
-                        surveyApiService.clearFailedRequestsFromStorage();
-                        surveyApiService.restoreFailedRequestsFromStorage([]);
-                        console.error("restoreFailedRequestsFromStorage(): Unable to parse data from shared preferences", error);
-                        sendJSErrorObserverLog({
-                            message: "Unable to parse data from shared preferences",
-                            error: error,
-                            methodName: "restoreFailedRequestsFromStorage",
-                        });
-                    }
-                }
-                return { sendEvent: sendEvent, flushAll: flushAll, restoreFailedRequestsFromStorage: restoreFailedRequestsFromStorage };
-            })();
-            function receiveDataFromNativeLayer(message) {
-                var _this = this;
-                var _a, _b, _c, _d, _e, _f, _g, _h;
-                var traceId = generateUUID();
-                try {
-                    if (!message)
-                        return;
-                    ensureSessionStarted();
-                    logCommandFromNativeLayer(message, traceId);
-                    switch (message.commandName) {
-                        case RECEIVING_COMMANDS.START: {
-                            executor.addTask(function () { return start(message.data, traceId); });
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.SCREEN_HIERARCHY: {
-                            (metaConfigs === null || metaConfigs === void 0 ? void 0 : metaConfigs.observeHierarchySize) && calculateAvgHierarchySize(message.data.screenHierarchy, traceId);
-                            receiveScreenHierarchy(message.data.screenHierarchy, undefined, undefined, traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.ASSIST_INTERACTION: {
-                            updateAssistInteraction(message.data, traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.SURVEY_INFO: {
-                            surveyAnalyticsService.sendEvent(message === null || message === void 0 ? void 0 : message.data, traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.PREF_RESPONSE: {
-                            if (((_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.key) === 'leap_survey_failed_requests') {
-                                surveyAnalyticsService.restoreFailedRequestsFromStorage((_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.value);
-                            }
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.WEB_IDENTIFIERS: {
-                            receiveWebIdentifiers(message.data.identifiers, traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.LANGUAGE_SELECTED: {
-                            var previousLanguage = selectedLanguage;
-                            setCurrentSelectedLanguage(message.data.language);
-                            if (currentStaticFlow.id !== undefined &&
-                                currentStaticFlow.stepsStatus.length !== 0) {
-                                sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_LANGUAGE_CHANGE, {
-                                    previousLanguage: previousLanguage,
-                                }, traceId);
-                                (_c = currentStaticFlow === null || currentStaticFlow === void 0 ? void 0 : currentStaticFlow.stepsStatus) === null || _c === void 0 ? void 0 : _c.splice(-1);
-                                resetActiveStep();
-                                saveTheLatestStateChange(traceId);
-                            }
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.ACTIVITY_PAUSE: {
-                            resetActiveStep();
-                            clearInterval(timer);
-                            if (currentlyRunningFlow.id) {
-                                flowShown = false;
-                            }
-                            if (activeProject.id &&
-                                (currentStaticFlow.id === undefined ||
-                                    currentlyRunningFlow.id === undefined))
-                                resetActiveProject();
-                            timer = undefined;
-                            cachedFinderObserverEvents = {
-                                on_identifier_matched: [],
-                                on_identifier_not_matched: [],
-                                on_project_detected: [],
-                                on_no_project_detected: [],
-                                on_step_detected: [],
-                                on_no_step_detected: [],
-                            };
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.ACTIVITY_RESUME: {
-                            currentMatchedWebIdentifiers = {};
-                            if (timer === undefined)
-                                init();
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.ICON_STOP: {
-                            sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_STOP, undefined, traceId);
-                            clearActiveProject();
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.ICON_CLICK: {
-                            handleIconAction(message.data.uniqueId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.ASSIST_VISIBLE: {
-                            updateProjectStatus({ id: activeProject.id, isShown: true }, traceId);
-                            updateViewStatusForTheProject("nSession", traceId);
-                            if ((_d = ["STATIC_FLOW_CHECKLIST", "STATIC_FLOW_MENU"]) === null || _d === void 0 ? void 0 : _d.includes((_e = message === null || message === void 0 ? void 0 : message.data) === null || _e === void 0 ? void 0 : _e.projectType)) {
-                                resetActiveStep();
-                                resetCurrentStaticFlow();
-                            }
-                            if ((currentStaticFlow === null || currentStaticFlow === void 0 ? void 0 : currentStaticFlow.status) === "START") {
-                                sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_START, {
-                                    elementName: (_f = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _f === void 0 ? void 0 : _f.projectName,
-                                }, traceId);
-                                currentStaticFlow.autoStart = false;
-                            }
-                            if (currentStaticFlow.autoStart) {
-                                sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_START, {
-                                    elementName: (_g = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _g === void 0 ? void 0 : _g.projectName,
-                                }, traceId);
-                                sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_OPT_IN, {
-                                    elementName: (_h = activeProject === null || activeProject === void 0 ? void 0 : activeProject.projectParameters) === null || _h === void 0 ? void 0 : _h.projectName,
-                                }, traceId);
-                                currentStaticFlow.autoStart = false;
-                            }
-                            if (currentlyRunningFlow.id &&
-                                currentStaticFlow.stepsStatus.length === 0) {
-                                sendAnalyticEvent(ANALYTICS_EVENTS.FLOW_MENU_START, undefined, traceId);
-                            }
-                            sendAnalyticEvent(ANALYTICS_EVENTS.ELEMENT_SEEN, undefined, traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.EMBED_PROJECT: {
-                            executor.addTask(function () { return __awaiter(_this, void 0, void 0, function () {
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0:
-                                            if (isSelfHosted) {
-                                                return [2];
-                                            }
-                                            clearEveryThing(true, traceId);
-                                            return [4, fetchByProjectId(message.data.projectId, traceId)];
-                                        case 1:
-                                            _a.sent();
-                                            return [2];
-                                    }
-                                });
-                            }); });
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.SET_USER_ID: {
-                            executor.addTask(function () { return login_user(message.data.leapUserId, traceId); });
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.LOGOUT: {
-                            executor.addTask(function () { return logout_user(traceId); });
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.STOP_PREVIEW: {
-                            inPreviewMode = false;
-                            sendMessageToNative({
-                                command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                            }, traceId);
-                            clearEveryThing(true, traceId);
-                            features = LiveFeatures;
-                            metaConfigs = LiveMetaConfigs;
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.DISABLE_PANEL_EVENT: {
-                            currentMatchedWebIdentifiers = {};
-                            handlePanelEvent(message.data, traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.PREVIEW_CONFIG: {
-                            inPreviewMode = true;
-                            clearEveryThing(true, traceId);
-                            enterPreviewMode(JSON.parse(message.data.previewConfig), traceId);
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.USER_PROPERTIES: {
-                            executor.addTask(function () { return __awaiter(_this, void 0, void 0, function () {
-                                var userProps;
-                                var _a, _b;
-                                return __generator(this, function (_c) {
-                                    switch (_c.label) {
-                                        case 0:
-                                            userProps = (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.userProps;
-                                            customProperties = __assign(__assign({}, customProperties), userProps);
-                                            defaultProperties = __assign({}, (_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.defaultProps);
-                                            saveTheLatestProps(traceId);
-                                            saveTheLatestStateChange(traceId);
-                                            clearEveryThing(true, traceId);
-                                            return [4, fetchByUserProperties(traceId)];
-                                        case 1:
-                                            _c.sent();
-                                            return [2];
-                                    }
-                                });
-                            }); });
-                            break;
-                        }
-                        case RECEIVING_COMMANDS.APP_LOCALE: {
-                            setCurrentSelectedLanguage(message.data.appLocale);
-                            saveTheLatestProps(traceId);
-                            saveTheLatestStateChange(traceId);
-                            break;
-                        }
-                        default: {
-                            console.log("No command found", JSON.stringify(message));
-                            break;
-                        }
-                    }
-                }
-                catch (error) {
-                    console.error("receiveDataFromNativeLayer(): unable to execute command from native", error);
-                    sendJSErrorObserverLog({
-                        message: "failed to execute command from native layer",
-                        logData: { message: message },
-                        error: error,
-                        methodName: "receiveDataFromNativeLayer",
-                        traceId: traceId
-                    });
-                }
-                function logCommandFromNativeLayer(message, traceId) {
-                    var _a;
-                    try {
-                        if (shouldLogCommand(message)) {
-                            console.log("command to js: " + (message === null || message === void 0 ? void 0 : message.commandName));
-                            var messageData = shouldLogData(message) ? (_a = message.data) !== null && _a !== void 0 ? _a : {} : { included: false };
-                            sendJSObserverLog({
-                                message: "command to js [".concat(message === null || message === void 0 ? void 0 : message.commandName, "]"),
-                                logData: { messageData: messageData },
-                                methodName: "receiveDataFromNativeLayer",
-                                traceId: traceId
-                            });
-                        }
-                    }
-                    catch (error) {
-                        console.error(error);
-                    }
-                }
-                function shouldLogCommand(message) {
-                    return (message === null || message === void 0 ? void 0 : message.commandName) && ![
-                        RECEIVING_COMMANDS.SCREEN_HIERARCHY,
-                        RECEIVING_COMMANDS.WEB_IDENTIFIERS,
-                        RECEIVING_COMMANDS.ACTIVITY_PAUSE,
-                        RECEIVING_COMMANDS.ACTIVITY_RESUME,
-                    ].includes(message.commandName);
-                }
-                function shouldLogData(message) {
-                    return (message === null || message === void 0 ? void 0 : message.commandName) && ![
-                        RECEIVING_COMMANDS.START,
-                        RECEIVING_COMMANDS.SCREEN_HIERARCHY,
-                        RECEIVING_COMMANDS.WEB_IDENTIFIERS,
-                        RECEIVING_COMMANDS.ACTIVITY_PAUSE,
-                        RECEIVING_COMMANDS.ACTIVITY_RESUME,
-                        RECEIVING_COMMANDS.PREVIEW_CONFIG,
-                        RECEIVING_COMMANDS.STOP_PREVIEW
-                    ].includes(message.commandName);
-                }
-            }
-            function login_user(userId, traceId) {
-                return __awaiter(this, void 0, void 0, function () {
-                    var currentUserId, error_6;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                _a.trys.push([0, 4, , 5]);
-                                currentUserId = getCurrentUserId();
-                                if (isSelfHosted) {
-                                    return [2];
-                                }
-                                sendMessageToNative({
-                                    command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                                    data: {
-                                        leapUserId: currentUserId,
-                                    },
-                                }, traceId);
-                                ensureSessionStarted();
-                                if (!(sdkStateService.isLoggedIn && userId !== currentUserId)) return [3, 2];
-                                clearEveryThing(true, traceId);
-                                return [4, logout_user(traceId)];
-                            case 1:
-                                _a.sent();
-                                _a.label = 2;
-                            case 2:
-                                sdkStateService.setUserId(userId, traceId);
-                                return [4, fetchByUserId(userId, traceId)];
-                            case 3:
-                                _a.sent();
-                                setUserLoggedIn();
-                                return [3, 5];
-                            case 4:
-                                error_6 = _a.sent();
-                                console.error("login_user(): failed to login user", error_6);
-                                sendJSErrorObserverLog({
-                                    message: "failed to login user",
-                                    error: error_6,
-                                    methodName: "login_user",
-                                    traceId: traceId
-                                });
-                                return [3, 5];
-                            case 5: return [2];
-                        }
-                    });
+                    clearEveryThing(true, traceId);
+                    await fetchByProjectId(message.data.projectId, traceId);
                 });
+
+                break;
             }
-            function logout_user(traceId) {
-                return __awaiter(this, void 0, void 0, function () {
-                    return __generator(this, function (_a) {
-                        try {
-                            if (isSelfHosted) {
-                                return [2];
-                            }
-                            if (sdkStateService.isLoggedOut) {
-                                return [2];
-                            }
-                            sendMessageToNative({
-                                command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
-                                data: {
-                                    leapUserId: getCurrentUserId(),
-                                },
-                            }, traceId);
-                            clearEveryThing(true, traceId);
-                            saveTheLatestStateChange(traceId);
-                            updateUserProfile(traceId);
-                            cleanUpGlobalState(traceId);
-                            sdkStateService.logout(traceId);
-                            startNewSession();
-                        }
-                        catch (error) {
-                            console.error("logout_user(): failed to logout user", error);
-                            sendJSErrorObserverLog({
-                                message: "failed to logout user",
-                                error: error,
-                                methodName: "logout_user",
-                                traceId: traceId
-                            });
-                        }
-                        return [2];
-                    });
+
+            case RECEIVING_COMMANDS.SET_USER_ID: {
+                executor.addTask(() => login_user(message.data.leapUserId, traceId));
+                break;
+            }
+
+            case RECEIVING_COMMANDS.LOGOUT: {
+                executor.addTask(() => logout_user(traceId));
+                break;
+            }
+
+            case RECEIVING_COMMANDS.STOP_PREVIEW: {
+                //console.warn("STOP_PREVIEW");
+                inPreviewMode = false;
+                sendMessageToNative({
+                    command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
+                }, traceId);
+                clearEveryThing(true, traceId);
+                features = LiveFeatures;
+                metaConfigs = LiveMetaConfigs;
+                break;
+            }
+
+            case RECEIVING_COMMANDS.DISABLE_PANEL_EVENT: {
+                currentMatchedWebIdentifiers = {};
+                handlePanelEvent(message.data, traceId);
+                break;
+            }
+
+            case RECEIVING_COMMANDS.PREVIEW_CONFIG: {
+                //console.warn("PREVIEW_CONFIG");
+                inPreviewMode = true;
+                clearEveryThing(true, traceId);
+
+                enterPreviewMode(JSON.parse(message.data.previewConfig), traceId);
+                break;
+            }
+
+            case RECEIVING_COMMANDS.USER_PROPERTIES: {
+                executor.addTask(async () => {
+                    //console.warn("USER_PROPERTIES", message?.data?.userProps);
+                    const userProps = message?.data?.userProps;
+
+                    customProperties = {
+                        ...customProperties,
+                        ...userProps,
+                    };
+                    defaultProperties = {
+                        ...message?.data?.defaultProps,
+                    };
+
+                    saveTheLatestProps(traceId);
+                    saveTheLatestStateChange(traceId);
+                    clearEveryThing(true, traceId);
+                    await fetchByUserProperties(traceId);
                 });
+                break;
             }
-            function cleanUpGlobalState(traceId) {
-                customProperties = {};
+
+            case RECEIVING_COMMANDS.APP_LOCALE: {
+                setCurrentSelectedLanguage(message.data.appLocale);
                 saveTheLatestProps(traceId);
-                resetGlobalUserState();
+                saveTheLatestStateChange(traceId);
+                break;
             }
-            var JS_OBSERVER_LOG_TYPE = "MOBILE_JS_LOG";
-            var LOG_API_REQUEST_NULL_STRING_VALUE = "[NULL]";
-            var observerLogService = {
-                init: function (maxBatchSize, batchWaitTime) {
-                    if (maxBatchSize === void 0) { maxBatchSize = 20; }
-                    if (batchWaitTime === void 0) { batchWaitTime = toMilliSeconds(10); }
-                    this.maxBatchSize = maxBatchSize;
-                    this.batchWaitTime = batchWaitTime;
-                    this.logQueue = [];
-                    this.isUploading = false;
-                    this.logVersion = "1";
-                    this.batchTimer = null;
-                    this.maxQueueSize = 2000;
-                },
-                queueLogRequests: function (logRequests, traceId) {
-                    var _a;
-                    var _this = this;
-                    if (logRequests === void 0) { logRequests = []; }
-                    if (isSelfHosted)
-                        return;
-                    if (!logRequests.length)
-                        return;
-                    var availableSpace = this.maxQueueSize - this.logQueue.length;
-                    if (availableSpace <= 0) {
-                        return;
-                    }
-                    var logsToAdd = logRequests.slice(0, availableSpace);
-                    (_a = this.logQueue).push.apply(_a, __spreadArray([], __read(logsToAdd), false));
-                    if (!this.batchTimer) {
-                        this.batchTimer = setTimeout(function () {
-                            _this.batchTimer = null;
-                            _this.uploadNextBatch(traceId);
-                        }, this.batchWaitTime);
-                    }
-                },
-                uploadNextBatch: function (traceId) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var _a, batch, error_7;
-                        var _b;
-                        return __generator(this, function (_c) {
-                            switch (_c.label) {
-                                case 0:
-                                    _a = this.isUploading;
-                                    if (_a) return [3, 2];
-                                    return [4, this.cannotMakeApiCall()];
-                                case 1:
-                                    _a = (_c.sent());
-                                    _c.label = 2;
-                                case 2:
-                                    if (_a || !this.logQueue.length) {
-                                        return [2];
-                                    }
-                                    this.isUploading = true;
-                                    batch = this.logQueue.splice(0, this.maxBatchSize);
-                                    this.addUploadMetaToLogRequests(batch);
-                                    _c.label = 3;
-                                case 3:
-                                    _c.trys.push([3, 5, 6, 7]);
-                                    return [4, this.uploadLogs(batch)];
-                                case 4:
-                                    _c.sent();
-                                    return [3, 7];
-                                case 5:
-                                    error_7 = _c.sent();
-                                    console.error("[".concat(traceId, "]Error uploading logs"), error_7);
-                                    (_b = this.logQueue).unshift.apply(_b, __spreadArray([], __read(batch), false));
-                                    return [3, 7];
-                                case 6:
-                                    this.isUploading = false;
-                                    return [7];
-                                case 7: return [2];
-                            }
-                        });
-                    });
-                },
-                addUploadMetaToLogRequests: function (logRequestBatch) {
-                    var e_14, _a;
-                    var _b;
-                    var nowISOString = new Date().toISOString();
-                    try {
-                        for (var logRequestBatch_1 = __values(logRequestBatch), logRequestBatch_1_1 = logRequestBatch_1.next(); !logRequestBatch_1_1.done; logRequestBatch_1_1 = logRequestBatch_1.next()) {
-                            var log = logRequestBatch_1_1.value;
-                            var isFirstAttempt = !log.firstUploadAttemptedAt;
-                            if (isFirstAttempt) {
-                                log.firstUploadAttemptedAt = nowISOString;
-                            }
-                            else {
-                                log.lastUploadAttemptedAt = nowISOString;
-                            }
-                            log.uploadAttemptCount = ((_b = log.uploadAttemptCount) !== null && _b !== void 0 ? _b : 0) + 1;
-                        }
-                    }
-                    catch (e_14_1) { e_14 = { error: e_14_1 }; }
-                    finally {
-                        try {
-                            if (logRequestBatch_1_1 && !logRequestBatch_1_1.done && (_a = logRequestBatch_1.return)) _a.call(logRequestBatch_1);
-                        }
-                        finally { if (e_14) throw e_14.error; }
-                    }
-                },
-                uploadLogs: function (logRequests) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var url, headers, requestBody, requestBodyString, response, responseText;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    if (!logRequests || logRequests.length === 0) {
-                                        return [2];
-                                    }
-                                    url = this.getLogsUrl();
-                                    headers = this.buildHeaders();
-                                    return [4, this.isDeviceOffline()];
-                                case 1:
-                                    if (_a.sent()) {
-                                        throw new Error("No network connectivity");
-                                    }
-                                    requestBody = logRequests.map(this.generateLogBody);
-                                    requestBodyString = JSON.stringify(requestBody);
-                                    return [4, fetch(url, {
-                                        method: "POST",
-                                        headers: headers,
-                                        body: requestBodyString,
-                                    })];
-                                case 2:
-                                    response = _a.sent();
-                                    if (!!response.ok) return [3, 4];
-                                    return [4, response.text().catch(function () { return "Could not read response body"; })];
-                                case 3:
-                                    responseText = _a.sent();
-                                    throw new Error("Server responded with ".concat(response.status, ": ").concat(responseText));
-                                case 4: return [2, response];
-                            }
-                        });
-                    });
-                },
-                getLogsUrl: function () {
-                    return "".concat(appObserverBaseUrl, "service/log/collect/").concat(enterpriseId);
-                },
-                buildHeaders: function () {
-                    return {
-                        "Content-Type": "application/json"
-                    };
-                },
-                canMakeApiCall: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var userId, hasConfigBaseUrl, hasAppApiKey, hasAppVersionName, hasUserId, hasSessionId, hasEnterpriseId, online, status;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    userId = getCurrentUserId();
-                                    hasConfigBaseUrl = typeof configBaseUrl === 'string' && configBaseUrl.trim() !== '';
-                                    hasAppApiKey = typeof appApiKey === 'string' && appApiKey.trim() !== '';
-                                    hasAppVersionName = typeof appVersionName === 'string' && appVersionName.trim() !== '';
-                                    hasUserId = typeof userId === 'string' && userId.trim() !== '';
-                                    hasSessionId = typeof appSessionId === 'string' && appSessionId.trim() !== '';
-                                    hasEnterpriseId = typeof enterpriseId === 'string' && enterpriseId.trim() !== '';
-                                    return [4, this.isDeviceOnline()];
-                                case 1:
-                                    online = _a.sent();
-                                    status = hasConfigBaseUrl && hasAppApiKey && hasAppVersionName && hasUserId && hasSessionId && online && hasEnterpriseId;
-                                    console.warn("ObserverLogService.canMakeApiCall(): Sync status: ", status);
-                                    return [2, status];
-                            }
-                        });
-                    });
-                },
-                isDeviceOnline: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, networkService.isReallyOnline()];
-                                case 1: return [2, _a.sent()];
-                            }
-                        });
-                    });
-                },
-                cannotMakeApiCall: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, this.canMakeApiCall()];
-                                case 1: return [2, !(_a.sent())];
-                            }
-                        });
-                    });
-                },
-                isDeviceOffline: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, this.isDeviceOnline()];
-                                case 1: return [2, !(_a.sent())];
-                            }
-                        });
-                    });
-                },
-                wait: function (ms) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            return [2, new Promise(function (resolve) { return setTimeout(resolve, ms); })];
-                        });
-                    });
-                },
-                flushAll: function (traceId) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, this.uploadNextBatch(traceId)];
-                                case 1:
-                                    _a.sent();
-                                    return [2];
-                            }
-                        });
-                    });
-                },
-                generateLogBody: function (_a) {
-                    var _b = _a === void 0 ? {} : _a, message = _b.message, _c = _b.logData, logData = _c === void 0 ? {} : _c, _d = _b.time, time = _d === void 0 ? new Date() : _d, userId = _b.userId, userSessionId = _b.userSessionId, className = _b.className, methodName = _b.methodName, _e = _b.level, level = _e === void 0 ? ObserverLogLevel.INFO : _e, userState = _b.userState, firstUploadAttemptedAt = _b.firstUploadAttemptedAt, lastUploadAttemptedAt = _b.lastUploadAttemptedAt, _f = _b.uploadAttemptCount, uploadAttemptCount = _f === void 0 ? 1 : _f, traceId = _b.traceId;
-                    var now = new Date();
-                    message = message || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    logData = logData || {};
-                    time = time || now;
-                    userId = userId || getCurrentUserId() || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    userSessionId = userSessionId || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    className = className || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    methodName = methodName || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    level = level || ObserverLogLevel.INFO;
-                    userState = userState || { included: false };
-                    var nonNullSessionId = appSessionId || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    var nonNullAppVersionName = appVersionName || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    var nonNullJsVersionNumber = jsVersionNumber || 0;
-                    traceId = traceId || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    var appId = wfAppId || LOG_API_REQUEST_NULL_STRING_VALUE;
-                    var uploadMeta = {
-                        uploadMeta: {
-                            firstAt: firstUploadAttemptedAt || now,
-                            lastAt: lastUploadAttemptedAt || LOG_API_REQUEST_NULL_STRING_VALUE,
-                            count: uploadAttemptCount || 1,
-                        }
-                    };
-                    var finalLogData;
-                    try {
-                        finalLogData = typeof logData === 'string' || logData instanceof String
-                            ? logData
-                            : JSON.stringify(logData);
-                    }
-                    catch (e) {
-                        finalLogData = '"[Unserializable logData]"';
-                    }
-                    return {
-                        user: userId,
-                        platform: "MOBILE",
-                        level: level,
-                        module: "MOBILE_SDK_LOGS",
-                        message: message,
-                        ent_id: enterpriseId,
-                        org_id: enterpriseId,
-                        unq_id: nonNullSessionId,
-                        on_id: "".concat(jsVersionNumber),
-                        message_id: generateUUID(),
-                        class_name: className,
-                        method_name: methodName,
-                        log_data: {
-                            "string.user_session_id": userSessionId,
-                            "string.log_data": finalLogData,
-                            "string.leap_id": userId,
-                            "string.app_version": nonNullAppVersionName,
-                            "string.log_type": JS_OBSERVER_LOG_TYPE,
-                            "string.user_state": JSON.stringify(userState),
-                            "string.trace_id": traceId,
-                            "string.time": time.toISOString(),
-                            "string.upload_meta": JSON.stringify(uploadMeta),
-                            "int.js_version_number": nonNullJsVersionNumber,
-                            "string.app_id": appId,
-                        }
-                    };
-                },
-                sendObserverLog: function (message, logData, time, className, methodName, level, userState, traceId) {
-                    var _a;
-                    if (logData === void 0) { logData = {}; }
-                    if (time === void 0) { time = new Date(); }
-                    if (level === void 0) { level = ObserverLogLevel.INFO; }
-                    var userId = getCurrentUserId();
-                    try {
-                        var shouldSendLogs = forceSendJsObserverLogs || ((_a = loggerConfig === null || loggerConfig === void 0 ? void 0 : loggerConfig.log_types) === null || _a === void 0 ? void 0 : _a.includes(level));
-                        if (shouldSendLogs) {
-                            var logRequest = {
-                                message: message,
-                                logData: logData,
-                                time: time,
-                                userId: userId,
-                                userSessionId: getUserSessionId(),
-                                className: className,
-                                methodName: methodName,
-                                level: level,
-                                userState: userState,
-                                traceId: traceId
-                            };
-                            this.queueLogRequests([logRequest], traceId);
-                        }
-                    }
-                    catch (error) {
-                        console.error("sendObserverLog(): error while queuing log requests.", error);
-                    }
-                }
-            };
-            var ObserverLogLevel = {
-                ALL: 100,
-                DEBUG: 200,
-                WARNING: 300,
-                PERFORMANCE: 400,
-                ERROR: 500,
-                INFO: 600,
-                NFR: 700
-            };
-            function getErrorLogObjectFromError(error) {
-                return {
-                    name: (error === null || error === void 0 ? void 0 : error.name) || "Error",
-                    message: (error === null || error === void 0 ? void 0 : error.message) || "No message",
-                    stack: (error === null || error === void 0 ? void 0 : error.stack) || "No stack trace available"
-                };
+
+            case RECEIVING_COMMANDS.ACTION_TAKEN: {
+                break;
             }
-            function toMilliSeconds(seconds) {
-                return seconds * 1000;
+
+            case RECEIVING_COMMANDS.ON_NETWORK_SWITCH: {
+                break;
             }
-            observerLogService.init();
-            var Queue = (function () {
-                function Queue() {
-                    this.items = [];
-                }
-                Queue.prototype.enqueue = function (item) {
-                    this.items.push(item);
-                };
-                Queue.prototype.dequeue = function () {
-                    return this.isEmpty() ? null : this.items.shift();
-                };
-                Queue.prototype.peek = function () {
-                    return this.isEmpty() ? null : this.items[0];
-                };
-                Queue.prototype.isEmpty = function () {
-                    return this.items.length === 0;
-                };
-                Queue.prototype.size = function () {
-                    return this.items.length;
-                };
-                Queue.prototype.print = function () {
-                };
-                return Queue;
-            }());
-            var userProfileService = {
-                init: function () {
-                    this.userIds = new Queue();
-                    this.inProgress = new Set();
-                },
-                enqueueUpdate: function (userId, traceId) {
-                    this.userIds.enqueue({ userId: userId, traceId: traceId });
-                    this.startUserUpdateIfNeeded(userId, traceId);
-                },
-                startUserUpdateIfNeeded: function (userId) {
-                    if (!this.inProgress.has(userId)) {
-                        var queueItem = this.userIds.dequeue(userId);
-                        if (!sdkStateService.isStateSyncedForUserId(userId)) {
-                            this.startUserUpdate(userId, queueItem.traceId);
-                        }
-                    }
-                },
-                startUserUpdate: function (userId, traceId) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var savedUserState, requestBody, success, latestUserState;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    this.inProgress.add(userId);
-                                    return [4, this.cannotMakeApiCall()];
-                                case 1:
-                                    if (_a.sent()) {
-                                        this.inProgress.delete(userId);
-                                        return [2];
-                                    }
-                                    savedUserState = sdkStateService.getUserStateById(userId);
-                                    if (isEmptyObject(savedUserState === null || savedUserState === void 0 ? void 0 : savedUserState.projectsStatus)) {
-                                        this.inProgress.delete(userId);
-                                        return [2];
-                                    }
-                                    if (!(savedUserState === null || savedUserState === void 0 ? void 0 : savedUserState.lastProfileUpdatedAt)) {
-                                        savedUserState.lastProfileUpdatedAt = new Date();
-                                        sdkStateService.persistState(traceId);
-                                    }
-                                    requestBody = isNonEmptyObject(savedUserState.projectsStatus) ?
-                                        {
-                                            id: userId,
-                                            properties: {
-                                                allProjectStatus: savedUserState.projectsStatus,
-                                                completedFlowProjects: savedUserState.projectsCompletionStats,
-                                                selectedLanguage: savedUserState.language,
-                                            },
-                                            updatedAt: savedUserState.lastProfileUpdatedAt
-                                        } : {};
-                                    return [4, this.tryUpload(userId, requestBody, traceId)];
-                                case 2:
-                                    success = _a.sent();
-                                    if (success) {
-                                        latestUserState = sdkStateService.getUserStateById(userId);
-                                        latestUserState.lastProfileSyncedAt = savedUserState.lastProfileUpdatedAt;
-                                        sdkStateService.persistState(traceId);
-                                        this.inProgress.delete(userId);
-                                        this.startUserUpdateIfNeeded(userId);
-                                        return [2];
-                                    }
-                                    this.inProgress.delete(userId);
-                                    return [2];
-                            }
-                        });
-                    });
-                },
-                canMakeApiCall: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var hasBaseUrl, hasAppApiKey, hasAppVersionName, online, status;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    hasBaseUrl = typeof configBaseUrl === 'string' && configBaseUrl.trim() !== '';
-                                    hasAppApiKey = typeof appApiKey === 'string' && appApiKey.trim() !== '';
-                                    hasAppVersionName = typeof appVersionName === 'string' && appApiKey.trim() !== '';
-                                    return [4, this.isDeviceOnline()];
-                                case 1:
-                                    online = _a.sent();
-                                    status = hasBaseUrl && hasAppApiKey && hasAppVersionName && online;
-                                    console.warn("UserProfileService.canMakeApiCall(): Sync status: ", status);
-                                    return [2, status];
-                            }
-                        });
-                    });
-                },
-                isDeviceOnline: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, networkService.isReallyOnline()];
-                                case 1: return [2, _a.sent()];
-                            }
-                        });
-                    });
-                },
-                cannotMakeApiCall: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, this.canMakeApiCall()];
-                                case 1: return [2, !(_a.sent())];
-                            }
-                        });
-                    });
-                },
-                isDeviceOffline: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, this.isDeviceOnline()];
-                                case 1: return [2, !(_a.sent())];
-                            }
-                        });
-                    });
-                },
-                tryUpload: function (userId, requestBody, traceId) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var requestBodyString, response, responseText, error_8;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    _a.trys.push([0, 3, , 4]);
-                                    requestBodyString = JSON.stringify(requestBody);
-                                    sendJSObserverLog({
-                                        message: "Starting user profile upload API call",
-                                        className: "UserProfileService",
-                                        methodName: "tryUpload",
-                                        traceId: traceId,
-                                        level: ObserverLogLevel.DEBUG,
-                                    });
-                                    return [4, fetch("".concat(configBaseUrl, "odin/api/v1/profile"), {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                            "x-jiny-client-id": appApiKey,
-                                            "x-app-version-name": appVersionName,
-                                            "x-leap-id": userId,
-                                        },
-                                        body: requestBodyString,
-                                    })];
-                                case 1:
-                                    response = _a.sent();
-                                    sendJSObserverLog({
-                                        message: "User profile upload API call finished",
-                                        logData: {
-                                            status: response.status,
-                                        },
-                                        className: "UserProfileService",
-                                        methodName: "tryUpload",
-                                        traceId: traceId,
-                                    });
-                                    if (response.ok) {
-                                        return [2, true];
-                                    }
-                                    return [4, response.text().catch(function () { return "Could not read response body"; })];
-                                case 2:
-                                    responseText = _a.sent();
-                                    return [3, 4];
-                                case 3:
-                                    error_8 = _a.sent();
-                                    console.error("UserProfileService.tryUpload(): Network error for userId=".concat(userId), error_8);
-                                    sendJSErrorObserverLog({
-                                        message: "Failed to update user profile",
-                                        error: error_8,
-                                        className: "UserProfileService",
-                                        methodName: "tryUpload",
-                                        traceId: traceId
-                                    });
-                                    return [3, 4];
-                                case 4: return [2, false];
-                            }
-                        });
-                    });
-                },
-                flushAll: function (traceId) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var userIds, userIds_2, userIds_2_1, userId, e_15_1;
-                        var e_15, _a;
-                        return __generator(this, function (_b) {
-                            switch (_b.label) {
-                                case 0:
-                                    userIds = sdkStateService.allUserIds;
-                                    _b.label = 1;
-                                case 1:
-                                    _b.trys.push([1, 6, 7, 8]);
-                                    userIds_2 = __values(userIds), userIds_2_1 = userIds_2.next();
-                                    _b.label = 2;
-                                case 2:
-                                    if (!!userIds_2_1.done) return [3, 5];
-                                    userId = userIds_2_1.value;
-                                    if (!!sdkStateService.isStateSyncedForUserId(userId)) return [3, 4];
-                                    return [4, this.enqueueUpdate(userId, traceId)];
-                                case 3:
-                                    _b.sent();
-                                    _b.label = 4;
-                                case 4:
-                                    userIds_2_1 = userIds_2.next();
-                                    return [3, 2];
-                                case 5: return [3, 8];
-                                case 6:
-                                    e_15_1 = _b.sent();
-                                    e_15 = { error: e_15_1 };
-                                    return [3, 8];
-                                case 7:
-                                    try {
-                                        if (userIds_2_1 && !userIds_2_1.done && (_a = userIds_2.return)) _a.call(userIds_2);
-                                    }
-                                    finally { if (e_15) throw e_15.error; }
-                                    return [7];
-                                case 8:
-                                    sdkStateService.cleanUpSyncedUserStates();
-                                    return [2];
-                            }
-                        });
-                    });
-                },
-            };
-            userProfileService.init();
-            function setupGlobalErrorHandlers() {
-                window.onerror = function (message, source, lineno, colno, error) {
-                    console.error('Unhandled JavaScript Error:', { message: message, source: source, lineno: lineno, colno: colno, error: error });
-                    if (!error) {
-                        error = new Error(message);
-                        error.stack = "at ".concat(source, ":").concat(lineno, ":").concat(colno);
-                    }
-                    sendJSErrorObserverLog({
-                        message: 'Unhandled JavaScript Error',
-                        logData: {
-                            source: source,
-                            lineno: lineno,
-                            colno: colno,
-                        },
-                        error: error,
-                        methodName: 'setupGlobalErrorHandlers',
-                        traceId: generateUUID(),
-                    });
-                };
-                window.addEventListener('unhandledrejection', function (event) {
-                    console.error('Unhandled Promise Rejection:', { reason: event.reason });
-                    var error = event.reason;
-                    if (!(error instanceof Error)) {
-                        error = new Error(typeof error === 'string' ? error : JSON.stringify(error));
-                    }
-                    sendJSErrorObserverLog({
-                        message: 'Unhandled Promise Rejection',
-                        error: error,
-                        methodName: 'setupGlobalErrorHandlers',
-                        traceId: generateUUID(),
-                    });
+
+            default: {
+                console.log("No command found", JSON.stringify(message));
+                break;
+            }
+        }
+    } catch (error) {
+        console.error("receiveDataFromNativeLayer(): unable to execute command from native", error);
+        sendJSErrorObserverLog({
+            message: "failed to execute command from native layer",
+            logData: {message},
+            error,
+            methodName: "receiveDataFromNativeLayer",
+            traceId
+        });
+    }
+
+    function logCommandFromNativeLayer(message, traceId) {
+        try {
+            if (shouldLogCommand(message)) {
+                console.log("command to js: " + message?.commandName);
+                let messageData = shouldLogData(message) ? message.data ?? {} : {included: false};
+                sendJSObserverLog({
+                    message: `command to js [${message?.commandName}]`,
+                    logData: {messageData},
+                    methodName: "receiveDataFromNativeLayer",
+                    traceId
                 });
             }
-            setupGlobalErrorHandlers();
-            var globalSchedulerService = {
-                init: function (intervalMs) {
-                    if (intervalMs === void 0) { intervalMs = 180000; }
-                    this.intervalMs = intervalMs;
-                    this.shouldStop = false;
-                    this.isRunning = false;
-                    this.start();
-                },
-                start: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        var err_1;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    if (this.isRunning)
-                                        return [2];
-                                    this.isRunning = true;
-                                    this.shouldStop = false;
-                                    _a.label = 1;
-                                case 1:
-                                    if (!!this.shouldStop) return [3, 7];
-                                    console.log("GlobalSchedulerService.start(): Waiting ".concat(this.intervalMs, "ms"));
-                                    return [4, this.sleep(this.intervalMs)];
-                                case 2:
-                                    _a.sent();
-                                    console.log("GlobalSchedulerService.start(): Starting flush cycle");
-                                    _a.label = 3;
-                                case 3:
-                                    _a.trys.push([3, 5, , 6]);
-                                    return [4, this.flushAll("GlobalSchedulerService:".concat(generateUUID()))];
-                                case 4:
-                                    _a.sent();
-                                    return [3, 6];
-                                case 5:
-                                    err_1 = _a.sent();
-                                    console.error("GlobalSchedulerService.start(): Error during flushAll", err_1);
-                                    return [3, 6];
-                                case 6:
-                                    console.log("GlobalSchedulerService.start(): Flush cycle complete");
-                                    return [3, 1];
-                                case 7:
-                                    this.isRunning = false;
-                                    return [2];
-                            }
-                        });
-                    });
-                },
-                stop: function () {
-                    this.shouldStop = true;
-                },
-                flushAll: function (traceId) {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4, flushAllPendingOperations(traceId)];
-                                case 1:
-                                    _a.sent();
-                                    return [2];
-                            }
-                        });
-                    });
-                },
-                sleep: function (ms) {
-                    return new Promise(function (resolve) { return setTimeout(resolve, ms); });
-                }
-            };
-            globalSchedulerService.init();
-            var isFlushAllExecuting = false;
-            var lastFlushedAllAt = 0;
-            var FLUSH_INTERVAL_MS = 30 * 1000;
-            function flushAllPendingOperations(traceId) {
-                return __awaiter(this, void 0, void 0, function () {
-                    var now, timeLeft, error_9;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                now = Date.now();
-                                if (isFlushAllExecuting) {
-                                    console.log("[".concat(traceId, "] Skipping flush: already executing"));
-                                    return [2];
-                                }
-                                if (now - lastFlushedAllAt < FLUSH_INTERVAL_MS) {
-                                    timeLeft = Math.ceil((FLUSH_INTERVAL_MS - (now - lastFlushedAllAt)) / 1000);
-                                    console.log("[".concat(traceId, "] Skipping flush: last flush was ").concat(Math.floor((now - lastFlushedAllAt) / 1000), "s ago, must wait ").concat(timeLeft, "s more"));
-                                    return [2];
-                                }
-                                isFlushAllExecuting = true;
-                                lastFlushedAllAt = now;
-                                console.log("[".concat(traceId, "] Starting flush operations"));
-                                _a.label = 1;
-                            case 1:
-                                _a.trys.push([1, 3, , 4]);
-                                return [4, Promise.all([
-                                    userProfileService.flushAll(traceId),
-                                    observerLogService.flushAll(traceId),
-                                    surveyAnalyticsService.flushAll(traceId),
-                                ])];
-                            case 2:
-                                _a.sent();
-                                console.log("[".concat(traceId, "] All flush operations completed"));
-                                return [3, 4];
-                            case 3:
-                                error_9 = _a.sent();
-                                console.error("[".concat(traceId, "] Error flushing pending requests"), error_9);
-                                return [3, 4];
-                            case 4:
-                                isFlushAllExecuting = false;
-                                return [2];
-                        }
-                    });
-                });
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function shouldLogCommand(message) {
+        return message?.commandName && ![
+            RECEIVING_COMMANDS.SCREEN_HIERARCHY,
+            RECEIVING_COMMANDS.WEB_IDENTIFIERS,
+            RECEIVING_COMMANDS.ACTIVITY_PAUSE,
+            RECEIVING_COMMANDS.ACTIVITY_RESUME,
+        ].includes(message.commandName);
+    }
+
+    function shouldLogData(message) {
+        return message?.commandName && ![
+            RECEIVING_COMMANDS.START,
+            RECEIVING_COMMANDS.SCREEN_HIERARCHY,
+            RECEIVING_COMMANDS.WEB_IDENTIFIERS,
+            RECEIVING_COMMANDS.ACTIVITY_PAUSE,
+            RECEIVING_COMMANDS.ACTIVITY_RESUME,
+            RECEIVING_COMMANDS.PREVIEW_CONFIG,
+            RECEIVING_COMMANDS.STOP_PREVIEW].includes(message.commandName);
+    }
+}
+
+async function login_user(userId, traceId) {
+    try {
+        let currentUserId = getCurrentUserId();
+        //console.info("SET_USER_ID", `prev: ${currentUserId}`, `userId: ${userId}`);
+        if (isSelfHosted) {
+            return;
+        }
+        sendMessageToNative({
+            command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
+            data: {
+                leapUserId: currentUserId,
+            },
+        }, traceId);
+        ensureSessionStarted();
+        if (sdkStateService.isLoggedIn && userId !== currentUserId) {
+            clearEveryThing(true, traceId);
+            await logout_user(traceId);
+        }
+        sdkStateService.setUserId(userId, traceId);
+        await fetchByUserId(userId, traceId);
+        setUserLoggedIn();
+    } catch (error) {
+        console.error("login_user(): failed to login user", error);
+        sendJSErrorObserverLog({
+            message: `failed to login user`,
+            error,
+            methodName: "login_user",
+            traceId
+        });
+    }
+}
+
+async function logout_user(traceId) {
+    try {
+        //console.info("LOGOUT");
+        if (isSelfHosted) {
+            return;
+        }
+        if (sdkStateService.isLoggedOut) {
+            return;
+        }
+        sendMessageToNative({
+            command: SENDING_COMMANDS.NO_CONTEXT_FOUND,
+            data: {
+                leapUserId: getCurrentUserId(),
+            },
+        }, traceId);
+        clearEveryThing(true, traceId);
+        saveTheLatestStateChange(traceId);
+        updateUserProfile(traceId);
+        cleanUpGlobalState(traceId);
+        sdkStateService.logout(traceId);
+        startNewSession();
+    } catch (error) {
+        console.error("logout_user(): failed to logout user", error);
+        sendJSErrorObserverLog({
+            message: `failed to logout user`,
+            error,
+            methodName: "logout_user",
+            traceId
+        });
+    }
+}
+
+function cleanUpGlobalState(traceId) {
+    customProperties = {};
+    saveTheLatestProps(traceId);
+    resetGlobalUserState();
+}
+
+
+
+// js filename- observer/observerLogService.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+const JS_OBSERVER_LOG_TYPE = "MOBILE_JS_LOG";
+const LOG_API_REQUEST_NULL_STRING_VALUE = "[NULL]";
+
+const observerLogService = {
+    init(maxBatchSize = 20, batchWaitTime = toMilliSeconds(10)) {
+        this.maxBatchSize = maxBatchSize;
+        this.batchWaitTime = batchWaitTime;
+        this.logQueue = [];
+        this.isUploading = false;
+        this.logVersion = "1";
+        this.batchTimer = null;
+        this.maxQueueSize = 2000;
+
+        // //console.log("ObserverLogService.constructor(): initialised successfully.");
+    },
+
+    queueLogRequests(logRequests = [], traceId) {
+        //console.log("ObserverLogService.queueLogRequests(): method called");
+        if (isSelfHosted) return;
+        if (!logRequests.length) return;
+
+        const availableSpace = this.maxQueueSize - this.logQueue.length;
+        if (availableSpace <= 0) {
+            //console.warn(`Log queue full (${this.logQueue.length} items), dropping ${logRequests.length} new logs`);
+            return;
+        }
+
+        const logsToAdd = logRequests.slice(0, availableSpace);
+        this.logQueue.push(...logsToAdd);
+
+        if (!this.batchTimer) {
+            this.batchTimer = setTimeout(() => {
+                this.batchTimer = null;
+                this.uploadNextBatch(traceId);
+            }, this.batchWaitTime);
+        }
+    },
+
+    async uploadNextBatch(traceId) {
+        if (this.isUploading || await this.cannotMakeApiCall() || !this.logQueue.length) {
+            return;
+        }
+        this.isUploading = true;
+        const batch = this.logQueue.splice(0, this.maxBatchSize);
+        this.addUploadMetaToLogRequests(batch);
+        try {
+            await this.uploadLogs(batch);
+        } catch (error) {
+            console.error(`[${traceId}]Error uploading logs`, error);
+            this.logQueue.unshift(...batch);
+        } finally {
+            this.isUploading = false;
+        }
+    },
+
+    addUploadMetaToLogRequests(logRequestBatch) {
+        const nowISOString = new Date().toISOString();
+        for (const log of logRequestBatch) {
+            const isFirstAttempt = !log.firstUploadAttemptedAt;
+            if (isFirstAttempt) {
+                log.firstUploadAttemptedAt = nowISOString;
+            } else {
+                log.lastUploadAttemptedAt = nowISOString;
             }
-            var networkService = {
-                init: function () {
-                    this.handleOnline = this.handleOnline.bind(this);
-                    this.handleOffline = this.handleOffline.bind(this);
-                    window.addEventListener('online', this.handleOnline);
-                    window.addEventListener('offline', this.handleOffline);
-                    console.log('networkService.init(): Event listeners for online/offline events initialized.');
-                },
-                handleOnline: function () {
-                    console.log('networkService.handleOnline(): Device is online, flushing pending requests.');
-                    flushAllPendingOperations("NetworkService:".concat(generateUUID()));
-                },
-                handleOffline: function () {
-                    console.log('networkService.handleOffline(): Device is offline.');
-                },
-                isReallyOnline: function () {
-                    return __awaiter(this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            if (isSelfHosted) {
-                                return [2, false];
-                            }
-                            return [2, typeof navigator !== "undefined" && navigator.onLine];
-                        });
-                    });
-                }
-            };
-            networkService.init();
-            window.receiveDataFromNativeLayer = receiveDataFromNativeLayer;
+            log.uploadAttemptCount = (log.uploadAttemptCount ?? 0) + 1;
+        }
+    },
+
+    async uploadLogs(logRequests) {
+        //console.log("ObserverLogService.uploadLogs(): called");
+        if (!logRequests || logRequests.length === 0) {
+            return;
+        }
+        //console.debug("ObserverLogService.uploadLogs(): logRequests- ", JSON.stringify(logRequests));
+        const url = this.getLogsUrl();
+        const headers = this.buildHeaders();
+
+        if (await this.isDeviceOffline()) {
+            throw new Error("No network connectivity");
+        }
+
+        const requestBody = logRequests.map(this.generateLogBody);
+        const requestBodyString = JSON.stringify(requestBody);
+        //console.log(`ObserverLogService.uploadLogs(): uploading logs. logCount- ${logRequests.length}, requestSize- ${requestBodyString.length}`);
+        //console.debug(`ObserverLogService.uploadLogs(): logs api call url- ${url}, headers- ${JSON.stringify(headers)}, body- ${requestBodyString}`);
+        const response = await fetch(url, {
+            method: "POST",
+            headers,
+            body: requestBodyString,
+        });
+        //console.debug("ObserverLogService.uploadLogs(): logs api call response- ", JSON.stringify(response));
+        if (!response.ok) {
+            const responseText = await response.text().catch(() => "Could not read response body");
+            throw new Error(`Server responded with ${response.status}: ${responseText}`);
+        }
+        //console.log("ObserverLogService.uploadLogs(): logs api call successful");
+        return response;
+    },
+
+    getLogsUrl() {
+        return `${appObserverBaseUrl}service/log/collect/${enterpriseId}`;
+    },
+
+    buildHeaders() {
+        return {
+            "Content-Type": "application/json"
+        }
+    },
+
+    async canMakeApiCall() {
+        let userId = getCurrentUserId();
+        // Check for required global configuration
+        const hasConfigBaseUrl = typeof configBaseUrl === 'string' && configBaseUrl.trim() !== '';
+        const hasAppApiKey = typeof appApiKey === 'string' && appApiKey.trim() !== '';
+        const hasAppVersionName = typeof appVersionName === 'string' && appVersionName.trim() !== '';
+        const hasUserId = typeof userId === 'string' && userId.trim() !== '';
+        const hasSessionId = typeof appSessionId === 'string' && appSessionId.trim() !== '';
+        const hasEnterpriseId = typeof enterpriseId === 'string' && enterpriseId.trim() !== '';
+
+        // if (!hasConfigBaseUrl) //console.warn("Log upload failed: configBaseUrl is missing or invalid");
+        // if (!hasAppApiKey) //console.warn("Log upload failed: appApiKey is missing or invalid");
+        // if (!hasAppVersionName) //console.warn("Log upload failed: appVersionName is missing or invalid");
+        // if (!hasUserId) //console.warn("Log upload failed: userId is missing or invalid");
+        // if (!hasSessionId) //console.warn("Log upload failed: sessionId is missing or invalid");
+        // if (!hasEnterpriseId) console.warn("Log upload failed: enterpriseId is missing or invalid");
+
+        // Check network connectivity
+        const online = await this.isDeviceOnline();
+        // if (!online) //console.warn("Log upload failed: No network connectivity");
+        let status = hasConfigBaseUrl && hasAppApiKey && hasAppVersionName && hasUserId && hasSessionId && online && hasEnterpriseId;
+        console.warn("ObserverLogService.canMakeApiCall(): Sync status: ", status);
+        return status;
+    },
+
+    async isDeviceOnline() {
+        return await networkService.isReallyOnline();
+    },
+
+    async cannotMakeApiCall() {
+        return !(await this.canMakeApiCall())
+    },
+
+    async isDeviceOffline() {
+        return !(await this.isDeviceOnline());
+    },
+
+    async wait(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
+    async flushAll(traceId) {
+        await this.uploadNextBatch(traceId);
+    },
+
+    generateLogBody({
+                        message,
+                        logData = {},
+                        time = new Date(),
+                        userId,
+                        userSessionId,
+                        className,
+                        methodName,
+                        level = ObserverLogLevel.INFO,
+                        userState,
+                        firstUploadAttemptedAt,
+                        lastUploadAttemptedAt,
+                        uploadAttemptCount = 1,
+                        traceId,
+                    } = {}) {
+        let now = new Date();
+        message = message || LOG_API_REQUEST_NULL_STRING_VALUE;
+        logData = logData || {};
+        time = time || now;
+        userId = userId || getCurrentUserId() || LOG_API_REQUEST_NULL_STRING_VALUE;
+        userSessionId = userSessionId || LOG_API_REQUEST_NULL_STRING_VALUE;
+        className = className || LOG_API_REQUEST_NULL_STRING_VALUE;
+        methodName = methodName || LOG_API_REQUEST_NULL_STRING_VALUE;
+        level = level || ObserverLogLevel.INFO;
+        userState = userState || {included: false};
+        const nonNullSessionId = appSessionId || LOG_API_REQUEST_NULL_STRING_VALUE;
+        const nonNullAppVersionName = appVersionName || LOG_API_REQUEST_NULL_STRING_VALUE;
+        const nonNullJsVersionNumber = jsVersionNumber || 0;
+        traceId = traceId || LOG_API_REQUEST_NULL_STRING_VALUE;
+        let appId = wfAppId || LOG_API_REQUEST_NULL_STRING_VALUE;
+
+        let uploadMeta = {
+            uploadMeta: {
+                firstAt: firstUploadAttemptedAt || now,
+                lastAt: lastUploadAttemptedAt || LOG_API_REQUEST_NULL_STRING_VALUE,
+                count: uploadAttemptCount || 1,
+            }
+        }
+
+        let finalLogData;
+        try {
+            finalLogData = typeof logData === 'string' || logData instanceof String
+                ? logData
+                : JSON.stringify(logData);
+        } catch (e) {
+            finalLogData = '"[Unserializable logData]"';
+        }
+
+        return {
+            user: userId,
+            platform: "MOBILE",
+            level,
+            module: "MOBILE_SDK_LOGS",
+            message: message,
+            ent_id: enterpriseId,
+            org_id: enterpriseId,
+            unq_id: nonNullSessionId,
+            on_id: `${jsVersionNumber}`,
+            message_id: generateUUID(),
+            class_name: className,
+            method_name: methodName,
+            log_data: {
+                "string.user_session_id": userSessionId,
+                "string.log_data": finalLogData,
+                "string.leap_id": userId,
+                "string.app_version": nonNullAppVersionName,
+                "string.log_type": JS_OBSERVER_LOG_TYPE,
+                "string.user_state": JSON.stringify(userState),
+                "string.trace_id": traceId,
+                "string.time": time.toISOString(),
+                "string.upload_meta": JSON.stringify(uploadMeta),
+                "int.js_version_number": nonNullJsVersionNumber,
+                "string.app_id": appId,
+            }
+        };
+    },
+
+    sendObserverLog(message,
+                    logData = {},
+                    time = new Date(),
+                    className,
+                    methodName,
+                    level = ObserverLogLevel.INFO,
+                    userState,
+                    traceId) {
+        //console.debug(`ObserverLogService.sendObserverLog(): sending observer log with message- ${message}, logData- ${JSON.stringify(logData)}, traceId ${traceId}`);
+        const userId = getCurrentUserId();
+        try {
+            const shouldSendLogs = forceSendJsObserverLogs || loggerConfig?.log_types?.includes(level);
+            if (shouldSendLogs) {
+                const logRequest = {
+                    message,
+                    logData,
+                    time,
+                    userId,
+                    userSessionId: getUserSessionId(),
+                    className,
+                    methodName,
+                    level,
+                    userState,
+                    traceId
+                };
+                this.queueLogRequests([logRequest], traceId);
+            }
+        } catch (error) {
+            console.error("sendObserverLog(): error while queuing log requests.", error);
+        }
+    }
+}
+
+const ObserverLogLevel = {
+    ALL: 100,
+    DEBUG: 200,
+    WARNING: 300,
+    PERFORMANCE: 400,
+    ERROR: 500,
+    INFO: 600,
+    NFR: 700
+}
+
+function getErrorLogObjectFromError(error) {
+    return {
+        name: error?.name || "Error",
+        message: error?.message || "No message",
+        stack: error?.stack || "No stack trace available"
+    };
+}
+
+function toMilliSeconds(seconds) {
+    return seconds * 1000;
+}
+
+observerLogService.init();
+
+// js filename- user/userProfileService.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 
 
-            /***/ })
+class Queue {
+    constructor() {
+        this.items = [];
+    }
 
-        /******/ 	});
-    /************************************************************************/
-    /******/ 	// The module cache
-    /******/ 	var __webpack_module_cache__ = {};
-    /******/
-    /******/ 	// The require function
-    /******/ 	function __webpack_require__(moduleId) {
-        /******/ 		// Check if module is in cache
-        /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-        /******/ 		if (cachedModule !== undefined) {
-            /******/ 			return cachedModule.exports;
-            /******/ 		}
-        /******/ 		// Create a new module (and put it into the cache)
-        /******/ 		var module = __webpack_module_cache__[moduleId] = {
-            /******/ 			// no module.id needed
-            /******/ 			// no module.loaded needed
-            /******/ 			exports: {}
-            /******/ 		};
-        /******/
-        /******/ 		// Execute the module function
-        /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-        /******/
-        /******/ 		// Return the exports of the module
-        /******/ 		return module.exports;
-        /******/ 	}
-    /******/
-    /******/ 	// expose the modules object (__webpack_modules__)
-    /******/ 	__webpack_require__.m = __webpack_modules__;
-    /******/
-    /******/ 	// expose the module cache
-    /******/ 	__webpack_require__.c = __webpack_module_cache__;
-    /******/
-    /************************************************************************/
-    /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-    /******/ 	!function() {
-        /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-        /******/ 	}();
-    /******/
-    /******/ 	/* webpack/runtime/sharing */
-    /******/ 	!function() {
-        /******/ 		__webpack_require__.S = {};
-        /******/ 		var initPromises = {};
-        /******/ 		var initTokens = {};
-        /******/ 		__webpack_require__.I = function(name, initScope) {
-            /******/ 			if(!initScope) initScope = [];
-            /******/ 			// handling circular init calls
-            /******/ 			var initToken = initTokens[name];
-            /******/ 			if(!initToken) initToken = initTokens[name] = {};
-            /******/ 			if(initScope.indexOf(initToken) >= 0) return;
-            /******/ 			initScope.push(initToken);
-            /******/ 			// only runs once
-            /******/ 			if(initPromises[name]) return initPromises[name];
-            /******/ 			// creates a new share scope if needed
-            /******/ 			if(!__webpack_require__.o(__webpack_require__.S, name)) __webpack_require__.S[name] = {};
-            /******/ 			// runs all init snippets from all modules reachable
-            /******/ 			var scope = __webpack_require__.S[name];
-            /******/ 			var warn = function(msg) {
-                /******/ 				if (typeof console !== "undefined" && console.warn) console.warn(msg);
-                /******/ 			};
-            /******/ 			var uniqueName = "mobile-js-core";
-            /******/ 			var register = function(name, version, factory, eager) {
-                /******/ 				var versions = scope[name] = scope[name] || {};
-                /******/ 				var activeVersion = versions[version];
-                /******/ 				if(!activeVersion || (!activeVersion.loaded && (!eager != !activeVersion.eager ? eager : uniqueName > activeVersion.from))) versions[version] = { get: factory, from: uniqueName, eager: !!eager };
-                /******/ 			};
-            /******/ 			var initExternal = function(id) {
-                /******/ 				var handleError = function(err) { warn("Initialization of sharing external failed: " + err); };
-                /******/ 				try {
-                    /******/ 					var module = __webpack_require__(id);
-                    /******/ 					if(!module) return;
-                    /******/ 					var initFn = function(module) { return module && module.init && module.init(__webpack_require__.S[name], initScope); }
-                    /******/ 					if(module.then) return promises.push(module.then(initFn, handleError));
-                    /******/ 					var initResult = initFn(module);
-                    /******/ 					if(initResult && initResult.then) return promises.push(initResult['catch'](handleError));
-                    /******/ 				} catch(err) { handleError(err); }
-                /******/ 			}
-            /******/ 			var promises = [];
-            /******/ 			switch(name) {
-                /******/ 			}
-            /******/ 			if(!promises.length) return initPromises[name] = 1;
-            /******/ 			return initPromises[name] = Promise.all(promises).then(function() { return initPromises[name] = 1; });
-            /******/ 		};
-        /******/ 	}();
-    /******/
-    /************************************************************************/
-    /******/
-    /******/ 	// module cache are used so entry inlining is disabled
-    /******/ 	// startup
-    /******/ 	// Load entry module and return exports
-    /******/ 	var __webpack_exports__ = __webpack_require__(104);
-    /******/
-    /******/ })()
-;
+    enqueue(item) {
+        this.items.push(item);
+    }
+
+    dequeue() {
+        return this.isEmpty() ? null : this.items.shift();
+    }
+
+    peek() {
+        return this.isEmpty() ? null : this.items[0];
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    size() {
+        return this.items.length;
+    }
+
+    print() {
+        //console.log(this.items.join(', '));
+    }
+}
+
+const userProfileService = {
+    init() {
+        this.userIds = new Queue();
+        this.inProgress = new Set();
+    },
+
+    enqueueUpdate(userId, traceId) {
+        this.userIds.enqueue({userId, traceId});
+        this.startUserUpdateIfNeeded(userId, traceId);
+    },
+
+    startUserUpdateIfNeeded(userId) {
+        //console.log(`UserProfileService.startUserUpdateIfNeeded(): Enqueuing process for userId=${userId}`);
+        if (!this.inProgress.has(userId)) {
+            let queueItem = this.userIds.dequeue(userId);
+            if (!sdkStateService.isStateSyncedForUserId(userId)) {
+                //console.log(`UserProfileService.startUserUpdateIfNeeded(): Starting process for userId=${userId}`);
+                this.startUserUpdate(userId, queueItem.traceId);
+            }
+        }
+    },
+
+    async startUserUpdate(userId, traceId) {
+        this.inProgress.add(userId);
+
+        if (await this.cannotMakeApiCall()) {
+            //console.warn(`UserProfileService.startUserUpdate(): Cannot start upload for userId=${userId}`);
+            this.inProgress.delete(userId);
+            return;
+        }
+
+        const savedUserState = sdkStateService.getUserStateById(userId);
+        if (isEmptyObject(savedUserState?.projectsStatus)) {
+            //console.warn(`UserProfileService.startUserUpdate(): No entry or project status found for userId=${userId}`);
+            this.inProgress.delete(userId);
+            return;
+        }
+
+        if (!savedUserState?.lastProfileUpdatedAt) {
+            savedUserState.lastProfileUpdatedAt = new Date();
+            sdkStateService.persistState(traceId);
+        }
+
+        const requestBody = isNonEmptyObject(savedUserState.projectsStatus) ?
+            {
+                id: userId,
+                properties: {
+                    allProjectStatus: savedUserState.projectsStatus,
+                    completedFlowProjects: savedUserState.projectsCompletionStats,
+                    selectedLanguage: savedUserState.language,
+                },
+                updatedAt: savedUserState.lastProfileUpdatedAt
+            } : {};
+
+        const success = await this.tryUpload(userId, requestBody, traceId);
+        if (success) {
+            const latestUserState = sdkStateService.getUserStateById(userId);
+            latestUserState.lastProfileSyncedAt = savedUserState.lastProfileUpdatedAt;
+            sdkStateService.persistState(traceId);
+            this.inProgress.delete(userId);
+            this.startUserUpdateIfNeeded(userId);
+            return;
+        }
+        this.inProgress.delete(userId);
+        //console.log(`UserProfileService.startUserUpdate(): Finished processing userId- ${userId}, success- ${success}`);
+    },
+
+    async canMakeApiCall() {
+        const hasBaseUrl = typeof configBaseUrl === 'string' && configBaseUrl.trim() !== '';
+        const hasAppApiKey = typeof appApiKey === 'string' && appApiKey.trim() !== '';
+        const hasAppVersionName = typeof appVersionName === 'string' && appApiKey.trim() !== '';
+
+        // if (!hasBaseUrl) //console.warn("UserProfileService.canMakeApiCall(): Sync failed: configBaseUrl is missing or invalid");
+        // if (!hasAppApiKey) //console.warn("UserProfileService.canMakeApiCall(): Sync failed: appApiKey is missing or invalid");
+        // if (!hasAppVersionName) //console.warn("UserProfileService.canMakeApiCall(): Sync failed: hasAppVersionName is missing or invalid");
+
+        const online = await this.isDeviceOnline();
+        // if (!online) //console.warn("UserProfileService.canMakeApiCall(): Sync failed: no network connectivity");
+        let status = hasBaseUrl && hasAppApiKey && hasAppVersionName && online;
+        console.warn("UserProfileService.canMakeApiCall(): Sync status: ", status);
+        return status;
+    },
+
+    async isDeviceOnline() {
+        return await networkService.isReallyOnline();
+    },
+
+    async cannotMakeApiCall() {
+        return !(await this.canMakeApiCall())
+    },
+
+    async isDeviceOffline() {
+        return !(await this.isDeviceOnline());
+    },
+
+    async tryUpload(userId, requestBody, traceId) {
+        try {
+            const requestBodyString = JSON.stringify(requestBody);
+            //console.log(`UserProfileService.tryUpload(): Starting upload for userId=${userId}, traceId=${traceId}`);
+            sendJSObserverLog({
+                message: "Starting user profile upload API call",
+                className: "UserProfileService",
+                methodName: "tryUpload",
+                traceId,
+                level: ObserverLogLevel.DEBUG,
+            });
+
+            const response = await fetch(`${configBaseUrl}odin/api/v1/profile`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-jiny-client-id": appApiKey,
+                    "x-app-version-name": appVersionName,
+                    "x-leap-id": userId,
+                },
+                body: requestBodyString,
+            });
+
+            sendJSObserverLog({
+                message: "User profile upload API call finished",
+                logData: {
+                    status: response.status,
+                },
+                className: "UserProfileService",
+                methodName: "tryUpload",
+                traceId,
+            });
+
+            if (response.ok) {
+                //console.log(`UserProfileService.tryUpload(): Upload successful for userId=${userId}`);
+                return true;
+            }
+
+            const responseText = await response.text().catch(() => "Could not read response body");
+            //console.warn(`UserProfileService.tryUpload(): Sync failed for userId=${userId}: status=${response.status}, body=${responseText}`);
+
+        } catch (error) {
+            console.error(`UserProfileService.tryUpload(): Network error for userId=${userId}`, error);
+            sendJSErrorObserverLog({
+                message: "Failed to update user profile",
+                error,
+                className: "UserProfileService",
+                methodName: "tryUpload",
+                traceId
+            });
+        }
+        return false;
+    },
+
+    async flushAll(traceId) {
+        let userIds = sdkStateService.allUserIds;
+        for (const userId of userIds) {
+            if (!sdkStateService.isStateSyncedForUserId(userId)) {
+                await this.enqueueUpdate(userId, traceId);
+            }
+        }
+        sdkStateService.cleanUpSyncedUserStates();
+    },
+}
+
+userProfileService.init();
+
+
+
+// js filename- utils/globalErrorHandler.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+function setupGlobalErrorHandlers() {
+    window.onerror = function (message, source, lineno, colno, error) {
+        console.error('Unhandled JavaScript Error:', {message, source, lineno, colno, error});
+
+        if (!error) {
+            error = new Error(message);
+            error.stack = `at ${source}:${lineno}:${colno}`;
+        }
+
+        sendJSErrorObserverLog({
+            message: 'Unhandled JavaScript Error',
+            logData: {
+                source,
+                lineno,
+                colno,
+            },
+            error,
+            methodName: 'setupGlobalErrorHandlers',
+            traceId: generateUUID(),
+        });
+    };
+
+    window.addEventListener('unhandledrejection', function (event) {
+        console.error('Unhandled Promise Rejection:', {reason: event.reason});
+
+        let error = event.reason;
+        if (!(error instanceof Error)) {
+            error = new Error(typeof error === 'string' ? error : JSON.stringify(error));
+        }
+
+        sendJSErrorObserverLog({
+            message: 'Unhandled Promise Rejection',
+            error,
+            methodName: 'setupGlobalErrorHandlers',
+            traceId: generateUUID(),
+        });
+    });
+}
+
+setupGlobalErrorHandlers();
+
+// js filename- utils/globalSchedulerService.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+
+const globalSchedulerService = {
+    init(intervalMs = 180000) {
+        this.intervalMs = intervalMs;
+        this.shouldStop = false;
+        this.isRunning = false;
+        this.start();
+    },
+
+    async start() {
+        if (this.isRunning) return;
+        this.isRunning = true;
+        this.shouldStop = false;
+
+        while (!this.shouldStop) {
+            console.log(`GlobalSchedulerService.start(): Waiting ${this.intervalMs}ms`);
+            await this.sleep(this.intervalMs);
+
+            console.log("GlobalSchedulerService.start(): Starting flush cycle");
+            try {
+                await this.flushAll(`GlobalSchedulerService:${generateUUID()}`);
+            } catch (err) {
+                console.error("GlobalSchedulerService.start(): Error during flushAll", err);
+            }
+
+            console.log("GlobalSchedulerService.start(): Flush cycle complete");
+        }
+        this.isRunning = false;
+    },
+
+    stop() {
+        this.shouldStop = true;
+    },
+
+    async flushAll(traceId) {
+        await flushAllPendingOperations(traceId);
+    },
+
+    sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+}
+
+globalSchedulerService.init();
+
+let isFlushAllExecuting = false;
+let lastFlushedAllAt = 0;
+const FLUSH_INTERVAL_MS = 30 * 1000;
+
+async function flushAllPendingOperations(traceId) {
+    const now = Date.now();
+
+    if (isFlushAllExecuting) {
+        console.log(`[${traceId}] Skipping flush: already executing`);
+        return;
+    }
+
+    if (now - lastFlushedAllAt < FLUSH_INTERVAL_MS) {
+        const timeLeft = Math.ceil((FLUSH_INTERVAL_MS - (now - lastFlushedAllAt)) / 1000);
+        console.log(`[${traceId}] Skipping flush: last flush was ${Math.floor((now - lastFlushedAllAt) / 1000)}s ago, must wait ${timeLeft}s more`);
+        return;
+    }
+
+    isFlushAllExecuting = true;
+    lastFlushedAllAt = now;
+
+    console.log(`[${traceId}] Starting flush operations`);
+
+    try {
+        await Promise.all([
+            userProfileService.flushAll(traceId),
+            observerLogService.flushAll(traceId),
+        ]);
+        console.log(`[${traceId}] All flush operations completed`);
+    } catch (error) {
+        console.error(`[${traceId}] Error flushing pending requests`, error);
+    }
+    isFlushAllExecuting = false;
+}
+
+
+
+
+// js filename- utils/networkService.js
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+const networkService = {
+
+    init() {
+        this.handleOnline = this.handleOnline.bind(this);
+        this.handleOffline = this.handleOffline.bind(this);
+
+        window.addEventListener('online', this.handleOnline);
+        window.addEventListener('offline', this.handleOffline);
+
+        console.log('networkService.init(): Event listeners for online/offline events initialized.');
+    },
+
+    handleOnline() {
+        console.log('networkService.handleOnline(): Device is online, flushing pending requests.');
+        flushAllPendingOperations(`NetworkService:${generateUUID()}`);
+    },
+
+    handleOffline() {
+        console.log('networkService.handleOffline(): Device is offline.');
+    },
+
+    async isReallyOnline() {
+        if (isSelfHosted) {
+            return false;
+        }
+        return typeof navigator !== "undefined" && navigator.onLine;
+    }
+}
+
+networkService.init();
+
+window.receiveDataFromNativeLayer = receiveDataFromNativeLayer;
