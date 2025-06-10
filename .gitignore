@@ -49,4 +49,4 @@ coverage/
 *.tsbuildinfo
 
 # Ignore mobile-core.js in core folder
-core/
+mobile-core.js
