@@ -47,3 +47,5 @@ coverage/
 
 # TypeScript (if used)
 *.tsbuildinfo
+
+mobile-core.js
