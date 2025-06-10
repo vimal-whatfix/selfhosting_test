@@ -47,3 +47,6 @@ coverage/
 
 # TypeScript (if used)
 *.tsbuildinfo
+
+# Ignore mobile-core.js in core folder
+whatfix/core/mobile-core.js
