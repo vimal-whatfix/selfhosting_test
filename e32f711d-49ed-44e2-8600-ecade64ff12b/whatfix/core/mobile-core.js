@@ -4845,6 +4845,9 @@ function receiveDataFromNativeLayer(message) {
                                 userProps = (_a = message === null || message === void 0 ? void 0 : message.data) === null || _a === void 0 ? void 0 : _a.userProps;
                                 customProperties = __assign(__assign({}, customProperties), userProps);
                                 defaultProperties = __assign({}, (_b = message === null || message === void 0 ? void 0 : message.data) === null || _b === void 0 ? void 0 : _b.defaultProps);
+                                console.log("userProps===>",userProps);
+                                console.log("customProperties===>",customProperties);
+                                console.log("defaultProperties===>",defaultProperties);
                                 saveTheLatestProps(traceId);
                                 saveTheLatestStateChange(traceId);
                                 clearEveryThing(true, traceId);
