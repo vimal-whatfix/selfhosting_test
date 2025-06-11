@@ -4215,31 +4215,58 @@ function fetchAndStoreConfigFromSavedState(savedSegmentConfigMap) {
     }
     return 404;
 }
-async function downloadConfigFromCDN(savedSegmentConfigMap) {
-  const segmentationBaseUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + "/segmentation.json?v=" + Date.now();
-  try {
-    const response = await fetch(segmentationBaseUrl);
-    const segmentationList = await response.json();
-    console.log("segmentationList===>",segmentationList)
-    if (segmentationList?.segments?.length) {
-      const data = await Promise.all(
-        segmentationList.segments.map(async (segmentObject) => {
-          const configUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + selfHostingEndPoints.SEGMENT_CONFIG_FOLDER + (segmentObject?.segmentId || "") + ".json?v=" + Date.now();
-          const configResponse = await fetch(configUrl);
-          const segmentSpecificConfig = await configResponse.json();
-          console.log("segmentSpecificConfig===>",segmentSpecificConfig)
-          await storeConfigInSegmentMap(segmentObject, segmentSpecificConfig);
-        })
-      ).catch((error) => {
-        console.warn(error);
-        return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
-      });
-      return 200;
-    }
-  } catch {
-    console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState");
-    return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
-  }
+function downloadConfigFromCDN(savedSegmentConfigMap) {
+    var segmentationBaseUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + "/segmentation.json?v=" + Math.random();
+
+    return new Promise(function(resolve, reject) {
+        fetch(segmentationBaseUrl)
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('HTTP error! status: ' + response.status + ' for ' + segmentationBaseUrl);
+                }
+                return response.json();
+            })
+            .then(function (segmentationList) {
+                console.log("segmentationList===>", segmentationList);
+
+                if (segmentationList && segmentationList.segments && segmentationList.segments.length) {
+                    var configPromises = segmentationList.segments.map(function (segmentObject) {
+                        var segmentIdValue = (segmentObject && segmentObject.segmentId !== undefined && segmentObject.segmentId !== null) ? segmentObject.segmentId : undefined;
+
+                        var configUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + selfHostingEndPoints.SEGMENT_CONFIG_FOLDER + segmentIdValue + ".json?v=" + Math.random();
+
+                        return fetch(configUrl)
+                            .then(function (configResponse) {
+                                if (!configResponse.ok) {
+                                    throw new Error('HTTP error! status: ' + configResponse.status + ' for ' + configUrl);
+                                }
+                                return configResponse.json();
+                            })
+                            .then(function (segmentSpecificConfig) {
+                                console.log("segmentSpecificConfig===>", segmentSpecificConfig);
+                                return storeConfigInSegmentMap(segmentObject, segmentSpecificConfig);
+                            });
+                    });
+
+                    Promise.all(configPromises)
+                        .then(function (data) {
+                            resolve(200);
+                        })
+                        .catch(function (error) {
+                            console.warn(error);
+                            fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
+                            resolve(200);
+                        });
+                } else {
+                    resolve(200);
+                }
+            })
+            .catch(function (error) {
+                console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState: ", error);
+                resolve(fetchAndStoreConfigFromSavedState(savedSegmentConfigMap));
+            });
+    });
+}
 function findSegmentIds() {
     return Object.keys(segmentConfigMap).filter(function (segmentId) {
         return isSegmentValid(segmentConfigMap[segmentId].orBlocks);
