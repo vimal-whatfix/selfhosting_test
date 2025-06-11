@@ -4215,60 +4215,31 @@ function fetchAndStoreConfigFromSavedState(savedSegmentConfigMap) {
     }
     return 404;
 }
-function downloadConfigFromCDN(savedSegmentConfigMap) {
-    var _a;
-    return __awaiter(this, void 0, void 0, function () {
-        var segmentationBaseUrl, response, segmentationList, data, _b;
-        var _this = this;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
-                case 0:
-                    segmentationBaseUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "/segmentation.json?v=").concat(Math.random());
-                    _c.label = 1;
-                case 1:
-                    _c.trys.push([1, 6, , 7]);
-                    return [4, fetch(segmentationBaseUrl)];
-                case 2:
-                    response = _c.sent();
-                    return [4, response.json()];
-                case 3:
-                    segmentationList = _c.sent();
-                    if (!((_a = segmentationList === null || segmentationList === void 0 ? void 0 : segmentationList.segments) === null || _a === void 0 ? void 0 : _a.length)) return [3, 5];
-                    return [4, Promise.all(segmentationList.segments.map(function (segmentObject) { return __awaiter(_this, void 0, void 0, function () {
-                            var configUrl, configResponse, segmentSpecificConfig;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0:
-                                        configUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING).concat(selfHostingEndPoints.SEGMENT_CONFIG_FOLDER).concat(segmentObject === null || segmentObject === void 0 ? void 0 : segmentObject.segmentId, ".json?v=").concat(Math.random());
-                                        return [4, fetch(configUrl)];
-                                    case 1:
-                                        configResponse = _a.sent();
-                                        return [4, configResponse.json()];
-                                    case 2:
-                                        segmentSpecificConfig = _a.sent();
-                                        return [4, storeConfigInSegmentMap(segmentObject, segmentSpecificConfig)];
-                                    case 3:
-                                        _a.sent();
-                                        return [2];
-                                }
-                            });
-                        }); })).catch(function (error) {
-                            console.warn(error);
-                            return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
-                        })];
-                case 4:
-                    data = _c.sent();
-                    return [2, 200];
-                case 5: return [3, 7];
-                case 6:
-                    _b = _c.sent();
-                    console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState");
-                    return [2, fetchAndStoreConfigFromSavedState(savedSegmentConfigMap)];
-                case 7: return [2];
-            }
-        });
-    });
-}
+async function downloadConfigFromCDN(savedSegmentConfigMap) {
+  const segmentationBaseUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + "/segmentation.json?v=" + Date.now();
+  try {
+    const response = await fetch(segmentationBaseUrl);
+    const segmentationList = await response.json();
+    console.log("segmentationList===>",segmentationList)
+    if (segmentationList?.segments?.length) {
+      const data = await Promise.all(
+        segmentationList.segments.map(async (segmentObject) => {
+          const configUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + selfHostingEndPoints.SEGMENT_CONFIG_FOLDER + (segmentObject?.segmentId || "") + ".json?v=" + Date.now();
+          const configResponse = await fetch(configUrl);
+          const segmentSpecificConfig = await configResponse.json();
+          console.log("segmentSpecificConfig===>",segmentSpecificConfig)
+          await storeConfigInSegmentMap(segmentObject, segmentSpecificConfig);
+        })
+      ).catch((error) => {
+        console.warn(error);
+        return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
+      });
+      return 200;
+    }
+  } catch {
+    console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState");
+    return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
+  }
 function findSegmentIds() {
     return Object.keys(segmentConfigMap).filter(function (segmentId) {
         return isSegmentValid(segmentConfigMap[segmentId].orBlocks);
