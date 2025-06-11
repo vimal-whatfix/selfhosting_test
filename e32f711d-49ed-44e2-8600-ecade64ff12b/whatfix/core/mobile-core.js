@@ -4183,7 +4183,9 @@ function storeConfigInSegmentMap(segment, config) {
                                 case 1:
                                     decompressed = _a.sent();
                                     decompressedDataWithBaseUrl = decompressed.replace(/"baseUrl":""/g, "\"baseUrl\":\"".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "\""));
-                                    return [2, JSON.parse(decompressedDataWithBaseUrl)];
+                                    const parsedData = JSON.parse(decompressedDataWithBaseUrl);
+ console.log("decompressedDataWithBaseUrl===>",decompressedDataWithBaseUrl);
+ return [2, parsedData];
                             }
                         });
                     }); }))];
