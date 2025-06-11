@@ -4230,7 +4230,8 @@ function downloadConfigFromCDN(savedSegmentConfigMap) {
                     return [4, fetch(segmentationBaseUrl)];
                 case 2:
                     response = _c.sent();
-                    return [4, response.json()];
+                    console.log("Response for segmentation list:", response);
+ return [4, response.json()];
                 case 3:
                     segmentationList = _c.sent();
                     if (!((_a = segmentationList === null || segmentationList === void 0 ? void 0 : segmentationList.segments) === null || _a === void 0 ? void 0 : _a.length)) return [3, 5];
@@ -4258,6 +4259,8 @@ function downloadConfigFromCDN(savedSegmentConfigMap) {
                         })];
                 case 4:
                     data = _c.sent();
+ console.log("All segment configs processed. Result:", data);
+
                     return [2, 200];
                 case 5: return [3, 7];
                 case 6:
