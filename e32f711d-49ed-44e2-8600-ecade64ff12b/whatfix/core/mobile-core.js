@@ -4225,7 +4225,7 @@ function downloadConfigFromCDN(savedSegmentConfigMap) {
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
-                    segmentationBaseUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "/segmentation.json?v=").concat("150712");
+                    segmentationBaseUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "/segmentation.json?v=").concat("151510");
                     _c.label = 1;
                 case 1:
                     _c.trys.push([1, 6, , 7]);
@@ -4241,7 +4241,7 @@ function downloadConfigFromCDN(savedSegmentConfigMap) {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
-                                        configUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING).concat(selfHostingEndPoints.SEGMENT_CONFIG_FOLDER).concat(segmentObject === null || segmentObject === void 0 ? void 0 : segmentObject.segmentId, ".json?v=").concat("150712");
+                                        configUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING).concat(selfHostingEndPoints.SEGMENT_CONFIG_FOLDER).concat(segmentObject === null || segmentObject === void 0 ? void 0 : segmentObject.segmentId, ".json?v=").concat("151510");
                                         return [4, fetch(configUrl)];
                                     case 1:
                                         configResponse = _a.sent();
@@ -4332,7 +4332,7 @@ function fetchConfig(_a, traceId) {
                 case 1:
                     status = _r.sent();
                     config = getSelfHostedConfig();
- console.log('config===>',"15:07:12",config);
+ console.log('config===>',"15:15:10",config);
                     if (!config) {
                         return [2];
                     }
