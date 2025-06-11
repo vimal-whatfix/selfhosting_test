@@ -4218,55 +4218,57 @@ function fetchAndStoreConfigFromSavedState(savedSegmentConfigMap) {
     return 404;
 }
 function downloadConfigFromCDN(savedSegmentConfigMap) {
-    var segmentationBaseUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + "/segmentation.json?v=" + Math.random();
-
-    return new Promise(function(resolve, reject) {
-        fetch(segmentationBaseUrl)
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error('HTTP error! status: ' + response.status + ' for ' + segmentationBaseUrl);
-                }
-                return response.json();
-            })
-            .then(function (segmentationList) {
-                console.log("segmentationList===>", segmentationList);
-
-                if (segmentationList && segmentationList.segments && segmentationList.segments.length) {
-                    var configPromises = segmentationList.segments.map(function (segmentObject) {
-                        var segmentIdValue = (segmentObject && segmentObject.segmentId !== undefined && segmentObject.segmentId !== null) ? segmentObject.segmentId : undefined;
-
-                        var configUrl = configBaseUrl + "/" + appApiKey + selfHostingEndPoints.SELF_HOSTING + selfHostingEndPoints.SEGMENT_CONFIG_FOLDER + segmentIdValue + ".json?v=" + Math.random();
-
-                        return fetch(configUrl)
-                            .then(function (configResponse) {
-                                if (!configResponse.ok) {
-                                    throw new Error('HTTP error! status: ' + configResponse.status + ' for ' + configUrl);
+    var _a;
+    return __awaiter(this, void 0, void 0, function () {
+        var segmentationBaseUrl, response, segmentationList, data, _b;
+        var _this = this;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    segmentationBaseUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING, "/segmentation.json?v=").concat("14:34:47");
+                    _c.label = 1;
+                case 1:
+                    _c.trys.push([1, 6, , 7]);
+                    return [4, fetch(segmentationBaseUrl)];
+                case 2:
+                    response = _c.sent();
+                    return [4, response.json()];
+                case 3:
+                    segmentationList = _c.sent();
+                    if (!((_a = segmentationList === null || segmentationList === void 0 ? void 0 : segmentationList.segments) === null || _a === void 0 ? void 0 : _a.length)) return [3, 5];
+                    return [4, Promise.all(segmentationList.segments.map(function (segmentObject) { return __awaiter(_this, void 0, void 0, function () {
+                            var configUrl, configResponse, segmentSpecificConfig;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        configUrl = "".concat(configBaseUrl, "/").concat(appApiKey).concat(selfHostingEndPoints.SELF_HOSTING).concat(selfHostingEndPoints.SEGMENT_CONFIG_FOLDER).concat(segmentObject === null || segmentObject === void 0 ? void 0 : segmentObject.segmentId, ".json?v=").concat("14:34:47");
+                                        return [4, fetch(configUrl)];
+                                    case 1:
+                                        configResponse = _a.sent();
+                                        return [4, configResponse.json()];
+                                    case 2:
+                                        segmentSpecificConfig = _a.sent();
+                                        return [4, storeConfigInSegmentMap(segmentObject, segmentSpecificConfig)];
+                                    case 3:
+                                        _a.sent();
+                                        return [2];
                                 }
-                                return configResponse.json();
-                            })
-                            .then(function (segmentSpecificConfig) {
-                                console.log("segmentSpecificConfig===>", segmentSpecificConfig);
-                                return storeConfigInSegmentMap(segmentObject, segmentSpecificConfig);
                             });
-                    });
-
-                    Promise.all(configPromises)
-                        .then(function (data) {
-                            resolve(200);
-                        })
-                        .catch(function (error) {
+                        }); })).catch(function (error) {
                             console.warn(error);
-                            fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
-                            resolve(200);
-                        });
-                } else {
-                    resolve(200);
-                }
-            })
-            .catch(function (error) {
-                console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState: ", error);
-                resolve(fetchAndStoreConfigFromSavedState(savedSegmentConfigMap));
-            });
+                            return fetchAndStoreConfigFromSavedState(savedSegmentConfigMap);
+                        })];
+                case 4:
+                    data = _c.sent();
+                    return [2, 200];
+                case 5: return [3, 7];
+                case 6:
+                    _b = _c.sent();
+                    console.warn("Error while fetching the segments and configs, use any configs available in segmentConfigMap in savedState");
+                    return [2, fetchAndStoreConfigFromSavedState(savedSegmentConfigMap)];
+                case 7: return [2];
+            }
+        });
     });
 }
 function findSegmentIds() {
@@ -4330,7 +4332,7 @@ function fetchConfig(_a, traceId) {
                 case 1:
                     status = _r.sent();
                     config = getSelfHostedConfig();
- console.log('config===>',"12:56:14",config);
+ console.log('config===>',"14:34:47",config);
                     if (!config) {
                         return [2];
                     }
