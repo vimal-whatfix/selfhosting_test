@@ -4330,7 +4330,7 @@ function fetchConfig(_a, traceId) {
                 case 1:
                     status = _r.sent();
                     config = getSelfHostedConfig();
- console.log('config===>',"12:51:50",config);
+ console.log('config===>',"12:56:14",config);
                     if (!config) {
                         return [2];
                     }
