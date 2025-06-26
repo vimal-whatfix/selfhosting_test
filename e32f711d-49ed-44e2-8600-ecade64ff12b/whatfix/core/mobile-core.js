@@ -5359,6 +5359,7 @@ function fetchAndStoreConfigFromSavedState(savedSegmentConfigMap) {
 }
 
 async function downloadConfigFromCDN(savedSegmentConfigMap) {
+    console.log("downloadConfigFromCDN===>");
     const segmentationBaseUrl = `${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}/segmentation.json`;
     try {
         const response = await fetch(segmentationBaseUrl);
@@ -5444,7 +5445,7 @@ async function fetchConfig({
         userState: buildUserStateObjectForObserverLog(savedUserState),
         traceId
     });
-
+    console.log("isSelfHosted===>", isSelfHosted);
     if (isSelfHosted) {
         status = await downloadConfigFromCDN(sdkStateService.segmentConfigMap);
         config = getSelfHostedConfig();
