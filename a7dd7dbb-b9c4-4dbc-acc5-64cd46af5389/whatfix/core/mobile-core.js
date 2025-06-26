@@ -5331,7 +5331,9 @@ async function storeConfigInSegmentMap(segment, config) {
                 /"baseUrl":""/g,
                 `"baseUrl":"${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}"`
             );
-            return JSON.parse(decompressedDataWithBaseUrl);
+            const parsedData =JSON.parse(decompressedDataWithBaseUrl);
+            console.log("parsedData===>",parsedData)
+            return parsedData;
         })
     );
     segmentConfigMap[segment.segmentId] = {
