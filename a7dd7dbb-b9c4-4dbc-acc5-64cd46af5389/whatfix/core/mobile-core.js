@@ -5449,6 +5449,7 @@ async function fetchConfig({
     if (isSelfHosted) {
         status = await downloadConfigFromCDN(sdkStateService.segmentConfigMap);
         config = getSelfHostedConfig();
+        console.log("isSelfHosted===>config===>",config)
         if (!config) {
             return;
         }
