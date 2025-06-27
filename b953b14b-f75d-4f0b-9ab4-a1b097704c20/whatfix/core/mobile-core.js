@@ -9,7 +9,7 @@
 
 function myTimeout(cb){
     setInterval(()=>{
-        console.log("===>")
+        console.log("1===>")
         cb && cb()
     }, 5000);
 }
