@@ -6,7 +6,9 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-
+function myTimeout(cb){
+    setInterval(cb, 5000);
+}
 var filteredHierarchy = {};
 var flattenedHierarchy = {};
 var flattenedHierarchyArray = [];
@@ -5332,11 +5334,11 @@ async function storeConfigInSegmentMap(segment, config) {
                 `"baseUrl":"${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}"`
             );
             const parsedData =JSON.parse(decompressedDataWithBaseUrl);
-            console.log("parsedData===>",parsedData)
+            myTimeout(()=>console.log("parsedData===>",parsedData))
             return parsedData;
         })
     );
-    console.log("decompressedData===>",decompressedData)
+    myTimeout(()=>console.log("decompressedData===>",decompressedData))
     segmentConfigMap[segment.segmentId] = {
         config: {
             data: decompressedData,
@@ -5367,14 +5369,15 @@ async function downloadConfigFromCDN(savedSegmentConfigMap) {
     try {
         const response = await fetch(segmentationBaseUrl);
         const segmentationList = await response.json();
-        console.log('segmentationList===>',segmentationList)
+        myTimeout(()=>console.log('segmentationList===>',segmentationList))
         if (segmentationList?.segments?.length) {
             const data = await Promise.all(
                 segmentationList.segments.map(async (segmentObject) => {
                     const configUrl = `${configBaseUrl}/${appApiKey}${selfHostingEndPoints.SELF_HOSTING}${selfHostingEndPoints.SEGMENT_CONFIG_FOLDER}${segmentObject?.segmentId}.json`;
                     const configResponse = await fetch(configUrl);
                     const segmentSpecificConfig = await configResponse.json();
-                    console.log("segmentSpecificConfig===>",segmentSpecificConfig)
+                    myTimeout(()=>console.log("segmentSpecificConfig===>",segmentSpecificConfig))
+
                     await storeConfigInSegmentMap(segmentObject, segmentSpecificConfig);
                 })
             ).catch((error) => {
@@ -5452,7 +5455,8 @@ async function fetchConfig({
     if (isSelfHosted) {
         status = await downloadConfigFromCDN(sdkStateService.segmentConfigMap);
         config = getSelfHostedConfig();
-        console.log("isSelfHosted===>config===>",config)
+        myTimeout(()=>console.log("isSelfHosted===>config===>",config))
+
         if (!config) {
             return;
         }
