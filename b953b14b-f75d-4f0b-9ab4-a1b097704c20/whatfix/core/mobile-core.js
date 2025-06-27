@@ -6140,6 +6140,7 @@ var observerLogService = {
         }
     }
 };
+console.log("New Js downloaded===>")
 var ObserverLogLevel = {
     ALL: 100,
     DEBUG: 200,
