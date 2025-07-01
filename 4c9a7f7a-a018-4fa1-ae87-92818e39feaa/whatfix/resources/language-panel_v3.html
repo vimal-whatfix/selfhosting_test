@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <!-- Meta -->
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta
+ name="viewport"
+ content="width=device-width, initial-scale=1,
+ user-scalable=no, shrink-to-fit=no"
+ />
+
+ <style>
+ @font-face { font-family: 'Lato-Bold'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+ @font-face { font-family: 'Lato-Normal'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+ </style>
+ <script>
+ function postMessageToNative(msg) {
+ console.log('postMessageToNative(): ' + JSON.stringify(msg));
+ var encodedMsg = JSON.stringify(msg);
+ postMessageToAndroid(encodedMsg);
+ postMessageToIos(encodedMsg);
+ }
+ function postMessageToIos(encodedMsg) {
+ // See iOS SDK Source
+ // userContentController:didReceiveScriptMessage:
+ if (
+ window.webkit &&
+ window.webkit.messageHandlers &&
+ window.webkit.messageHandlers.iosListener
+ )
+ window.webkit.messageHandlers.iosListener.postMessage(encodedMsg);
+ }
+
+ function postMessageToAndroid(encodedMsg) {
+ if (window.JinyAndroid) window.JinyAndroid.postMessage(encodedMsg);
+ }
+
+ function updateRadioButton() {
+ let radioButtonsSvgs = Array.prototype.slice.call(
+ document.getElementsByClassName('radiosvg'),
+ );
+ radioButtonsSvgs.forEach(function(svg) {
+ if (svg.getAttribute('localeid') === selectedLocale) {
+ let tempDiv = document.createElement('div');
+ tempDiv.innerHTML = `
+ <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+ class="radiosvg"
+ localeId="${svg.getAttribute('localeid')}"
+ xmlns="http://www.w3.org/2000/svg">
+ <circle cx="9" cy="9" r="8" stroke="${themeColor}" stroke-width="1" />
+ <circle cx="8.99964" cy="8.99997" r="5.82178" fill="${themeColor}" />
+ </svg>
+
+ `;
+
+ let newSvg = tempDiv.children[0];
+ svg.parentElement.insertBefore(newSvg, svg);
+ svg.remove();
+ } else {
+ let tempDiv = document.createElement('div');
+ tempDiv.innerHTML = `
+ <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="radiosvg"
+ localeId="${svg.getAttribute('localeid')}">
+ <circle cx="9" cy="9" r="8" stroke="#D3D1DD" stroke-width="2"/>
+ </svg>`;
+ let newSvg = tempDiv.children[0];
+ svg.parentElement.insertBefore(newSvg, svg);
+ svg.remove();
+ }
+ });
+ }
+
+ function getLanguageListItem(
+ localeScriptName,
+ localeNameInEnglish,
+ localeId,
+ isActive,
+ ) {
+ let selectedFill = '';
+ let radioButton = `
+ <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="radiosvg"
+ localeId="${localeId}">
+ <circle cx="9" cy="9" r="8" stroke="#D3D1DD" stroke-width="2"/>
+ </svg>
+ `;
+ if (isActive) {
+ radioButton = `
+ <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+ class="radiosvg"
+ localeId="${localeId}"
+ xmlns="http://www.w3.org/2000/svg">
+ <circle cx="9" cy="9" r="8" stroke="${themeColor}" stroke-width="1" />
+ <circle cx="8.99964" cy="8.99997" r="5.82178" fill="${themeColor}" />
+ </svg>
+ `;
+ }
+ let languageOption = `
+ <div class="language-list-option" locale-id="${localeId}">
+ <div class="radio-btn">
+ ${radioButton}
+ </div>
+ <div class="locale-script-name">
+ ${localeScriptName}
+ </div>
+ <div class="locale-script-english-name">
+ ${localeNameInEnglish}
+ </div>
+ </div>
+ `;
+ const domElement = document.createElement('div');
+ domElement.innerHTML = languageOption.trim();
+ return domElement.firstChild;
+ }
+ var localeHeaderTexts = {
+ ang: 'Select the guidance language',
+ hin: 'सहायता की भाषा चुनें',
+ ben: 'সহায়ক ভাষা নির্বাচন করুন',
+ guj: 'સપોર્ટ ભાષા પસંદ કરો',
+ kan: 'ಬೆಂಬಲ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+ mal: 'പിന്തുണാ ഭാഷ തിരഞ്ഞെടുക്കുക',
+ mar: 'समर्थन भाषा निवडा',
+ tam: 'ஆதரவு மொழியைத் தேர்ந்தெடுக்கவும்',
+ tel: 'మద్దతు భాషను ఎంచుకోండి',
+ pun: 'ਸਹਾਇਤਾ ਭਾਸ਼ਾ ਦੀ ਚੋਣ ਕਰੋ',
+ sin: 'කරුණාකර භාෂාවක් තෝරන්න',
+ fra: 'Veuillez sélectionner une langue',
+ ita: 'Seleziona una lingua',
+ spa: 'Por favor, seleccione un idioma',
+ deu: 'Bitte wähle eine Sprache',
+ chi: '请选择一种语言',
+ ara: 'يرجى تحديد لغة',
+ rus: 'Пожалуйста, выберите язык',
+ tur: 'Lütfen bir dil seçin',
+ heb: 'אנא בחר שפה',
+ tha: 'กรุณาเลือกภาษา',
+ cze: 'Vyberte jazyk',
+ ind: 'Silakan pilih bahasa',
+ vie: 'Vui lòng chọn một ngôn ngữ',
+ kor: '언어를 선택하세요',
+ mon: 'Хэл сонгоно уу',
+ may: 'Sila pilih bahasa',
+ por: 'Selecione um idioma',
+ jpn: 'ガイダンス言語を選択してください',
+ zho: '選擇指導語言',
+ pol: 'Wybierz język wskazówek',
+ 'fr-ca': 'Sélectionnez la langue du guidage',
+ ron: 'Selectați limba de ghidar',
+ slv: 'Izberite jezik vodenja',
+ 'ang-us': 'Select the guidance language'
+ };
+ var themeColor = '';
+ var selectedLocale = '';
+
+ function populatePanel(languages) {
+ languages.forEach(function(language, index) {
+ let langListElement = getLanguageListItem(
+ language.localeScript,
+ language.localeName,
+ language.localeId,
+ index === 0,
+ );
+ document
+ .getElementsByClassName('language-list-wrapper')[0]
+ .appendChild(langListElement);
+ });
+ }
+ function getPageMetaData() {
+ var container = document.querySelector('.language-panel-wrapper'); //change to aui-web-wrapper
+
+ var containerRect = container.getBoundingClientRect();
+ return {
+ rect: {
+ width: containerRect.width,
+ height: containerRect.height,
+ },
+ };
+ }
+
+ function initIOSHtml(languagesParam, themeColorParam) {
+ var languages = JSON.parse(languagesParam);
+ if (!languages || languages.length === 0) return;
+ selectedLocale = languages[0].localeId;
+ document.getElementsByClassName('text')[0].innerText =
+ localeHeaderTexts[languages[0].localeId] || 'Locale header not found';
+ themeColor = themeColorParam;
+
+ let closeDiv = document
+ .getElementsByClassName('close')[0]
+ .addEventListener('click', function() {
+ event.stopPropagation();
+ close();
+ });
+ document.getElementsByClassName(
+ 'submit-btn',
+ )[0].style.background = themeColor;
+ document
+ .getElementsByClassName('localeIcon')[0]
+ .setAttribute('fill', themeColor);
+
+ populatePanel(languages);
+ postMessageToNative({
+ type: 'rendering_complete',
+ pageMetaData: getPageMetaData(),
+ });
+
+ let languageListNodes = Array.prototype.slice.call(
+ document.getElementsByClassName('language-list-option'),
+ );
+ languageListNodes.forEach(function(languageNode) {
+ languageNode.addEventListener('click', function(event) {
+ event.stopPropagation();
+ let localeId = event.target.getAttribute('locale-id');
+ setSelectedLocale(localeId);
+ });
+ });
+ }
+
+
+ function setSelectedLocale(localeId) {
+ if(!localeId) return
+
+ let radioButtonsSvgs = Array.prototype.slice.call(
+ document.getElementsByClassName('radiosvg'),
+ );
+
+ let containsLocale = radioButtonsSvgs && radioButtonsSvgs.find(svg=> svg.getAttribute('localeid') === localeId)
+ if(!containsLocale) return
+
+ selectedLocale = localeId;
+ updateRadioButton();
+ document.getElementsByClassName('text')[0].innerText =
+ localeHeaderTexts[selectedLocale] || 'Locale header not found';
+ }
+
+ window.onload = function() {
+ if (window.JinyAndroid) {
+ var languages = JSON.parse(window.JinyAndroid.getLanguages());
+ if (!languages || languages.length === 0) return;
+ // var languages = [
+ // { localeId: 'ang', localeName: 'English', localeScript: 'English' },
+ // { localeId: 'hin', localeName: 'Hindi', localeScript: 'हिंदी' },
+ // { localeId: 'ben', localeName: 'Bengali', localeScript: 'English' },
+ // { localeId: 'kan', localeName: 'Kannada', localeScript: 'हिंदी' }
+ // ];
+ selectedLocale = languages[0].localeId;
+ document.getElementsByClassName('text')[0].innerText =
+ localeHeaderTexts[languages[0].localeId] ||
+ 'Locale header not found';
+ themeColor = '#FF5656'; // color is in hex
+ themeColor = window.JinyAndroid.getThemeColor(); // color is in hex
+ document.getElementsByClassName(
+ 'submit-btn',
+ )[0].style.background = themeColor;
+ document
+ .getElementsByClassName('localeIcon')[0]
+ .setAttribute('fill', themeColor);
+
+ populatePanel(languages);
+ postMessageToNative({
+ type: 'rendering_complete',
+ pageMetaData: getPageMetaData(),
+ });
+
+ let closeDiv = document
+ .getElementsByClassName('close')[0]
+ .addEventListener('click', function() {
+ event.stopPropagation();
+ close();
+ });
+
+ let languageListNodes = Array.prototype.slice.call(
+ document.getElementsByClassName('language-list-option'),
+ );
+ languageListNodes.forEach(function(languageNode) {
+ languageNode.addEventListener('click', function(event) {
+ event.stopPropagation();
+ let localeId = event.target.getAttribute('locale-id');
+ setSelectedLocale(localeId);
+ });
+ });
+ }
+ };
+
+ function sendFinalSelectedLanguageToAndroid() {
+ if (selectedLocale === '') {
+ alert('Please select a language');
+ return;
+ }
+ let message = {
+ type: 'action_taken',
+ body: {
+ type: 'onLanguageSelected',
+ close: true,
+ localeCode: selectedLocale,
+ },
+ };
+ postMessageToNative(message);
+ }
+
+ function close() {
+ let message = {
+ type: 'action_taken',
+ body: {
+ type: 'close',
+ close: true,
+ optIn: false,
+ },
+ };
+ postMessageToNative(message);
+ }
+ </script>
+
+ <style>
+ body {
+ margin: 0;
+ }
+ .language-panel-wrapper {
+ width: 100%;
+ min-height: 250px;
+ height: auto;
+ border-radius: 20px 20px 0 0;
+ background: white;
+ display: flex;
+ flex-direction: column;
+ position: relative;
+ max-height: 100vh;
+ }
+ .language-panel-header {
+ width: 100%;
+ height: 69px !important;
+ border-bottom: 1px solid #d2d2d2;
+ box-sizing: border-box;
+ font-family: 'Lato-Bold';
+ font-style: normal;
+ font-weight: bold;
+ font-size: 17px;
+ line-height: 69px;
+ vertical-align: middle;
+ /* identical to box height */
+ position: relative;
+ /* left: 105px; */
+ color: #2e2e3a;
+ display: block;
+ }
+ .icon {
+ display: inline-block;
+ width: fit-content;
+ position: absolute;
+ left: 30px;
+ pointer-events: none;
+ top: 5px;
+ }
+ .icon svg {
+ position: relative;
+ top: 2px;
+ pointer-events: none;
+ }
+ .text {
+ display: inline-block;
+ width: fit-content;
+ position: relative;
+ left: 68px;
+ pointer-events: none;
+ max-width: 250px;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+ overflow-wrap: break-word;
+ }
+ .close {
+ position: absolute;
+ display: inline-block;
+ right: 18px;
+ width: fit-content;
+ height: 100%;
+ line-height: 69px;
+ vertical-align: middle;
+ }
+ .close svg {
+ position: relative;
+ top: 2px;
+ }
+
+ .language-list-wrapper {
+ display: flex;
+ flex-direction: column;
+ overflow: auto;
+ height: calc(100% - 150px);
+ }
+
+ .language-list-option {
+ height: 64px;
+ padding-left: 32px;
+ /* border: 1px solid red; */
+ }
+ .radio-btn {
+ width: 16px;
+ margin-right: 20px;
+ display: inline-block;
+ transform: translate(0, -50%);
+ position: relative;
+ top: 50%;
+ float: left;
+ pointer-events: none;
+ }
+ .radiosvg {
+ }
+ .language-panel-footer {
+ height: 79px;
+ width: 100%;
+ border-top: 1px solid #d2d2d2;
+ padding-top: 13px;
+ padding-bottom: 18px;
+ padding-left: 24px;
+ padding-right: 24px;
+ box-sizing: border-box;
+ webkit-box-sizing: border-box;
+ }
+ .locale-script-name {
+ font-family: 'Lato-Bold';
+ display: inline-block;
+ margin-right: 20px;
+ line-height: 64px;
+ height: 100%;
+ vertical-align: middle;
+ float: left;
+ pointer-events: none;
+ color: #353048;
+ font-size: 16px;
+ font-weight: bold;
+ }
+ .locale-script-english-name {
+ font-family: 'Lato-Normal';
+ display: inline-block;
+ float: left;
+ line-height: 64px;
+ height: 100%;
+ vertical-align: middle;
+ pointer-events: none;
+ font-size: 14px;
+ font-weight: normal;
+ color: #9494a7;
+ }
+ .submit-btn {
+ font-family: 'Lato-Bold';
+ font-style: normal;
+ font-weight: bold;
+ font-size: 18px;
+ line-height: 22px;
+ text-align: center;
+ width: 100%;
+ height: 48px;
+ /* background: #000000; */
+ border-radius: 31px;
+ box-sizing: border-box;
+ webkit-box-sizing: border-box;
+ color: white;
+ box-shadow: none;
+ border: none;
+ }
+ .submit-btn:focus {
+ outline: none;
+ }
+ </style>
+ </head>
+
+ <body>
+ <div class="language-panel-wrapper">
+ <div class="language-panel-header">
+ <div class="icon">
+ <svg
+ width="24"
+ height="25"
+ viewBox="0 0 24 25"
+ fill="none"
+ xmlns="http://www.w3.org/2000/svg"
+ role="img"
+ >
+ <title>icon</title>
+ <path
+ fill-rule="evenodd"
+ class="localeIcon"
+ clip-rule="evenodd"
+ d="M11.5824 13.8989L10.0381 12.8693C9.00852 12.183 7.97898 11.4108 7.12102 10.5528C8.40796 8.92273 9.35171 7.12102 10.0381 5.14773H11.1534C11.6682 5.14773 12.0114 4.80455 12.0114 4.28977C12.0114 3.775 11.6682 3.43182 11.1534 3.43182H6.86364V0.857955C6.86364 0.343182 6.52046 0 6.00568 0C5.49091 0 5.14773 0.343182 5.14773 0.857955V3.43182H0.857955C0.343182 3.43182 0 3.775 0 4.28977C0 4.80455 0.343182 5.14773 0.857955 5.14773H1.9733C2.65966 7.12102 3.60341 8.92273 4.89034 10.5528C4.03239 11.4108 3.08864 12.2688 1.9733 12.8693L0.428977 13.8131C0 14.0705 -0.0857955 14.5852 0.171591 15.0142C0.257386 15.2716 0.600568 15.4432 0.857955 15.4432C1.02955 15.4432 1.20114 15.4432 1.28693 15.2716L2.83125 14.3278C3.94659 13.6415 5.06193 12.7835 5.91989 11.8398C6.86364 12.7835 7.89318 13.6415 9.00852 14.3278L10.5528 15.2716C10.8102 15.4432 10.9818 15.4432 11.1534 15.4432C11.4108 15.4432 11.754 15.2716 11.8398 15.0142C12.0972 14.671 12.0114 14.0705 11.5824 13.8989ZM8.23628 5.14773C7.72151 6.60625 6.94935 7.97898 6.0056 9.18011C5.06185 7.97898 4.28969 6.60625 3.77492 5.14773H8.23628ZM23.937 22.8216L17.9313 9.09432C17.8455 8.75114 17.5023 8.57955 17.1592 8.57955C16.816 8.57955 16.4728 8.75114 16.387 9.09432L10.3813 22.8216C10.2097 23.2506 10.3813 23.7653 10.8103 23.9369C11.2393 24.1085 11.754 23.9369 11.9256 23.508L13.5558 19.733H13.6415H20.5052H20.591L22.2211 23.508C22.3927 23.8511 22.6501 24.0227 22.9933 24.0227C23.079 24.0227 23.2506 24.0227 23.3364 23.9369C23.937 23.7653 24.1086 23.2506 23.937 22.8216ZM14.3281 18.0171L17.1594 11.5824L19.9906 18.0171H14.3281Z"
+ fill="#78ACED"
+ />
+ </svg>
+ </div>
+ <div class="text"></div>
+ <div class="close">
+ <svg
+ width="18"
+ height="18"
+ viewBox="0 0 22 22"
+ fill="none"
+ xmlns="http://www.w3.org/2000/svg"
+ role="img"
+ >
+ <title>close</title>
+ <path
+ fill-rule="evenodd"
+ clip-rule="evenodd"
+ d="M0.899495 0.899455C0.170958 1.62799 0.170958 2.80918 0.899495 3.53772L8.16073 10.799L0.899495 18.0602C0.170959 18.7887 0.170959 19.9699 0.899495 20.6984C1.62803 21.427 2.80922 21.427 3.53776 20.6984L10.799 13.4372L18.0602 20.6984C18.7888 21.427 19.9699 21.427 20.6985 20.6984C21.427 19.9699 21.427 18.7887 20.6985 18.0602L13.4373 10.799L20.6985 3.53772C21.427 2.80918 21.427 1.62799 20.6985 0.899455C19.9699 0.170919 18.7888 0.170919 18.0602 0.899457L10.799 8.16069L3.53776 0.899456C2.80922 0.170919 1.62803 0.170919 0.899495 0.899455Z"
+ fill="#AFAFAF"
+ />
+ />
+ </svg>
+ </div>
+ </div>
+ <div class="language-list-wrapper"></div>
+ <div class="language-panel-footer">
+ <button
+ class="submit-btn"
+ onClick="sendFinalSelectedLanguageToAndroid()"
+ >
+ OK
+ </button>
+ </div>
+ </div>
+ </body>
+</html>
